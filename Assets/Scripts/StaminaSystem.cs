@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class StaminaSystem : MonoBehaviour
 {
-    private int staminaAmount;
-    private int maxStaminaAmount;
-    private int regenRate;
-    private float timer;
+    [SerializeField] private int staminaAmount;
+    [SerializeField] private int maxStaminaAmount;
+    [SerializeField] private int regenRate;
+    [SerializeField] private float timer;
     public BarParent staminaBar;
 
     // Start is called before the first frame update
