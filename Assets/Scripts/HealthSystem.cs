@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HealthSystemParent : MonoBehaviour
+public class HealthSystem : MonoBehaviour
 {
     private int healthAmount;
     private int maxHealtAmount=100;
