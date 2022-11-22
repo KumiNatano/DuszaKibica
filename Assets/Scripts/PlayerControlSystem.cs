@@ -35,16 +35,32 @@ public class PlayerControlSystem : MonoBehaviour
     private void FixedUpdate() {        
         // If movement input is different than 0, try to move
         if(movementInput != Vector2.zero) {
-            // Check for potential collisions
-            int count = collisionShape.Cast(                            // if count = 0 the move is valid (no collisions will occur) so we can move
-                movementInput,                                          // X and Y values between - 1 and 1 that represent the direction from the body to look for collisions
-                movementFilter,                                         // The settings that determine where a collision can occur on; such as layers to collide with
-                castCollisions,                                         // List of collisions to store the found collisions into, after the Cast is finished
-                moveSpeed * Time.fixedDeltaTime + collisionOffset);     // The amount to cast equal to the movement plus an offset
+            bool successfullMove = TryToMove(movementInput);
 
-            if(count == 0) {
-                collisionShape.MovePosition(collisionShape.position + movementInput * moveSpeed * Time.fixedDeltaTime);
-            }       
+            if(!successfullMove) {
+                successfullMove = TryToMove(new Vector2(movementInput.x, 0));
+
+                if(!successfullMove) {
+                    successfullMove = TryToMove(new Vector2(0, movementInput.y));
+                }
+            }
+        }   
+    }
+
+    private bool TryToMove(Vector2 direction) {
+        // Check for potential collisions
+        int count = collisionShape.Cast(                            // if count = 0 the move is valid (no collisions will occur) so we can move
+            direction,                                              // X and Y values between - 1 and 1 that represent the direction from the body to look for collisions
+            movementFilter,                                         // The settings that determine where a collision can occur on; such as layers to collide with
+            castCollisions,                                         // List of collisions to store the found collisions into, after the Cast is finished
+            moveSpeed * Time.fixedDeltaTime + collisionOffset);     // The amount to cast equal to the movement plus an offset
+
+        if(count == 0) {
+            collisionShape.MovePosition(collisionShape.position + direction * moveSpeed * Time.fixedDeltaTime);
+            return true;
+        } 
+        else {
+            return false;
         }
     }
 
