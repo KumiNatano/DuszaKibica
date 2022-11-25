@@ -10,6 +10,13 @@ public class EnemyDetectPlayer : MonoBehaviour
 
     private float distance;
 
+    void Start() { 
+    
+        player = GameObject.FindGameObjectsWithTag("player")[0];
+        this.gameObject.GetComponent<AIDestinationSetter>().target = player.transform;
+
+    }
+
     void Update()
     {
         distance = Vector2.Distance(transform.position, player.transform.position); //oblicza dystans miedzy tym obiektem, a obiektem gracza
