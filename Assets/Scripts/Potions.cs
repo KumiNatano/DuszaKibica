@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Potions : MonoBehaviour
+public class Potions : Item
 {
     private int healAmount;
     private int potionsLeft;
@@ -12,6 +12,7 @@ public class Potions : MonoBehaviour
     //wzasadzie to konstruktor w tym wypadku
     void Start()
     {
+        setName("HealthPotion");
         setAmount(10);
         setPotionNumber(3);
         setCooldown(2.5);
