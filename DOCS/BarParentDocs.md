@@ -1,6 +1,6 @@
 ## BarParent
-    ### atrybuty:
+   ### Atrybuty:
     -   slider -> Slider
-    ### metody
+   ### Metody
     -   Change(int change) -> przyjmuje argument w int który wywołuje zmiane (zmniejszenie wartości) slider'a.
     -   SetMax(int maxAmount) -> przyjmuje argument w int który ustawia maksymalną wartość dla slider.
