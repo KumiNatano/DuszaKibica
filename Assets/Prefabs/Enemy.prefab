@@ -343,6 +343,8 @@ GameObject:
   - component: {fileID: 5370405286721696041}
   - component: {fileID: 5370405286721696054}
   - component: {fileID: 9013637568404799651}
+  - component: {fileID: -7087900115744128519}
+  - component: {fileID: 5566464131822065636}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -519,6 +521,39 @@ MonoBehaviour:
   maxHealtAmount: 100
   isAlive: 0
   hpBar: {fileID: 3908269978223937020}
+  drop: {fileID: 5566464131822065636}
+--- !u!114 &-7087900115744128519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5370405286721696032}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e42f451e59473d04685ade57f2cd134d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthAmount: 0
+  maxHealtAmount: 100
+  isAlive: 0
+  hpBar: {fileID: 3908269978223937020}
+  drop: {fileID: 5566464131822065636}
+--- !u!114 &5566464131822065636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5370405286721696032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a89079a454d3c8f41b35e4582bfd9304, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropChance: 100
+  itemID: 0
+  scarf: {fileID: 7201139314168773139, guid: a953139bcf0480045a6554d8003fbd87, type: 3}
 --- !u!1 &6244376881811298644
 GameObject:
   m_ObjectHideFlags: 0
