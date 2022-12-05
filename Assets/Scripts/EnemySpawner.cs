@@ -16,8 +16,8 @@ public class EnemySpawner : MonoBehaviour
 
     void Start()
     {
-        //player = GameObject.FindGameObjectWithTag("player");
-        //spawnPositions = new GameObject[5];
+        // player = GameObject.FindGameObjectWithTag("Player");
+        spawnPositions = new GameObject[5];
     }
 
     void Update()
@@ -40,15 +40,7 @@ public class EnemySpawner : MonoBehaviour
 
     void spawn()
     {
-        Vector3 spawnPosition = spawnPositions[spawnCount].transform.position;
-        /*if(!checkFreeSpace(spawnPosition)) //sprawdzanie, czy nie ma gracza na spawnie
-        {
-            ++spawnCount; //zakladam, ze gracz nie moze byc w 2 miejscah spawnu naraz i po prostu przeciwnik bedzie sie spawnil w kolejnym zamiast zajetego
-            spawnPosition = spawnPositions[spawnCount].transform.position;
-        }*/
-        Instantiate(enemy, spawnPosition, Quaternion.identity);
-        ++spawnCount;
-        if(spawnCount >= 4) spawnCount = 0;
+        Instantiate(enemy, transform.position, Quaternion.identity);
     }
     /*
     bool checkFreeSpace(Vector3 place)
