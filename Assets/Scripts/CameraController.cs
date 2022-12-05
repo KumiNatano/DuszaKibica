@@ -6,6 +6,14 @@ public class CameraController : MonoBehaviour
 {
     public Transform player;
     float high = -10;
+    //x
+    public float leftEgde = -16;
+    public float rightEgde = 9;
+    //y
+    public float upperEgde= 6;
+    public float lowerEgde = -6;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -16,11 +24,34 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(player.transform.position.x != transform.position.x || player.transform.position.y != transform.position.y) 
-        {
-            Vector3 vector1 = new Vector3(player.transform.position.x, player.transform.position.y, high);
-            transform.position = vector1;
-        }
-        transform.LookAt(player);
+        followPlayer();
     }
+
+    void followPlayer()
+    {
+        if (player.transform.position.x != transform.position.x || player.transform.position.y != transform.position.y)
+        {
+            Vector3 newPosition = new Vector3(player.transform.position.x, player.transform.position.y, high);
+            if (player.transform.position.x <= leftEgde)
+            {
+                newPosition.x = leftEgde;
+            }
+            if (player.transform.position.x >= rightEgde)
+            {
+                newPosition.x = rightEgde;
+            }
+
+            if (player.transform.position.y >= upperEgde)
+            {
+                newPosition.y = upperEgde;
+            }
+            if (player.transform.position.y <= lowerEgde)
+            {
+                newPosition.y = lowerEgde;
+            }
+        
+            transform.position = newPosition;
+        }
+    }
+    
 }
