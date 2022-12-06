@@ -5,7 +5,7 @@ using UnityEngine;
 public class HealthSystem : MonoBehaviour
 {
     [SerializeField] int healthAmount;
-    [SerializeField] private int maxHealthAmount=100;
+    [SerializeField] private int maxHealthAmount = 100;
     [SerializeField] private bool isAlive;
     public BarParent hpBar;
     public EnemyDrop drop;
@@ -46,9 +46,6 @@ public class HealthSystem : MonoBehaviour
             this.drop.DropLottery();
             Destroy(this.gameObject); //dodalem zniszczenie obiektu po smierci - Jacek
         }
-
-
-
     }
     public void Heal(int heal)
     {
