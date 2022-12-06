@@ -37,7 +37,6 @@ public class ShowStatUpgrade : MonoBehaviour
         StatUpgradeText.transform.position = player.transform.position;
 
         EmptyTextBox();
-
     }
 
     private async Task EmptyTextBox() {
