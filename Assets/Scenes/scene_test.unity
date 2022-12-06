@@ -2084,7 +2084,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1856016367001863593, guid: 750243ee509114342af6af9b719cd45e, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1856016367001863593, guid: 750243ee509114342af6af9b719cd45e, type: 3}
       propertyPath: staminaBar
@@ -2097,6 +2097,10 @@ PrefabInstance:
     - target: {fileID: 1856016367001863593, guid: 750243ee509114342af6af9b719cd45e, type: 3}
       propertyPath: maxStaminaAmount
       value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 6140893535172012458, guid: 750243ee509114342af6af9b719cd45e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6537494417530787748, guid: 750243ee509114342af6af9b719cd45e, type: 3}
       propertyPath: m_RootOrder

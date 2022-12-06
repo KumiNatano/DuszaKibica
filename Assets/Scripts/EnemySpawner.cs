@@ -11,15 +11,14 @@ public class EnemySpawner : MonoBehaviour
 
     public GameObject[] spawnPositions;
     public GameObject[] availableSpawnPositions;
-    int spawnCount = 0;
-    public float sphereRadius = 3;
+    int spawnCount = 0; //zlicza ile mamy juz spawnow, poki co nigdzie nieuzywane
+    //public float sphereRadius = 3;
 
     public GameObject player;
 
     void Start()
     {
-        //availableSpawnPositions.Length = spawnPositions.Length;
-        //player = GameObject.FindGameObjectWithTag("player");
+        availableSpawnPositions = new GameObject[5];
         //spawnPositions = new GameObject[5];
     }
 
@@ -43,38 +42,63 @@ public class EnemySpawner : MonoBehaviour
 
     void spawn()
     {
-        Vector3 spawnPosition = spawnPositions[spawnCount].transform.position;
-        if (Vector3.Distance(player.transform.position, spawnPosition) > 3f)
+        availableSpawnPositions[0] = spawnPositions[0];
+        addAvailableSpawnPositions();
+        Vector3 spawnPosition;
+        int enemyCounter = 0;
+        foreach(GameObject spawn in availableSpawnPositions)
         {
-            Instantiate(enemy, spawnPosition, Quaternion.identity);
+            if (enemyCounter >= 1) //tutaj ustawiam ile za jednym razem moze maksymalnie zrespawnowac sie przeciwnikow
+                break;
+
+            if(spawn != null)
+            {
+                spawnPosition = spawn.transform.position;
+                if (Vector3.Distance(player.transform.position, spawnPosition) > 3f)
+                {
+                    if (checkFreeSpace())
+                    {
+                        Instantiate(enemy, spawnPosition, Quaternion.identity);
+                        ++spawnCount;
+                        ++enemyCounter;
+                    }
+                }
+            }
         }
-        else
-        {
-            ++spawnCount;
-            if (spawnCount >= 4) spawnCount = 0;
-            spawnPosition = spawnPositions[spawnCount].transform.position;
-            Instantiate(enemy, spawnPosition, Quaternion.identity);
-        }
+        
         ++spawnCount;
-        if (spawnCount >= 4) spawnCount = 0;
-        
+        resetAvailableSpawnPositions();
     }
-    /*
-    bool checkFreeSpace(GameObject checkedPosition)
+
+    bool checkFreeSpace()
     {
-        //ten fragment zawiesza cale Unity, uwazac na to
-        //if (!Physics.CheckSphere(checkedPosition.transform.position, sphereRadius))
-        //{
-        //    return true;
-        //}
-        //return false; 
-        
-        if ((player.transform.position.x > checkedPosition.transform.position.x - 3 && player.transform.position.x < checkedPosition.transform.position.x + 3) ||
-            (player.transform.position.y > checkedPosition.transform.position.y - 3 && player.transform.position.y < checkedPosition.transform.position.y + 3))
+        float sphereRadius = 2;
+        if (!Physics.CheckSphere(transform.position, sphereRadius))
         {
-            //Debug.Log("player is here!");
-            return false;
+            return true;
         }
-        return true;
-    }*/
+        return false;
+    }
+
+    void addAvailableSpawnPositions()
+    {
+        float sphereRadius = 10;
+        int counter = 0;
+        foreach(GameObject spawn in spawnPositions)
+        {
+            if(Vector3.Distance(player.transform.position, spawn.transform.position) < sphereRadius)
+            {
+                availableSpawnPositions[counter] = spawn;
+                ++counter;
+            }
+        }
+    }
+    
+    void resetAvailableSpawnPositions()
+    {
+        for(int i = 0; i < availableSpawnPositions.Length; i++)
+        {
+            availableSpawnPositions[i] = null;
+        }
+    }
 }
