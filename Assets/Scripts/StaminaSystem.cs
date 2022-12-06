@@ -17,7 +17,6 @@ public class StaminaSystem : MonoBehaviour
         setMax(200);
         setRegen(1);
         timer = 0;
-        
     }
 
     // Update is called once per frame
@@ -31,7 +30,6 @@ public class StaminaSystem : MonoBehaviour
             RefillTick();
             timer = 0;
         }
-
     }
     public bool TakeAction(int cost)
     {

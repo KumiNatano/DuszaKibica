@@ -348,3 +348,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d15450fcb0a3d29459f9a7d2d5c76be8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scarfNumber: 0
+  potions: {fileID: 0}
+  upgradeText: {fileID: 0}
+  stamina: {fileID: 0}
