@@ -10,6 +10,7 @@ public class EnemySpawner : MonoBehaviour
     bool canRespawn = true;
 
     public GameObject[] spawnPositions;
+
     public GameObject[] availableSpawnPositions;
     int spawnCount = 0; //zlicza ile mamy juz spawnow, poki co nigdzie nieuzywane
     //public float sphereRadius = 3;

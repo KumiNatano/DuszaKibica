@@ -4,16 +4,17 @@ using UnityEngine;
 
 public class HealthSystem : MonoBehaviour
 {
-    [SerializeField] private int healthAmount;
-    [SerializeField] private int maxHealtAmount=100;
+    [SerializeField] int healthAmount;
+    [SerializeField] private int maxHealthAmount = 100;
     [SerializeField] private bool isAlive;
     public BarParent hpBar;
+    public EnemyDrop drop;
     // Start is called before the first frame update
     void Start()
     {
-        healthAmount = maxHealtAmount;
+        healthAmount = maxHealthAmount;
         isAlive = true;
-        hpBar.SetMax(maxHealtAmount);
+        hpBar.SetMax(maxHealthAmount);
     }
 
     // Update is called once per frame
@@ -33,23 +34,39 @@ public class HealthSystem : MonoBehaviour
             healthAmount = 0;
         }
         hpBar.Change(healthAmount);
-        if (healthAmount == 0)
+
+        if (this.tag == "player" && healthAmount <= 0)
+        {
+            this.GetComponent<PlayerDeathManager>().PlayerDeath();
+        }
+
+        else if (healthAmount <= 0)
         {
             isAlive = false;
+            this.drop.DropLottery();
             Destroy(this.gameObject); //dodalem zniszczenie obiektu po smierci - Jacek
         }
     }
     public void Heal(int heal)
     {
         healthAmount += heal;
-        if (healthAmount > maxHealtAmount)
+        if (healthAmount > maxHealthAmount)
         {
-            healthAmount = maxHealtAmount;
+            healthAmount = maxHealthAmount;
         }
         hpBar.Change(healthAmount);
     }
     public bool CheckIfAlive()
     {
         return isAlive;
+    }
+    public int getHealthAmount(){
+        return healthAmount;
+    }
+    public void setMaxHealthAmount(int value) {
+        maxHealthAmount = value;
+    }
+    public int getMaxHealthAmount() {
+        return maxHealthAmount;
     }
 }
