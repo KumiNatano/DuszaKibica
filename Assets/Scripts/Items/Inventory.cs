@@ -32,13 +32,14 @@ public class Inventory : MonoBehaviour
             scarfNumber++;
             Destroy(collider.gameObject);
 
+            int UpgradeID = Random.Range(1, 10);
             // zwiekszenie Staminy
-            if (getScarfNumber() % 5 == 1) {
+            if (UpgradeID == 1) {
                 stamina.setMaxStaminaAmount(stamina.getMaxStaminaAmount() + 5);
                 upgradeText.UpdateTextBox("+5 Staminy", "green");
             }
             // zwiekszenie HP
-            if (getScarfNumber() % 5 == 3) {
+            if (UpgradeID == 6) {
                 health.setMaxHealthAmount(health.getMaxHealthAmount() + 5);
                 upgradeText.UpdateTextBox("+5 Zdrowia", "red");
             }
