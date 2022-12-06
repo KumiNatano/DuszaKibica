@@ -201,7 +201,11 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.purchasing": {
+<<<<<<< HEAD
       "version": "4.5.1",
+=======
+      "version": "4.4.1",
+>>>>>>> parent of eb283fd (System audio + scena demo + ekran smierci (placholderowa grafika).)
       "depth": 0,
       "source": "registry",
       "dependencies": {
