@@ -33,11 +33,20 @@ public class HealthSystem : MonoBehaviour
             healthAmount = 0;
         }
         hpBar.Change(healthAmount);
-        if (healthAmount == 0)
+
+        if (this.tag == "player" && healthAmount <= 0)
+        {
+            this.GetComponent<PlayerDeathManager>().PlayerDeath();
+        }
+
+        else if (healthAmount <= 0)
         {
             isAlive = false;
             Destroy(this.gameObject); //dodalem zniszczenie obiektu po smierci - Jacek
         }
+
+
+
     }
     public void Heal(int heal)
     {
