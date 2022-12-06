@@ -14,7 +14,7 @@ public class StaminaSystem : MonoBehaviour
     //wzasadzie to konstruktor w tym wypadku
     void Start()
     {
-        setMax(200);
+        setMaxStaminaAmount(200);
         setRegen(1);
         timer = 0;
     }
@@ -50,7 +50,7 @@ public class StaminaSystem : MonoBehaviour
         }
         staminaBar.Change(staminaAmount);
     }
-    public void setMax(int max)
+    public void setMaxStaminaAmount(int max)
     {
         maxStaminaAmount = max;
         staminaAmount = maxStaminaAmount;
@@ -64,7 +64,7 @@ public class StaminaSystem : MonoBehaviour
     {
         return staminaAmount;
     }
-    public int getMaxStamina()
+    public int getMaxStaminaAmount()
     {
         return maxStaminaAmount;
     }
