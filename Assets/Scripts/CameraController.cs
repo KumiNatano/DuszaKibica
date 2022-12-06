@@ -17,8 +17,9 @@ public class CameraController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Vector3 vector = new Vector3(0f, 0f, high);
+        Vector3 vector = new Vector3(0f, -1f, high); // w tym miejscu zmieniamy Y by ustawic k¹t kamery
         transform.position = player.transform.position + vector;
+        transform.LookAt(player);
     }
 
     // Update is called once per frame
