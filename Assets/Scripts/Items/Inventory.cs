@@ -9,6 +9,8 @@ public class Inventory : MonoBehaviour
     [SerializeField] Potions potions;
     public ShowStatUpgrade upgradeText;
     public StaminaSystem stamina;
+    public HealthSystem health;
+    public BarParent hpBar;
     
     // Start is called before the first frame update
     void Start()
@@ -32,8 +34,13 @@ public class Inventory : MonoBehaviour
 
             // zwiekszenie Staminy
             if (getScarfNumber() % 5 == 1) {
-                stamina.setMax(stamina.getMaxStamina() + 5);
+                stamina.setMaxStaminaAmount(stamina.getMaxStaminaAmount() + 5);
                 upgradeText.UpdateTextBox("+5 Staminy", "green");
+            }
+            // zwiekszenie HP
+            if (getScarfNumber() % 5 == 3) {
+                health.setMaxHealthAmount(health.getMaxHealthAmount() + 5);
+                upgradeText.UpdateTextBox("+5 Zdrowia", "red");
             }
         }
     }

@@ -12,7 +12,6 @@ public class EnemyDrop : MonoBehaviour
     {
         dropChance = 100;
         itemID = 1;
-
         
     }
 
