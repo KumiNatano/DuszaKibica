@@ -32,6 +32,7 @@ public class Inventory : MonoBehaviour
             scarfNumber++;
             Destroy(collider.gameObject);
 
+            // po 10% szans na dany upgrade
             int UpgradeID = Random.Range(1, 10);
             // zwiekszenie Staminy
             if (UpgradeID == 1) {
