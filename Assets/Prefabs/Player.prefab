@@ -92,6 +92,7 @@ GameObject:
   - component: {fileID: 1856016367001863593}
   - component: {fileID: 342255670417649697}
   - component: {fileID: 4649275157315073059}
+  - component: {fileID: 7715593076521222138}
   m_Layer: 0
   m_Name: Player
   m_TagString: player
@@ -268,6 +269,7 @@ MonoBehaviour:
   maxHealtAmount: 1000
   isAlive: 0
   hpBar: {fileID: 0}
+  drop: {fileID: 0}
 --- !u!114 &4649275157315073059
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -280,4 +282,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07e924d1c79bebe499aa7cdcb85ee611, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldown: 0.5
+  cooldown: 0
+--- !u!114 &7715593076521222138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6537494417530787770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d15450fcb0a3d29459f9a7d2d5c76be8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scarfNumber: 0
+  potions: {fileID: 0}
+  upgradeText: {fileID: 0}
+  stamina: {fileID: 0}
