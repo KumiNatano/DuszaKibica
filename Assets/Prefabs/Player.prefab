@@ -336,6 +336,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cooldown: 0
+<<<<<<< HEAD
 --- !u!114 &7715593076521222138
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -348,3 +349,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d15450fcb0a3d29459f9a7d2d5c76be8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+=======
+>>>>>>> parent of eb283fd (System audio + scena demo + ekran smierci (placholderowa grafika).)
