@@ -10,7 +10,7 @@ public class EnemySpawner : MonoBehaviour
     bool canRespawn = true;
 
     public GameObject[] spawnPositions;
-    int spawnCount = 1;
+    // int spawnCount = 1;
 
     //GameObject player;
 
