@@ -54,6 +54,7 @@ public class PlayerAttack : MonoBehaviour
         {
             isAttacking = true;
             attackArea.SetActive(isAttacking);
+            this.gameObject.GetComponent<PunchAudio>().PlaySwishSound(); //odtwarzanie dzwieku machniecia
 
         }
         
