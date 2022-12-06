@@ -16,6 +16,7 @@ public class EnemyAttack : MonoBehaviour
             StartCoroutine(AttackCoroutine()); //wywolujemy korutyne
             HealthSystem health = collider.GetComponent<HealthSystem>(); //bierzemy system zycia
             health.TakeDamage(damage); //i dajemy damage
+            this.GetComponent<PunchAudio>().PlayAttackSound();
         }
     }
 
