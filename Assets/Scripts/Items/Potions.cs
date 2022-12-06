@@ -2,20 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Potions : MonoBehaviour
+public class Potions : Item
 {
     private int healAmount;
     private int potionsLeft;
     private double cooldown;
     private double timeLeft;
     // Start is called before the first frame update
-    //wzasadzie to konstruktor w tym wypadku
+    // wzasadzie to konstruktor w tym wypadku
     void Start()
     {
+        setName("HealthPotion");
         setAmount(10);
         setPotionNumber(3);
-        setCooldown(2.5);
-        
+        setCooldown(2.5);    
     }
 
     // Update is called once per frame
