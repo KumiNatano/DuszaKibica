@@ -41,27 +41,29 @@ public class EnemySpawner : MonoBehaviour
     void spawn()
     {
         Vector3 spawnPosition = spawnPositions[spawnCount].transform.position;
-        /*if(!checkFreeSpace(spawnPosition)) //sprawdzanie, czy nie ma gracza na spawnie
+        if(!checkFreeSpace(spawnPositions[spawnCount])) //sprawdzanie, czy nie ma gracza na spawnie
         {
             ++spawnCount; //zakladam, ze gracz nie moze byc w 2 miejscah spawnu naraz i po prostu przeciwnik bedzie sie spawnil w kolejnym zamiast zajetego
             spawnPosition = spawnPositions[spawnCount].transform.position;
-        }*/
+        }
         Instantiate(enemy, spawnPosition, Quaternion.identity);
         ++spawnCount;
         if(spawnCount >= 4) spawnCount = 0;
     }
-    /*
-    bool checkFreeSpace(Vector3 place)
+    
+    bool checkFreeSpace(GameObject checkedPosition)
     {
         GameObject gameObject = GameObject.FindGameObjectWithTag("player");
         if (gameObject != null)
         {
-            if (place == gameObject.transform.position)
+            if ((gameObject.transform.position.x > checkedPosition.transform.position.x - 3 && gameObject.transform.position.x < checkedPosition.transform.position.x + 3) ||
+                (gameObject.transform.position.y > checkedPosition.transform.position.y - 3 && gameObject.transform.position.y < checkedPosition.transform.position.y + 3))
+            {
+                //Debug.Log("player is here!");
                 return false;
-            if (place.x < gameObject.transform.position.x - 3 || place.x < gameObject.transform.position.x + 3)
-                if (place.x < gameObject.transform.position.y - 3 || place.x < gameObject.transform.position.y + 3)
-                    return false;
+            }    
+                
         }
         return true;
-    }*/
+    }
 }
