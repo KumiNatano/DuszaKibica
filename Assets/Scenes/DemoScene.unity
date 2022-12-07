@@ -252,17 +252,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player3D
       objectReference: {fileID: 0}
+    - target: {fileID: 3973375510511231236, guid: 3464a262695b3284b8785c2e4627a4e1, type: 3}
+      propertyPath: damage
+      value: 70
+      objectReference: {fileID: 0}
     - target: {fileID: 5529475675470399950, guid: 3464a262695b3284b8785c2e4627a4e1, type: 3}
       propertyPath: hpBar
       value: 
       objectReference: {fileID: 1362206479}
     - target: {fileID: 5529475675470399950, guid: 3464a262695b3284b8785c2e4627a4e1, type: 3}
       propertyPath: healthAmount
-      value: 1000
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 5529475675470399950, guid: 3464a262695b3284b8785c2e4627a4e1, type: 3}
       propertyPath: maxHealtAmount
       value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 5529475675470399950, guid: 3464a262695b3284b8785c2e4627a4e1, type: 3}
+      propertyPath: maxHealthAmount
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 5891462997468904518, guid: 3464a262695b3284b8785c2e4627a4e1, type: 3}
       propertyPath: staminaBar

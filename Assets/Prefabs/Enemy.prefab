@@ -343,7 +343,6 @@ GameObject:
   - component: {fileID: 5370405286721696041}
   - component: {fileID: 5370405286721696054}
   - component: {fileID: 9013637568404799651}
-  - component: {fileID: -7087900115744128519}
   - component: {fileID: 5566464131822065636}
   m_Layer: 0
   m_Name: Enemy
@@ -437,7 +436,7 @@ MonoBehaviour:
   radius: 1.09
   height: 2
   canMove: 1
-  maxSpeed: 1
+  maxSpeed: 3
   gravity: {x: 0, y: 0, z: 0}
   groundMask:
     serializedVersion: 2
@@ -518,24 +517,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthAmount: 0
-  maxHealtAmount: 100
-  isAlive: 0
-  hpBar: {fileID: 3908269978223937020}
-  drop: {fileID: 5566464131822065636}
---- !u!114 &-7087900115744128519
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5370405286721696032}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e42f451e59473d04685ade57f2cd134d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthAmount: 0
-  maxHealtAmount: 100
+  maxHealthAmount: 100
   isAlive: 0
   hpBar: {fileID: 3908269978223937020}
   drop: {fileID: 5566464131822065636}

@@ -13,7 +13,7 @@ public class Potions : Item
     void Start()
     {
         setName("HealthPotion");
-        setAmount(10);
+        setAmount(40);
         setPotionNumber(3);
         setCooldown(2.5);    
     }
