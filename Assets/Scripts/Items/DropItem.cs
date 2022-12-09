@@ -7,23 +7,17 @@ public class DropItem : MonoBehaviour
     //atrybuty
     [SerializeField] int itemID;
     [SerializeField] string name;
-    [SerializeField]int degreesPerSecond = 10;
+    [SerializeField]int degreesPerSecond = 360;
     //string description;
     //atrybuty end
      void Update()
     {
-        transform.Rotate(new Vector3(0, 0, 10) * Time.deltaTime);
+       rotating();
         
         
     }
    
-     private void OnTriggerEnter2D(Collider2D collider) 
-    {
-        if(this.gameObject.tag == "scarf"&& collider.gameObject.tag == "player")
-        {
-           Destroy(this.gameObject);
-        }
-    }
+    
     //metody - settery
     public void setItemID(int id){
         this.itemID = id;
@@ -41,5 +35,7 @@ public class DropItem : MonoBehaviour
         return this.name;
     }
     //metody - gettery end
-   
+   public void rotating(){
+     transform.Rotate(new Vector3(0, 0, degreesPerSecond) * Time.deltaTime);
+   }
 }

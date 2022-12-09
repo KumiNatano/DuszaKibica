@@ -25,32 +25,18 @@ public class Inventory : MonoBehaviour
             usePotion();
         }
     }
-    private void OnTriggerEnter2D(Collider2D collider) 
-    {
-        if(collider.gameObject.tag == "scarf"&& this.gameObject.tag == "player")
-        {
-            scarfNumber++;
-            //Destroy(collider.gameObject);                                     //przeniosłem niszczenie dropu do Item, dzięki temu wmiare działa. JS 
-
-            // po 10% szans na dany upgrade
-            int UpgradeID = Random.Range(1, 10);
-            // zwiekszenie Staminy
-            if (UpgradeID == 1) {
-                stamina.setMaxStaminaAmount(stamina.getMaxStaminaAmount() + 5);
-                upgradeText.UpdateTextBox("+5 Staminy", "green");
-            }
-            // zwiekszenie HP
-            if (UpgradeID == 6) {
-                health.setMaxHealthAmount(health.getMaxHealthAmount() + 5);
-                upgradeText.UpdateTextBox("+5 Zdrowia", "red");
-            }
-        }
-    }
+   //on trigger przeniesiony do ClubScarf J.S
     public void usePotion() {
         potions.DrinkPotion(gameObject.GetComponent<HealthSystem>());
     }
 
     public int getScarfNumber() {
         return scarfNumber;
+    }
+    public void addScarfNumber(){
+        scarfNumber++;
+    }
+    public StaminaSystem getStaminaSystem(){
+        return stamina;
     }
 }
