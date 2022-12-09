@@ -4,18 +4,15 @@ using UnityEngine;
 
 public class Potions : MonoBehaviour
 {
-    private int healAmount;
-    private int potionsLeft;
-    private double cooldown;
+    [SerializeField] int healAmount = 40;
+    [SerializeField] int potionsLeft = 3;
+    [SerializeField] double cooldown = 1.5;
     private double timeLeft;
     // Start is called before the first frame update
     // wzasadzie to konstruktor w tym wypadku
     void Start()
     {
         
-        setAmount(40);
-        setPotionNumber(3);
-        setCooldown(2.5);    
     }
 
     // Update is called once per frame
