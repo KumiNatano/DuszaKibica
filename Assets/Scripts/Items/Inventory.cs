@@ -30,7 +30,7 @@ public class Inventory : MonoBehaviour
         if(collider.gameObject.tag == "scarf"&& this.gameObject.tag == "player")
         {
             scarfNumber++;
-            Destroy(collider.gameObject);
+            //Destroy(collider.gameObject);                                     //przeniosłem niszczenie dropu do Item, dzięki temu wmiare działa. JS 
 
             // po 10% szans na dany upgrade
             int UpgradeID = Random.Range(1, 10);
