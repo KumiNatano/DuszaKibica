@@ -4,22 +4,11 @@ using UnityEngine;
 
 public class EnemyDrop : MonoBehaviour
 {
-    [SerializeField] float dropChance;
-    [SerializeField] int itemID;
+    [SerializeField] float dropChance = 50;
+    [SerializeField] int itemID = 1;
     [SerializeField] ClubScarf scarf;
     // Start is called before the first frame update
-    void Start()
-    {
-        dropChance = 50;
-        itemID = 1;
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-       
-    }
     public bool DropLottery(){
         
         int chance = Random.Range(0,100);
