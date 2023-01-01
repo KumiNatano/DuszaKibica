@@ -211,3 +211,9 @@ MonoBehaviour:
   - {fileID: 1362274670547990141}
   - {fileID: 2284505980317409616}
   - {fileID: 3208510506670901802}
+  testedPositions: 
+  spawnCount: 0
+  nullSpawnCount: 0
+  freeSpaceRange: 2
+  spawnRadius: 15
+  player: {fileID: 0}
