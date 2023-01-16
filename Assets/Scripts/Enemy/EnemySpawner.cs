@@ -14,19 +14,13 @@ public enum SpawnValue
 public class EnemySpawner : MonoBehaviour
 {
 
-    [SerializeField] GameObject enemy;
-    //float TimeDelay = 5f;
-    //bool canRespawn = true;
-
+    [SerializeField] GameObject[] enemy;
     [SerializeField] Transform[] spawnPositions;
     [SerializeField] SpawnValue[] testedPositions;
     [SerializeField] int spawnCount = 0; //zlicza ile mamy juz spawnow, poki co nigdzie nieuzywane
-    [SerializeField] int nullSpawnCount = 0; //zlicza ile spawnow nie bylo wykonanych
+    [SerializeField] int nullSpawnCount = 0; //zlicza ile spawnow nie bylo wykonanych, poki co nigdzie nieuzywane
     [SerializeField] float freeSpaceRange = 2f;
     [SerializeField] float spawnRadius = 100f;
-
-    //public float sphereRadius = 3;
-
     public GameObject player;
 
     void Start()
@@ -56,25 +50,21 @@ public class EnemySpawner : MonoBehaviour
 
         for (int i=0; i< spawnPositions.Length; i++)
         {
-            //arrayIndex = Random.Range(0, spawnPositions.Length);
             if (Physics2D.OverlapCircle(spawnPositions[i].position, freeSpaceRange) == null)
             {
                 if(testedPositions[i] == SpawnValue.inRange)
                 {
                     testedPositions[i] = SpawnValue.spawning;
                     ++counter;
-                    //break;
                 }
                 else
                 {
                     testedPositions[i] = SpawnValue.alreadyTested;
-                    //Debug.Log(i + "NIE OK");
                 }
             }
             else
             {
                 testedPositions[i] = SpawnValue.alreadyTested;
-                //Debug.Log(i+ "NIE OK");
             }
         }
         //WriteSpawnsValues();
@@ -86,11 +76,11 @@ public class EnemySpawner : MonoBehaviour
                 arrayIndex = Random.Range(0, testedPositions.Length);
                 if (testedPositions[arrayIndex] == SpawnValue.spawning)
                 {
-                    //if( (sprawdzanie, jaki jest dystans od gracza by przeciwnik nie pojawial sie tuz obok plecow) )
+                    //sprawdzanie, jaki jest dystans od gracza by przeciwnik nie pojawial sie tuz obok plecow) )
                     if(Physics2D.OverlapCircle(spawnPositions[arrayIndex].position, 4f) == null)
                     {
-                        Instantiate(enemy, spawnPositions[arrayIndex].position, Quaternion.identity);
-                        //Debug.Log("Spawning from:" + arrayIndex + "OK");
+                        int enemyIndex = Random.Range(0, enemy.Length);
+                        Instantiate(enemy[enemyIndex], spawnPositions[arrayIndex].position, Quaternion.identity);
                         break;
                     }
                 }
