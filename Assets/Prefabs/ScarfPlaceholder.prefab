@@ -97,6 +97,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb69f505ca3ad304cadecdc112ed92d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemID: 0
+  name: 
+  degreesPerSecond: 10
 --- !u!61 &-6976553680196428001
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -107,7 +110,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
