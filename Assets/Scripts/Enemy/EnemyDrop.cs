@@ -10,7 +10,7 @@ public class EnemyDrop : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        dropChance = 100;
+        dropChance = 50;
         itemID = 1;
         
     }

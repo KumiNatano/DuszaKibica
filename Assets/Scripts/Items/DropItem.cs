@@ -2,14 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Item : MonoBehaviour
+public class DropItem : MonoBehaviour
 {
     //atrybuty
-    private int itemID;
-    private string name;
+    [SerializeField] int itemID;
+    [SerializeField] string name;
+    [SerializeField]int degreesPerSecond = 360;
     //string description;
     //atrybuty end
+     void Update()
+    {
+       rotating();
+        
+        
+    }
    
+    
     //metody - settery
     public void setItemID(int id){
         this.itemID = id;
@@ -27,5 +35,7 @@ public class Item : MonoBehaviour
         return this.name;
     }
     //metody - gettery end
-   
+   public void rotating(){
+     transform.Rotate(new Vector3(0, 0, degreesPerSecond) * Time.deltaTime);
+   }
 }
