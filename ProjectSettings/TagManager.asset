@@ -8,6 +8,7 @@ TagManager:
   - building
   - scarf
   - PlayerWeapon
+  - butelka
   layers:
   - Default
   - TransparentFX
