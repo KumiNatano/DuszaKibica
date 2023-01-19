@@ -760,7 +760,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthAmount: 0
-  maxHealthAmount: 250
+  maxHealthAmount: 100
   isAlive: 0
   hpBar: {fileID: 1422646939697353968}
   enemyHealthbar: {fileID: 7468848617153591340}
