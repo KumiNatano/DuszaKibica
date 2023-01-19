@@ -4,21 +4,23 @@ using UnityEngine;
 
 public class EnemyStatistics : MonoBehaviour
 {
-    //4 g³ówne kategorie statystyk: (wartosci wszystkich statystyk powinny byæ tutaj zapisane a pozosta³e skrypty odczytywa³yby wartoœci z tego (wiêksza czytelnoœæ))
-    //1. Obra¿enia
+    //4 gï¿½ï¿½wne kategorie statystyk: (wartosci wszystkich statystyk powinny byï¿½ tutaj zapisane a pozostaï¿½e skrypty odczytywaï¿½yby wartoï¿½ci z tego (wiï¿½ksza czytelnoï¿½ï¿½))
+    //1. Obraï¿½enia
     [SerializeField] private int damage;
-    //2. Prêdkoœæ ataku
+    //2. Prï¿½dkoï¿½ï¿½ ataku
     [SerializeField] private float cooldown;
-    //3. Wytrzyma³oœæ
+    //3. Wytrzymaï¿½oï¿½ï¿½
     [SerializeField] private int health;
-    //4. Czujnoœæ (z jakiej odleg³oœci nas wy³apuje np. mega si³acz z ma³ym rozumkiem który nie jest zbut czujny)
+    public EnemyHealthBar enemyHealthbar;
+    public HealthSystem healthSystem;
+    //4. Czujnoï¿½ï¿½ (z jakiej odlegï¿½oï¿½ci nas wyï¿½apuje np. mega siï¿½acz z maï¿½ym rozumkiem ktï¿½ry nie jest zbut czujny)
     [SerializeField] private float distanceBetween;
 
-    //public int level; //mozna uzaleznic zmiane statystyk od tego ale to mo¿e in future
+    //public int level; //mozna uzaleznic zmiane statystyk od tego ale to moï¿½e in future
     // Start is called before the first frame update
     void Start()
     {
-        
+        enemyHealthbar.SetHealth(health, healthSystem.getMaxHealthAmount());
     }
 
     // Update is called once per frame
@@ -31,6 +33,6 @@ public class EnemyStatistics : MonoBehaviour
     {
         health = (int)(health * 1.4);
         damage = (int)(damage * 1.5);
-        //cooldown i distanceBetween bym nie zmienia³ przy levelowaniu przeciwników bo to mo¿e konfundowaæ gracza
+        //cooldown i distanceBetween bym nie zmieniaï¿½ przy levelowaniu przeciwnikï¿½w bo to moï¿½e konfundowaï¿½ gracza
     }
 }
