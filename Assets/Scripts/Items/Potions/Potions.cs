@@ -8,11 +8,12 @@ public class Potions : MonoBehaviour
     [SerializeField] int potionsLeft = 3;
     [SerializeField] double cooldown = 1.5;
     private double timeLeft;
+    public PotionCounter counter;
     // Start is called before the first frame update
     // wzasadzie to konstruktor w tym wypadku
     void Start()
     {
-        
+        counter.updateCounter(potionsLeft);
     }
 
     // Update is called once per frame
@@ -28,6 +29,7 @@ public class Potions : MonoBehaviour
         {
             hps.Heal(healAmount);
             potionsLeft--;
+            counter.updateCounter(potionsLeft);
             timeLeft = cooldown;
             return true;
         }
