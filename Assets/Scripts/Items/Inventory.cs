@@ -6,11 +6,11 @@ public class Inventory : MonoBehaviour
 {
     
     [SerializeField] int scarfNumber = 0;
-    [SerializeField] Potions potions;
+    public Potions potions;
     public ShowStatUpgrade upgradeText;
     public StaminaSystem stamina;
     public HealthSystem health;
-    public BarParent hpBar;
+    
     
     // Start is called before the first frame update
     void Start()

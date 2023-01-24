@@ -7,6 +7,7 @@ public class StaminaSystem : MonoBehaviour
     [SerializeField] private int staminaAmount;
     [SerializeField] private int maxStaminaAmount;
     [SerializeField] private int regenRate;
+    [SerializeField] private float regenTick = 0.5f;
     [SerializeField] private float timer;
     public BarParent staminaBar;
 
@@ -25,7 +26,7 @@ public class StaminaSystem : MonoBehaviour
         if (staminaAmount<maxStaminaAmount)
             timer += Time.deltaTime;
 
-        if (timer > 0.05)
+        if (timer > regenTick)
         {
             RefillTick();
             timer = 0;
