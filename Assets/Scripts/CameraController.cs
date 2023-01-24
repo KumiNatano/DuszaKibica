@@ -13,6 +13,12 @@ public class CameraController : MonoBehaviour
     public float upperEgde= 6;
     public float lowerEgde = -6;
 
+    public Camera MainCamera;
+    public Camera TPPCamera;
+
+
+    public bool isTPEnabled = false;
+    Quaternion rotationBeforeSwitch;
 
     // Start is called before the first frame update
     void Start()
@@ -20,12 +26,32 @@ public class CameraController : MonoBehaviour
         Vector3 vector = new Vector3(0f, -1f, high); // w tym miejscu zmieniamy Y by ustawic k¹t kamery
         transform.position = player.transform.position + vector;
         transform.LookAt(player);
+        TPPCamera.enabled = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        followPlayer();
+        if (Input.GetKeyDown(KeyCode.Keypad9))
+        {
+            isTPEnabled = !isTPEnabled;
+            MainCamera.enabled = !MainCamera.enabled;
+            TPPCamera.enabled = !TPPCamera.enabled;
+            player.gameObject.GetComponent<PlayerControlSystem>().enabled = !player.gameObject.GetComponent<PlayerControlSystem>().enabled;
+            player.gameObject.GetComponent<RotateToPointer>().enabled = !player.gameObject.GetComponent<RotateToPointer>().enabled;
+            player.gameObject.GetComponent<TPPPlayerMovement>().enabled = !player.gameObject.GetComponent<TPPPlayerMovement>().enabled;
+        }
+
+        if(isTPEnabled == true)
+        {
+            //TPCamera();
+        }
+
+        else
+        {
+            followPlayer();
+        }
+
     }
 
     void followPlayer()
@@ -54,5 +80,15 @@ public class CameraController : MonoBehaviour
             transform.position = newPosition;
         }
     }
+
+    void TPCamera()
+    {
+        Transform cameraTransform = this.transform;
+        Transform playerTransform = player.transform;
+
+        this.transform.rotation = Quaternion.Euler(playerTransform.rotation.x - 50, playerTransform.rotation.y, playerTransform.rotation.z);
+        this.transform.position = new Vector3(playerTransform.position.x, playerTransform.position.y - 5, playerTransform.position.z - 3);
+
+}
     
 }
