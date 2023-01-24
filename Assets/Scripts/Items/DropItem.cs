@@ -7,14 +7,12 @@ public class DropItem : MonoBehaviour
     //atrybuty
     [SerializeField] int itemID;
     [SerializeField] string name;
-    [SerializeField]int degreesPerSecond = 360;
+    [SerializeField] int degreesPerSecond = 360;
     //string description;
     //atrybuty end
-     void Update()
+    void Update()
     {
-       rotating();
-        
-        
+        rotating();
     }
    
     
@@ -35,7 +33,7 @@ public class DropItem : MonoBehaviour
         return this.name;
     }
     //metody - gettery end
-   public void rotating(){
-     transform.Rotate(new Vector3(0, 0, degreesPerSecond) * Time.deltaTime);
-   }
+    public void rotating(){
+        transform.Rotate(new Vector3(0, 0, degreesPerSecond) * Time.deltaTime);
+    }
 }

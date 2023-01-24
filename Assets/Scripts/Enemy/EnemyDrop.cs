@@ -11,8 +11,7 @@ public class EnemyDrop : MonoBehaviour
     void Start()
     {
         dropChance = 50;
-        itemID = 1;
-        
+        itemID = 1;    
     }
 
     // Update is called once per frame
@@ -21,15 +20,15 @@ public class EnemyDrop : MonoBehaviour
        
     }
     public bool DropLottery(){
-        
-        int chance = Random.Range(0,100);
+
+        int chance = Random.Range(0, 100);
         if(chance <= dropChance && chance != 0)
         {
-           Instantiate(scarf, transform.position, scarf.transform.rotation);
+            Instantiate(scarf, transform.position, scarf.transform.rotation);
             
             return true;
         }
+
         return false;
     }
-
 }
