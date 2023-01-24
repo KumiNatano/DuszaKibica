@@ -11,6 +11,7 @@ public class PlayerDeathManager : MonoBehaviour
     [SerializeField] GameObject restartImage;
     [SerializeField] GameObject PlayerHPBar;
     [SerializeField] GameObject PlayerStaminaBar;
+    [SerializeField] GameObject playerModel;
 
     private void Start()
     {
@@ -22,11 +23,12 @@ public class PlayerDeathManager : MonoBehaviour
         Time.timeScale = 0;
         PlayerHPBar.SetActive(false);
         PlayerStaminaBar.SetActive(false);
+        Destroy(playerModel);
+
     }
 
     public void ClickingRestartButton()
     {
-        Debug.Log("tes");
         SceneManager.LoadScene(actuallScene);
         Time.timeScale = 1;
     }
