@@ -9,6 +9,7 @@ TagManager:
   - scarf
   - PlayerWeapon
   - TPPCamera
+  - butelka
   layers:
   - Default
   - TransparentFX

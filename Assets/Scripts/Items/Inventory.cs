@@ -25,7 +25,8 @@ public class Inventory : MonoBehaviour
             usePotion();
         }
     }
-   //on trigger przeniesiony do ClubScarf J.S
+    
+    // on trigger przeniesiony do ClubScarf J.S
     public void usePotion() {
         potions.DrinkPotion(gameObject.GetComponent<HealthSystem>());
     }
