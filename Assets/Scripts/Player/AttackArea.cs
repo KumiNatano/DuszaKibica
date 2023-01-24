@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class AttackArea : MonoBehaviour
 {
-    [SerializeField] private int damage = 3;
-    [SerializeField] private int baseDamage = 3;
+    [SerializeField] private int damage;
+    private int baseDamage = 70;
     [SerializeField] private GameObject Player;
     public Weapons weapons;
 
@@ -16,12 +16,12 @@ public class AttackArea : MonoBehaviour
             HealthSystem health = collider.GetComponent<HealthSystem>(); //bierzemy system zycia
             health.TakeDamage(damage); //i dajemy damage
             Player.GetComponent<PunchAudio>().PlayAttackSound(); //odgrywamy dzwiek uderzenia
-            weapons.checkForWeapons(); //sprawdzenie i podjęcie akcji związanych z updatem broni, obrażeń itp.
+            // weapons.checkForWeapons(); //sprawdzenie i podjęcie akcji związanych z updatem broni, obrażeń itp.
         }
     }
 
-    public void setDamage(int newValue) {
-        damage = newValue;
+    public void setDamage(int bonusValue) {
+        damage += bonusValue;
     }
     public int getBaseDamage() {
         return baseDamage;

@@ -291,6 +291,7 @@ MonoBehaviour:
   Slider: {fileID: 7877450315338965698}
   Low: {r: 1, g: 0, b: 0, a: 1}
   High: {r: 0, g: 1, b: 0, a: 1}
+  Offset: {x: 0, y: 0, z: 0}
 --- !u!1 &538444537237907324
 GameObject:
   m_ObjectHideFlags: 0
@@ -406,7 +407,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1027567089521968624}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.502428, y: 2.7357292, z: 0.0029182807}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -496,7 +497,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3071083581479669079}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15.2, y: 16.372353, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

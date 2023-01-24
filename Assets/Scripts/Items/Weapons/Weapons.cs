@@ -26,7 +26,7 @@ public class Weapons : DropItem
         if (this.gameObject.tag == "butelka" && collider.gameObject.tag == "player" && timeLived>=timeToLive)
         {
             Destroy(this.gameObject);
-            inventory = collider.GetComponent<Inventory>();
+            // inventory = collider.GetComponent<Inventory>();
 
             butelka();
         }
@@ -36,17 +36,17 @@ public class Weapons : DropItem
     public void butelka() {
         inventory.upgradeText.UpdateTextBox("Podniesiono butelke!", "");
         // Tekstury ...
-        int butelkaDamage = 4;
+        int bonusButelkaDamage = 20;
         butelkaInHand = true;
-        attack.setDamage(butelkaDamage);
+        attack.setDamage(bonusButelkaDamage);
     }
     public void tulipan() {
         inventory.upgradeText.UpdateTextBox("Zrobiles tulipana!", "");
         // Tekstury ...
-        int tulipanDamage = 6;
+        int bonusTulipanDamage = 10;
         butelkaInHand = false;
         tulipanInHand = true;
-        attack.setDamage(tulipanDamage);
+        attack.setDamage(bonusTulipanDamage);
     }
     public void checkForWeapons() {
         if (butelkaInHand) {

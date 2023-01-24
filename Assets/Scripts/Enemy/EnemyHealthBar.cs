@@ -8,7 +8,7 @@ public class EnemyHealthBar : MonoBehaviour
     public Slider Slider;
     public Color Low;
     public Color High;
-    // public Vector3 Offset;
+    public Vector3 Offset;
     
     // Start is called before the first frame update
     void Start()
@@ -19,7 +19,7 @@ public class EnemyHealthBar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Slider.transform.position = Camera.main.WorldToScreenPoint(transform.parent.position /* + Offset */);
+        Slider.transform.position = Camera.main.WorldToScreenPoint(transform.parent.position + Offset);
     }
 
     public void SetHealth(int health, int maxHealth) {
