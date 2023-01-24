@@ -33,6 +33,9 @@ public class ShowStatUpgrade : MonoBehaviour
         else if (colour == "green") {
             StatUpgradeText.color = Color.green;
         }
+        else {
+            StatUpgradeText.color = Color.white;
+        }
 
         StatUpgradeText.transform.position = player.transform.position;
 

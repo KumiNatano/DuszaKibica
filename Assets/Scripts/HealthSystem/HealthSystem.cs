@@ -8,6 +8,7 @@ public class HealthSystem : MonoBehaviour
     [SerializeField] private int maxHealthAmount = 100;
     [SerializeField] private bool isAlive;
     public BarParent hpBar;
+    public EnemyHealthBar enemyHealthbar;
     public EnemyDrop drop;
     // Start is called before the first frame update
     void Start()
@@ -28,6 +29,9 @@ public class HealthSystem : MonoBehaviour
         if(healthAmount-dmg >= 0)
         {
             healthAmount -= dmg;
+            if (this.tag != "player") {
+                enemyHealthbar.SetHealth(getHealthAmount(), getMaxHealthAmount());
+            }
         }
         else
         {
@@ -39,7 +43,6 @@ public class HealthSystem : MonoBehaviour
         {
             this.GetComponent<PlayerDeathManager>().PlayerDeath();
         }
-
         else if (healthAmount <= 0)
         {
             isAlive = false;
