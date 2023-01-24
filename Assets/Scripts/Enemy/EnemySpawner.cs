@@ -2,104 +2,109 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum SpawnValue
+{
+    nothing = 0,
+    alreadyTested = 1,
+    inRange = 2,
+    //isFree = 3,
+    spawning = 4
+}
+
 public class EnemySpawner : MonoBehaviour
 {
 
-    [SerializeField] GameObject enemy;
-    //float TimeDelay = 5f;
-    bool canRespawn = true;
-
-    public GameObject[] spawnPositions;
-
-    public GameObject[] availableSpawnPositions;
-    int spawnCount = 0; //zlicza ile mamy juz spawnow, poki co nigdzie nieuzywane
-    //public float sphereRadius = 3;
-
+    [SerializeField] GameObject[] enemy;
+    [SerializeField] Transform[] spawnPositions;
+    [SerializeField] SpawnValue[] testedPositions;
+    [SerializeField] int spawnCount = 0; //zlicza ile mamy juz spawnow, poki co nigdzie nieuzywane
+    [SerializeField] int nullSpawnCount = 0; //zlicza ile spawnow nie bylo wykonanych, poki co nigdzie nieuzywane
+    [SerializeField] float freeSpaceRange = 2f;
+    [SerializeField] float spawnRadius = 100f;
     public GameObject player;
 
     void Start()
     {
-        availableSpawnPositions = new GameObject[5];
-        //spawnPositions = new GameObject[5];
-    }
-
-    void Update()
-    {
-        if(canRespawn == true)
+        testedPositions = new SpawnValue[spawnPositions.Length];
+        for(int i = 0; i< spawnPositions.Length; i++)
         {
-            StartCoroutine(ExampleCoroutine());
+            testedPositions[i] = SpawnValue.nothing;
         }
+        StartCoroutine(SpawnEnemy());
     }
 
-    IEnumerator ExampleCoroutine()
+    IEnumerator SpawnEnemy()
     {
-        canRespawn = false;
+        yield return new WaitForSeconds(3);
+        int arrayIndex;
+        int counter = 0;
 
-        yield return new WaitForSeconds(5);
-
-        canRespawn = true;
-        spawn();
-    }
-
-    void spawn()
-    {
-        availableSpawnPositions[0] = spawnPositions[0];
-        addAvailableSpawnPositions();
         Vector3 spawnPosition;
-        int enemyCounter = 0;
-        foreach(GameObject spawn in availableSpawnPositions)
+        for (int i = 0; i < spawnPositions.Length; i++)
         {
-            if (enemyCounter >= 1) //tutaj ustawiam ile za jednym razem moze maksymalnie zrespawnowac sie przeciwnikow
-                break;
+            spawnPosition = spawnPositions[i].position;
+            if(Vector3.Distance(player.transform.position, spawnPosition) < spawnRadius)
+                testedPositions[i] = SpawnValue.inRange;
 
-            if(spawn != null)
+        }
+
+        for (int i=0; i< spawnPositions.Length; i++)
+        {
+            if (Physics2D.OverlapCircle(spawnPositions[i].position, freeSpaceRange) == null)
             {
-                spawnPosition = spawn.transform.position;
-                if (Vector3.Distance(player.transform.position, spawnPosition) > 3f)
+                if(testedPositions[i] == SpawnValue.inRange)
                 {
-                    if (checkFreeSpace())
+                    testedPositions[i] = SpawnValue.spawning;
+                    ++counter;
+                }
+                else
+                {
+                    testedPositions[i] = SpawnValue.alreadyTested;
+                }
+            }
+            else
+            {
+                testedPositions[i] = SpawnValue.alreadyTested;
+            }
+        }
+        //WriteSpawnsValues();
+
+        if (counter >= 1)
+        {
+            for (int i = 0; i < testedPositions.Length*2; i++)
+            {
+                arrayIndex = Random.Range(0, testedPositions.Length);
+                if (testedPositions[arrayIndex] == SpawnValue.spawning)
+                {
+                    //sprawdzanie, jaki jest dystans od gracza by przeciwnik nie pojawial sie tuz obok plecow) )
+                    if(Physics2D.OverlapCircle(spawnPositions[arrayIndex].position, 4f) == null)
                     {
-                        Instantiate(enemy, spawnPosition, Quaternion.identity);
-                        ++spawnCount;
-                        ++enemyCounter;
+                        int enemyIndex = Random.Range(0, enemy.Length);
+                        Instantiate(enemy[enemyIndex], spawnPositions[arrayIndex].position, Quaternion.identity);
+                        break;
                     }
                 }
             }
         }
-        
-        ++spawnCount;
-        resetAvailableSpawnPositions();
-    }
-
-    bool checkFreeSpace()
-    {
-        float sphereRadius = 2;
-        if (!Physics.CheckSphere(transform.position, sphereRadius))
+        else
         {
-            return true;
+            ++nullSpawnCount;
         }
-        return false;
+        StartCoroutine(SpawnEnemy());
     }
-
-    void addAvailableSpawnPositions()
+    void WriteSpawnsValues()
     {
-        float sphereRadius = 10;
-        int counter = 0;
-        foreach(GameObject spawn in spawnPositions)
+        Debug.Log("Tablica");
+        for (int i = 0; i < spawnPositions.Length; i++)
         {
-            if(Vector3.Distance(player.transform.position, spawn.transform.position) < sphereRadius)
-            {
-                availableSpawnPositions[counter] = spawn;
-                ++counter;
-            }
-        }
-    }
-    
-    void resetAvailableSpawnPositions()
-    {
-        for(int i = 0; i < availableSpawnPositions.Length; i++)
-        {
-            availableSpawnPositions[i] = null;
+            if (testedPositions[i] == SpawnValue.spawning)
+                Debug.Log(i + " = spawning");
+            else if (testedPositions[i] == SpawnValue.inRange)
+                Debug.Log(i + " = spawning");
+            else if (testedPositions[i] == SpawnValue.alreadyTested)
+                Debug.Log(i + " = spawning");
+            else
+                Debug.Log(i + " = alreadyTested");
         }
     }
 }

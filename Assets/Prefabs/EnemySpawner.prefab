@@ -204,10 +204,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37c2e864f68a0b94b9730e0f3ffbf468, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 5698741849682320946, guid: c48a0bd72fa0b364581fb93f9b055229, type: 3}
+  enemy:
+  - {fileID: 7999857675162918956, guid: 985369ca4dc006d4488d2f2fe31af670, type: 3}
+  - {fileID: 3071083581479669079, guid: 509568f6de78efc4c94f6d36aafa0104, type: 3}
+  - {fileID: 6171715739270453790, guid: 579f6a4d5b4da5f428c5921a69b3b190, type: 3}
   spawnPositions:
-  - {fileID: 260137457776884740}
-  - {fileID: 7178821861889765271}
-  - {fileID: 1362274670547990141}
-  - {fileID: 2284505980317409616}
-  - {fileID: 3208510506670901802}
+  - {fileID: 3092223619520227188}
+  - {fileID: 2587396230076024791}
+  - {fileID: 8265496328266730909}
+  - {fileID: 9165667134749561930}
+  - {fileID: 3720470633803140846}
+  testedPositions: 
+  spawnCount: 0
+  nullSpawnCount: 0
+  freeSpaceRange: 2
+  spawnRadius: 15
+  player: {fileID: 0}
