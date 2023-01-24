@@ -8,6 +8,7 @@ TagManager:
   - building
   - scarf
   - PlayerWeapon
+  - TPPCamera
   - butelka
   layers:
   - Default
