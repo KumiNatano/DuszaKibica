@@ -15,8 +15,8 @@ public class StaminaSystem : MonoBehaviour
     //wzasadzie to konstruktor w tym wypadku
     void Start()
     {
-        setMaxStaminaAmount(200);
-        setRegen(1);
+        setMaxStaminaAmount(maxStaminaAmount);
+        setRegen(regenRate);
         timer = 0;
     }
 

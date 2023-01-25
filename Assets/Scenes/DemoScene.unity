@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4409462, g: 0.48212624, b: 0.5290503, a: 1}
+  m_IndirectSpecularColor: {r: 0.44094682, g: 0.48212707, b: 0.5290511, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -277,9 +277,21 @@ PrefabInstance:
       value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 5891462997468904518, guid: 3464a262695b3284b8785c2e4627a4e1, type: 3}
+      propertyPath: regenRate
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5891462997468904518, guid: 3464a262695b3284b8785c2e4627a4e1, type: 3}
       propertyPath: staminaBar
       value: 
       objectReference: {fileID: 668688173}
+    - target: {fileID: 5891462997468904518, guid: 3464a262695b3284b8785c2e4627a4e1, type: 3}
+      propertyPath: staminaAmount
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 5891462997468904518, guid: 3464a262695b3284b8785c2e4627a4e1, type: 3}
+      propertyPath: maxStaminaAmount
+      value: 200
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2106450213226106949, guid: 3464a262695b3284b8785c2e4627a4e1, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 3464a262695b3284b8785c2e4627a4e1, type: 3}
@@ -2647,6 +2659,14 @@ PrefabInstance:
     - target: {fileID: 2413760812619764934, guid: 87ce972c9e1d48d4ea646ff26364442d, type: 3}
       propertyPath: m_Name
       value: MapBoundaries
+      objectReference: {fileID: 0}
+    - target: {fileID: 2413760813706610993, guid: 87ce972c9e1d48d4ea646ff26364442d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -14.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 2413760813789055400, guid: 87ce972c9e1d48d4ea646ff26364442d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 17.25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87ce972c9e1d48d4ea646ff26364442d, type: 3}
