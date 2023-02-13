@@ -15,6 +15,8 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private float cooldown = 2f;
     private bool canAttack = true;
 
+    [SerializeField] private GameObject swish;
+
     void Start()
     {
         attackArea = transform.GetChild(0).gameObject; //przypisujemy pierwsze dziecko tego obiektu jako attackArea
@@ -36,6 +38,7 @@ public class PlayerAttack : MonoBehaviour
                 timer = 0;
                 isAttacking = false;
                 attackArea.SetActive(isAttacking);
+                swish.SetActive(isAttacking);
             }
         }
     }
@@ -55,7 +58,7 @@ public class PlayerAttack : MonoBehaviour
             isAttacking = true;
             attackArea.SetActive(isAttacking);
             this.gameObject.GetComponent<PunchAudio>().PlaySwishSound(); //odtwarzanie dzwieku machniecia
-
+            swish.SetActive(isAttacking);
         }
         
     }
