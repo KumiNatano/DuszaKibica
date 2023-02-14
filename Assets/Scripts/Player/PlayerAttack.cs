@@ -16,10 +16,12 @@ public class PlayerAttack : MonoBehaviour
     private bool canAttack = true;
 
     [SerializeField] private GameObject swish;
+    [SerializeField] private GameObject animator;
 
     void Start()
     {
         attackArea = transform.GetChild(0).gameObject; //przypisujemy pierwsze dziecko tego obiektu jako attackArea
+        //animator = transform.GetChild(2).gameObject.GetComponent<Animator>();
     }
     void Update()
     {
@@ -59,6 +61,7 @@ public class PlayerAttack : MonoBehaviour
             attackArea.SetActive(isAttacking);
             this.gameObject.GetComponent<PunchAudio>().PlaySwishSound(); //odtwarzanie dzwieku machniecia
             swish.SetActive(isAttacking);
+            animator.GetComponent<PunchAnimation>().Punch();
         }
         
     }
