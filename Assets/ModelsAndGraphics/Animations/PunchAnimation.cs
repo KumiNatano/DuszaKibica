@@ -14,12 +14,14 @@ public class PunchAnimation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(_animator != null)
+        
+    }
+
+    public void Punch()
+    {
+        if (_animator != null)
         {
-            if (Input.GetMouseButtonDown(0))
-            {
-                _animator.SetTrigger("TriggerPunch");
-            }
+            _animator.SetTrigger("TriggerPunch");
         }
     }
 }
