@@ -256,6 +256,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player3D
       objectReference: {fileID: 0}
+    - target: {fileID: 3237641256938850716, guid: 3464a262695b3284b8785c2e4627a4e1, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 3973375510511231236, guid: 3464a262695b3284b8785c2e4627a4e1, type: 3}
       propertyPath: damage
       value: 70
@@ -291,6 +295,14 @@ PrefabInstance:
     - target: {fileID: 5891462997468904518, guid: 3464a262695b3284b8785c2e4627a4e1, type: 3}
       propertyPath: maxStaminaAmount
       value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 6121661418512974949, guid: 3464a262695b3284b8785c2e4627a4e1, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6607763372014241090, guid: 3464a262695b3284b8785c2e4627a4e1, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2106450213226106949, guid: 3464a262695b3284b8785c2e4627a4e1, type: 3}
