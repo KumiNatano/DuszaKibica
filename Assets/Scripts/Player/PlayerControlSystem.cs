@@ -10,6 +10,7 @@ public class PlayerControlSystem : MonoBehaviour
     public float collisionOffset = 0.05f;
     private float startSpeed;
     private float timeLimit;
+    private float timeLimitBase;
     [SerializeField] private float cooldownSpeed;
 
     public ContactFilter2D movementFilter;
@@ -83,6 +84,7 @@ public class PlayerControlSystem : MonoBehaviour
         startSpeed = moveSpeed;
         moveSpeed = speed;
         timeLimit = timeL;
+        timeLimitBase = timeLimit;
         cooldownSpeed = cooldown;
     }
     private void manageSpeedTimeLimit()
@@ -90,6 +92,7 @@ public class PlayerControlSystem : MonoBehaviour
         if (timeLimit > 0)
         {
             timeLimit -= Time.deltaTime;
+            rotating(timeLimitBase);
         }
         if(timeLimit <= 0 && moveSpeed != startSpeed)
         {
