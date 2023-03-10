@@ -9,7 +9,7 @@ public class EnemyAttack : MonoBehaviour
 
     private bool canAttack = true;
 
-    private void OnTriggerStay2D(Collider2D collider)
+    private void OnTriggerStay(Collider collider)
     {
         if (collider.GetComponent<HealthSystem>() != null && canAttack == true && collider.gameObject.tag == "player") //jesli obiekt z ktorym kolidujemy ma system zycia i mamy mozliwosc ataku i obiekt z ktorym kolidujemy to gracz
         {
