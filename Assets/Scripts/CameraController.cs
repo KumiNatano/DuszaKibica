@@ -5,7 +5,7 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     public Transform player;
-    float high = -10;
+    float high = 10;
     //x
     public float leftEgde = -16;
     public float rightEgde = 9;
@@ -23,7 +23,7 @@ public class CameraController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Vector3 vector = new Vector3(0f, -1f, high); // w tym miejscu zmieniamy Y by ustawic k¹t kamery
+        Vector3 vector = new Vector3(0f, high , - 1f); // w tym miejscu zmieniamy Y by ustawic k¹t kamery
         transform.position = player.transform.position + vector;
         transform.LookAt(player);
         TPPCamera.enabled = false;
@@ -56,9 +56,10 @@ public class CameraController : MonoBehaviour
 
     void followPlayer()
     {
-        if (player.transform.position.x != transform.position.x || player.transform.position.y != transform.position.y)
+        if (player.transform.position.x != transform.position.x || player.transform.position.z != transform.position.z)
         {
-            Vector3 newPosition = new Vector3(player.transform.position.x, player.transform.position.y, high);
+            Vector3 newPosition = new Vector3(player.transform.position.x, high, player.transform.position.z);
+            /*
             if (player.transform.position.x <= leftEgde)
             {
                 newPosition.x = leftEgde;
@@ -68,15 +69,15 @@ public class CameraController : MonoBehaviour
                 newPosition.x = rightEgde;
             }
 
-            if (player.transform.position.y >= upperEgde)
+            if (player.transform.position.z >= upperEgde)
             {
                 newPosition.y = upperEgde;
             }
-            if (player.transform.position.y <= lowerEgde)
+            if (player.transform.position.z <= lowerEgde)
             {
                 newPosition.y = lowerEgde;
             }
-        
+            */
             transform.position = newPosition;
         }
     }
@@ -87,7 +88,7 @@ public class CameraController : MonoBehaviour
         Transform playerTransform = player.transform;
 
         this.transform.rotation = Quaternion.Euler(playerTransform.rotation.x - 50, playerTransform.rotation.y, playerTransform.rotation.z);
-        this.transform.position = new Vector3(playerTransform.position.x, playerTransform.position.y - 5, playerTransform.position.z - 3);
+        this.transform.position = new Vector3(playerTransform.position.x, player.transform.position.y - 5, playerTransform.position.z - 3);
 
 }
     
