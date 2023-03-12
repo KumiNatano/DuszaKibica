@@ -26,4 +26,5 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Test_upgrades.unity
     guid: ee822857ea1c4854cbf0e2c062f435ab
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.input.settings: {fileID: 11400000, guid: 4aefd60514cff65448ba0671a5d0823c, type: 2}
