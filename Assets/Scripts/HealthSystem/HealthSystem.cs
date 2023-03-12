@@ -7,6 +7,9 @@ public class HealthSystem : MonoBehaviour
     [SerializeField] int healthAmount;
     [SerializeField] private int maxHealthAmount = 100;
     [SerializeField] private bool isAlive;
+    [SerializeField] bool isImmortal;
+    [SerializeField] double immortalTime;
+    [SerializeField] double immortalCooldown;
     public BarParent hpBar;
     public EnemyHealthBar enemyHealthbar;
     public EnemyDrop drop;
@@ -31,10 +34,13 @@ public class HealthSystem : MonoBehaviour
     void Update()
     {
 
+        manageImmortality();
     }
 
     public void TakeDamage(int dmg)
     {
+        if (!isImmortal)
+        {
         if(healthAmount-dmg >= 0)
         {
             healthAmount -= dmg;
@@ -57,6 +63,7 @@ public class HealthSystem : MonoBehaviour
             isAlive = false;
             this.drop.DropLottery();
             Destroy(this.gameObject); //dodalem zniszczenie obiektu po smierci - Jacek
+        }
         }
     }
     public void Heal(int heal)
@@ -82,11 +89,41 @@ public class HealthSystem : MonoBehaviour
         return maxHealthAmount;
     }
 
+
     private void OnTriggerEnter(Collider other)
     {
         if(other.tag == "knife")
         {
             TakeDamage(other.GetComponent<KnifeBehaviour>().knifeDamage);
+        }
+    }
+    
+    public void setImmortal(double iTime, double cTime)
+    {
+        if(immortalCooldown > 0 || immortalTime > 0)
+        {
+            return;
+        }
+        immortalTime = iTime;
+        immortalCooldown = cTime;
+        isImmortal = true;
+
+    }
+    private void manageImmortality()
+    {
+        if (immortalTime > 0)
+        {
+            immortalTime -= Time.deltaTime;
+        }
+        if (isImmortal && immortalTime <= 0)
+        {
+            isImmortal = false;
+            immortalTime = 0.0;
+        }
+        if (immortalCooldown > 0 && immortalTime <= 0)
+        {
+            immortalCooldown -= Time.deltaTime;
+
         }
     }
 }
