@@ -92,7 +92,7 @@ public class PlayerControlSystem : MonoBehaviour
         if (timeLimit > 0)
         {
             timeLimit -= Time.deltaTime;
-            rotating(timeLimitBase);
+            //rotating(timeLimitBase);
         }
         if(timeLimit <= 0 && moveSpeed != startSpeed)
         {
