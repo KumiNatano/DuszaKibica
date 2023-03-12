@@ -10,6 +10,8 @@ TagManager:
   - PlayerWeapon
   - TPPCamera
   - butelka
+  - knife
+  - enemy
   layers:
   - Default
   - TransparentFX

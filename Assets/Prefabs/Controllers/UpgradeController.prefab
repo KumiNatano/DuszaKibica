@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6966657115677596547
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6966657115677596545}
+  - component: {fileID: 6966657115677596546}
+  m_Layer: 0
+  m_Name: UpgradeController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6966657115677596545
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6966657115677596547}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 162.99335, y: 439.00458, z: -10.465821}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6966657115677596546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6966657115677596547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d33392024fbb98f4b917bec8dd102ec4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isThisStoreLevel: 1
+  Money: 1000
+  LiveUpgradeButton: {fileID: 0}
+  StaminaUpgradeButton: {fileID: 0}
+  BuyPotionButton: {fileID: 0}
+  FuryButton: {fileID: 0}
+  ImmortalButton: {fileID: 0}
+  KnifeButton: {fileID: 0}
+  NextButton: {fileID: 0}
+  MoneyText: {fileID: 0}
+  LiveUpgradeLevel: 0
+  StaminaUpgradeLevel: 0
+  LiveUpgradePrice: 10
+  LiveUpgradeLevelMax: 3
+  StaminaUpgradeLevelMax: 3
+  StaminaUpgradePrice: 10
+  PotionAmount: 2
+  PotionAmountMax: 5
+  PotionPrice: 10
+  Fury: 0
+  Immortal: 0
+  Knife: 0
+  FuryPrice: 10
+  ImmortalPrice: 10
+  KnifePrice: 10
