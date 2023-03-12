@@ -5,31 +5,25 @@ using UnityEngine.SceneManagement;
 
 public class SceneChanger : MonoBehaviour
 {
-    public string LevelName = "scene_0"; //domyslnie portal jest ustawiony na poziom scene_0 (do zmiany w przyszlosci);
-    //public GameObject player;
+    [SerializeField] SceneController controller;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-
+        controller = GameObject.Find("SceneController").GetComponent<SceneController>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter(Collider collision)
     {
         
-    }
 
-    void OnTriggerEnter2D(Collider2D collision)
-    {
         if (collision.gameObject.name != "Player")
         {
             return;
         }
         else
-            //DontDestroyOnLoad(player);
-            //DontDestroyOnLoad(this);
-            SceneManager.LoadScene(LevelName);
+        {
+            controller.goToNextScene();
+        }
     }
 
 }

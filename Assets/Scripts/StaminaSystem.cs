@@ -11,10 +11,20 @@ public class StaminaSystem : MonoBehaviour
     [SerializeField] private float timer;
     public BarParent staminaBar;
 
+    [SerializeField] UpgradeController upgradeController;
+
     // Start is called before the first frame update
     //wzasadzie to konstruktor w tym wypadku
     void Start()
     {
+
+        upgradeController = GameObject.Find("UpgradeController").GetComponent<UpgradeController>(); //z upgrade controllera bierze bonus do staminy
+        if (upgradeController.LiveUpgradeLevel != 0)
+        {
+            maxStaminaAmount = maxStaminaAmount + (upgradeController.StaminaUpgradeLevel * upgradeController.SingleStaminaBonus);
+        }
+
+
         setMaxStaminaAmount(maxStaminaAmount);
         setRegen(regenRate);
         timer = 0;
