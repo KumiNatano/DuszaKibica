@@ -20,7 +20,7 @@ public class Weapons : DropItem
         timeLived+=Time.deltaTime;
         rotating();
     }
-    private void OnTriggerEnter2D(Collider2D collider) 
+    private void OnTriggerEnter(Collider collider) 
     {
         // TULIPAN
         if (this.gameObject.tag == "butelka" && collider.gameObject.tag == "player" && timeLived>=timeToLive)

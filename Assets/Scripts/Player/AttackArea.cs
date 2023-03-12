@@ -9,7 +9,7 @@ public class AttackArea : MonoBehaviour
     [SerializeField] private GameObject Player;
     public Weapons weapons;
 
-    private void OnTriggerEnter2D(Collider2D collider)
+    private void OnTriggerEnter(Collider collider)
     {
         if (collider.GetComponent<HealthSystem>() != null) //jesli nie ma systemu zycia to sie nie wykona
         {
