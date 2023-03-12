@@ -17,7 +17,7 @@ public class ClubScarf : DropItem
         rotating();
 
     }
-    private void OnTriggerEnter2D(Collider2D collider) 
+    private void OnTriggerEnter(Collider collider) 
     {
         if(this.gameObject.tag == "scarf" && collider.gameObject.tag == "player" && timeLived>=timeToLive)
         {

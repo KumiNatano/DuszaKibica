@@ -199,7 +199,7 @@ PrefabInstance:
     - target: {fileID: 356740840, guid: 3464a262695b3284b8785c2e4627a4e1, type: 3}
       propertyPath: playerModel
       value: 
-      objectReference: {fileID: 592426015}
+      objectReference: {fileID: 0}
     - target: {fileID: 356740840, guid: 3464a262695b3284b8785c2e4627a4e1, type: 3}
       propertyPath: restartImage
       value: 
@@ -256,11 +256,23 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player3D
       objectReference: {fileID: 0}
+    - target: {fileID: 2355836823083723500, guid: 3464a262695b3284b8785c2e4627a4e1, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3237641256938850716, guid: 3464a262695b3284b8785c2e4627a4e1, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 3973375510511231236, guid: 3464a262695b3284b8785c2e4627a4e1, type: 3}
       propertyPath: damage
       value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 5133175879050358417, guid: 3464a262695b3284b8785c2e4627a4e1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4610072713061395454, guid: 3464a262695b3284b8785c2e4627a4e1, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -279,6 +291,10 @@ PrefabInstance:
     - target: {fileID: 5529475675470399950, guid: 3464a262695b3284b8785c2e4627a4e1, type: 3}
       propertyPath: maxHealthAmount
       value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 5731378159324436292, guid: 3464a262695b3284b8785c2e4627a4e1, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5891462997468904518, guid: 3464a262695b3284b8785c2e4627a4e1, type: 3}
       propertyPath: regenRate
@@ -1202,7 +1218,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 133414406}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: -30, y: 0, z: 0}
 --- !u!81 &812911338
 AudioListener:
