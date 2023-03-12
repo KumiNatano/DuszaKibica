@@ -20,8 +20,9 @@ GameObject:
   - component: {fileID: 356740841}
   - component: {fileID: 2355836823083723500}
   - component: {fileID: 6720721390278742668}
+  - component: {fileID: -2438658113705280294}
   m_Layer: 0
-  m_Name: Player3D
+  m_Name: Player
   m_TagString: player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -90,6 +91,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   collisionOffset: 0.05
+  cooldownSpeed: 0
 --- !u!114 &4692085042068846463
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -121,6 +123,7 @@ MonoBehaviour:
   regenTick: 0.5
   timer: 0.5
   staminaBar: {fileID: 0}
+  upgradeController: {fileID: 0}
 --- !u!114 &5529475675470399950
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,9 +139,13 @@ MonoBehaviour:
   healthAmount: 100
   maxHealthAmount: 100
   isAlive: 0
+  isImmortal: 0
+  immortalTime: 0
+  immortalCooldown: 0
   hpBar: {fileID: 0}
   enemyHealthbar: {fileID: 0}
   drop: {fileID: 0}
+  upgradeController: {fileID: 0}
 --- !u!114 &614390003528158668
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -308,6 +315,25 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 2, z: 1}
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &-2438658113705280294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1349553652272819797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b9455882a2538d41884f7fe2d75e94f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  potionKey: e
+  dodgeKey: space
+  upgradeText: {fileID: 0}
+  stamina: {fileID: 0}
+  health: {fileID: 0}
+  pcsystem: {fileID: 0}
+  inventory: {fileID: 0}
 --- !u!1 &5133175879050358417
 GameObject:
   m_ObjectHideFlags: 0
@@ -542,6 +568,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &9006505747416591516
 MonoBehaviour:
   m_ObjectHideFlags: 0
