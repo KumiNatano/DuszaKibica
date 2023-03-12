@@ -8,6 +8,10 @@ public class PlayerControlSystem : MonoBehaviour
 {
     public float moveSpeed = 5f;
     public float collisionOffset = 0.05f;
+    private float startSpeed;
+    private float timeLimit;
+    private float timeLimitBase;
+    [SerializeField] private float cooldownSpeed;
 
     Vector3 movementInput;
     Rigidbody collisionShape;
@@ -16,6 +20,7 @@ public class PlayerControlSystem : MonoBehaviour
     void Start()
     {
         collisionShape = GetComponent<Rigidbody>();
+        startSpeed = moveSpeed;
     }
 
     private void FixedUpdate()
@@ -42,6 +47,36 @@ public class PlayerControlSystem : MonoBehaviour
     void OnMove(InputValue movementValue)
     {
         movementInput = movementValue.Get<Vector3>();
+
+    }
+
+    public void changeSpeedTimeLimit(float speed,float timeL, float cooldown) //doda�em mo�liwo�� zmiany pr�dko�ci z okre�lonym czasem trwania i cooldownu
+    {
+        if(cooldownSpeed > 0)
+        {
+            return;
+        }
+        startSpeed = moveSpeed;
+        moveSpeed = speed;
+        timeLimit = timeL;
+        timeLimitBase = timeLimit;
+        cooldownSpeed = cooldown;
+    }
+    private void manageSpeedTimeLimit()
+    {
+        if (timeLimit > 0)
+        {
+            timeLimit -= Time.deltaTime;
+            //rotating(timeLimitBase);
+        }
+        if(timeLimit <= 0 && moveSpeed != startSpeed)
+        {
+            moveSpeed = startSpeed;
+        }
+        if(cooldownSpeed > 0)
+        {
+            cooldownSpeed -= Time.deltaTime;
+        }
 
     }
 }
