@@ -5,14 +5,20 @@ using UnityEngine;
 public class Potions : MonoBehaviour
 {
     [SerializeField] int healAmount = 40;
-    [SerializeField] int potionsLeft = 3;
+    [SerializeField] int potionsLeft = 0;
     [SerializeField] double cooldown = 1.5;
+
+    [SerializeField] UpgradeController upgradeController;
+
     private double timeLeft;
     public PotionCounter counter;
     // Start is called before the first frame update
     // wzasadzie to konstruktor w tym wypadku
     void Start()
     {
+        counter.updateCounter(potionsLeft);
+        upgradeController = GameObject.Find("UpgradeController").GetComponent<UpgradeController>();
+        potionsLeft = upgradeController.GetComponent<UpgradeController>().PotionAmount; //z upgrade controllera bierze poczatkowa ilosc potek
         counter.updateCounter(potionsLeft);
     }
 
@@ -29,6 +35,7 @@ public class Potions : MonoBehaviour
         {
             hps.Heal(healAmount);
             potionsLeft--;
+            upgradeController.GetComponent<UpgradeController>().PotionAmount--; //w upgrade controllerze tez musi zmniejszac ilosc potionkow
             counter.updateCounter(potionsLeft);
             timeLeft = cooldown;
             return true;

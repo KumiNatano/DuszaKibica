@@ -13,9 +13,18 @@ public class HealthSystem : MonoBehaviour
     public BarParent hpBar;
     public EnemyHealthBar enemyHealthbar;
     public EnemyDrop drop;
+
+    [SerializeField] UpgradeController upgradeController;
+
     // Start is called before the first frame update
     void Start()
     {
+        upgradeController = GameObject.Find("UpgradeController").GetComponent<UpgradeController>(); //z upgrade controllera bierze bonus do zycia
+        if(upgradeController.LiveUpgradeLevel != 0)
+        {
+            maxHealthAmount = maxHealthAmount + (upgradeController.LiveUpgradeLevel * upgradeController.SingleLiveBonus);
+        }
+
         healthAmount = maxHealthAmount;
         isAlive = true;
         hpBar.SetMax(maxHealthAmount);
@@ -79,6 +88,16 @@ public class HealthSystem : MonoBehaviour
     public int getMaxHealthAmount() {
         return maxHealthAmount;
     }
+
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "knife")
+        {
+            TakeDamage(other.GetComponent<KnifeBehaviour>().knifeDamage);
+        }
+    }
+    
     public void setImmortal(double iTime, double cTime)
     {
         if(immortalCooldown > 0 || immortalTime > 0)
@@ -104,6 +123,7 @@ public class HealthSystem : MonoBehaviour
         if (immortalCooldown > 0 && immortalTime <= 0)
         {
             immortalCooldown -= Time.deltaTime;
+
         }
     }
 }
