@@ -8,6 +8,8 @@ public class KnifeBehaviour : MonoBehaviour
     [SerializeField] public float knifeSpeed = 5f;
     [SerializeField] public int knifeDamage = 5;
 
+    bool reached = false;
+
     private void Update()
     {
         throwedKnife(destinationPosition);
@@ -15,13 +17,23 @@ public class KnifeBehaviour : MonoBehaviour
 
     void throwedKnife(Vector3 destinationPosition)
     {
-        //if (Vector3.Distance(destinationPosition, this.transform.position) < 0.1)
-        //{
-        //    Destroy(this.gameObject);
-        //}
-        //else
-        //{
-            this.transform.position = Vector3.MoveTowards(this.transform.position, destinationPosition, knifeSpeed * Time.deltaTime);
-        //}
+        if (reached)
+        {
+            this.transform.position += transform.forward * Time.deltaTime * knifeSpeed;
+        }
+        else
+        {
+            if (Vector3.Distance(destinationPosition, this.transform.position) < 0.1)
+            {
+                reached = true;
+            }
+            else
+            {
+                this.transform.position = Vector3.MoveTowards(this.transform.position, destinationPosition, knifeSpeed * Time.deltaTime);
+            }
+        }
+
+
+
     }
 }
