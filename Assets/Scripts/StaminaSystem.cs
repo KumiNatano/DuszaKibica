@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class StaminaSystem : MonoBehaviour
 {
-    [SerializeField] private int staminaAmount;
+    [SerializeField] public int staminaAmount;
     [SerializeField] private int maxStaminaAmount;
     [SerializeField] private int regenRate;
     [SerializeField] private float regenTick = 0.5f;
