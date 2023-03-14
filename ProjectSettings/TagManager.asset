@@ -12,6 +12,7 @@ TagManager:
   - butelka
   - knife
   - enemy
+  - Ground
   layers:
   - Default
   - TransparentFX

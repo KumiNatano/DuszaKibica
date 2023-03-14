@@ -50,7 +50,7 @@ public class EnemySpawner : MonoBehaviour
 
         for (int i=0; i< spawnPositions.Length; i++)
         {
-            if (Physics2D.OverlapCircle(spawnPositions[i].position, freeSpaceRange) == null)
+            if (Physics.OverlapSphere(spawnPositions[i].position + new Vector3(0f, 3f, 0f), freeSpaceRange) == null)
             {
                 if(testedPositions[i] == SpawnValue.inRange)
                 {
@@ -77,7 +77,7 @@ public class EnemySpawner : MonoBehaviour
                 if (testedPositions[arrayIndex] == SpawnValue.spawning)
                 {
                     //sprawdzanie, jaki jest dystans od gracza by przeciwnik nie pojawial sie tuz obok plecow) )
-                    if(Physics2D.OverlapCircle(spawnPositions[arrayIndex].position, 4f) == null)
+                    if(Physics.OverlapSphere(spawnPositions[arrayIndex].position + new Vector3(0f, 3f, 0f), 2f) == null)
                     {
                         int enemyIndex = Random.Range(0, enemy.Length);
                         Instantiate(enemy[enemyIndex], spawnPositions[arrayIndex].position, Quaternion.identity);
