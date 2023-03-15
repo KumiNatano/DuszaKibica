@@ -21,6 +21,9 @@ GameObject:
   - component: {fileID: 2355836823083723500}
   - component: {fileID: 6720721390278742668}
   - component: {fileID: -2438658113705280294}
+  - component: {fileID: 5647818502340478064}
+  - component: {fileID: 6081867071110035982}
+  - component: {fileID: 7198588061256960277}
   m_Layer: 0
   m_Name: Player
   m_TagString: player
@@ -330,10 +333,57 @@ MonoBehaviour:
   potionKey: e
   dodgeKey: space
   upgradeText: {fileID: 0}
-  stamina: {fileID: 0}
-  health: {fileID: 0}
-  pcsystem: {fileID: 0}
-  inventory: {fileID: 0}
+  stamina: {fileID: 5891462997468904518}
+  health: {fileID: 5529475675470399950}
+  pcsystem: {fileID: 6516974044278252105}
+  inventory: {fileID: 5647818502340478064}
+--- !u!114 &5647818502340478064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1349553652272819797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d15450fcb0a3d29459f9a7d2d5c76be8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scarfNumber: 0
+  potions: {fileID: 6081867071110035982}
+  upgradeText: {fileID: 0}
+  stamina: {fileID: 5891462997468904518}
+  health: {fileID: 5529475675470399950}
+--- !u!114 &6081867071110035982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1349553652272819797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c861865733a34d74d892be19a4d18f82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healAmount: 40
+  potionsLeft: 3
+  cooldown: 1.5
+  upgradeController: {fileID: 0}
+  counter: {fileID: 7198588061256960277}
+--- !u!114 &7198588061256960277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1349553652272819797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff5dca9d9ff97e540bc5cb8d5c3ecfdd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  counter: {fileID: 0}
 --- !u!1 &5133175879050358417
 GameObject:
   m_ObjectHideFlags: 0
