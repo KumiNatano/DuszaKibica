@@ -12,7 +12,7 @@ public class PlayerAttack : MonoBehaviour
     private float timeToAttack = 0.25f; //jak dlugo ma byc otwarte okienko czasowe w ktorym mozna atakowac (jak dlugo AttackArea bedzie dostepne)
     private float timer = 0f; //pomocniczy timer
 
-    [SerializeField] private float cooldown = 2f;
+    [SerializeField] public float cooldown = 2f;
     private bool canAttack = true;
 
     [SerializeField] private GameObject swish;
