@@ -54,7 +54,7 @@ public class KnifeAbility : MonoBehaviour
         }
 
         GameObject knife = Instantiate(knifePrefab, new Vector3(this.transform.position.x, 1, this.transform.position.z), this.transform.rotation);
-        knife.GetComponent<KnifeBehaviour>().destinationPosition = new Vector3(mouseWorldPosition.x * 100, 1, mouseWorldPosition.z * 100); //przemno¿one przez 100 ¿eby lecia³o dalej
+        knife.GetComponent<KnifeBehaviour>().destinationPosition = new Vector3(mouseWorldPosition.x*1, 1, mouseWorldPosition.z*1); //przemno¿one przez 100 ¿eby lecia³o dalej
         knife.GetComponent<KnifeBehaviour>().knifeSpeed = knifeSpeed;
         knife.GetComponent<KnifeBehaviour>().knifeDamage = knifeDamage;
     }

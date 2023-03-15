@@ -14,6 +14,9 @@ public class FuryAbility : MonoBehaviour
     float timeDelay2 = 0f;
     [SerializeField] float abilityActiveTime = 5f;
 
+    [SerializeField] float furyAttackCooldown = 0.2f;
+    [SerializeField] int furyAttackStamina = 500;
+
     void Start()
     {
         upgradeController = GameObject.Find("UpgradeController").GetComponent<UpgradeController>();
@@ -47,15 +50,21 @@ public class FuryAbility : MonoBehaviour
         }
     }
 
+    private float previousCooldown;
+
     void activateAbility()
     {
         isActive = true;
-        Debug.Log("tu wstawic zeby dodalo dmg");
+        previousCooldown = this.gameObject.GetComponent<PlayerAttack>().cooldown;
+        this.gameObject.GetComponent<PlayerAttack>().cooldown = furyAttackCooldown;
+        this.gameObject.GetComponent<StaminaSystem>().staminaAmount = furyAttackStamina;
+        Debug.Log("tu wstawic zeby zwiekszylo szybkosc i dalo stamine");
     }
 
     void deactivateAbility()
     {
+        this.gameObject.GetComponent<PlayerAttack>().cooldown = previousCooldown;
         isActive = false;
-        Debug.Log("tu wstawic zeby zabralo dmg");
+        Debug.Log("tu wstawic zeby zmniejszylo szybkosc");
     }
 }

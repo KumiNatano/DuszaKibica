@@ -92,7 +92,7 @@ public class HealthSystem : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "knife")
+        if(other.tag == "knife" && this.tag == "enemy")
         {
             TakeDamage(other.GetComponent<KnifeBehaviour>().knifeDamage);
         }

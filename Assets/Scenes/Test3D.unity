@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748171, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -722,6 +722,18 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6966657115677596546, guid: eeae418083cc7ed4bb9c0811725848c6, type: 3}
+      propertyPath: Fury
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6966657115677596546, guid: eeae418083cc7ed4bb9c0811725848c6, type: 3}
+      propertyPath: Knife
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6966657115677596546, guid: eeae418083cc7ed4bb9c0811725848c6, type: 3}
+      propertyPath: Immortal
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6966657115677596546, guid: eeae418083cc7ed4bb9c0811725848c6, type: 3}
       propertyPath: isThisStoreLevel
       value: 0
       objectReference: {fileID: 0}
@@ -802,6 +814,59 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 0723f3f5b68d3e848af798f651d97119, type: 3}
   m_PrefabInstance: {fileID: 2005821235}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &596664051 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1349553652272819797, guid: 3464a262695b3284b8785c2e4627a4e1, type: 3}
+  m_PrefabInstance: {fileID: 659345946}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &596664064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 596664051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: add508a7d3731cf47a3d411e46d696e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upgradeController: {fileID: 0}
+  abilityDelay: 5
+  knifePrefab: {fileID: 1142548684872480264, guid: 637ecff46dd06354cb14490f7f9145ae, type: 3}
+  knifeSpeed: 5
+  knifeDamage: 50
+  mainCamera: {fileID: 0}
+--- !u!114 &596664065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 596664051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c5736183ecf03d459cff8e820e5a9ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upgradeController: {fileID: 0}
+  abilityDelay: 15
+  abilityActiveTime: 5
+--- !u!114 &596664066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 596664051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c13af8a22cb4b474a986c7e5df5b3729, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upgradeController: {fileID: 0}
+  abilityDelay: 15
+  abilityActiveTime: 5
 --- !u!1 &597221511
 GameObject:
   m_ObjectHideFlags: 0
