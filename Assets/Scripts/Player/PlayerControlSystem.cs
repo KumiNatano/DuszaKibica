@@ -31,6 +31,7 @@ public class PlayerControlSystem : MonoBehaviour
             TryToMove(movementInput);
             
         }
+        manageSpeedTimeLimit();
     }
 
     private void TryToMove(Vector3 direction)

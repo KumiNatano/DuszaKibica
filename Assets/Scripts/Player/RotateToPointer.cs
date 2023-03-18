@@ -7,7 +7,7 @@ public class RotateToPointer : MonoBehaviour
 
     [SerializeField] float baseRotation = 0; //pozwala okreslic poczatkowe ustawienie rotacji 
 
-    void FixedUpdate()
+    void Update()
     {
         Vector3 ObjectPositionOnScreen = Camera.main.WorldToViewportPoint(transform.position); //pozycja obiektu na ekranie (inna niz pozycja w swiecie gry)
         Vector3 mousePositionOnScreen = (Vector3)Camera.main.ScreenToViewportPoint(Input.mousePosition); //pozycja myszki na ekranie (inna niz pozycja w swiecie gry)

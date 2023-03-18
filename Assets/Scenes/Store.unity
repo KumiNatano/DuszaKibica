@@ -567,7 +567,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -442, y: -213}
-  m_SizeDelta: {x: 160, y: 30}
+  m_SizeDelta: {x: 188.66, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &307542038
 MonoBehaviour:
@@ -1057,7 +1057,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Noz
+  m_text: Noz do rzucania
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1933,7 +1933,7 @@ MonoBehaviour:
   actuallSceneIndex: 0
   ScenesNames:
   - Store
-  - Test_upgrades
+  - Level1
   - Store
   - Test_upgrades
   - Store
@@ -2076,12 +2076,13 @@ MonoBehaviour:
   KnifeButton: {fileID: 0}
   MoneyText: {fileID: 0}
   LiveUpgradeLevel: 0
-  StaminaUpgradeLevel: 0
+  LiveUpgradeLevelMax: 3
   LiveUpgradePrice: 10
   SingleLiveBonus: 20
-  LiveUpgradeLevelMax: 3
+  StaminaUpgradeLevel: 0
   StaminaUpgradeLevelMax: 3
   StaminaUpgradePrice: 10
+  SingleStaminaBonus: 20
   PotionAmount: 2
   PotionAmountMax: 5
   PotionPrice: 10
