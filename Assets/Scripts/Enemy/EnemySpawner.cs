@@ -50,7 +50,11 @@ public class EnemySpawner : MonoBehaviour
 
         for (int i=0; i< spawnPositions.Length; i++)
         {
-            if (Physics.OverlapSphere(spawnPositions[i].position + new Vector3(0f, 3f, 0f), freeSpaceRange) == null)
+            Collider[] results1 = Physics.OverlapBox(spawnPositions[i].position + new Vector3(0f, 2f, 0f), new Vector3(2f, 1f, 2f));
+            Debug.Log(i + " " + results1.Length + " AAA1");
+            if (results1.Length == 0)
+            //spawnPosition = spawnPositions[i].position;
+            //if (Vector3.Distance(player.transform.position, spawnPosition) < spawnRadius)
             {
                 if(testedPositions[i] == SpawnValue.inRange)
                 {
@@ -77,10 +81,14 @@ public class EnemySpawner : MonoBehaviour
                 if (testedPositions[arrayIndex] == SpawnValue.spawning)
                 {
                     //sprawdzanie, jaki jest dystans od gracza by przeciwnik nie pojawial sie tuz obok plecow) )
-                    if(Physics.OverlapSphere(spawnPositions[arrayIndex].position + new Vector3(0f, 3f, 0f), 2f) == null)
+                    Collider[] results2 = Physics.OverlapBox(spawnPositions[arrayIndex].position + new Vector3(0f, 2f, 0f), new Vector3(2f, 1f, 2f));
+                    Debug.Log(arrayIndex + " "+results2.Length + " B_2");
+                    if (results2.Length == 0)
+                    //spawnPosition = spawnPositions[arrayIndex].position;
+                    //if (Vector3.Distance(player.transform.position, spawnPosition) < spawnRadius)
                     {
                         int enemyIndex = Random.Range(0, enemy.Length);
-                        Instantiate(enemy[enemyIndex], spawnPositions[arrayIndex].position, Quaternion.identity);
+                        Instantiate(enemy[enemyIndex], spawnPositions[arrayIndex].position + new Vector3(0f, 0.2f, 0f), Quaternion.identity);
                         break;
                     }
                 }
