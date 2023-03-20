@@ -36,7 +36,7 @@ public class PlayerControlSystem : MonoBehaviour
 
     private void TryToMove(Vector3 direction)
     {
-        Vector3 high = new Vector3(0f, 1f, 0f);
+        Vector3 high = new Vector3(0f, 0.3f, 0f);
         Debug.DrawRay(transform.position + high, movementInput * 2, Color.red);
 
         if (!Physics.Raycast(transform.position + high, movementInput, 2f))
