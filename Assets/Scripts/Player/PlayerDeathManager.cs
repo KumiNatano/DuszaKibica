@@ -23,7 +23,8 @@ public class PlayerDeathManager : MonoBehaviour
         Time.timeScale = 0;
         PlayerHPBar.SetActive(false);
         PlayerStaminaBar.SetActive(false);
-        Destroy(playerModel);
+        //Destroy(playerModel);
+        playerModel.SetActive(false);
 
     }
 
