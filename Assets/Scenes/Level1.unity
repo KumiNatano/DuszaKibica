@@ -404,6 +404,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2120336248245110690, guid: 599ad0b9ebbbd394c9d14cc9d49bad15, type: 3}
+      propertyPath: furyTextures.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2120336248245110690, guid: 599ad0b9ebbbd394c9d14cc9d49bad15, type: 3}
+      propertyPath: furyTextures.Array.data[0]
+      value: 
+      objectReference: {fileID: 2800000, guid: 5606382824dbb5c46b95c9829bc1c6e0, type: 3}
+    - target: {fileID: 2120336248245110690, guid: 599ad0b9ebbbd394c9d14cc9d49bad15, type: 3}
+      propertyPath: furyTextures.Array.data[1]
+      value: 
+      objectReference: {fileID: 2800000, guid: e36b16a4d9df25041a02fa736a13c1a6, type: 3}
+    - target: {fileID: 2120336248245110690, guid: 599ad0b9ebbbd394c9d14cc9d49bad15, type: 3}
+      propertyPath: furyTextures.Array.data[2]
+      value: 
+      objectReference: {fileID: 2800000, guid: 208f5d86bdb35734ab151c4d7b44e1b3, type: 3}
     - target: {fileID: 4853475396783008467, guid: 599ad0b9ebbbd394c9d14cc9d49bad15, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -3439,7 +3455,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6966657115677596546, guid: eeae418083cc7ed4bb9c0811725848c6, type: 3}
       propertyPath: Immortal
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6966657115677596546, guid: eeae418083cc7ed4bb9c0811725848c6, type: 3}
       propertyPath: isThisStoreLevel
