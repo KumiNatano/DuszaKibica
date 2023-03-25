@@ -68,12 +68,12 @@ public class ImmortalAbility : MonoBehaviour
     {
         isActive = true;
         this.gameObject.GetComponent<HealthSystem>().setImmortal(5, 15);
-        Debug.Log("tu wstawic zeby dalo niesmiertelnosc");
+        //Debug.Log("tu wstawic zeby dalo niesmiertelnosc");
     }
 
     void deactivateAbility()
     {
         isActive = false;
-        Debug.Log("tu wstawic zeby zabralo niesmiertelnosc");
+        //Debug.Log("tu wstawic zeby zabralo niesmiertelnosc");
     }
 }
