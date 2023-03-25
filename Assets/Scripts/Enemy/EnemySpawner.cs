@@ -51,7 +51,7 @@ public class EnemySpawner : MonoBehaviour
         for (int i=0; i< spawnPositions.Length; i++)
         {
             Collider[] results1 = Physics.OverlapBox(spawnPositions[i].position + new Vector3(0f, 2f, 0f), new Vector3(2f, 1f, 2f));
-            Debug.Log(i + " " + results1.Length + " AAA1");
+            //Debug.Log(i + " " + results1.Length + " AAA1");
             if (results1.Length == 0)
             //spawnPosition = spawnPositions[i].position;
             //if (Vector3.Distance(player.transform.position, spawnPosition) < spawnRadius)
