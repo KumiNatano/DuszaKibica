@@ -14,13 +14,14 @@ public enum SpawnValue
 public class EnemySpawner : MonoBehaviour
 {
 
-    [SerializeField] GameObject[] enemy;
+    //[SerializeField] GameObject[] enemy; //juz nie wykorzystywane
+    [SerializeField] GameObject[] enemySpawningList; //lista przeciwnikow, ktorzy maja sie pojawic w okreslonej kolejnosci
     [SerializeField] Transform[] spawnPositions;
     [SerializeField] SpawnValue[] testedPositions;
-    [SerializeField] int spawnCount = 0; //zlicza ile mamy juz spawnow, poki co nigdzie nieuzywane
-    [SerializeField] int nullSpawnCount = 0; //zlicza ile spawnow nie bylo wykonanych, poki co nigdzie nieuzywane
+    [SerializeField] int spawnCount = 0; //zlicza ile mamy juz spawnow
+    [SerializeField] int nullSpawnCount = 0; //zlicza ile spawnow nie bylo wykonanych
     [SerializeField] float freeSpaceRange = 2f;
-    [SerializeField] float spawnRadius = 100f;
+    [SerializeField] float spawnRadius = 30f;
     public GameObject player;
 
     void Start()
@@ -39,57 +40,51 @@ public class EnemySpawner : MonoBehaviour
         int arrayIndex;
         int counter = 0;
 
+        // ETAP 1: Wyszukiwanie pól w otoczeniu gracza
         Vector3 spawnPosition;
         for (int i = 0; i < spawnPositions.Length; i++)
         {
             spawnPosition = spawnPositions[i].position;
             if(Vector3.Distance(player.transform.position, spawnPosition) < spawnRadius)
                 testedPositions[i] = SpawnValue.inRange;
-
         }
-
+        // ETAP 2: sprawdzanie, czy na miejscu do spawnowania nie ma innych wrogów lub gracza
         for (int i=0; i< spawnPositions.Length; i++)
         {
             Collider[] results1 = Physics.OverlapBox(spawnPositions[i].position + new Vector3(0f, 2f, 0f), new Vector3(2f, 1f, 2f));
-            Debug.Log(i + " " + results1.Length + " AAA1");
+            //Debug.Log(i + " " + results1.Length + " AAA1");
             if (results1.Length == 0)
-            //spawnPosition = spawnPositions[i].position;
-            //if (Vector3.Distance(player.transform.position, spawnPosition) < spawnRadius)
             {
                 if(testedPositions[i] == SpawnValue.inRange)
                 {
                     testedPositions[i] = SpawnValue.spawning;
                     ++counter;
                 }
-                else
-                {
+                else 
                     testedPositions[i] = SpawnValue.alreadyTested;
-                }
             }
-            else
-            {
+            else 
                 testedPositions[i] = SpawnValue.alreadyTested;
-            }
         }
-        //WriteSpawnsValues();
-
+        //  ETAP 3: spawnowania przeciwnikow
         if (counter >= 1)
         {
-            for (int i = 0; i < testedPositions.Length*2; i++)
+            if (spawnCount < enemySpawningList.Length)
             {
-                arrayIndex = Random.Range(0, testedPositions.Length);
-                if (testedPositions[arrayIndex] == SpawnValue.spawning)
+                for (int i = 0; i < testedPositions.Length * 2; i++)
                 {
-                    //sprawdzanie, jaki jest dystans od gracza by przeciwnik nie pojawial sie tuz obok plecow) )
-                    Collider[] results2 = Physics.OverlapBox(spawnPositions[arrayIndex].position + new Vector3(0f, 2f, 0f), new Vector3(2f, 1f, 2f));
-                    Debug.Log(arrayIndex + " "+results2.Length + " B_2");
-                    if (results2.Length == 0)
-                    //spawnPosition = spawnPositions[arrayIndex].position;
-                    //if (Vector3.Distance(player.transform.position, spawnPosition) < spawnRadius)
+                    arrayIndex = Random.Range(0, testedPositions.Length);
+                    if (testedPositions[arrayIndex] == SpawnValue.spawning)
                     {
-                        int enemyIndex = Random.Range(0, enemy.Length);
-                        Instantiate(enemy[enemyIndex], spawnPositions[arrayIndex].position + new Vector3(0f, 0.2f, 0f), Quaternion.identity);
-                        break;
+                        //sprawdzanie, jaki jest dystans od gracza by przeciwnik nie pojawial sie tuz obok plecow
+                        Collider[] results2 = Physics.OverlapBox(spawnPositions[arrayIndex].position + new Vector3(0f, 2f, 0f), new Vector3(2f, 1f, 2f));
+                        //Debug.Log(arrayIndex + " "+results2.Length + " B_2");
+                        if (results2.Length == 0)
+                        {
+                            Instantiate(enemySpawningList[spawnCount], spawnPositions[arrayIndex].position + new Vector3(0f, 0.2f, 0f), Quaternion.identity);
+                            ++spawnCount;
+                            break;
+                        }
                     }
                 }
             }
