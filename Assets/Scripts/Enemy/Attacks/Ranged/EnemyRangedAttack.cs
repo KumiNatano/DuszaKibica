@@ -24,7 +24,7 @@ public class EnemyRangedAttack : MonoBehaviour
     }
     void Update()
     {
-        if (Vector3.Distance(transform.position, player.position) < attackDistance)
+        if (Vector3.Distance(transform.position, player.position) < attackDistance&&canAttack)
         {
             //GameObject knife = Instantiate(enemyKnifePrefab, new Vector3(this.transform.position.x, 1, this.transform.position.z), this.transform.rotation);
             throwKnife();
