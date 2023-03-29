@@ -16,7 +16,6 @@ public class PlayerAttack : MonoBehaviour
     private bool canAttack = true;
 
     [SerializeField] private GameObject swish;
-    [SerializeField] private GameObject animator;
 
     void Start()
     {
@@ -61,9 +60,29 @@ public class PlayerAttack : MonoBehaviour
             attackArea.SetActive(isAttacking);
             this.gameObject.GetComponent<PunchAudio>().PlaySwishSound(); //odtwarzanie dzwieku machniecia
             swish.SetActive(isAttacking);
-            animator.GetComponent<PunchAnimation>().Punch();
+
+            int animacjaAtaku = Random.Range(1, 3);
+
+            if (animacjaAtaku == 1)
+            {
+                this.gameObject.GetComponent<PlayerAnimations>().setIsAttackingLeftTrue();
+            }
+
+            else if (animacjaAtaku == 2)
+            {
+                this.gameObject.GetComponent<PlayerAnimations>().setIsAttackingRightTrue();
+            }
+
+            StartCoroutine(turnOffAnimation());
         }
         
+    }
+
+    IEnumerator turnOffAnimation()
+    {
+        yield return new WaitForSeconds(0.311f); //idealnie dlugosc animacji uderzania, w przyszlosci lepiej wrzucic to do zmiennej jesli beda np animacje o roznej dlugosci
+        this.gameObject.GetComponent<PlayerAnimations>().setIsAttackingLeftFalse();
+        this.gameObject.GetComponent<PlayerAnimations>().setIsAttackingRightFalse();
     }
 
 }

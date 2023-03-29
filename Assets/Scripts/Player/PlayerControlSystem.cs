@@ -29,8 +29,14 @@ public class PlayerControlSystem : MonoBehaviour
         if (movementInput != Vector3.zero)
         {
             TryToMove(movementInput);
-            
+            this.gameObject.GetComponent<PlayerAnimations>().setIsWalkingTrue();
         }
+        else
+        {
+            this.gameObject.GetComponent<PlayerAnimations>().setIsWalkingFalse();
+        }
+
+
         manageSpeedTimeLimit();
     }
 
@@ -42,6 +48,7 @@ public class PlayerControlSystem : MonoBehaviour
         if (!Physics.Raycast(transform.position + high, movementInput, 2f))
         {
             collisionShape.MovePosition(transform.position + direction * moveSpeed * Time.fixedDeltaTime);
+            
         }
     }
 
