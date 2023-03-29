@@ -11,8 +11,8 @@ public class EnemyRangedAttack : MonoBehaviour
     [SerializeField] int attackDistance = 7;
     [SerializeField] Transform player;
     [SerializeField] GameObject enemyKnifePrefab;
-    float knifeSpeed;
-    int knifeDamage;
+    float knifeSpeed=9f;
+    int knifeDamage=10;
 
 
 
@@ -51,8 +51,10 @@ public class EnemyRangedAttack : MonoBehaviour
         //player = GameObject.FindGameObjectWithTag("player").transform;
 
         GameObject knife = Instantiate(enemyKnifePrefab, new Vector3(this.transform.position.x, 1, this.transform.position.z), this.transform.rotation);
-        knife.GetComponent<ThrowingKnifeEnemy>().destinationPosition = new Vector3(player.position.x * 1, 1, player.position.z * 1);
-        knife.GetComponent<ThrowingKnifeEnemy>().knifeSpeed = knifeSpeed;
+        Vector3 destination= new Vector3(player.position.x * 1, 1, player.position.z * 1);
+        knife.GetComponent<KnifeBehaviour>().setAll(destination, knifeSpeed, knifeDamage, "player");
+        //knife.GetComponent<ThrowingKnifeEnemy>().destinationPosition = new Vector3(player.position.x * 1, 1, player.position.z * 1);
+        //knife.GetComponent<ThrowingKnifeEnemy>().knifeSpeed = knifeSpeed;
         //knife.GetComponent<KnifeBehaviour>().knifeDamage = knifeDamage;
 
     }

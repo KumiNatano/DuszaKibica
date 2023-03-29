@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2103580087654880611}
   - component: {fileID: 8331897246586694135}
   - component: {fileID: 3852605800111432361}
-  - component: {fileID: 2346929554097573533}
+  - component: {fileID: 1197507129305985795}
   m_Layer: 0
   m_Name: EnemyKnife
   m_TagString: knife
@@ -98,7 +98,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2346929554097573533
+--- !u!114 &1197507129305985795
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -107,9 +107,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 4576878253421400309}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7ae835f121c09c4dbe6592c1193cdde, type: 3}
+  m_Script: {fileID: 11500000, guid: 84c7241ae03f6ca499ac326c0692e0cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   destinationPosition: {x: 0, y: 0, z: 0}
   knifeSpeed: 5
   knifeDamage: 5
+  targetTag: enemy
+  reachedPosition: {x: 0, y: 0, z: 0}
