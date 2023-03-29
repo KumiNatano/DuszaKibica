@@ -2422,7 +2422,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dropChance: 100
   itemID: 0
-  scarf: {fileID: 7201139314168773139, guid: a953139bcf0480045a6554d8003fbd87, type: 3}
+  scarf: {fileID: 189670758977509077, guid: 9d8acb3d5024fb64fb3f77c16039a608, type: 3}
 --- !u!54 &-1685187793296673599
 Rigidbody:
   m_ObjectHideFlags: 0
