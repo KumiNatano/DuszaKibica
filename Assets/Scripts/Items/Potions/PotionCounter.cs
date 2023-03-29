@@ -22,6 +22,6 @@ public class PotionCounter : MonoBehaviour
     }
     public void updateCounter(int potions)
     {
-        counter.text = potions.ToString()+"x Potions";
+        //counter.text = potions.ToString()+"x Potions";
     }
 }

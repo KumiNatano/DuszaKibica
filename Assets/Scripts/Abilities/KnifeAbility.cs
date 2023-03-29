@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class KnifeAbility : MonoBehaviour
 {
@@ -17,14 +18,22 @@ public class KnifeAbility : MonoBehaviour
 
     [SerializeField] Camera mainCamera;
 
+    [SerializeField] GameObject UI = null;
+    [SerializeField] GameObject abilities = null;
+    [SerializeField] GameObject knifeImage = null;
 
     void Start()
     {
+
         mainCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
         upgradeController = GameObject.Find("UpgradeController").GetComponent<UpgradeController>();
         if (upgradeController.Knife == true)
         {
             isKnifeBuyed = true;
+            UI = GameObject.Find("UI");
+            abilities = UI.transform.Find("Abilities").gameObject;
+            knifeImage = abilities.transform.Find("Knife").gameObject;
+            knifeImage.GetComponent<RawImage>().texture = abilities.GetComponent<AbilitiesUI>().knifeTextures[0]; //ustawiamy obrazek na wyszarzony
         }
     }
 
@@ -36,6 +45,8 @@ public class KnifeAbility : MonoBehaviour
 
             if (Time.time > timeDelay)
             {
+                knifeImage.GetComponent<RawImage>().texture = abilities.GetComponent<AbilitiesUI>().knifeTextures[1]; //ustawiamy obrazek na dostepny
+
                 if (Input.GetKeyDown(KeyCode.Q))
                 {
                     activateAbility();
@@ -47,6 +58,8 @@ public class KnifeAbility : MonoBehaviour
 
     void activateAbility()
     {
+        knifeImage.GetComponent<RawImage>().texture = abilities.GetComponent<AbilitiesUI>().knifeTextures[0]; //ustawiamy obrazek na wyszarzony
+
         Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
         if(Physics.Raycast(ray, out RaycastHit raycastHit))
         {
@@ -54,7 +67,7 @@ public class KnifeAbility : MonoBehaviour
         }
 
         GameObject knife = Instantiate(knifePrefab, new Vector3(this.transform.position.x, 1, this.transform.position.z), this.transform.rotation);
-        knife.GetComponent<KnifeBehaviour>().destinationPosition = new Vector3(mouseWorldPosition.x*1, 1, mouseWorldPosition.z*1); //przemno¿one przez 100 ¿eby lecia³o dalej
+        knife.GetComponent<KnifeBehaviour>().destinationPosition = new Vector3(mouseWorldPosition.x*1, 1, mouseWorldPosition.z*1);
         knife.GetComponent<KnifeBehaviour>().knifeSpeed = knifeSpeed;
         knife.GetComponent<KnifeBehaviour>().knifeDamage = knifeDamage;
     }

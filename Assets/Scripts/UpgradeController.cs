@@ -20,6 +20,7 @@ public class UpgradeController : MonoBehaviour
     [SerializeField] Button ImmortalButton = null;
     [SerializeField] Button KnifeButton = null;
     [SerializeField] TMP_Text MoneyText = null;
+    [SerializeField] GameObject UI = null;
 
     [Header("Live")]
     public int LiveUpgradeLevel = 0;
@@ -76,10 +77,45 @@ public class UpgradeController : MonoBehaviour
             ImmortalButton = GameObject.Find("ImmortalButton").GetComponent<Button>();
             KnifeButton = GameObject.Find("KnifeButton").GetComponent<Button>();
         }
+        else
+        {
+            UI = GameObject.Find("UI");
+            refreshUI();
+        }
 
         MoneyText = GameObject.Find("MoneyText").GetComponent<TMP_Text>();
 
         updateMoneyText();
+
+        
+
+    }
+
+    void refreshUI()
+    {
+        GameObject abilities = UI.transform.Find("Abilities").gameObject;
+
+        GameObject knifeImage = null;
+        GameObject FuryImage = null;
+        GameObject immortalImage = null;
+
+        if (Knife)
+        {
+            knifeImage = abilities.transform.Find("Knife").gameObject;
+            knifeImage.SetActive(true);
+        }
+
+        if (Fury)
+        {
+            FuryImage = abilities.transform.Find("Fury").gameObject;
+            FuryImage.SetActive(true);
+        }
+
+        if (Immortal)
+        {
+            immortalImage = abilities.transform.Find("Immortal").gameObject;
+            immortalImage.SetActive(true);
+        }
 
     }
 
