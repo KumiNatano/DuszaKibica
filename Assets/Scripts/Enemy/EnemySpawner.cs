@@ -23,9 +23,11 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] float freeSpaceRange = 2f;
     [SerializeField] float spawnRadius = 30f;
     public GameObject player;
+    public bool completeObjectives; // uzywane przez skrypt AreaObjectivees
 
     void Start()
     {
+        completeObjectives = false;
         testedPositions = new SpawnValue[spawnPositions.Length];
         for(int i = 0; i< spawnPositions.Length; i++)
         {
@@ -87,6 +89,10 @@ public class EnemySpawner : MonoBehaviour
                         }
                     }
                 }
+            }
+            else
+            {
+                completeObjectives = true;
             }
         }
         else
