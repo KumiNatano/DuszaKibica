@@ -90,13 +90,13 @@ public class HealthSystem : MonoBehaviour
     }
 
 
-    private void OnTriggerEnter(Collider other)
+    /*private void OnTriggerEnter(Collider other)
     {
         if(other.tag == "knife" && this.tag == "enemy")
         {
             TakeDamage(other.GetComponent<KnifeBehaviour>().knifeDamage);
         }
-    }
+    }*/
     
     public void setImmortal(double iTime, double cTime)
     {
