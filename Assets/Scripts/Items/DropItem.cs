@@ -10,6 +10,11 @@ public class DropItem : MonoBehaviour
     [SerializeField] int degreesPerSecond = 360;
     //string description;
     //atrybuty end
+    private void Start()
+    {
+        transform.position += new Vector3(0f, 0.3f, 0f);
+    }
+
     void Update()
     {
         rotating();
