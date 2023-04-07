@@ -23,11 +23,11 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] float freeSpaceRange = 2f;
     [SerializeField] float spawnRadius = 30f;
     public GameObject player;
-    public bool completeObjectives; // uzywane przez skrypt AreaObjectivees
+    public bool finishedSpawning; // uzywane przez skrypt AreaObjectivees
 
     void Start()
     {
-        completeObjectives = false;
+        finishedSpawning = false;
         testedPositions = new SpawnValue[spawnPositions.Length];
         for(int i = 0; i< spawnPositions.Length; i++)
         {
@@ -54,7 +54,7 @@ public class EnemySpawner : MonoBehaviour
         for (int i=0; i< spawnPositions.Length; i++)
         {
             Collider[] results1 = Physics.OverlapBox(spawnPositions[i].position + new Vector3(0f, 2f, 0f), new Vector3(2f, 1f, 2f));
-            //Debug.Log(i + " " + results1.Length + " AAA1");
+            //Debug.Log(this.name + " " + i + ", Etap 2: " + results1.Length);
             if (results1.Length == 0)
             {
                 if(testedPositions[i] == SpawnValue.inRange)
@@ -80,7 +80,7 @@ public class EnemySpawner : MonoBehaviour
                     {
                         //sprawdzanie, jaki jest dystans od gracza by przeciwnik nie pojawial sie tuz obok plecow
                         Collider[] results2 = Physics.OverlapBox(spawnPositions[arrayIndex].position + new Vector3(0f, 2f, 0f), new Vector3(2f, 1f, 2f));
-                        //Debug.Log(arrayIndex + " "+results2.Length + " B_2");
+                        //Debug.Log(this.name + " " + arrayIndex + ", Etap 3: " + results2.Length);
                         if (results2.Length == 0)
                         {
                             Instantiate(enemySpawningList[spawnCount], spawnPositions[arrayIndex].position + new Vector3(0f, 0.2f, 0f), Quaternion.identity);
@@ -92,7 +92,8 @@ public class EnemySpawner : MonoBehaviour
             }
             else
             {
-                completeObjectives = true;
+                finishedSpawning = true;
+                //StopAllCoroutines();
             }
         }
         else
