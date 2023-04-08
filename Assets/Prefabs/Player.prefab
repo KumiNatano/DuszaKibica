@@ -28,6 +28,7 @@ GameObject:
   - component: {fileID: 8670676161484161571}
   - component: {fileID: 755802712975030763}
   - component: {fileID: 5366008581421057144}
+  - component: {fileID: 7449069362667390847}
   m_Layer: 0
   m_Name: Player
   m_TagString: player
@@ -98,6 +99,7 @@ MonoBehaviour:
   moveSpeed: 5
   collisionOffset: 0.05
   cooldownSpeed: 0
+  isTopDownEnabled: 0
 --- !u!114 &4692085042068846463
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -111,6 +113,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseRotation: 90
+  isTopDownEnabled: 0
 --- !u!114 &5891462997468904518
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -166,7 +169,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cooldown: 0.5
   swish: {fileID: 4610072713061395454}
-  animator: {fileID: 8883967244567917972}
 --- !u!82 &356740842
 AudioSource:
   m_ObjectHideFlags: 0
@@ -459,6 +461,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 8127609377655179748}
+--- !u!114 &7449069362667390847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1349553652272819797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 631ca6e65a0d08841a6d2988560a386d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTopDownEnabled: 0
 --- !u!1 &5133175879050358417
 GameObject:
   m_ObjectHideFlags: 0
