@@ -6,10 +6,13 @@ public class RotateToPointer : MonoBehaviour
 {
 
     [SerializeField] float baseRotation = 0; //pozwala okreslic poczatkowe ustawienie rotacji 
-    private bool isTopDownEnabled = false; // czy wlaczony jest widok top-down
-    private int cameraMode = 3;
+
+    private PerspectiveController perspectiveController;
+
     [SerializeField] Camera tppCamera;
+    [SerializeField] Camera fppCamera;
     [SerializeField] GameObject playerModel;
+    [SerializeField] GameObject lepetyna;
 
     // Czu³oœæ ruchu myszy
     public float mouseSensitivityX = 100f;
@@ -26,26 +29,17 @@ public class RotateToPointer : MonoBehaviour
     private void Start()
     {
 
-
-        isTopDownEnabled = this.gameObject.GetComponent<PerspectiveController>().isTopDownEnabled; // pobieramy perspektywe z kontrolera perspektywy
-
-        cameraMode = this.gameObject.GetComponent<PerspectiveController>().cameraMode;
+        perspectiveController = this.gameObject.GetComponent<PerspectiveController>();
 
         playerBody = this.transform;
-
-        if (isTopDownEnabled == false)
-        {
-            // Zablokuj kursor w œrodku ekranu
-            Cursor.lockState = CursorLockMode.Locked;
-        }
 
     }
 
     void Update()
     {
-        if(isTopDownEnabled == true) 
+        if (perspectiveController.cameraMode == 2)
         {
-
+            Cursor.lockState = CursorLockMode.None;
             Vector3 ObjectPositionOnScreen = Camera.main.WorldToViewportPoint(transform.position); //pozycja obiektu na ekranie (inna niz pozycja w swiecie gry)
             Vector3 mousePositionOnScreen = (Vector3)Camera.main.ScreenToViewportPoint(Input.mousePosition); //pozycja myszki na ekranie (inna niz pozycja w swiecie gry)
 
@@ -54,65 +48,59 @@ public class RotateToPointer : MonoBehaviour
             this.transform.rotation = Quaternion.Euler(new Vector3(0f, -AngleBetween - baseRotation, 0f));
 
         }
-        else
+
+
+        else if (perspectiveController.cameraMode == 3)
         {
-            if (cameraMode == 3) {
-
-                // Pobierz wartoœæ ruchu myszy po osi X i przemnó¿ przez czu³oœæ ruchu myszy
-                float mouseX = Input.GetAxis("Mouse X") * mouseSensitivityX * Time.deltaTime;
-
-
-                // Pobierz wartoœæ ruchu myszy po osi Y i przemnó¿ przez czu³oœæ ruchu myszy
-                float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivityY * Time.deltaTime;
-
-                // Odejmij wartoœæ ruchu myszy po osi Y od aktualnej wartoœci rotacji kamery wokó³ osi X
-                xRotation -= mouseY;
-
-                // Ogranicz wartoœæ rotacji kamery wokó³ osi X do zakresu od -90 do 90 stopni
-                xRotation = Mathf.Clamp(xRotation, -15f, 30f);
-
-                //dlaczego po prostu nie obrocic playerBody, ktore zawiera w sobie kamere?
-                //otoz nie dziala i nie mam pojecia dlaczego, postac blokuje sie w jednej pozycji obrotu
-                //wlasnie dlatego jest takie obejscie, ale I guess, ze ma sens, poniewaz w przyszlosci 
-                //raczej bedziemy chcieli zeby sama glowa patrzyla w gore
-                tppCamera.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
-                playerModel.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+            Cursor.lockState = CursorLockMode.Locked;
+            // Pobierz wartoœæ ruchu myszy po osi X i przemnó¿ przez czu³oœæ ruchu myszy
+            float mouseX = Input.GetAxis("Mouse X") * mouseSensitivityX * Time.deltaTime;
 
 
-                // Obróæ cia³o gracza za pomoc¹ wektora Vector3.up (oœ Y) przemno¿onego przez wartoœæ ruchu myszy po osi X
-                playerBody.Rotate(Vector3.up * mouseX);
+            // Pobierz wartoœæ ruchu myszy po osi Y i przemnó¿ przez czu³oœæ ruchu myszy
+            float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivityY * Time.deltaTime;
 
-            }
+            // Odejmij wartoœæ ruchu myszy po osi Y od aktualnej wartoœci rotacji kamery wokó³ osi X
+            xRotation -= mouseY;
 
-            else if(cameraMode == 1)
-            {
+            // Ogranicz wartoœæ rotacji kamery wokó³ osi X do zakresu od -90 do 90 stopni
+            xRotation = Mathf.Clamp(xRotation, -15f, 30f);
 
-                // Pobierz wartoœæ ruchu myszy po osi X i przemnó¿ przez czu³oœæ ruchu myszy
-                float mouseX = Input.GetAxis("Mouse X") * mouseSensitivityX * Time.deltaTime;
+            tppCamera.transform.LookAt(lepetyna.transform);
+            //tppCamera.transform.position += new Vector3(0f, xRotation, 0f);
 
-                // Pobierz wartoœæ ruchu myszy po osi Y i przemnó¿ przez czu³oœæ ruchu myszy
-                float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivityY * Time.deltaTime;
 
-                // Dodaj wartoœæ ruchu myszy po osi X do aktualnej rotacji kamery wokó³ osi Y
-                yRotation += mouseX;
+            // Obróæ cia³o gracza za pomoc¹ wektora Vector3.up (oœ Y) przemno¿onego przez wartoœæ ruchu myszy po osi X
+            playerBody.Rotate(Vector3.up * mouseX);
 
-                // Odejmij wartoœæ ruchu myszy po osi Y od aktualnej wartoœci rotacji kamery wokó³ osi X
-                xRotation -= mouseY;
+        }
 
-                // Ogranicz wartoœæ rotacji kamery wokó³ osi X do zakresu od -90 do 90 stopni
-                xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+        else if (perspectiveController.cameraMode == 1)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            // Pobierz wartoœæ ruchu myszy po osi X i przemnó¿ przez czu³oœæ ruchu myszy
+            float mouseX = Input.GetAxis("Mouse X") * mouseSensitivityX * Time.deltaTime;
 
-                // Utwórz nowy Quaternion na podstawie aktualnej rotacji kamery
-                Quaternion rotation = Quaternion.Euler(xRotation, yRotation, 0f);
+            // Pobierz wartoœæ ruchu myszy po osi Y i przemnó¿ przez czu³oœæ ruchu myszy
+            float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivityY * Time.deltaTime;
 
-                // Ustaw now¹ rotacjê kamery
-                tppCamera.transform.localRotation = rotation;
+            // Dodaj wartoœæ ruchu myszy po osi X do aktualnej rotacji kamery wokó³ osi Y
+            yRotation += mouseX;
 
-                // Obróæ cia³o gracza wokó³ osi Y zgodnie z ruchem myszy
-                playerBody.transform.Rotate(Vector3.up * mouseX);
-               
+            // Odejmij wartoœæ ruchu myszy po osi Y od aktualnej wartoœci rotacji kamery wokó³ osi X
+            xRotation -= mouseY;
 
-            }
+            // Ogranicz wartoœæ rotacji kamery wokó³ osi X do zakresu od -90 do 90 stopni
+            xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+
+            // Utwórz nowy Quaternion na podstawie aktualnej rotacji kamery
+            Quaternion cameraRotation = Quaternion.Euler(xRotation, 0f, 0f);
+
+            // Obróæ cia³o gracza wokó³ osi Y zgodnie z ruchem myszy
+            playerBody.Rotate(Vector3.up * mouseX);
+
+            // Ustaw now¹ rotacjê kamery
+            fppCamera.transform.localRotation = cameraRotation;
 
 
         }
