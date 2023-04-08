@@ -1552,6 +1552,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2097859922}
     m_Modifications:
+    - target: {fileID: 6171715739270453790, guid: 579f6a4d5b4da5f428c5921a69b3b190, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0723f3f5b68d3e848af798f651d97119, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -1603,10 +1607,6 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 0723f3f5b68d3e848af798f651d97119, type: 3}
       propertyPath: m_TagString
       value: Ground
-      objectReference: {fileID: 0}
-    - target: {fileID: 6171715739270453790, guid: 579f6a4d5b4da5f428c5921a69b3b190, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0723f3f5b68d3e848af798f651d97119, type: 3}
@@ -2764,6 +2764,10 @@ PrefabInstance:
       propertyPath: upgradeController
       value: 
       objectReference: {fileID: 1574208082}
+    - target: {fileID: 7449069362667390847, guid: 3464a262695b3284b8785c2e4627a4e1, type: 3}
+      propertyPath: cameraMode
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3464a262695b3284b8785c2e4627a4e1, type: 3}
 --- !u!4 &381886169 stripped

@@ -17,12 +17,12 @@ public class CameraController : MonoBehaviour
 
     Quaternion rotationBeforeSwitch;
 
-    [SerializeField] private bool isTopDownEnabled = false; // czy wlaczony jest widok top-down
+    private PerspectiveController perspectiveController;
 
     // Start is called before the first frame update
     void Start()
     {
-        isTopDownEnabled = GameObject.Find("Player").GetComponent<PerspectiveController>().isTopDownEnabled; // pobieramy perspektywe z kontrolera perspektywy
+        perspectiveController = GameObject.Find("Player").GetComponent<PerspectiveController>(); // pobieramy perspektywe z kontrolera perspektywy
 
         Vector3 vector = new Vector3(0f, high , - 1f); // w tym miejscu zmieniamy Y by ustawic k�t kamery
         transform.position = player.transform.position + vector;
@@ -32,7 +32,7 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(isTopDownEnabled)
+        if(perspectiveController.cameraMode == 2)
         {
             followPlayer();
         }
