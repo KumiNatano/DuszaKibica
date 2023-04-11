@@ -1663,7 +1663,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  distanceBetween: 10
+  distanceBetween: 30
 --- !u!114 &7077136880649137053
 MonoBehaviour:
   m_ObjectHideFlags: 0

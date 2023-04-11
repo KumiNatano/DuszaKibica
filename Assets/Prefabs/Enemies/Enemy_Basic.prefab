@@ -2385,7 +2385,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  distanceBetween: 14
+  distanceBetween: 40
 --- !u!114 &6382841541820141999
 MonoBehaviour:
   m_ObjectHideFlags: 0
