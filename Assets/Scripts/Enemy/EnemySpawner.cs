@@ -24,6 +24,8 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] float spawnRadius = 30f;
     public GameObject player;
     public bool finishedSpawning; // uzywane przez skrypt AreaObjectivees
+    private Vector3 boxPosition = new Vector3(0f, 2f, 0f);
+    private Vector3 boxSize = new Vector3(3f, 1f, 3f);
 
     void Start()
     {
@@ -35,6 +37,19 @@ public class EnemySpawner : MonoBehaviour
         }
         StartCoroutine(SpawnEnemy());
     }
+
+#if UNITY_EDITOR
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+        for (int i = 0; i < spawnPositions.Length; i++)
+        {
+            Vector3 ghostPosition = spawnPositions[i].transform.position + new Vector3(0f, 1f, 0f);
+            Vector3 ghostSize = boxSize;
+            Gizmos.DrawWireCube(ghostPosition, ghostSize);
+        }
+    }
+#endif
 
     IEnumerator SpawnEnemy()
     {
@@ -53,7 +68,7 @@ public class EnemySpawner : MonoBehaviour
         // ETAP 2: sprawdzanie, czy na miejscu do spawnowania nie ma innych wrogów lub gracza
         for (int i=0; i< spawnPositions.Length; i++)
         {
-            Collider[] results1 = Physics.OverlapBox(spawnPositions[i].position + new Vector3(0f, 2f, 0f), new Vector3(2f, 1f, 2f));
+            Collider[] results1 = Physics.OverlapBox(spawnPositions[i].position + boxPosition, boxSize);
             //Debug.Log(this.name + " " + i + ", Etap 2: " + results1.Length);
             if (results1.Length == 0)
             {
@@ -79,7 +94,7 @@ public class EnemySpawner : MonoBehaviour
                     if (testedPositions[arrayIndex] == SpawnValue.spawning)
                     {
                         //sprawdzanie, jaki jest dystans od gracza by przeciwnik nie pojawial sie tuz obok plecow
-                        Collider[] results2 = Physics.OverlapBox(spawnPositions[arrayIndex].position + new Vector3(0f, 2f, 0f), new Vector3(2f, 1f, 2f));
+                        Collider[] results2 = Physics.OverlapBox(spawnPositions[arrayIndex].position + boxPosition, boxSize);
                         //Debug.Log(this.name + " " + arrayIndex + ", Etap 3: " + results2.Length);
                         if (results2.Length == 0)
                         {
