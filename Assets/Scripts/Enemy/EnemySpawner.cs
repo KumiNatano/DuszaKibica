@@ -21,7 +21,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] int spawnCount = 0; //zlicza ile mamy juz spawnow
     [SerializeField] int nullSpawnCount = 0; //zlicza ile spawnow nie bylo wykonanych
     [SerializeField] float freeSpaceRange = 2f;
-    [SerializeField] float spawnRadius = 30f;
+    [SerializeField] float spawnRadius = 60f;
     public GameObject player;
     public bool finishedSpawning; // uzywane przez skrypt AreaObjectivees
     private Vector3 boxPosition = new Vector3(0f, 2f, 0f);
