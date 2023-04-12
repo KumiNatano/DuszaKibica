@@ -2200,7 +2200,7 @@ MonoBehaviour:
   objectTagToFind: player
   attackDistance: 7
   player: {fileID: 0}
-  knifePrefab: {fileID: 1142548684872480264, guid: 637ecff46dd06354cb14490f7f9145ae, type: 3}
+  enemyKnifePrefab: {fileID: 4576878253421400309, guid: b0cffe98f225c7149b4a396b963ae5ab, type: 3}
 --- !u!1 &7298539298198486425
 GameObject:
   m_ObjectHideFlags: 0

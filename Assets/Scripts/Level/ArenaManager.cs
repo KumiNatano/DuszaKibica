@@ -5,12 +5,12 @@ using UnityEngine;
 public class ArenaManager : MonoBehaviour
 {
     [SerializeField] List<AreaObjectives> areas;
-    [SerializeField] int actualArena = 0;
+    [SerializeField] int actualArena = -1;
     [SerializeField] bool IsBeetwenArenas;
     // Start is called before the first frame update
     void Awake()
     {
-        areas[0].activateArena = true;
+        //areas[0].activateArena = true;
         actualArena = 0;
         IsBeetwenArenas = false;
     }
@@ -18,6 +18,10 @@ public class ArenaManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (areas[0].GetComponentInChildren<LevelTrigger>().getEnterNewArea())
+        {
+            areas[actualArena].activateArena = true;
+        }
         if (areas[actualArena].goToNextArena)
         {
             IsBeetwenArenas = true;
