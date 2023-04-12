@@ -19,6 +19,7 @@ public class PlayerDeathManager : MonoBehaviour
     }
     public void PlayerDeath()
     {
+        Cursor.lockState = CursorLockMode.None;
         restartImage.SetActive(true);
         Time.timeScale = 0;
         PlayerHPBar.SetActive(false);
