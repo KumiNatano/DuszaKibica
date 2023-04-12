@@ -2758,7 +2758,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4610072713061395454, guid: 3464a262695b3284b8785c2e4627a4e1, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4692085042068846463, guid: 3464a262695b3284b8785c2e4627a4e1, type: 3}
       propertyPath: fppCamera
@@ -18783,7 +18783,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1635547014486048103
 GameObject:
   m_ObjectHideFlags: 0
@@ -19636,7 +19636,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3834727872623754232
 Transform:
   m_ObjectHideFlags: 0
@@ -19843,7 +19843,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &4161627698746700729
 GameObject:
   m_ObjectHideFlags: 0
@@ -20004,7 +20004,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &5520544136983721675
 GameObject:
   m_ObjectHideFlags: 0
