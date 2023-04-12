@@ -12,6 +12,7 @@ public class PlayerControlSystem : MonoBehaviour
     private float timeLimit;
     private float timeLimitBase;
     [SerializeField] private float cooldownSpeed;
+    private PerspectiveController perspectiveController;
 
     Vector3 movementInput;
     Rigidbody collisionShape;
@@ -19,6 +20,7 @@ public class PlayerControlSystem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        perspectiveController = this.gameObject.GetComponent<PerspectiveController>(); // pobieramy perspektywe z kontrolera perspektywy
         collisionShape = GetComponent<Rigidbody>();
         startSpeed = moveSpeed;
     }
@@ -42,6 +44,11 @@ public class PlayerControlSystem : MonoBehaviour
 
     private void TryToMove(Vector3 direction)
     {
+        if(perspectiveController.cameraMode != 2)
+        {
+            direction = this.transform.rotation * direction; // jesli widok top down to uzaleznij ruch od lokalnego zwrotu postaci, a nie od calego swiata
+        }
+
         Vector3 high = new Vector3(0f, 0.3f, 0f);
         Debug.DrawRay(transform.position + high, movementInput * 2, Color.red);
 
