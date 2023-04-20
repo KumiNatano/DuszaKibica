@@ -48,13 +48,18 @@ public class ArenaManager : MonoBehaviour
             }
         }
     }
-    //funkcja pozwalaj¹ca testowaæ poziom od konkretnego poziomu
+    //funkcja pozwalaj¹ca testowaæ poziom od konkretnego poziomu 
     public void testMode(int whichArena)
     {
         actualArena = whichArena;
         for (int i = 0; i < whichArena; i++)
-            areas[i].completeArena();
-        player.transform.position = areas[whichArena].getTestArenaPosition();
+        {
+            areas[i].setArenaIsCompleted();
 
+        }
+            
+        player.transform.position = areas[whichArena].getTestArenaPosition() + new Vector3(0f, -1.88f, 0f);
+        areas[actualArena].activateArena = true;
+        areas[actualArena].startArena();
     }
 }

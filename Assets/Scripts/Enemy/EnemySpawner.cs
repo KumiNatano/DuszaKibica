@@ -110,6 +110,13 @@ public class EnemySpawner : MonoBehaviour
         }
         StartCoroutine(SpawnEnemy());
     }
+
+    public void endSpawningRightNow() // do testów
+    {
+        spawnCount = enemySpawningList.Length;
+        StopAllCoroutines();
+    }
+
     void WriteSpawnsValues()
     {
         Debug.Log("Tablica");
