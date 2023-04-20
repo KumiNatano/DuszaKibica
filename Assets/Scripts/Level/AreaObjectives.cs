@@ -53,4 +53,8 @@ public class AreaObjectives : MonoBehaviour
             goToNextArena = true;
         }
     }
+    public Vector3 getTestArenaPosition()
+    {
+        return levelTrigger.transform.position;
+    }
 }
