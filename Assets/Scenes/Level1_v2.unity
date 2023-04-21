@@ -8533,6 +8533,19 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5435650782584684727, guid: d75a451a9b44be8468d8b7fc8a189ad3, type: 3}
   m_PrefabInstance: {fileID: 968698471}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &436744665 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9072273776876144417, guid: 3464a262695b3284b8785c2e4627a4e1, type: 3}
+  m_PrefabInstance: {fileID: 1285467962}
+  m_PrefabAsset: {fileID: 0}
+--- !u!81 &436744668
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 436744665}
+  m_Enabled: 1
 --- !u!1001 &437580377
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25159,10 +25172,6 @@ PrefabInstance:
       propertyPath: PlayerStaminaBar
       value: 
       objectReference: {fileID: 1039405771}
-    - target: {fileID: 1080213994, guid: 3464a262695b3284b8785c2e4627a4e1, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1349553652272819787, guid: 3464a262695b3284b8785c2e4627a4e1, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -25211,22 +25220,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 4692085042068846463, guid: 3464a262695b3284b8785c2e4627a4e1, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5529475675470399950, guid: 3464a262695b3284b8785c2e4627a4e1, type: 3}
       propertyPath: hpBar
       value: 
       objectReference: {fileID: 108099323}
-    - target: {fileID: 5529475675470399950, guid: 3464a262695b3284b8785c2e4627a4e1, type: 3}
-      propertyPath: healthAmount
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 5529475675470399950, guid: 3464a262695b3284b8785c2e4627a4e1, type: 3}
-      propertyPath: maxHealthAmount
-      value: 100
-      objectReference: {fileID: 0}
     - target: {fileID: 5529475675470399950, guid: 3464a262695b3284b8785c2e4627a4e1, type: 3}
       propertyPath: upgradeController
       value: 
@@ -25243,17 +25240,9 @@ PrefabInstance:
       propertyPath: upgradeController
       value: 
       objectReference: {fileID: 1574208082}
-    - target: {fileID: 7449069362667390847, guid: 3464a262695b3284b8785c2e4627a4e1, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7449069362667390847, guid: 3464a262695b3284b8785c2e4627a4e1, type: 3}
-      propertyPath: topDownCamera
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 9072273776876144417, guid: 3464a262695b3284b8785c2e4627a4e1, type: 3}
-      propertyPath: m_TagString
-      value: MainCamera
+    - target: {fileID: 8828433514304485030, guid: 3464a262695b3284b8785c2e4627a4e1, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.01
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3464a262695b3284b8785c2e4627a4e1, type: 3}
