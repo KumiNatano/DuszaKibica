@@ -1933,9 +1933,9 @@ MonoBehaviour:
   actuallSceneIndex: 0
   ScenesNames:
   - Store
-  - Level1
+  - Level1_v2
   - Store
-  - Test_upgrades
+  - Level1_v2
   - Store
   upgradeController: {fileID: 0}
 --- !u!4 &1607759641
@@ -2075,6 +2075,7 @@ MonoBehaviour:
   ImmortalButton: {fileID: 0}
   KnifeButton: {fileID: 0}
   MoneyText: {fileID: 0}
+  UI: {fileID: 0}
   LiveUpgradeLevel: 0
   LiveUpgradeLevelMax: 3
   LiveUpgradePrice: 10

@@ -145,6 +145,8 @@ public class UpgradeController : MonoBehaviour
         MoneyText = GameObject.Find("MoneyText").GetComponent<TMP_Text>();
 
         updateMoneyText();
+        UI = GameObject.FindGameObjectsWithTag("UI")[0];
+        refreshUI();
     }
 
     public void goingToNextLevel()
