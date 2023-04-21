@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class PerspectiveController : MonoBehaviour
 {
-    public int cameraMode = 3;
+    /*
+    public int cameraMode = 1;
 
     [SerializeField] Camera topDownCamera;
     [SerializeField] Camera tppCamera;
@@ -42,5 +43,6 @@ public class PerspectiveController : MonoBehaviour
             cameraMode = 1;
         }
     }
+    */
 
 }
