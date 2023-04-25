@@ -159,6 +159,12 @@ public class UpgradeController : MonoBehaviour
         MoneyText.text = "Ilosc szalikow: " + Money;
     }
 
+    public void addMoney(int amount)
+    {
+        Money += amount;
+        updateMoneyText();
+    }
+
     public void buyLiveUpgrade()
     {
         if(Money >= LiveUpgradePrice && LiveUpgradeLevel < LiveUpgradeLevelMax)
