@@ -25161,9 +25161,17 @@ PrefabInstance:
     m_TransformParent: {fileID: 13661457}
     m_Modifications:
     - target: {fileID: 356740840, guid: 3464a262695b3284b8785c2e4627a4e1, type: 3}
+      propertyPath: swisch
+      value: 
+      objectReference: {fileID: 1535294847}
+    - target: {fileID: 356740840, guid: 3464a262695b3284b8785c2e4627a4e1, type: 3}
       propertyPath: PlayerHPBar
       value: 
       objectReference: {fileID: 1286663038}
+    - target: {fileID: 356740840, guid: 3464a262695b3284b8785c2e4627a4e1, type: 3}
+      propertyPath: playerModel
+      value: 
+      objectReference: {fileID: 1434916355}
     - target: {fileID: 356740840, guid: 3464a262695b3284b8785c2e4627a4e1, type: 3}
       propertyPath: restartImage
       value: 
@@ -25182,11 +25190,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1349553652272819787, guid: 3464a262695b3284b8785c2e4627a4e1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.183
+      value: 0.27
       objectReference: {fileID: 0}
     - target: {fileID: 1349553652272819787, guid: 3464a262695b3284b8785c2e4627a4e1, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -11.58
+      value: -10.96
       objectReference: {fileID: 0}
     - target: {fileID: 1349553652272819787, guid: 3464a262695b3284b8785c2e4627a4e1, type: 3}
       propertyPath: m_LocalRotation.w
@@ -25240,9 +25248,17 @@ PrefabInstance:
       propertyPath: upgradeController
       value: 
       objectReference: {fileID: 1574208082}
+    - target: {fileID: 8200831914088983580, guid: 3464a262695b3284b8785c2e4627a4e1, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8828433514304485030, guid: 3464a262695b3284b8785c2e4627a4e1, type: 3}
       propertyPath: m_LocalScale.z
       value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 8883967244567917972, guid: 3464a262695b3284b8785c2e4627a4e1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3464a262695b3284b8785c2e4627a4e1, type: 3}
@@ -28254,6 +28270,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: af47a5e88001ebb479573a4c1ee6f5d7, type: 3}
+--- !u!1 &1434916355 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8200831914088983580, guid: 3464a262695b3284b8785c2e4627a4e1, type: 3}
+  m_PrefabInstance: {fileID: 1285467962}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1435777843
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30185,6 +30206,11 @@ Transform:
 Transform:
   m_CorrespondingSourceObject: {fileID: 3603135051873536950, guid: 66ec1d3a0a5e97048b45aeee65254696, type: 3}
   m_PrefabInstance: {fileID: 1295060356}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1535294847 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4610072713061395454, guid: 3464a262695b3284b8785c2e4627a4e1, type: 3}
+  m_PrefabInstance: {fileID: 1285467962}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1535615427 stripped
 GameObject:
@@ -34165,22 +34191,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6966657115677596545, guid: eeae418083cc7ed4bb9c0811725848c6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6966657115677596546, guid: eeae418083cc7ed4bb9c0811725848c6, type: 3}
-      propertyPath: Fury
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6966657115677596546, guid: eeae418083cc7ed4bb9c0811725848c6, type: 3}
-      propertyPath: Knife
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6966657115677596546, guid: eeae418083cc7ed4bb9c0811725848c6, type: 3}
-      propertyPath: Immortal
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6966657115677596546, guid: eeae418083cc7ed4bb9c0811725848c6, type: 3}
-      propertyPath: isThisStoreLevel
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6966657115677596547, guid: eeae418083cc7ed4bb9c0811725848c6, type: 3}

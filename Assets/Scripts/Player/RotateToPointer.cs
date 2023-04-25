@@ -27,30 +27,34 @@ public class RotateToPointer : MonoBehaviour
     }
 
     void Update()
-    {
+    {       
+        if(this.gameObject.GetComponent<PlayerDeathManager>().isDead == false)
+        {
             Cursor.lockState = CursorLockMode.Locked;
-            // Pobierz wartoœæ ruchu myszy po osi X i przemnó¿ przez czu³oœæ ruchu myszy
-            float mouseX = Input.GetAxis("Mouse X") * mouseSensitivityX * Time.deltaTime;
+        }
 
-            // Pobierz wartoœæ ruchu myszy po osi Y i przemnó¿ przez czu³oœæ ruchu myszy
-            float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivityY * Time.deltaTime;
+        // Pobierz wartoœæ ruchu myszy po osi X i przemnó¿ przez czu³oœæ ruchu myszy
+        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivityX * Time.deltaTime;
 
-            // Dodaj wartoœæ ruchu myszy po osi X do aktualnej rotacji kamery wokó³ osi Y
-            yRotation -= mouseX;
+        // Pobierz wartoœæ ruchu myszy po osi Y i przemnó¿ przez czu³oœæ ruchu myszy
+        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivityY * Time.deltaTime;
 
-            // Odejmij wartoœæ ruchu myszy po osi Y od aktualnej wartoœci rotacji kamery wokó³ osi X
-            xRotation -= mouseY;
+        // Dodaj wartoœæ ruchu myszy po osi X do aktualnej rotacji kamery wokó³ osi Y
+        yRotation -= mouseX;
 
-            // Ogranicz wartoœæ rotacji kamery wokó³ osi X do zakresu od -90 do 90 stopni
-            xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+        // Odejmij wartoœæ ruchu myszy po osi Y od aktualnej wartoœci rotacji kamery wokó³ osi X
+        xRotation -= mouseY;
 
-            // Utwórz nowy Quaternion na podstawie aktualnej rotacji kamery
-            Quaternion cameraRotation = Quaternion.Euler(xRotation, 0f, 0f);
+        // Ogranicz wartoœæ rotacji kamery wokó³ osi X do zakresu od -90 do 90 stopni
+        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
-            // Obróæ cia³o gracza wokó³ osi Y zgodnie z ruchem myszy
-            playerBody.Rotate(Vector3.up * mouseX);
+        // Utwórz nowy Quaternion na podstawie aktualnej rotacji kamery
+        Quaternion cameraRotation = Quaternion.Euler(xRotation, 0f, 0f);
 
-            // Ustaw now¹ rotacjê kamery
-            fppCamera.transform.localRotation = cameraRotation;
+        // Obróæ cia³o gracza wokó³ osi Y zgodnie z ruchem myszy
+        playerBody.Rotate(Vector3.up * mouseX);
+
+        // Ustaw now¹ rotacjê kamery
+        fppCamera.transform.localRotation = cameraRotation;
     }
 }
