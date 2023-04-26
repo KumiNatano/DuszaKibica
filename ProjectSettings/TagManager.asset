@@ -13,6 +13,8 @@ TagManager:
   - knife
   - enemy
   - Ground
+  - UI
+  - UpgradeController
   layers:
   - Default
   - TransparentFX

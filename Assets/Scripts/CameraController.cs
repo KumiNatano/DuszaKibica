@@ -31,11 +31,11 @@ public class CameraController : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+    {/*
         if(perspectiveController.cameraMode == 2)
         {
             followPlayer();
-        }
+        }*/
 
     }
 
