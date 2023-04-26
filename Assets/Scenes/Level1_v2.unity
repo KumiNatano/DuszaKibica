@@ -8533,19 +8533,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5435650782584684727, guid: d75a451a9b44be8468d8b7fc8a189ad3, type: 3}
   m_PrefabInstance: {fileID: 968698471}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &436744665 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9072273776876144417, guid: 3464a262695b3284b8785c2e4627a4e1, type: 3}
-  m_PrefabInstance: {fileID: 1285467962}
-  m_PrefabAsset: {fileID: 0}
---- !u!81 &436744668
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 436744665}
-  m_Enabled: 1
 --- !u!1001 &437580377
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25161,17 +25148,9 @@ PrefabInstance:
     m_TransformParent: {fileID: 13661457}
     m_Modifications:
     - target: {fileID: 356740840, guid: 3464a262695b3284b8785c2e4627a4e1, type: 3}
-      propertyPath: swisch
-      value: 
-      objectReference: {fileID: 1535294847}
-    - target: {fileID: 356740840, guid: 3464a262695b3284b8785c2e4627a4e1, type: 3}
       propertyPath: PlayerHPBar
       value: 
       objectReference: {fileID: 1286663038}
-    - target: {fileID: 356740840, guid: 3464a262695b3284b8785c2e4627a4e1, type: 3}
-      propertyPath: playerModel
-      value: 
-      objectReference: {fileID: 1434916355}
     - target: {fileID: 356740840, guid: 3464a262695b3284b8785c2e4627a4e1, type: 3}
       propertyPath: restartImage
       value: 
@@ -25248,18 +25227,6 @@ PrefabInstance:
       propertyPath: upgradeController
       value: 
       objectReference: {fileID: 1574208082}
-    - target: {fileID: 8200831914088983580, guid: 3464a262695b3284b8785c2e4627a4e1, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8828433514304485030, guid: 3464a262695b3284b8785c2e4627a4e1, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.01
-      objectReference: {fileID: 0}
-    - target: {fileID: 8883967244567917972, guid: 3464a262695b3284b8785c2e4627a4e1, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3464a262695b3284b8785c2e4627a4e1, type: 3}
 --- !u!1 &1286663038 stripped
@@ -28270,11 +28237,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: af47a5e88001ebb479573a4c1ee6f5d7, type: 3}
---- !u!1 &1434916355 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8200831914088983580, guid: 3464a262695b3284b8785c2e4627a4e1, type: 3}
-  m_PrefabInstance: {fileID: 1285467962}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1435777843
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30206,11 +30168,6 @@ Transform:
 Transform:
   m_CorrespondingSourceObject: {fileID: 3603135051873536950, guid: 66ec1d3a0a5e97048b45aeee65254696, type: 3}
   m_PrefabInstance: {fileID: 1295060356}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1535294847 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4610072713061395454, guid: 3464a262695b3284b8785c2e4627a4e1, type: 3}
-  m_PrefabInstance: {fileID: 1285467962}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1535615427 stripped
 GameObject:
@@ -42676,7 +42633,7 @@ PrefabInstance:
       objectReference: {fileID: 1459598894}
     - target: {fileID: 1299720250453373487, guid: 9f0eb758931ae004db6b349eb6111df2, type: 3}
       propertyPath: isTestingMode
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1299720250453373487, guid: 9f0eb758931ae004db6b349eb6111df2, type: 3}
       propertyPath: whichArenaIsTesting

@@ -706,7 +706,8 @@ MonoBehaviour:
   restartImage: {fileID: 0}
   PlayerHPBar: {fileID: 0}
   PlayerStaminaBar: {fileID: 0}
-  playerModel: {fileID: 8883967244567917972}
+  playerModel: {fileID: 8200831914088983580}
+  isDead: 0
 --- !u!114 &356740841
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2081,6 +2082,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2232950079877761284}
   - component: {fileID: 1965301225422960103}
+  - component: {fileID: 436744668}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2147,6 +2149,14 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!81 &436744668
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9072273776876144417}
+  m_Enabled: 1
 --- !u!1 &9144695466974577127
 GameObject:
   m_ObjectHideFlags: 0
