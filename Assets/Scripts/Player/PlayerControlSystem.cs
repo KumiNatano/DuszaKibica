@@ -43,8 +43,12 @@ public class PlayerControlSystem : MonoBehaviour
     }
 
     private void TryToMove(Vector3 direction)
-    { 
-        direction = this.transform.rotation * direction; // jesli widok top down to uzaleznij ruch od lokalnego zwrotu postaci, a nie od calego swiata
+    {
+        if(perspectiveController.cameraMode != 2)
+        {
+            direction = this.transform.rotation * direction; // jesli widok top down to uzaleznij ruch od lokalnego zwrotu postaci, a nie od calego swiata
+        }
+
         Vector3 high = new Vector3(0f, 0.1f, 0f);
         Debug.DrawRay(transform.position + high, movementInput * 0.5f, Color.red);
 

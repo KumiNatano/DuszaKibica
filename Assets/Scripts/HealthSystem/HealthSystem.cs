@@ -85,6 +85,7 @@ public class HealthSystem : MonoBehaviour
     public void setMaxHealthAmount(int value) {
         maxHealthAmount = value;
     }
+
     public int getMaxHealthAmount() {
         return maxHealthAmount;
     }
