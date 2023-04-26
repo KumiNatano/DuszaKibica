@@ -435,6 +435,7 @@ GameObject:
   - component: {fileID: 3886460658493154528}
   - component: {fileID: 1275414597329982150}
   - component: {fileID: 8508617082642714769}
+  - component: {fileID: 5352120146415827710}
   m_Layer: 0
   m_Name: kamienica3-tunnel-2
   m_TagString: Untagged
@@ -495,6 +496,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 6.47, y: 6, z: 3.09}
   m_Center: {x: -7.83, y: 2, z: -0.45}
+--- !u!65 &5352120146415827710
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4513921620228947546}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.27, y: 3.76, z: 3}
+  m_Center: {x: -3, y: 3.28, z: -0.45}
 --- !u!1 &4861872176910959937
 GameObject:
   m_ObjectHideFlags: 0
