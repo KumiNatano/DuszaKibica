@@ -1013,6 +1013,7 @@ MonoBehaviour:
   PlayerHPBar: {fileID: 0}
   PlayerStaminaBar: {fileID: 0}
   playerModel: {fileID: 0}
+  isDead: 0
 --- !u!1 &9020943265035977642
 GameObject:
   m_ObjectHideFlags: 0

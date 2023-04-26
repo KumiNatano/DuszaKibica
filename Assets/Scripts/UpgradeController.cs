@@ -156,7 +156,7 @@ public class UpgradeController : MonoBehaviour
 
     void updateMoneyText()
     {
-        MoneyText.text = "Ilosc szalikow: " + Money;
+        MoneyText.text = "Mamona: " + Money;
     }
 
     public void addMoney(int amount)
