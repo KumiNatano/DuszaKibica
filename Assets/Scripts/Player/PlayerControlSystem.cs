@@ -46,7 +46,7 @@ public class PlayerControlSystem : MonoBehaviour
     { 
         direction = this.transform.rotation * direction; // jesli widok top down to uzaleznij ruch od lokalnego zwrotu postaci, a nie od calego swiata
         Vector3 high = new Vector3(0f, 0.1f, 0f);
-        Debug.DrawRay(transform.position + high, movementInput * 0.5f, Color.red);
+        Debug.DrawRay(transform.position + high, movementInput * 4f, Color.red);
 
         if (!Physics.Raycast(transform.position + high, movementInput, 0.5f))
         {
