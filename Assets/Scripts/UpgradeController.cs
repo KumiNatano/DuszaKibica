@@ -145,6 +145,8 @@ public class UpgradeController : MonoBehaviour
         MoneyText = GameObject.Find("MoneyText").GetComponent<TMP_Text>();
 
         updateMoneyText();
+        UI = GameObject.FindGameObjectsWithTag("UI")[0];
+        refreshUI();
     }
 
     public void goingToNextLevel()
@@ -154,7 +156,13 @@ public class UpgradeController : MonoBehaviour
 
     void updateMoneyText()
     {
-        MoneyText.text = "Ilosc szalikow: " + Money;
+        MoneyText.text = "Mamona: " + Money;
+    }
+
+    public void addMoney(int amount)
+    {
+        Money += amount;
+        updateMoneyText();
     }
 
     public void buyLiveUpgrade()

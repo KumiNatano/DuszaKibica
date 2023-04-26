@@ -24,6 +24,7 @@ public class ClubScarf : DropItem
             Destroy(this.gameObject);
             Inventory inventory = collider.GetComponent<Inventory>();
             inventory.addScarfNumber();
+            GameObject.FindGameObjectWithTag("UpgradeController").GetComponent<UpgradeController>().addMoney(5);
 
             int UpgradeID = Random.Range(1, 10);
             // zwiekszenie Staminy
