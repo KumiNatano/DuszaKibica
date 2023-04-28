@@ -12,7 +12,6 @@ public class PlayerDeathManager : MonoBehaviour
     [SerializeField] GameObject PlayerHPBar;
     [SerializeField] GameObject PlayerStaminaBar;
     [SerializeField] GameObject playerModel;
-    public bool isDead = false;
 
     private void Start()
     {
@@ -20,7 +19,6 @@ public class PlayerDeathManager : MonoBehaviour
     }
     public void PlayerDeath()
     {
-        isDead = true;
         Cursor.lockState = CursorLockMode.None;
         restartImage.SetActive(true);
         Time.timeScale = 0;
@@ -28,11 +26,11 @@ public class PlayerDeathManager : MonoBehaviour
         PlayerStaminaBar.SetActive(false);
         //Destroy(playerModel);
         playerModel.SetActive(false);
+
     }
 
     public void ClickingRestartButton()
     {
-        isDead = false;
         SceneManager.LoadScene(actuallScene);
         Time.timeScale = 1;
     }
