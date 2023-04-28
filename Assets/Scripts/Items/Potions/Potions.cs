@@ -17,7 +17,7 @@ public class Potions : MonoBehaviour
     void Start()
     {
         counter.updateCounter(potionsLeft);
-        upgradeController = GameObject.FindGameObjectsWithTag("UpgradeController")[0].GetComponent<UpgradeController>(); ;
+        upgradeController = GameObject.Find("UpgradeController").GetComponent<UpgradeController>();
         potionsLeft = upgradeController.GetComponent<UpgradeController>().PotionAmount; //z upgrade controllera bierze poczatkowa ilosc potek
         counter.updateCounter(potionsLeft);
     }
