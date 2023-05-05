@@ -18,7 +18,7 @@ public class AreaObjectives : MonoBehaviour
         activateArena = false;
         goToNextArena = false;
     }
-    // Update is called once per frame
+
     void Update()
     {
         if (activateArena)
@@ -27,7 +27,10 @@ public class AreaObjectives : MonoBehaviour
                 startArena();
         }
         if (enemySpawner.finishedSpawning == true)
-            completeArena();
+        {
+            if (GameObject.FindGameObjectsWithTag("enemy").Length == 0)
+                completeArena();
+        }     
     }
 
     public void startArena()
@@ -41,16 +44,24 @@ public class AreaObjectives : MonoBehaviour
 
     public void completeArena()
     {
-        if (GameObject.FindGameObjectsWithTag("enemy").Length == 0)
+        foreach (GameObject gameObject in blockade)
         {
-            foreach (GameObject gameObject in blockade)
-            {
-                gameObject.SetActive(false);
-            }
-            borders.SetActive(false);
-            isWorking = false;
-            enemySpawner.StopAllCoroutines();
-            goToNextArena = true;
+            gameObject.SetActive(false);
         }
+        borders.SetActive(false);
+        isWorking = false;
+        enemySpawner.StopAllCoroutines();
+        goToNextArena = true;
     }
+    public Vector3 getTestArenaPosition()
+    {
+        return levelTrigger.transform.position;
+    }
+    public void setArenaIsCompleted()
+    {
+        enemySpawner.finishedSpawning = true;
+        enemySpawner.endSpawningRightNow();
+        completeArena();
+    }
+    
 }

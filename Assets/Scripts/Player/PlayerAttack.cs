@@ -54,7 +54,7 @@ public class PlayerAttack : MonoBehaviour
 
     private void Attacking()
     {
-        if(this.gameObject.GetComponent<StaminaSystem>().TakeAction(20))
+        if(this.gameObject.GetComponent<StaminaSystem>().TakeAction(20) && this.gameObject.GetComponent<PlayerDeathManager>().isDead == false)
         {
             isAttacking = true;
             attackArea.SetActive(isAttacking);
