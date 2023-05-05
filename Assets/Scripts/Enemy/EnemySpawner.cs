@@ -25,7 +25,7 @@ public class EnemySpawner : MonoBehaviour
     public GameObject player;
     public bool finishedSpawning; // uzywane przez skrypt AreaObjectivees
     private Vector3 boxPosition = new Vector3(0f, 2f, 0f);
-    private Vector3 boxSize = new Vector3(3f, 1f, 3f);
+    private Vector3 boxSize = new Vector3(2f, 1f, 2f);
 
     void Start()
     {
@@ -53,7 +53,7 @@ public class EnemySpawner : MonoBehaviour
 
     IEnumerator SpawnEnemy()
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(5);
         int arrayIndex;
         int counter = 0;
 
@@ -62,8 +62,7 @@ public class EnemySpawner : MonoBehaviour
         for (int i = 0; i < spawnPositions.Length; i++)
         {
             spawnPosition = spawnPositions[i].position;
-            if(Vector3.Distance(player.transform.position, spawnPosition) < spawnRadius)
-                testedPositions[i] = SpawnValue.inRange;
+            testedPositions[i] = SpawnValue.inRange;
         }
         // ETAP 2: sprawdzanie, czy na miejscu do spawnowania nie ma innych wrogów lub gracza
         for (int i=0; i< spawnPositions.Length; i++)
@@ -87,13 +86,11 @@ public class EnemySpawner : MonoBehaviour
         if (counter >= 1)
         {
             if (spawnCount < enemySpawningList.Length)
-            {
                 for (int i = 0; i < testedPositions.Length * 2; i++)
                 {
                     arrayIndex = Random.Range(0, testedPositions.Length);
                     if (testedPositions[arrayIndex] == SpawnValue.spawning)
                     {
-                        //sprawdzanie, jaki jest dystans od gracza by przeciwnik nie pojawial sie tuz obok plecow
                         Collider[] results2 = Physics.OverlapBox(spawnPositions[arrayIndex].position + boxPosition, boxSize);
                         //Debug.Log(this.name + " " + arrayIndex + ", Etap 3: " + results2.Length);
                         if (results2.Length == 0)
@@ -104,12 +101,8 @@ public class EnemySpawner : MonoBehaviour
                         }
                     }
                 }
-            }
             else
-            {
                 finishedSpawning = true;
-                //StopAllCoroutines();
-            }
         }
         else
         {
@@ -117,6 +110,13 @@ public class EnemySpawner : MonoBehaviour
         }
         StartCoroutine(SpawnEnemy());
     }
+
+    public void endSpawningRightNow() // do testów
+    {
+        spawnCount = enemySpawningList.Length;
+        StopAllCoroutines();
+    }
+
     void WriteSpawnsValues()
     {
         Debug.Log("Tablica");

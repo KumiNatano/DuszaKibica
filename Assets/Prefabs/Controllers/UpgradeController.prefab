@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6966657115677596546}
   m_Layer: 0
   m_Name: UpgradeController
-  m_TagString: Untagged
+  m_TagString: UpgradeController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d33392024fbb98f4b917bec8dd102ec4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isThisStoreLevel: 1
+  isThisStoreLevel: 0
   Money: 1000
   LiveUpgradeButton: {fileID: 0}
   StaminaUpgradeButton: {fileID: 0}
@@ -52,20 +52,22 @@ MonoBehaviour:
   FuryButton: {fileID: 0}
   ImmortalButton: {fileID: 0}
   KnifeButton: {fileID: 0}
-  NextButton: {fileID: 0}
   MoneyText: {fileID: 0}
+  UI: {fileID: 0}
   LiveUpgradeLevel: 0
-  StaminaUpgradeLevel: 0
-  LiveUpgradePrice: 10
   LiveUpgradeLevelMax: 3
+  LiveUpgradePrice: 10
+  SingleLiveBonus: 20
+  StaminaUpgradeLevel: 0
   StaminaUpgradeLevelMax: 3
   StaminaUpgradePrice: 10
+  SingleStaminaBonus: 20
   PotionAmount: 2
   PotionAmountMax: 5
   PotionPrice: 10
-  Fury: 0
-  Immortal: 0
-  Knife: 0
+  Fury: 1
+  Immortal: 1
+  Knife: 1
   FuryPrice: 10
   ImmortalPrice: 10
   KnifePrice: 10

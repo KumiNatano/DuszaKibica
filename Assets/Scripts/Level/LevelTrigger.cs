@@ -16,6 +16,7 @@ public class LevelTrigger : MonoBehaviour
         if (collider.gameObject.tag == "player")
         {
             enterNewArea = true;
+            GetComponent<Collider>().enabled = false;
         }
     }
     public bool getEnterNewArea()
