@@ -269,6 +269,13 @@
       },
       "url": "https://packages.unity.com"
     },
+    "com.viktorchernikov.debugconsole": {
+      "version": "https://github.com/viktorchernikov/DebugConsole.git#dev",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "565f7e1ae6a7a37409433701f47b2c6b01ffff31"
+    },
     "com.unity.modules.ai": {
       "version": "1.0.0",
       "depth": 0,
