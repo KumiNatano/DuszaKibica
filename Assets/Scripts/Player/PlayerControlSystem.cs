@@ -50,7 +50,7 @@ public class PlayerControlSystem : MonoBehaviour
         Vector3 high = new Vector3(0f, 0.1f, 0f);
         //Debug.DrawRay(transform.position + high, movementInput * 4f, Color.red);
 
-        controller.SimpleMove((transform.forward * movementInput.z + transform.right * movementInput.x) * 5);
+        controller.SimpleMove((transform.forward * movementInput.z + transform.right * movementInput.x) * moveSpeed);
     }
 
     void OnMove(InputValue movementValue)
