@@ -75,6 +75,7 @@ public class FuryAbility : MonoBehaviour
         previousCooldown = this.gameObject.GetComponent<PlayerAttack>().cooldown;
         this.gameObject.GetComponent<PlayerAttack>().cooldown = furyAttackCooldown;
         this.gameObject.GetComponent<StaminaSystem>().staminaAmount = furyAttackStamina;
+        this.gameObject.GetComponent<PlayerAnimations>().animator.speed = 2;
         //Debug.Log("tu wstawic zeby zwiekszylo szybkosc i dalo stamine");
     }
 
@@ -82,6 +83,7 @@ public class FuryAbility : MonoBehaviour
     {
         this.gameObject.GetComponent<PlayerAttack>().cooldown = previousCooldown;
         isActive = false;
+        this.gameObject.GetComponent<PlayerAnimations>().animator.speed = 1;
         //Debug.Log("tu wstawic zeby zmniejszylo szybkosc");
     }
 }
