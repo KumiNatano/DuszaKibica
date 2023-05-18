@@ -578,8 +578,9 @@ MonoBehaviour:
   immortalTime: 0
   immortalCooldown: 0
   hpBar: {fileID: 0}
-  enemyHealthbar: {fileID: 0}
   drop: {fileID: 0}
+  EnemyHealthBarObject: {fileID: 0}
+  EnemyHPSlider: {fileID: 0}
   upgradeController: {fileID: 0}
 --- !u!114 &614390003528158668
 MonoBehaviour:
@@ -2088,6 +2089,7 @@ GameObject:
   - component: {fileID: 2232950079877761284}
   - component: {fileID: 1965301225422960103}
   - component: {fileID: 436744668}
+  - component: {fileID: 4817319345750351497}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2162,6 +2164,15 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9072273776876144417}
   m_Enabled: 1
+--- !u!45 &4817319345750351497
+Skybox:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9072273776876144417}
+  m_Enabled: 1
+  m_CustomSkybox: {fileID: 2100000, guid: 01660a29ba7807043b0245d6c2696f45, type: 2}
 --- !u!1 &9144695466974577127
 GameObject:
   m_ObjectHideFlags: 0
