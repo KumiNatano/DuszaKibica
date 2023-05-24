@@ -537,8 +537,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fppCamera: {fileID: 1965301225422960103}
   playerModel: {fileID: 8883967244567917972}
-  mouseSensitivityX: 500
-  mouseSensitivityY: 500
+  mouseSensitivityX: 5
+  mouseSensitivityY: 5
   playerBody: {fileID: 1349553652272819787}
 --- !u!114 &5891462997468904518
 MonoBehaviour:
