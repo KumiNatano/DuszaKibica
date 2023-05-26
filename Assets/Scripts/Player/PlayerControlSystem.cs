@@ -29,10 +29,10 @@ public class PlayerControlSystem : MonoBehaviour
 
     private void FixedUpdate()
     {
+        TryToMove(movementInput);
         // If movement input is different than 0, try to move
         if (movementInput != Vector3.zero)
         {
-            TryToMove(movementInput);
             this.gameObject.GetComponent<PlayerAnimations>().setIsWalkingTrue();
         }
         else
@@ -56,7 +56,6 @@ public class PlayerControlSystem : MonoBehaviour
     void OnMove(InputValue movementValue)
     {
         movementInput = movementValue.Get<Vector3>();
-
     }
 
     public void changeSpeedTimeLimit(float speed,float timeL, float cooldown) //doda�em mo�liwo�� zmiany pr�dko�ci z okre�lonym czasem trwania i cooldownu
