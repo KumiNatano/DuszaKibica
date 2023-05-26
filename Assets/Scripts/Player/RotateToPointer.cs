@@ -1,48 +1,51 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class RotateToPointer : MonoBehaviour
 {
-    [SerializeField] Camera fppCamera;
-    [SerializeField] GameObject playerModel;
-
-
-    
-    // Czułość ruchu myszy
-    public float mouseSensitivityX = 5f;
-    public float mouseSensitivityY = 5f;
-
+    // Referencja do kamery gracza
+    public Camera playerCamera;
     // Transformacja ciała gracza
     public Transform playerBody;
 
-    // Aktualna wartość rotacji kamery wokó osi X
-    private float xRotation = 0f;
+    // Aktualna wartość rotacji kamery
+    public Vector3 viewAngles = Vector3.zero;
+    // Czułość ruchu myszy
+    public Vector2 sensitivity = new Vector2(5f, 5f);
 
-    private float yRotation = 0f;
-
-    private void Start()
-    {
-
-        playerBody = this.transform;
-
-    }
 
     void Update()
-    {       
+    {
+        // wyjebać to trzeba stąd lol
         if(this.gameObject.GetComponent<PlayerDeathManager>().isDead == false)
         {
             Cursor.lockState = CursorLockMode.Locked;
         }
 
-        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivityX;
-        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivityY;
+        Vector2 input = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
+        input *= sensitivity;
         
-        yRotation -= mouseX;
-        xRotation = Mathf.Clamp(xRotation - mouseY, -90f, 90f);
+        viewAngles.y += input.x;
+        viewAngles.x = Mathf.Clamp(viewAngles.x - input.y, -90f, 90f);
 
-        Quaternion cameraRotation = Quaternion.Euler(xRotation, 0f, 0f);
-        playerBody.Rotate(Vector3.up * mouseX);
-        fppCamera.transform.localRotation = cameraRotation;
+        playerBody.localEulerAngles = Vector3.up * viewAngles.y;
+        playerCamera.transform.localEulerAngles = Vector3.right * viewAngles.x + Vector3.forward * viewAngles.z;
     }
+
+
+    [Obsolete("Use sensitivity field instead.")]
+    public float mouseSensitivityX => sensitivity.x;
+    [Obsolete("Use sensitivity field instead.")]
+    public float mouseSensitivityY => sensitivity.y;
+
+    [Obsolete("Use viewAngles field instead.")]
+    float xRotation => viewAngles.x;
+    [Obsolete("Use viewAngles field instead.")]
+    float yRotation => viewAngles.y;
+    [Obsolete]
+    GameObject playerModel => throw new NotImplementedException();
+    [Obsolete("Use playerCamera field instead.")]
+    Camera fppCamera => playerCamera;
 }

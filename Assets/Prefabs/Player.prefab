@@ -535,11 +535,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa8bf5cc2bd3e334c94cc33131d0862c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fppCamera: {fileID: 1965301225422960103}
-  playerModel: {fileID: 8883967244567917972}
-  mouseSensitivityX: 5
-  mouseSensitivityY: 5
+  playerCamera: {fileID: 1965301225422960103}
   playerBody: {fileID: 1349553652272819787}
+  rotation: {x: 0, y: 0, z: 0}
+  sensitivity: {x: 5, y: 5}
 --- !u!114 &5891462997468904518
 MonoBehaviour:
   m_ObjectHideFlags: 0
