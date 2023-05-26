@@ -1,23 +1,31 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class DropItem : MonoBehaviour
 {
+    public const float rotateSpeed = 60.0f;
+    public const float swingAmplitude = 0.1f;
+    public const float swingFrequency = 2.5f;
+
+    private Vector3 initPos;
+
     //atrybuty
     [SerializeField] int itemID;
     [SerializeField] string name;
-    [SerializeField] int degreesPerSecond = 360;
     //string description;
     //atrybuty end
     private void Start()
     {
         transform.position += new Vector3(0f, 0.3f, 0f);
+        initPos = transform.position;
     }
 
-    void Update()
+    protected virtual void Update()
     {
-        rotating();
+        Rotate();
+        Swing();
     }
    
     
@@ -37,8 +45,18 @@ public class DropItem : MonoBehaviour
     public string getName(){
         return this.name;
     }
-    //metody - gettery end
-    public void rotating(){
-        transform.Rotate(new Vector3(0, 0, degreesPerSecond) * Time.deltaTime);
+    public void Rotate(){
+        transform.Rotate(Vector3.forward * degreesPerSecond * Time.deltaTime);
     }
+    public void Swing(){
+        transform.position = initPos + Vector3.up * Mathf.Sin(GetInstanceID() + Time.time * swingFrequency) * swingAmplitude;
+    }
+
+
+    [Obsolete("Use Rotate method instead.")]
+    public void rotating(){
+        Rotate();
+    }
+
+    [Obsolete("use rotateSpeed instead")] int degreesPerSecond => (int)rotateSpeed;
 }
