@@ -6,7 +6,7 @@ using UnityEngine;
 public class RotateToPointer : MonoBehaviour
 {
     // Referencja do kamery gracza
-    public Camera playerCamera;
+    public Transform playerCamera;
     // Transformacja ciała gracza
     public Transform playerBody;
 
@@ -38,7 +38,7 @@ public class RotateToPointer : MonoBehaviour
         viewAngles.x = Mathf.Clamp(viewAngles.x - input.y, -90f, 90f);
 
         playerBody.localEulerAngles = Vector3.up * viewAngles.y;
-        playerCamera.transform.localEulerAngles = Vector3.right * viewAngles.x + Vector3.forward * viewAngles.z;
+        playerCamera.localEulerAngles = Vector3.right * viewAngles.x + Vector3.forward * viewAngles.z;
     }
 
 
@@ -54,5 +54,5 @@ public class RotateToPointer : MonoBehaviour
     [Obsolete]
     GameObject playerModel => throw new NotImplementedException();
     [Obsolete("Use playerCamera field instead.")]
-    Camera fppCamera => playerCamera;
+    Camera fppCamera => throw new NotImplementedException();
 }
