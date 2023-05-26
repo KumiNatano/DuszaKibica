@@ -537,8 +537,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerCamera: {fileID: 1965301225422960103}
   playerBody: {fileID: 1349553652272819787}
-  rotation: {x: 0, y: 0, z: 0}
+  viewAngles: {x: 0, y: 0, z: 0}
   sensitivity: {x: 5, y: 5}
+  accelerationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.25
+      inSlope: 1.852487
+      outSlope: 1.852487
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.045833334
+    - serializedVersion: 3
+      time: 1
+      value: 0.9976425
+      inSlope: 0.032660782
+      outSlope: 0.032660782
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.21666664
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  accelerate: 1
 --- !u!114 &5891462997468904518
 MonoBehaviour:
   m_ObjectHideFlags: 0
