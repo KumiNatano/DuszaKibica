@@ -14,6 +14,10 @@ public class RotateToPointer : MonoBehaviour
     public Vector3 viewAngles = Vector3.zero;
     // Czułość ruchu myszy
     public Vector2 sensitivity = new Vector2(5f, 5f);
+    // Krzywa reprezentująca zmianę w przyśpieszniu myszy w zalezności od długości delty ruchu myszy
+    public AnimationCurve accelerationCurve = new AnimationCurve(new Keyframe(0, 0), new Keyframe(1, 1));
+
+    public bool accelerate = true;
 
 
     void Update()
@@ -25,6 +29,9 @@ public class RotateToPointer : MonoBehaviour
         }
 
         Vector2 input = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
+        if (accelerate){
+            input *= accelerationCurve.Evaluate(input.magnitude);
+        }
         input *= sensitivity;
         
         viewAngles.y += input.x;
