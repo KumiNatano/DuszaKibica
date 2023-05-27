@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System;
 
-// Takes and handles input and movement for a player character
+[Obsolete]
 public class PlayerControlSystem : MonoBehaviour
 {
     public float moveSpeed = 5f;
