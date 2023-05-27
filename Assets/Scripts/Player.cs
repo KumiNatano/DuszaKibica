@@ -10,6 +10,22 @@ public class Player : MonoBehaviour
 
     public CharacterController characterController;
 
+    public float normalHeight = 1.85f;
+    public float duckHeight = 0.9f;
+    public float eyesHeight = 0.1f;
+
+    public float height => characterController.height;
+
+
+    public Vector3 GetPosition(){
+        return transform.position;
+    }
+    public void SetHeight(float newHeight){
+        characterController.height = newHeight;
+        Vector3 center = characterController.center;
+        center.y = newHeight*0.5f;
+        characterController.center = center;
+    }
 
     public T GetModule<T>() where T : PlayerModule
     {
