@@ -300,7 +300,6 @@ GameObject:
   - component: {fileID: 2593392389510789639}
   - component: {fileID: 4501621770393683380}
   - component: {fileID: 6516974044278252105}
-  - component: {fileID: 4692085042068846463}
   - component: {fileID: 5891462997468904518}
   - component: {fileID: 5529475675470399950}
   - component: {fileID: 614390003528158668}
@@ -342,6 +341,7 @@ Transform:
   - {fileID: 8070980013033090862}
   - {fileID: 1910939133}
   - {fileID: 6446133975181209528}
+  - {fileID: 1997088713558019485}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -402,47 +402,6 @@ MonoBehaviour:
   moveSpeed: 5
   collisionOffset: 0.05
   cooldownSpeed: 0
---- !u!114 &4692085042068846463
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1349553652272819797}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa8bf5cc2bd3e334c94cc33131d0862c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerCamera: {fileID: 6446133975181209528}
-  playerBody: {fileID: 1349553652272819787}
-  viewAngles: {x: 0, y: 0, z: 0}
-  sensitivity: {x: 5, y: 5}
-  accelerationCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0.25
-      inSlope: 1.852487
-      outSlope: 1.852487
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0.045833334
-    - serializedVersion: 3
-      time: 1
-      value: 0.9976425
-      inSlope: 0.032660782
-      outSlope: 0.032660782
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.21666664
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  accelerate: 1
 --- !u!114 &5891462997468904518
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1591,6 +1550,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6446133975181209528}
+  - component: {fileID: 1968696517950047917}
+  - component: {fileID: 2261341558678701752}
   - component: {fileID: 5376182984686484792}
   m_Layer: 0
   m_Name: Player Camera
@@ -1616,6 +1577,62 @@ Transform:
   m_Father: {fileID: 1349553652272819787}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1968696517950047917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5625199157355113516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9ff029ef68544d9293d448072cdb147, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  position: {x: 0, y: 0, z: 0}
+  viewAngles: {x: 0, y: 0, z: 0}
+  worldCam: {fileID: 1965301225422960103}
+  vmCam: {fileID: 0}
+--- !u!114 &2261341558678701752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5625199157355113516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07b0a210bc55d46d2a1641b8a4a0e05d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCamera: {fileID: 1968696517950047917}
+  sensitivity: {x: 5, y: 5}
+  accelerationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 3.056604
+      outSlope: 3.056604
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.041666668
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  accelerate: 1
+  eyesPoint: {fileID: 1997088713558019485}
 --- !u!81 &5376182984686484792
 AudioListener:
   m_ObjectHideFlags: 0
@@ -2108,6 +2125,37 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &8365829182070544737
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1997088713558019485}
+  m_Layer: 0
+  m_Name: Eyes Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1997088713558019485
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8365829182070544737}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.6999999, z: -0.39999998}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1349553652272819787}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8482507141806268864
 GameObject:
   m_ObjectHideFlags: 0
