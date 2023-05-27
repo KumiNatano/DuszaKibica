@@ -5,6 +5,11 @@ public class Player : MonoBehaviour
 {
     public PlayerCamera playerCamera;
 
+    public PlayerCameraController cameraController;
+    public PlayerController controller;
+
+    public CharacterController characterController;
+
 
     public T GetModule<T>() where T : PlayerModule
     {
@@ -51,6 +56,9 @@ public class Player : MonoBehaviour
                 Debug.LogError($"Could not initialize {mod.GetType().Name} module!");
             }
         }
+
+        controller = GetModule<PlayerController>();
+        cameraController = GetModule<PlayerCameraController>();
     }
     private void ModulesUpdate()
     {

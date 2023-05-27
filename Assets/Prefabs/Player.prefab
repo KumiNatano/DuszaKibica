@@ -298,6 +298,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1349553652272819787}
   - component: {fileID: 2593392389510789639}
+  - component: {fileID: 3804417390334693936}
   - component: {fileID: 6651754034401338129}
   - component: {fileID: 4501621770393683380}
   - component: {fileID: 6516974044278252105}
@@ -359,6 +360,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCamera: {fileID: 1968696517950047917}
+  cameraController: {fileID: 6651754034401338129}
+  controller: {fileID: 3804417390334693936}
+  characterController: {fileID: 1693050942032620432}
+--- !u!114 &3804417390334693936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1349553652272819797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a30f6822dd5947f7857a4f7956fb858, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  walkSpeed: 5
+  runSpeed: 7.5
 --- !u!114 &6651754034401338129
 MonoBehaviour:
   m_ObjectHideFlags: 0
