@@ -11,12 +11,14 @@ public class PlayerCameraController : PlayerModule
 
     public bool accelerate = true;
 
-    public Transform eyesPoint;
-
 
     public override void OnLateUpdate(float deltaTime)
     {
-        playerCamera.SetPosition(eyesPoint.position);
+        Vector3 newPos = parent.GetPosition();
+        newPos.y += parent.height;
+        newPos.y -= parent.eyesHeight;
+
+        playerCamera.SetPosition(newPos);
 
         Vector2 input = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
         if (accelerate){
