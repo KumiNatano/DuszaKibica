@@ -3,7 +3,7 @@ using UnityEngine;
 public class PlayerCameraController : PlayerModule
 {
     // Referencja do kamery gracza
-    public PlayerCamera playerCamera;
+    public PlayerCamera playerCamera => parent.playerCamera;
     // Czułość ruchu myszy
     public Vector2 sensitivity = new Vector2(5f, 5f);
     // Krzywa reprezentująca zmianę w przyśpieszniu myszy w zalezności od długości delty ruchu myszy

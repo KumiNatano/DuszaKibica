@@ -3,6 +3,9 @@ using System.Linq;
 
 public class Player : MonoBehaviour
 {
+    public PlayerCamera playerCamera;
+
+
     public T GetModule<T>() where T : PlayerModule
     {
         return (T)modules.First(x => x is T);
