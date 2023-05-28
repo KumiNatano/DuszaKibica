@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System;
 
-// Takes and handles input and movement for a player character
+[Obsolete]
 public class PlayerControlSystem : MonoBehaviour
 {
     public float moveSpeed = 5f;
@@ -29,10 +30,10 @@ public class PlayerControlSystem : MonoBehaviour
 
     private void FixedUpdate()
     {
+        TryToMove(movementInput);
         // If movement input is different than 0, try to move
         if (movementInput != Vector3.zero)
         {
-            TryToMove(movementInput);
             this.gameObject.GetComponent<PlayerAnimations>().setIsWalkingTrue();
         }
         else
@@ -50,13 +51,12 @@ public class PlayerControlSystem : MonoBehaviour
         Vector3 high = new Vector3(0f, 0.1f, 0f);
         //Debug.DrawRay(transform.position + high, movementInput * 4f, Color.red);
 
-        controller.SimpleMove((transform.forward * movementInput.z + transform.right * movementInput.x) * 5);
+        controller.SimpleMove((transform.forward * movementInput.z + transform.right * movementInput.x).normalized * moveSpeed);
     }
 
     void OnMove(InputValue movementValue)
     {
         movementInput = movementValue.Get<Vector3>();
-
     }
 
     public void changeSpeedTimeLimit(float speed,float timeL, float cooldown) //doda�em mo�liwo�� zmiany pr�dko�ci z okre�lonym czasem trwania i cooldownu

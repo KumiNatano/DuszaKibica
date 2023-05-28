@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HealthSystem : MonoBehaviour
 {
@@ -11,8 +12,11 @@ public class HealthSystem : MonoBehaviour
     [SerializeField] double immortalTime;
     [SerializeField] double immortalCooldown;
     public BarParent hpBar;
-    public EnemyHealthBar enemyHealthbar;
+    //public EnemyHealthBar OldenemyHealthbar;
     public EnemyDrop drop;
+
+    [SerializeField] GameObject EnemyHealthBarObject;
+    [SerializeField] Slider EnemyHPSlider;
 
     [SerializeField] UpgradeController upgradeController;
 
@@ -28,12 +32,21 @@ public class HealthSystem : MonoBehaviour
         healthAmount = maxHealthAmount;
         isAlive = true;
         hpBar.SetMax(maxHealthAmount);
+
+        if(this.gameObject.tag == "enemy")
+        {
+            EnemyHPSlider.value = maxHealthAmount;
+            EnemyHealthBarObject.SetActive(false);
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        if(this.gameObject.tag == "enemy")
+        {
+            print(EnemyHPSlider.enabled);
+        }
         manageImmortality();
     }
 
@@ -45,7 +58,10 @@ public class HealthSystem : MonoBehaviour
         {
             healthAmount -= dmg;
             if (this.tag != "player") {
-                enemyHealthbar.SetHealth(getHealthAmount(), getMaxHealthAmount());
+                    //OldenemyHealthbar.SetHealth(getHealthAmount(), getMaxHealthAmount());
+                    EnemyHealthBarObject.SetActive(true);
+                    EnemyHPSlider.value = (float) healthAmount / (float) maxHealthAmount;
+
             }
         }
         else

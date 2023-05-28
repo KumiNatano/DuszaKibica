@@ -1,60 +1,59 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[Obsolete]
 public class RotateToPointer : MonoBehaviour
 {
-    [SerializeField] Camera fppCamera;
-    [SerializeField] GameObject playerModel;
-
-    // Czu³oœæ ruchu myszy
-    public float mouseSensitivityX = 100f;
-    public float mouseSensitivityY = 100f;
-
-    // Transformacja cia³a gracza
+    // Referencja do kamery gracza
+    public Transform playerCamera;
+    // Transformacja ciaÅ‚a gracza
     public Transform playerBody;
 
-    // Aktualna wartoœæ rotacji kamery wokó³ osi X
-    private float xRotation = 0f;
+    // Aktualna wartoÅ›Ä‡ rotacji kamery
+    public Vector3 viewAngles = Vector3.zero;
+    // CzuÅ‚oÅ›Ä‡ ruchu myszy
+    public Vector2 sensitivity = new Vector2(5f, 5f);
+    // Krzywa reprezentujÄ…ca zmianÄ™ w przyÅ›pieszniu myszy w zaleznoÅ›ci od dÅ‚ugoÅ›ci delty ruchu myszy
+    public AnimationCurve accelerationCurve = new AnimationCurve(new Keyframe(0, 0), new Keyframe(1, 1));
 
-    private float yRotation = 0f;
+    public bool accelerate = true;
 
-    private void Start()
-    {
-
-        playerBody = this.transform;
-
-    }
 
     void Update()
-    {       
+    {
+        // wyjebaÄ‡ to trzeba stÄ…d lol
         if(this.gameObject.GetComponent<PlayerDeathManager>().isDead == false)
         {
             Cursor.lockState = CursorLockMode.Locked;
         }
 
-        // Pobierz wartoœæ ruchu myszy po osi X i przemnó¿ przez czu³oœæ ruchu myszy
-        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivityX * Time.deltaTime;
+        Vector2 input = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
+        if (accelerate){
+            input *= accelerationCurve.Evaluate(input.magnitude);
+        }
+        input *= sensitivity;
+        
+        viewAngles.y += input.x;
+        viewAngles.x = Mathf.Clamp(viewAngles.x - input.y, -90f, 90f);
 
-        // Pobierz wartoœæ ruchu myszy po osi Y i przemnó¿ przez czu³oœæ ruchu myszy
-        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivityY * Time.deltaTime;
-
-        // Dodaj wartoœæ ruchu myszy po osi X do aktualnej rotacji kamery wokó³ osi Y
-        yRotation -= mouseX;
-
-        // Odejmij wartoœæ ruchu myszy po osi Y od aktualnej wartoœci rotacji kamery wokó³ osi X
-        xRotation -= mouseY;
-
-        // Ogranicz wartoœæ rotacji kamery wokó³ osi X do zakresu od -90 do 90 stopni
-        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
-
-        // Utwórz nowy Quaternion na podstawie aktualnej rotacji kamery
-        Quaternion cameraRotation = Quaternion.Euler(xRotation, 0f, 0f);
-
-        // Obróæ cia³o gracza wokó³ osi Y zgodnie z ruchem myszy
-        playerBody.Rotate(Vector3.up * mouseX);
-
-        // Ustaw now¹ rotacjê kamery
-        fppCamera.transform.localRotation = cameraRotation;
+        playerBody.localEulerAngles = Vector3.up * viewAngles.y;
+        playerCamera.localEulerAngles = Vector3.right * viewAngles.x + Vector3.forward * viewAngles.z;
     }
+
+
+    [Obsolete("Use sensitivity field instead.")]
+    public float mouseSensitivityX => sensitivity.x;
+    [Obsolete("Use sensitivity field instead.")]
+    public float mouseSensitivityY => sensitivity.y;
+
+    [Obsolete("Use viewAngles field instead.")]
+    float xRotation => viewAngles.x;
+    [Obsolete("Use viewAngles field instead.")]
+    float yRotation => viewAngles.y;
+    [Obsolete]
+    GameObject playerModel => throw new NotImplementedException();
+    [Obsolete("Use playerCamera field instead.")]
+    Camera fppCamera => throw new NotImplementedException();
 }
