@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Linq;
 
-public class Player : MonoBehaviour
+public class Player : Entity
 {
     public PlayerCamera playerCamera;
 
@@ -17,9 +17,6 @@ public class Player : MonoBehaviour
     public float height => characterController.height;
 
 
-    public Vector3 GetPosition(){
-        return transform.position;
-    }
     public void SetHeight(float newHeight){
         characterController.height = newHeight;
         Vector3 center = characterController.center;
