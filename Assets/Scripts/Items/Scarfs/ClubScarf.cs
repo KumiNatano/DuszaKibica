@@ -7,15 +7,10 @@ public class ClubScarf : DropItem
     float timeLived=0;
     [SerializeField] float timeToLive = 0.5f;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-    void Update(){
-        timeLived+=Time.deltaTime;
-        rotating();
 
+    protected override void Update(){
+        base.Update();
+        timeLived+=Time.deltaTime;
     }
     private void OnTriggerEnter(Collider collider) 
     {
