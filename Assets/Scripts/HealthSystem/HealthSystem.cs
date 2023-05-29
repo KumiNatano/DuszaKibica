@@ -45,7 +45,7 @@ public class HealthSystem : MonoBehaviour
     {
         if(this.gameObject.tag == "enemy")
         {
-            print(EnemyHPSlider.enabled);
+            //print(EnemyHPSlider.enabled);
         }
         manageImmortality();
     }
