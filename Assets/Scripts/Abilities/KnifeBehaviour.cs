@@ -9,6 +9,7 @@ public class KnifeBehaviour : MonoBehaviour
     [SerializeField] public int knifeDamage = 5;
     [SerializeField] public string targetTag = "enemy";
 
+
     bool reached = false;
 
     [SerializeField] Vector3 reachedPosition;
@@ -48,10 +49,27 @@ public class KnifeBehaviour : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
+
         if (other.tag == targetTag)
-        {
+        {   
             other.GetComponent<HealthSystem>().TakeDamage(knifeDamage);
             //TakeDamage(other.GetComponent<KnifeBehaviour>().knifeDamage);
+
+            print("wrog - obrazenia");
+        }
+        else if(other.tag == "enemy-weapon" && other.GetComponentInParent<HealthSystem>() != null)
+        {
+            //other.GetComponentInParent<HealthSystem>().TakeDamage(knifeDamage);
+        }
+
+        else if(other.tag != "player" && other.name != "Weapon")
+        {
+            print("otoczenie - znikniecie");
+            Destroy(this.gameObject);
+        }
+        else if(other.tag == "player")
+        {
+            print("kolizja od gracza i sie odbija");
         }
     }
     public void setAll(Vector3 destinationPosition, float knifeSpeed, int knifeDamage, string targetTag)

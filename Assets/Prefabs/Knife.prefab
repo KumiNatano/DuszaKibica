@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5094049170942384163}
   - component: {fileID: 2947777335665836515}
   - component: {fileID: 616076968029660810}
+  - component: {fileID: -4855121505868702642}
   m_Layer: 0
   m_Name: Knife
   m_TagString: knife
@@ -27,14 +28,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6751263952082794998}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -20.978403, y: 0.099998474, z: -6.9281015}
+  m_LocalRotation: {x: 0.13382375, y: -0.5484591, z: 0.82053804, w: 0.08944967}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 20, y: 20, z: 20}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7013588903277112553
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -96,7 +97,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.029418075, y: 0.27, z: 0.0044415896}
+  m_Size: {x: 0.029418075, y: 0.003, z: 0.0044415896}
   m_Center: {x: 0.0025458348, y: 8.245202e-11, z: 0.00022079592}
 --- !u!114 &616076968029660810
 MonoBehaviour:
@@ -115,3 +116,19 @@ MonoBehaviour:
   knifeDamage: 5
   targetTag: enemy
   reachedPosition: {x: 0, y: 0, z: 0}
+--- !u!54 &-4855121505868702642
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6751263952082794998}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0

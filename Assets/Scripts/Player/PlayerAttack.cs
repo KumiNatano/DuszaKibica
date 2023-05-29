@@ -24,7 +24,7 @@ public class PlayerAttack : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetButton("Fire1") && canAttack == true) //jesli nacisniemy i mamy mozliwosc ataku
+        if (Input.GetButton("Fire1") && canAttack == true && GameObject.FindWithTag("PauseManager").GetComponent<PauseManager>().isPaused == false) //jesli nacisniemy i mamy mozliwosc ataku i nie ma pauzy
         {
             Attacking(); //to zaczynamy atak
             StartCoroutine(AttackCoroutine()); //i korutyne
