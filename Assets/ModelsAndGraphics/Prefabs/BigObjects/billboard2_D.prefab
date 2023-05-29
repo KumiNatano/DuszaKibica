@@ -177,7 +177,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 6d6c275afe10f4a4d9c15ef044c77bdb, type: 2}
-  - {fileID: 2100000, guid: aed4a1946fe6334438536175a61c0051, type: 2}
+  - {fileID: 2100000, guid: 0ee220ce15dd7e64d8369ff10a203197, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -261,7 +261,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 6d6c275afe10f4a4d9c15ef044c77bdb, type: 2}
-  - {fileID: 2100000, guid: aed4a1946fe6334438536175a61c0051, type: 2}
+  - {fileID: 2100000, guid: 0ee220ce15dd7e64d8369ff10a203197, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -345,7 +345,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 6d6c275afe10f4a4d9c15ef044c77bdb, type: 2}
-  - {fileID: 2100000, guid: aed4a1946fe6334438536175a61c0051, type: 2}
+  - {fileID: 2100000, guid: 0ee220ce15dd7e64d8369ff10a203197, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -493,7 +493,7 @@ GameObject:
   - component: {fileID: 8125353423190538470}
   - component: {fileID: 3934195859394662295}
   m_Layer: 0
-  m_Name: billboard2
+  m_Name: billboard2_D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
