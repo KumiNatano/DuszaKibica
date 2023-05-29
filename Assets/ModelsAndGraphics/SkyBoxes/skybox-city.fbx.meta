@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: fbb89e53a75cdc74b8ae2925bcd3c522
+guid: 94edb23cb8babcd43a0f9240a0f3695f
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
@@ -7,8 +7,13 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: lamppost
-    second: {fileID: 2100000, guid: 1f86c84bc5220554990a66fc49b52179, type: 2}
+      name: Material
+    second: {fileID: 2100000, guid: 1562e18ad1be8d845b0695fc52d6de94, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.001
+    second: {fileID: 2100000, guid: 484b00869b17aaf42bf5842ece8ba2e8, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
