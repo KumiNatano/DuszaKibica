@@ -25,7 +25,7 @@ public class KnifeAbility : MonoBehaviour
     void Start()
     {
 
-        mainCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
+        mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         upgradeController = GameObject.Find("UpgradeController").GetComponent<UpgradeController>();
         if (upgradeController.Knife == true)
         {

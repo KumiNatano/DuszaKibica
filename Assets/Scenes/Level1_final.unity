@@ -54609,6 +54609,10 @@ PrefabInstance:
       propertyPath: PlayerStaminaBar
       value: 
       objectReference: {fileID: 1039405771}
+    - target: {fileID: 356740842, guid: 3464a262695b3284b8785c2e4627a4e1, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: 61e8ad659cace6f48a98dea3f180731d, type: 2}
     - target: {fileID: 1349553652272819787, guid: 3464a262695b3284b8785c2e4627a4e1, type: 3}
       propertyPath: m_RootOrder
       value: 0
