@@ -25,7 +25,7 @@ public class KnifeAbility : MonoBehaviour
     void Start()
     {
 
-        mainCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
+        mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         upgradeController = GameObject.Find("UpgradeController").GetComponent<UpgradeController>();
         if (upgradeController.Knife == true)
         {
@@ -58,16 +58,21 @@ public class KnifeAbility : MonoBehaviour
 
     void activateAbility()
     {
+        Camera mainCamera = Camera.main;
+
         knifeImage.GetComponent<RawImage>().texture = abilities.GetComponent<AbilitiesUI>().knifeTextures[0]; //ustawiamy obrazek na wyszarzony
 
         Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
         if(Physics.Raycast(ray, out RaycastHit raycastHit))
         {
             mouseWorldPosition = raycastHit.point;
+            //print(mouseWorldPosition);
         }
 
-        GameObject knife = Instantiate(knifePrefab, new Vector3(this.transform.position.x, 1, this.transform.position.z), this.transform.rotation);
-        knife.GetComponent<KnifeBehaviour>().destinationPosition = new Vector3(mouseWorldPosition.x*1, 1, mouseWorldPosition.z*1);
+        GameObject knife = Instantiate(knifePrefab, new Vector3(mainCamera.transform.position.x, mainCamera.transform.position.y, mainCamera.transform.position.z),
+            mainCamera.transform.rotation * Quaternion.Euler(-90,90,0));
+
+        knife.GetComponent<KnifeBehaviour>().destinationPosition = new Vector3(mouseWorldPosition.x*1, mouseWorldPosition.y*1, mouseWorldPosition.z*1);
         knife.GetComponent<KnifeBehaviour>().knifeSpeed = knifeSpeed;
         knife.GetComponent<KnifeBehaviour>().knifeDamage = knifeDamage;
     }
