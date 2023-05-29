@@ -19,7 +19,7 @@ public class PlayerAnimations : MonoBehaviour
     public void setIsAttackingLeftTrue()
     {
         animator.SetBool("isAttackingLeft", true);
-        print("bije lewa");
+        //print("bije lewa");
     }
 
     public void setIsAttackingLeftFalse()
