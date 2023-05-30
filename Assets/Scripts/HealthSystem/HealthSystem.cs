@@ -1,8 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+[Obsolete("HealthSystem will be removed. Use LivingMixin instead")]
 public class HealthSystem : MonoBehaviour
 {
     [SerializeField] int healthAmount;
