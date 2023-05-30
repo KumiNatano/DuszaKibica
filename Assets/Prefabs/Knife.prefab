@@ -95,7 +95,7 @@ BoxCollider:
   m_GameObject: {fileID: 6751263952082794998}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 0.029418075, y: 0.003, z: 0.0044415896}
   m_Center: {x: 0.0025458348, y: 8.245202e-11, z: 0.00022079592}
@@ -111,11 +111,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84c7241ae03f6ca499ac326c0692e0cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destinationPosition: {x: 0, y: 0, z: 0}
-  knifeSpeed: 5
-  knifeDamage: 5
-  targetTag: enemy
-  reachedPosition: {x: 0, y: 0, z: 0}
+  hitDamage: 5
+  flySpeed: 2
+  flownDistance: 0
+  maxFlyDistance: 10
+  flyDirection: {x: 0, y: 0, z: 1}
+  hitboxSize: {x: 0.25, y: 0.5, z: 1}
+  hitboxOffset: {x: 0, y: 0, z: 0}
+  damageLayers:
+    serializedVersion: 2
+    m_Bits: 4294967291
+  groundedLayers:
+    serializedVersion: 2
+    m_Bits: 4294967291
 --- !u!54 &-4855121505868702642
 Rigidbody:
   m_ObjectHideFlags: 0
