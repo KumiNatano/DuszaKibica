@@ -52,7 +52,6 @@ public class EnemyRangedAttack : MonoBehaviour
 
         GameObject knife = Instantiate(enemyKnifePrefab, new Vector3(this.transform.position.x, 1, this.transform.position.z), this.transform.rotation);
         Vector3 destination= new Vector3(player.position.x * 1, 1, player.position.z * 1);
-        knife.GetComponent<KnifeBehaviour>().setAll(destination, knifeSpeed, knifeDamage, "player");
         //knife.GetComponent<ThrowingKnifeEnemy>().destinationPosition = new Vector3(player.position.x * 1, 1, player.position.z * 1);
         //knife.GetComponent<ThrowingKnifeEnemy>().knifeSpeed = knifeSpeed;
         //knife.GetComponent<KnifeBehaviour>().knifeDamage = knifeDamage;

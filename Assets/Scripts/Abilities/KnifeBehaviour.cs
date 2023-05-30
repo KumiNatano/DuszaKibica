@@ -1,82 +1,94 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class KnifeBehaviour : MonoBehaviour
 {
-    [SerializeField] public Vector3 destinationPosition;
-    [SerializeField] public float knifeSpeed = 5f;
-    [SerializeField] public int knifeDamage = 5;
-    [SerializeField] public string targetTag = "enemy";
+    public float hitDamage = 5f;
+    public float flySpeed = 2f;
+    public float flownDistance = 0f;
+    public float maxFlyDistance = 10f;
+    public Vector3 flyDirection = Vector3.forward;
+    public Vector3 hitboxSize = Vector3.one;
+    public Vector3 hitboxOffset = Vector3.zero;
+
+    public LayerMask damageLayers = Physics.DefaultRaycastLayers;
+    public LayerMask groundedLayers = Physics.DefaultRaycastLayers;
+    public float groundedDistance => flySpeed * Time.fixedDeltaTime + 0.025f;
+
+    RaycastHit[] hits = new RaycastHit[8];
+    bool dirty = false;
 
 
-    bool reached = false;
-
-    [SerializeField] Vector3 reachedPosition;
-
-
-    private void Update()
+    public void SetDirection(Vector3 newDir)
     {
-        throwedKnife(destinationPosition);
+        flyDirection = newDir.normalized;
+        transform.rotation = Quaternion.LookRotation(flyDirection);
     }
 
-    void throwedKnife(Vector3 destinationPosition)
+    void Fly()
     {
-        if (reached)
+        float w = flySpeed * Time.fixedDeltaTime;
+        transform.position += flyDirection * w;
+        flownDistance += w;
+    }
+    void DealDamage()
+    {
+        int c = Physics.BoxCastNonAlloc(transform.position + Quaternion.LookRotation(flyDirection) * hitboxOffset, hitboxSize*0.5f, flyDirection, hits, Quaternion.identity, 0, damageLayers);
+        for (int i = 0; i < c; i++)
         {
-            if (Vector3.Distance(reachedPosition, this.transform.position) > 50) {
-                Destroy(this.gameObject);
-            }
-
-            this.transform.position += transform.forward * Time.deltaTime * knifeSpeed;
-
+            HealthSystem hs;
+            Transform t = hits[i].transform;
+            // remove magic string
+            if (t.TryGetComponent(out hs) && !IsPlayer(t)){
+                hs.TakeDamage(Mathf.RoundToInt(hitDamage));
+                dirty = true;
+                break;
+            } 
         }
-        else
+    }
+    void EnsureNotDirty()
+    {
+        if (dirty)
         {
-            if (Vector3.Distance(destinationPosition, this.transform.position) < 0.1)
+            Destroy(gameObject);
+        }
+    }
+    void CheckGround()
+    {
+        int c = Physics.RaycastNonAlloc(transform.position, flyDirection, hits, groundedDistance, damageLayers);
+        bool sp = false;
+        for (int i = 0; i < c; i++)
+        {
+            if (!sp)
             {
-                reachedPosition = this.transform.position;
-                reached = true;
-            }
-            else
-            {
-                this.transform.position = Vector3.MoveTowards(this.transform.position, destinationPosition, knifeSpeed * Time.deltaTime);
+                sp = IsPlayer(hits[i].transform);
             }
         }
-
-
-
-    }
-    private void OnTriggerEnter(Collider other)
-    {
-
-        if (other.tag == targetTag)
-        {   
-            other.GetComponent<HealthSystem>().TakeDamage(knifeDamage);
-            //TakeDamage(other.GetComponent<KnifeBehaviour>().knifeDamage);
-
-            print("wrog - obrazenia");
-        }
-        else if(other.tag == "enemy-weapon" && other.GetComponentInParent<HealthSystem>() != null)
+        if (!sp && c > 0)
         {
-            //other.GetComponentInParent<HealthSystem>().TakeDamage(knifeDamage);
-        }
-
-        else if(other.tag != "player" && other.name != "Weapon")
-        {
-            print("otoczenie - znikniecie");
-            Destroy(this.gameObject);
-        }
-        else if(other.tag == "player")
-        {
-            print("kolizja od gracza i sie odbija");
+            dirty = true;
         }
     }
-    public void setAll(Vector3 destinationPosition, float knifeSpeed, int knifeDamage, string targetTag)
+    void CheckOverfly()
     {
-        this.destinationPosition = destinationPosition;
-        this.knifeSpeed = knifeSpeed;
-        this.knifeDamage = knifeDamage; 
-        this.targetTag = targetTag;
+        if (flownDistance >= maxFlyDistance)
+        {
+            dirty = true;
+        }
+    }
+    bool IsPlayer(Transform t)
+    {
+        return t.CompareTag("player");
+    }
+
+    void FixedUpdate()
+    {
+        EnsureNotDirty();
+        CheckGround();
+        Fly();
+        CheckOverfly();
+        DealDamage();
     }
 }
