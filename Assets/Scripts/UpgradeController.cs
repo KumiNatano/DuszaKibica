@@ -83,7 +83,7 @@ public class UpgradeController : MonoBehaviour
             refreshUI();
         }
 
-        MoneyText = GameObject.Find("MoneyText").GetComponent<TMP_Text>();
+        MoneyText = GameObject.Find("ScarfCounter").GetComponent<TMP_Text>();
 
         updateMoneyText();
 
@@ -156,7 +156,7 @@ public class UpgradeController : MonoBehaviour
 
     void updateMoneyText()
     {
-        MoneyText.text = "Mamona: " + Money;
+        MoneyText.text = Money.ToString();
     }
 
     public void addMoney(int amount)
