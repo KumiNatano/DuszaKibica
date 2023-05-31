@@ -24,6 +24,12 @@ public class PlayerAttack : MonoBehaviour
     }
     void Update()
     {
+        Vector3 c = attackArea.GetComponent<SphereCollider>().center;
+        swish.transform.position = attackArea.transform.position + c;
+        c.y = 0;
+        Vector3 r = swish.transform.eulerAngles;
+        r.y = Quaternion.LookRotation(c).eulerAngles.y;
+        swish.transform.eulerAngles = r;
         if (Input.GetButton("Fire1") && canAttack == true && GameObject.FindWithTag("PauseManager").GetComponent<PauseManager>().isPaused == false) //jesli nacisniemy i mamy mozliwosc ataku i nie ma pauzy
         {
             Attacking(); //to zaczynamy atak
