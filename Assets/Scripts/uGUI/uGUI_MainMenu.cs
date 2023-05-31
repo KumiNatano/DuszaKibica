@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEditor;
 using UnityEngine.SceneManagement;
 
 public class uGUI_MainMenu : MonoBehaviour
@@ -16,7 +17,11 @@ public class uGUI_MainMenu : MonoBehaviour
 
     public void OnQuit()
     {
+        #if UNITY_EDITOR
+        EditorApplication.isPlaying = false;
+        #else
         Application.Quit();
+        #endif
     }
 
     public void OnResume()
