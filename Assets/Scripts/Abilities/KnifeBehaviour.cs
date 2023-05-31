@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -19,7 +20,6 @@ public class KnifeBehaviour : MonoBehaviour
 
     RaycastHit[] hits = new RaycastHit[8];
     bool dirty = false;
-
 
     public void SetDirection(Vector3 newDir)
     {
