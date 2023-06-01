@@ -1,7 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
+[Obsolete("Use PlayerStamina instead")]
 public class StaminaSystem : MonoBehaviour
 {
     [SerializeField] public int staminaAmount;
