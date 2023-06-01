@@ -24,13 +24,18 @@ public class PlayerStamina : PlayerModule
         InvokeRepeating(nameof(RegenTick), 0f, regenRateRaw);
     }
 
-    public bool UsePoints(float amount) 
+    public bool UsePoints(float amount)
     {
-        lastPointUse = Time.time;
         if (points < amount)
         {
             return false;
         }
+        ForceUsePoints(amount);
+        return false;
+    }
+    public void ForceUsePoints(float amount) 
+    {
+        lastPointUse = Time.time;
         float old = points;
         points -= amount;
         points = Mathf.Clamp(points, 0, maxPoints);
@@ -39,7 +44,6 @@ public class PlayerStamina : PlayerModule
             onPointsChange?.Invoke(old, points);
             onUse?.Invoke(old - points);
         }
-        return true;
     }
     public void Regenerate(float amount)
     {
