@@ -1,11 +1,11 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : PlayerModule
 {
     public float walkSpeed = 5f;
     public float runSpeed = 7.5f;
+    public float runStamina = 12.5f;
     public float duckSpeed = 2.5f;
     public float duckStep = 4f;
 
@@ -18,9 +18,15 @@ public class PlayerController : PlayerModule
 
     public override void OnUpdate(float deltaTime)
     {
-        Move();
         Duck();
+        Move();
     }
+    public override void OnFixedUpdate(float deltaTime)
+    {
+        Run();
+        UseStamina();
+    }
+
 
     private void Move(){
         float speed;
@@ -49,6 +55,17 @@ public class PlayerController : PlayerModule
         {
             isDucking = i;
             StartCoroutine(DoDuck(controller.height, isDucking ? parent.duckHeight : parent.normalHeight));
+        }
+    }
+    private void Run()
+    {
+        isRunning = Input.GetButton("Sprint") && Input.GetAxisRaw("Vertical") > float.Epsilon && parent.stamina.points > runStamina * Time.fixedDeltaTime;
+    }
+    private void UseStamina()
+    {
+        if (isRunning)
+        {
+            parent.stamina.UsePoints(runStamina * Time.fixedDeltaTime);
         }
     }
     private IEnumerator DoDuck(float from, float to){
