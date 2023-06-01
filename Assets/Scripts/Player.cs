@@ -13,6 +13,8 @@ public class Player : Entity
 
     public CharacterController characterController;
 
+    public static Player main { get; private set; }
+
     public float normalHeight = 1.85f;
     public float duckHeight = 0.9f;
     public float eyesHeight = 0.1f;
@@ -45,6 +47,7 @@ public class Player : Entity
     #region  Unity Callbacks
     private void Awake()
     {
+        InitSingleton();
         InitModules();
     }
     private void Update()
@@ -61,6 +64,17 @@ public class Player : Entity
     }
     #endregion
 
+    private void InitSingleton()
+    {
+        if (main == null) 
+        {
+            main = this;
+        }
+        else if (main != this)
+        {
+            Destroy(gameObject);
+        }
+    }
     #region Modules
     private void InitModules()
     {
