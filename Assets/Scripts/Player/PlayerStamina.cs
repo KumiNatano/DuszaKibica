@@ -59,6 +59,10 @@ public class PlayerStamina : PlayerModule
             onRegenerate?.Invoke(points - old);
         }
     }
+    public bool CanAfford(float points)
+    {
+        return !(this.points < points);
+    }
 
     void RegenTick()
     {
