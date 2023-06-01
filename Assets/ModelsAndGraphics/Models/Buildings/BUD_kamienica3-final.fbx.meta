@@ -1,0 +1,239 @@
+fileFormatVersion: 2
+guid: e515495239763f44187ba8e349f5fcbb
+ModelImporter:
+  serializedVersion: 21300
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: kamienica3-drzwi-1
+    second: {fileID: 2100000, guid: 020b3e05a4305c446a9a1f07fbd35361, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: kamienica3-drzwi-1.001
+    second: {fileID: 2100000, guid: cb38c280e2f0a6b47b977b9b7b2a0154, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: kamienica3-drzwi-1.002
+    second: {fileID: 2100000, guid: def25e94bdd782b45b7536ce11f59938, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: kamienica3-frontwall
+    second: {fileID: 2100000, guid: 2192e3f0bdade734aabb6e140feb6293, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: kamienica3-frontwall.001
+    second: {fileID: 2100000, guid: c60bf5329ead3724d9a97dc11c302ed1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: kamienica3-frontwall.002
+    second: {fileID: 2100000, guid: dcb42994b39f3ef47a486e40efee015d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: kamienica3-frontwall2
+    second: {fileID: 2100000, guid: 86077d63b508d034581131a44089a657, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: kamienica3-okno-1
+    second: {fileID: 2100000, guid: 90a9ec6311cbaf3478d3be626aa6440d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: kamienica3-okno-1.001
+    second: {fileID: 2100000, guid: 65d16b8f7c2b42f40b87547a72fea573, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: kamienica3-okno-1.002
+    second: {fileID: 2100000, guid: b196a17e2960cb041b3e4083581f6b8d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: kamienica3-okno-small-1
+    second: {fileID: 2100000, guid: 91bcfa36352e5444c8a98802d0e611a2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: kamienica3-okno-small-1.001
+    second: {fileID: 2100000, guid: cd0520212ca90184dbfa8aa6ce8a36ce, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: kamienica3-okno-small-1.002
+    second: {fileID: 2100000, guid: 5b39212887b677147be2dfb573765c65, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: kamienica3-roof
+    second: {fileID: 2100000, guid: 1edef9914b0bdc542a3b523f48e91273, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: kamienica3-roof.001
+    second: {fileID: 2100000, guid: a9a7172e39391be4db9096b5854b9c9a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: kamienica3-roof.002
+    second: {fileID: 2100000, guid: 1acdf4c6e71f4f04ab2981f245c28c2c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: kamienica3-shop-door1
+    second: {fileID: 2100000, guid: 2390e11e02dd6ab49bc3e1624d1700b8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: kamienica3-shop-door1.001
+    second: {fileID: 2100000, guid: 24e83fba83d8d01488d78defadb39c21, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: kamienica3-shop-door1.002
+    second: {fileID: 2100000, guid: 2a047a06582d69d4d88694cbfbb8d6b8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: kamienica3-shop-window-1
+    second: {fileID: 2100000, guid: 6452f0e0d8963324d9ec3e1232f8d736, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: kamienica3-shop-window-1.001
+    second: {fileID: 2100000, guid: 7df8b305f078b724590104c18e9c6211, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: kamienica3-shop-window-1.002
+    second: {fileID: 2100000, guid: 4dd1ac29918bd574abccaadc444a12d4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: kamienica3-wall
+    second: {fileID: 2100000, guid: 6156f0c6795585447bf10895bb1c25e2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: kamienica3-wall.001
+    second: {fileID: 2100000, guid: 71c2937f8a504794583eab3be3c7cefc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: kamienica3-wall.002
+    second: {fileID: 2100000, guid: ae47021fc2eb87a45b1ba66f7970937d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: kamienica3-wall2
+    second: {fileID: 2100000, guid: fbba7fea868a8294faef75e6ca4f1dd8, type: 2}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 1
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages:
+    - 0.25
+    - 0.125
+    - 0.01
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
