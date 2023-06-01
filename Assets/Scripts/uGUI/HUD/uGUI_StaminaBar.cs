@@ -4,11 +4,12 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Slider))]
 public class uGUI_StaminaBar : MonoBehaviour
 {
+    PlayerStamina stamina => Player.main.stamina;
     Slider slider;
 
     void UpdateValue(float oldp, float newp)
     {
-        slider.maxValue = Player.main.stamina.maxPoints;
+        slider.maxValue = stamina.maxPoints;
         slider.value = newp;
     }
 
@@ -18,6 +19,8 @@ public class uGUI_StaminaBar : MonoBehaviour
     }
     void Start()
     {
-        Player.main.stamina.onPointsChange += UpdateValue;
+        float points = stamina.points;
+        UpdateValue(points, points);
+        stamina.onPointsChange += UpdateValue;
     }
 }
