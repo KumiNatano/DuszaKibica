@@ -18,6 +18,7 @@ TagManager:
   - PauseUI
   - PauseManager
   - enemy-weapon
+  - DropItem
   layers:
   - Default
   - TransparentFX

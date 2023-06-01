@@ -301,6 +301,7 @@ GameObject:
   - component: {fileID: 3804417390334693936}
   - component: {fileID: 6651754034401338129}
   - component: {fileID: 2146499373618382034}
+  - component: {fileID: 7117042450289330075}
   - component: {fileID: 4501621770393683380}
   - component: {fileID: 6516974044278252105}
   - component: {fileID: 5891462997468904518}
@@ -434,8 +435,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59f0e2385630b4726907870003cff475, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  runAmplitude: 0.075
+  runFrequency: 12
   walkAmplitude: 0.065
   walkFrequency: 8
+  duckAmplitude: 0.03
+  duckFrequency: 4
+--- !u!114 &7117042450289330075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1349553652272819797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bc57ab56efe4474d960fbfcfd2257fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  checkOffset: {x: 0, y: 0, z: 0}
+  checkRadius: 0.5
+  checkLayers:
+    serializedVersion: 2
+    m_Bits: 4294967291
 --- !u!114 &4501621770393683380
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -648,7 +670,6 @@ MonoBehaviour:
   restartImage: {fileID: 0}
   PlayerHPBar: {fileID: 0}
   PlayerStaminaBar: {fileID: 0}
-  playerModel: {fileID: 0}
   isDead: 0
 --- !u!114 &356740841
 MonoBehaviour:
@@ -1603,6 +1624,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c27145d51e58964ab9330008b3a0e90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  offset: {x: 0, y: 1.4, z: 1}
   damage: 30
   Player: {fileID: 1349553652272819797}
   weapons: {fileID: 0}
