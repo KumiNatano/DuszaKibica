@@ -5,8 +5,11 @@ public class Player : Entity
 {
     public PlayerCamera playerCamera;
 
-    public PlayerCameraController cameraController;
-    public PlayerController controller;
+    public PlayerCameraController cameraController { get; private set; }
+    public PlayerController controller { get; private set; }
+    public PlayerStamina stamina { get; private set; }
+    public PlayerItemPickuper itemPickuper { get; private set; }
+    public PlayerHeadbob headbob { get; private set; }
 
     public CharacterController characterController;
 
@@ -72,6 +75,9 @@ public class Player : Entity
 
         controller = GetModule<PlayerController>();
         cameraController = GetModule<PlayerCameraController>();
+        stamina = GetModule<PlayerStamina>();
+        itemPickuper = GetModule<PlayerItemPickuper>();
+        headbob = GetModule<PlayerHeadbob>();
     }
     private void ModulesUpdate()
     {
