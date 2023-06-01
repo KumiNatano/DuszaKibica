@@ -97,9 +97,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb69f505ca3ad304cadecdc112ed92d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pickupSounds:
+  - {fileID: 8300000, guid: 56125deb867ee2f479fa9f6e6b8b1bf9, type: 3}
+  - {fileID: 8300000, guid: 0fe8ba61e5055ca48805174fa95fd5a8, type: 3}
+  - {fileID: 8300000, guid: 189e783df48ca3041af5dce2c66d4e02, type: 3}
+  - {fileID: 8300000, guid: 421d2d1eb072c69429c2a8cd62460633, type: 3}
   itemID: 0
   name: 
-  degreesPerSecond: 10
   timeToLive: 0.5
 --- !u!65 &-1049560873552172113
 BoxCollider:
