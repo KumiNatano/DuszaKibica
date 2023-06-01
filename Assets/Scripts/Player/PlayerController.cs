@@ -13,6 +13,7 @@ public class PlayerController : PlayerModule
     public bool isDucking = false;
 
     public PlayerCamera playerCamera => parent.playerCamera;
+    public PlayerStamina stamina => parent.stamina;
     public CharacterController controller => parent.characterController;
 
 
@@ -24,7 +25,6 @@ public class PlayerController : PlayerModule
     public override void OnFixedUpdate(float deltaTime)
     {
         Run();
-        UseStamina();
     }
 
 
@@ -33,8 +33,6 @@ public class PlayerController : PlayerModule
         float vy = playerCamera.viewAngles.y;
         Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         Vector3 dir = AngleToDir(vy) * input.y + AngleToDir(vy + 90f) * input.x;
-
-        isRunning = Input.GetButton("Sprint") && input.y > float.Epsilon;
 
         if (isDucking){
             speed = duckSpeed;
@@ -59,14 +57,15 @@ public class PlayerController : PlayerModule
     }
     private void Run()
     {
-        isRunning = Input.GetButton("Sprint") && Input.GetAxisRaw("Vertical") > float.Epsilon && parent.stamina.points > runStamina * Time.fixedDeltaTime;
-    }
-    private void UseStamina()
-    {
-        if (isRunning)
+        float stu = runStamina * Time.fixedDeltaTime;
+        bool isr = Input.GetButton("Sprint");
+        isr &= Input.GetAxisRaw("Vertical") > float.Epsilon;
+        isr &=  stamina.CanAfford(stu);
+        if (isr)
         {
-            parent.stamina.UsePoints(runStamina * Time.fixedDeltaTime);
+            stamina.ForceUsePoints(stu);
         }
+        isRunning = isr;
     }
     private IEnumerator DoDuck(float from, float to){
         bool c = isDucking;
