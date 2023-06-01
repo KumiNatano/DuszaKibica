@@ -86,7 +86,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5265072921061968914}
   - component: {fileID: 5265072921061968924}
-  - component: {fileID: 5265072921061968915}
+  - component: {fileID: 4329132551535591186}
   m_Layer: 5
   m_Name: StaminaBarPlaceholder
   m_TagString: Untagged
@@ -163,11 +163,11 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 20
   m_WholeNumbers: 1
-  m_Value: 20
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &5265072921061968915
+--- !u!114 &4329132551535591186
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -176,10 +176,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 5265072921061968913}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d0e5da88924f4b4a8d77278cf39c74a, type: 3}
+  m_Script: {fileID: 11500000, guid: ed14fc9d53a1dc74595ad8306f2684d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slider: {fileID: 5265072921061968924}
 --- !u!1 &5265072921087337591
 GameObject:
   m_ObjectHideFlags: 0
