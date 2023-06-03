@@ -34,8 +34,8 @@ public class EnemyRangedAttack : MonoBehaviour
     IEnumerator turnOffAnimation()
     {
         yield return new WaitForSeconds(0.467f); //idealnie dlugosc animacji uderzania, w przyszlosci lepiej wrzucic to do zmiennej jesli beda np animacje o roznej dlugosci
-        parent.GetComponent<EnemyAnimations>().setIsAttackingLeftFalse();
-        parent.GetComponent<EnemyAnimations>().setIsAttackingRightFalse();
+        parent.GetComponent<EnemyAnimationsAndModel>().setIsAttackingLeftFalse();
+        parent.GetComponent<EnemyAnimationsAndModel>().setIsAttackingRightFalse();
     }
 
     IEnumerator AttackCoroutine()

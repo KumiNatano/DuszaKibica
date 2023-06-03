@@ -19,12 +19,12 @@ public class EnemyAttack : MonoBehaviour
 
             if (animacjaAtaku == 1)
             {
-                parent.GetComponent<EnemyAnimations>().setIsAttackingLeftTrue();
+                parent.GetComponent<EnemyAnimationsAndModel>().setIsAttackingLeftTrue();
             }
 
             else if (animacjaAtaku == 2)
             {
-                parent.GetComponent<EnemyAnimations>().setIsAttackingRightTrue();
+                parent.GetComponent<EnemyAnimationsAndModel>().setIsAttackingRightTrue();
             }
 
             StartCoroutine(turnOffAnimation());
@@ -40,8 +40,8 @@ public class EnemyAttack : MonoBehaviour
     IEnumerator turnOffAnimation()
     {
         yield return new WaitForSeconds(0.467f); //idealnie dlugosc animacji uderzania, w przyszlosci lepiej wrzucic to do zmiennej jesli beda np animacje o roznej dlugosci
-        parent.GetComponent<EnemyAnimations>().setIsAttackingLeftFalse();
-        parent.GetComponent<EnemyAnimations>().setIsAttackingRightFalse();
+        parent.GetComponent<EnemyAnimationsAndModel>().setIsAttackingLeftFalse();
+        parent.GetComponent<EnemyAnimationsAndModel>().setIsAttackingRightFalse();
     }
 
     IEnumerator AttackCoroutine()
