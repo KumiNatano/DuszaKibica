@@ -8,7 +8,7 @@ public class WalkingAnimationBehaviour : MonoBehaviour
     {
         if (transform.hasChanged)
         {
-            this.gameObject.GetComponent<EnemyAnimations>().setIsWalkingTrue();
+            this.gameObject.GetComponent<EnemyAnimationsAndModel>().setIsWalkingTrue();
             transform.hasChanged = false;
         }
     }
@@ -17,7 +17,7 @@ public class WalkingAnimationBehaviour : MonoBehaviour
     {
         if (collider.gameObject.tag == "player")
         {
-            this.gameObject.GetComponent<EnemyAnimations>().setIsWalkingFalse();
+            this.gameObject.GetComponent<EnemyAnimationsAndModel>().setIsWalkingFalse();
         }
     }
 }
