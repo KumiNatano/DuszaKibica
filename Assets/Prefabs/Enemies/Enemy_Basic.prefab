@@ -1489,7 +1489,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1774386340696883511
 Transform:
   m_ObjectHideFlags: 0
@@ -5605,7 +5605,7 @@ GameObject:
   - component: {fileID: 1459051019494566796}
   - component: {fileID: 1319396734598982994}
   - component: {fileID: 6722607584775963484}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Weapon
   m_TagString: enemy-weapon
   m_Icon: {fileID: 0}
@@ -9424,6 +9424,7 @@ MonoBehaviour:
   EnemyHPSlider: {fileID: 7031437027171094411}
   upgradeController: {fileID: 0}
   hpBarCanvas: {fileID: 5582080413943123984}
+  enemyWeapon: {fileID: 5122132766624949886}
 --- !u!114 &7548801184113133288
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9466,8 +9467,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.7, y: 2, z: 0.4}
-  m_Center: {x: 0, y: 1, z: 0}
+  m_Size: {x: 0.7, y: 2, z: 0.6}
+  m_Center: {x: 0, y: 1, z: 0.08}
 --- !u!114 &8828407669773825971
 MonoBehaviour:
   m_ObjectHideFlags: 0
