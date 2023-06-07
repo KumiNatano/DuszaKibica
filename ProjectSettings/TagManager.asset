@@ -19,6 +19,7 @@ TagManager:
   - PauseManager
   - enemy-weapon
   - DropItem
+  - EnemyDetector
   layers:
   - Default
   - TransparentFX
@@ -27,7 +28,7 @@ TagManager:
   - Water
   - UI
   - PauseUI
-  - 
+  - EnemyWeapon
   - 
   - 
   - 
