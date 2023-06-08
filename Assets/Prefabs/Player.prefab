@@ -362,8 +362,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCamera: {fileID: 1968696517950047917}
-  cameraController: {fileID: 6651754034401338129}
-  controller: {fileID: 3804417390334693936}
   characterController: {fileID: 1693050942032620432}
   normalHeight: 1.85
   duckHeight: 0.9
@@ -382,6 +380,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walkSpeed: 5
   runSpeed: 7.5
+  runStamina: 12.5
   duckSpeed: 2.5
   duckStep: 4
   isRunning: 0
@@ -438,10 +437,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   points: 100
   maxPoints: 100
-  regenRate: 16
   regenPoints: 10
   regenAfter: 3
-  lastPointUse: 0
 --- !u!114 &2146499373618382034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -564,6 +561,7 @@ MonoBehaviour:
   EnemyHealthBarObject: {fileID: 0}
   EnemyHPSlider: {fileID: 0}
   upgradeController: {fileID: 0}
+  hpBarCanvas: {fileID: 0}
 --- !u!114 &614390003528158668
 MonoBehaviour:
   m_ObjectHideFlags: 0
