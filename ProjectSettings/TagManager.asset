@@ -20,6 +20,7 @@ TagManager:
   - enemy-weapon
   - DropItem
   - EnemyDetector
+  - Crosshair
   layers:
   - Default
   - TransparentFX

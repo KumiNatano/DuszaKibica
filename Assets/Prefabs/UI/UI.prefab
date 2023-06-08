@@ -1893,7 +1893,7 @@ GameObject:
   - component: {fileID: 777931499673764134}
   m_Layer: 5
   m_Name: Crosshair
-  m_TagString: Untagged
+  m_TagString: Crosshair
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1940,7 +1940,8 @@ MonoBehaviour:
   dotImg: {fileID: 6185695422890670658}
   grayColor: {r: 0.4784314, g: 0.4784314, b: 0.4784314, a: 1}
   whiteColor: {r: 0.9607844, g: 0.9607844, b: 0.9607844, a: 1}
-  invisible: {r: 0, g: 0, b: 0, a: 0}
+  canAttackLeft: 0
+  isLeftColorChangingRightNow: 0
 --- !u!1 &7974097631100518152
 GameObject:
   m_ObjectHideFlags: 0

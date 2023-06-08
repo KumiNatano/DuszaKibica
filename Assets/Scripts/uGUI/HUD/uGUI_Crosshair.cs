@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
@@ -16,7 +17,7 @@ public class uGUI_Crosshair : MonoBehaviour
     [SerializeField] Image dotImg;
     [SerializeField] private Color grayColor;
     [SerializeField] private Color whiteColor;
-    private Color invisible = Color.clear;
+    private Color invisibleColor = Color.clear;
     
     //[SerializeField] private float distanceToLightDot = 2.50f;
 
@@ -24,14 +25,13 @@ public class uGUI_Crosshair : MonoBehaviour
     //int layerMask;
 
     private GameObject detectionCollider;
-    private bool canAttackLeft;
-    private bool canAttackRight;
+    [SerializeField] public bool canAttackLeft = true;
+    private bool canAttackRight = true;
     private float coolDown;
-    
-    //
-    private Color currentColor;
-    //
-    
+
+    [SerializeField] private bool isLeftColorChangingRightNow = false;
+    private bool isRightColorChangingRightNow = false;
+
     private void Start()
     {
         detectionCollider = GameObject.FindGameObjectWithTag("EnemyDetector");
@@ -39,10 +39,6 @@ public class uGUI_Crosshair : MonoBehaviour
         //layerMask = ~layerMask;
 
         coolDown = GameObject.FindGameObjectWithTag("player").GetComponent<PlayerAttack>().cooldown;
-        
-        //
-        currentColor = whiteColor;
-        //
     }
     
     void Update()
@@ -50,47 +46,69 @@ public class uGUI_Crosshair : MonoBehaviour
         //DotDetectionRayCast();
         CrosshairArmsController();
         DotDetectionCollider();
-        
-        if (Input.GetKeyDown(KeyCode.P))
+    }
+
+    IEnumerator ColorLerp(Image imgOfArm, Color endValue, float duration)
+    {
+        float time = 0;
+        Color startValue = imgOfArm.color;
+        while (time < duration)
         {
-            if (currentColor == invisible)
-            {
-                currentColor = whiteColor;
-            }
-            else
-            {
-                currentColor = invisible;
-            }
+            imgOfArm.color = Color.Lerp(startValue, endValue, time / duration);
+            time += Time.deltaTime;
+            yield return null;
         }
 
-        lArmImg.color = Color.Lerp(lArmImg.color, currentColor, Time.deltaTime * 10);
-        print(coolDown);
+        imgOfArm.color = endValue;
+
+        if (imgOfArm == lArmImg)
+        {
+
+            canAttackLeft = true;
+            isLeftColorChangingRightNow = false;
+        }
+        else if (imgOfArm == rArmImg)
+        {
+            canAttackRight = true;
+            isRightColorChangingRightNow = false;
+        }
     }
 
     void CrosshairArmsController()
     {
+
         //poki co bierze do obu "armow" to samo canAttack, poniewaz nie ma rozroznienia na lewa i prawa
         canAttackLeft = GameObject.FindGameObjectWithTag("player").GetComponent<PlayerAttack>().canAttack;
         canAttackRight = GameObject.FindGameObjectWithTag("player").GetComponent<PlayerAttack>().canAttack;
-        
-        //lewa
-        // if (canAttackLeft == true)
-        // {
-        //     lArmImg.color = whiteColor;
-        // }
-        // else
-        // {
-        //     lArmImg.color = grayColor;
-        // }
-        
-        //prawa
+
+        //jak nie ma tych warunkow to sie buguje ze wzgledu na brak synchronizacji miedzy cooldownem, a tutejsza korutyna,
+        //w momencie w ktorym sa te ify, to na ich podstawie zmienia status trwania zmiany koloru
+        //tldr - zostawic jak jest, bo inaczej nie dziala
+        /*
+        if (canAttackLeft == true) {
+            isLeftColorChangingRightNow = false;
+        }
         if (canAttackRight == true)
         {
-            rArmImg.color = whiteColor;
+            isRightColorChangingRightNow = false;
         }
-        else
+        */
+
+        //lewa
+        if (isLeftColorChangingRightNow == false && canAttackLeft == false)
         {
-            rArmImg.color = grayColor;
+            isLeftColorChangingRightNow = true;
+            lArmImg.color = invisibleColor;
+            StartCoroutine(ColorLerp(lArmImg, whiteColor, coolDown));
+        }
+
+        
+        //prawa
+        if (isRightColorChangingRightNow == false && canAttackRight == false)
+        {
+            isRightColorChangingRightNow = true;
+            rArmImg.color = invisibleColor;
+            StartCoroutine(ColorLerp(rArmImg, whiteColor, coolDown));
         }
     }
     
