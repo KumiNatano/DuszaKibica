@@ -13,7 +13,7 @@ public class PlayerAttack : MonoBehaviour
     private float timer = 0f; //pomocniczy timer
 
     [SerializeField] public float cooldown = 2f;
-    private bool canAttack = true;
+    public bool canAttack = true;
 
     [SerializeField] private GameObject swish;
 
