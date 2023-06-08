@@ -3,7 +3,37 @@ guid: ad26a044bc4d71946bb6510776c61a4e
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material
+    second: {fileID: 2100000, guid: 075cc24d51193164cab181147eac2aa4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: dres-bluza
+    second: {fileID: 2100000, guid: 6f5834d83c18d9641b01df49b9b80a22, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: dres-buty
+    second: {fileID: 2100000, guid: e7c869ed7fc33bf49a2d80fce58d2e58, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: dres-head
+    second: {fileID: 2100000, guid: bfe75bf237f6f334885322e5ba07dec7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: dres-skin
+    second: {fileID: 2100000, guid: 366b742d0bb8a0049aad07110d8e1021, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: dres-spodnie
+    second: {fileID: 2100000, guid: 4e1b19fffa5085b4aafe018c91cd074c, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
