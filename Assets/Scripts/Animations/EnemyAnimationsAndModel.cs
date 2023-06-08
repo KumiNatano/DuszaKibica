@@ -13,7 +13,7 @@ public class EnemyAnimationsAndModel : MonoBehaviour
     [SerializeField] private List<GameObject> enemyModels;
     private void Start()
     {
-        int randomModelNumber = Random.Range(1, enemyModels.Count);
+        int randomModelNumber = 3;//Random.Range(1, enemyModels.Count);
         enemyModels[randomModelNumber].SetActive(true);
         animator = animatorsList[randomModelNumber];
     }
