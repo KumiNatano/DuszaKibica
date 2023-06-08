@@ -14,8 +14,9 @@ public class uGUI_Crosshair : MonoBehaviour
     [FormerlySerializedAs("DotImg")]
     [Header("Dot")]
     [SerializeField] Image dotImg;
-    [SerializeField] private Color enemyUndetectedColor;
-    [SerializeField] private Color enemyDetectedColor;
+    [SerializeField] private Color grayColor;
+    [SerializeField] private Color whiteColor;
+    private Color invisible = Color.clear;
     
     //[SerializeField] private float distanceToLightDot = 2.50f;
 
@@ -23,29 +24,85 @@ public class uGUI_Crosshair : MonoBehaviour
     //int layerMask;
 
     private GameObject detectionCollider;
+    private bool canAttackLeft;
+    private bool canAttackRight;
+    private float coolDown;
+    
+    //
+    private Color currentColor;
+    //
     
     private void Start()
     {
         detectionCollider = GameObject.FindGameObjectWithTag("EnemyDetector");
         //layerMask = 1 << layerNumber;
         //layerMask = ~layerMask;
-    }
 
+        coolDown = GameObject.FindGameObjectWithTag("player").GetComponent<PlayerAttack>().cooldown;
+        
+        //
+        currentColor = whiteColor;
+        //
+    }
+    
     void Update()
     {
         //DotDetectionRayCast();
+        CrosshairArmsController();
         DotDetectionCollider();
+        
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            if (currentColor == invisible)
+            {
+                currentColor = whiteColor;
+            }
+            else
+            {
+                currentColor = invisible;
+            }
+        }
+
+        lArmImg.color = Color.Lerp(lArmImg.color, currentColor, Time.deltaTime * 10);
+        print(coolDown);
     }
 
+    void CrosshairArmsController()
+    {
+        //poki co bierze do obu "armow" to samo canAttack, poniewaz nie ma rozroznienia na lewa i prawa
+        canAttackLeft = GameObject.FindGameObjectWithTag("player").GetComponent<PlayerAttack>().canAttack;
+        canAttackRight = GameObject.FindGameObjectWithTag("player").GetComponent<PlayerAttack>().canAttack;
+        
+        //lewa
+        // if (canAttackLeft == true)
+        // {
+        //     lArmImg.color = whiteColor;
+        // }
+        // else
+        // {
+        //     lArmImg.color = grayColor;
+        // }
+        
+        //prawa
+        if (canAttackRight == true)
+        {
+            rArmImg.color = whiteColor;
+        }
+        else
+        {
+            rArmImg.color = grayColor;
+        }
+    }
+    
     void DotDetectionCollider()
     {
         if (detectionCollider.GetComponent<EnemyDetector>().GetIsEnemyDetected())
         {
-            dotImg.color = enemyDetectedColor;
+            dotImg.color = whiteColor;
         }
         else
         {
-            dotImg.color = enemyUndetectedColor;
+            dotImg.color = grayColor;
         }
     }
     /*
