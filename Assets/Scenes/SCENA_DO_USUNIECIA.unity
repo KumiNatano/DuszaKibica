@@ -48276,6 +48276,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5366008581421057144, guid: 3464a262695b3284b8785c2e4627a4e1, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 2116952656}
     - target: {fileID: 5529475675470399950, guid: 3464a262695b3284b8785c2e4627a4e1, type: 3}
       propertyPath: hpBar
       value: 
@@ -82909,6 +82913,11 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -462981019419857548, guid: 0723f3f5b68d3e848af798f651d97119, type: 3}
+--- !u!95 &2116952656 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 4019559544637609065, guid: 3464a262695b3284b8785c2e4627a4e1, type: 3}
+  m_PrefabInstance: {fileID: 1285467962}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2118400531 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6662952235653955658, guid: 65eba2434f9db1e49a674134ce1927f9, type: 3}
