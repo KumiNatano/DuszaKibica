@@ -19,8 +19,6 @@ TagManager:
   - PauseManager
   - enemy-weapon
   - DropItem
-  - EnemyDetector
-  - Crosshair
   layers:
   - Default
   - TransparentFX
@@ -29,7 +27,7 @@ TagManager:
   - Water
   - UI
   - PauseUI
-  - EnemyWeapon
+  - 
   - 
   - 
   - 

@@ -24,8 +24,6 @@ public class HealthSystem : MonoBehaviour
     [SerializeField] UpgradeController upgradeController;
     private EnemyAnimationsAndModel enemyAnimationsAndModel;
     [SerializeField] private Canvas hpBarCanvas;
-
-    [SerializeField] private GameObject enemyWeapon;
     
     // Start is called before the first frame update
     void Start()
@@ -162,8 +160,6 @@ public class HealthSystem : MonoBehaviour
         this.gameObject.GetComponent<WalkingAnimationBehaviour>().enabled = false;
 
         hpBarCanvas.enabled = false;
-        enemyWeapon.SetActive(false);
-        
         this.gameObject.GetComponent<Rigidbody>().isKinematic = true;
         this.gameObject.GetComponent<Rigidbody>().useGravity = false;
         this.gameObject.GetComponent<BoxCollider>().enabled = false;

@@ -2422,7 +2422,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8905777926359330605
 Transform:
   m_ObjectHideFlags: 0
@@ -6618,7 +6618,6 @@ MonoBehaviour:
   EnemyHPSlider: {fileID: 1563279267439457546}
   upgradeController: {fileID: 0}
   hpBarCanvas: {fileID: 7331580075143752151}
-  enemyWeapon: {fileID: 9058456783054576716}
 --- !u!114 &5936263558126845146
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6661,8 +6660,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.84, y: 2, z: 1.6}
-  m_Center: {x: 0, y: 1, z: 0.16}
+  m_Size: {x: 1, y: 2, z: 0.6}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!114 &4608304476178175585
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6680,12 +6679,10 @@ MonoBehaviour:
   - {fileID: 4984266828857388065}
   - {fileID: 8378534105037201074}
   - {fileID: 1717141107815133775}
-  - {fileID: 8418095257252178054}
   enemyModels:
   - {fileID: 7760107512069566238}
   - {fileID: 2016794006509044497}
   - {fileID: 6490336948957582211}
-  - {fileID: 2305890813701725182}
 --- !u!114 &7704424248921618849
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10377,7 +10374,7 @@ GameObject:
   - component: {fileID: 3358829645851431358}
   - component: {fileID: 2948752443203557216}
   - component: {fileID: 4330652098192913163}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Weapon
   m_TagString: enemy-weapon
   m_Icon: {fileID: 0}
