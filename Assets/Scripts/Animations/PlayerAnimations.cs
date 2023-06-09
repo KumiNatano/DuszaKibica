@@ -36,4 +36,14 @@ public class PlayerAnimations : MonoBehaviour
     {
         animator.SetBool("isAttackingRight", false);
     }
+
+    public void setIsDrinkingTrue()
+    {
+        animator.SetBool("isDrinking", true);
+    }
+    
+    public void setIsDrinkingFalse()
+    {
+        animator.SetBool("isDrinking", false);
+    }
 }
