@@ -26,7 +26,7 @@ public class PlayerAttack : MonoBehaviour
     }
     void Update()
     {
-        if (canAttack)
+        if (canAttack && this.gameObject.GetComponent<FuryAbility>().isInAnimation == false)
         {
             crosshair.GetComponent<uGUI_Crosshair>().synchronizationLeft = true; //musi to byc ustawiane stad, poniewaz jesli w uGUI_Crosshair bedziemy chcieli pobrac wartosc
                                                                       //stad to sie rozwali ze wzgledu na to, ze calosc dzieje sie co klatke i tamten skrypt nie nadaza
