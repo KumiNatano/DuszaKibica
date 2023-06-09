@@ -48,8 +48,44 @@ public class uGUI_Crosshair : MonoBehaviour
         DotDetectionCollider();
     }
 
+    public bool synchronizationLeft = true;
+    public bool synchronizationRight = true;
+    
+    void CrosshairArmsController()
+    {
+
+        //poki co bierze do obu "armow" to samo canAttack, poniewaz nie ma rozroznienia na lewa i prawa
+        canAttackLeft = GameObject.FindGameObjectWithTag("player").GetComponent<PlayerAttack>().canAttack;
+        canAttackRight = GameObject.FindGameObjectWithTag("player").GetComponent<PlayerAttack>().canAttack;
+
+        //lewa
+        if (isLeftColorChangingRightNow == false && canAttackLeft == false && synchronizationLeft == true)
+        {
+            isLeftColorChangingRightNow = true;
+            lArmImg.color = invisibleColor;
+            StartCoroutine(ColorLerp(lArmImg, whiteColor, coolDown));
+        }
+        
+        //prawa
+        if (isRightColorChangingRightNow == false && canAttackRight == false && synchronizationRight == true)
+        {
+            isRightColorChangingRightNow = true;
+            rArmImg.color = invisibleColor;
+            StartCoroutine(ColorLerp(rArmImg, whiteColor, coolDown));
+        }
+    }
+    
     IEnumerator ColorLerp(Image imgOfArm, Color endValue, float duration)
     {
+        if (imgOfArm == lArmImg)
+        {
+            synchronizationLeft = false;
+        }
+        else if (imgOfArm == rArmImg)
+        {
+            synchronizationRight = false;
+        }
+        
         float time = 0;
         Color startValue = imgOfArm.color;
         while (time < duration)
@@ -71,44 +107,6 @@ public class uGUI_Crosshair : MonoBehaviour
         {
             canAttackRight = true;
             isRightColorChangingRightNow = false;
-        }
-    }
-
-    void CrosshairArmsController()
-    {
-
-        //poki co bierze do obu "armow" to samo canAttack, poniewaz nie ma rozroznienia na lewa i prawa
-        canAttackLeft = GameObject.FindGameObjectWithTag("player").GetComponent<PlayerAttack>().canAttack;
-        canAttackRight = GameObject.FindGameObjectWithTag("player").GetComponent<PlayerAttack>().canAttack;
-
-        //jak nie ma tych warunkow to sie buguje ze wzgledu na brak synchronizacji miedzy cooldownem, a tutejsza korutyna,
-        //w momencie w ktorym sa te ify, to na ich podstawie zmienia status trwania zmiany koloru
-        //tldr - zostawic jak jest, bo inaczej nie dziala
-        /*
-        if (canAttackLeft == true) {
-            isLeftColorChangingRightNow = false;
-        }
-        if (canAttackRight == true)
-        {
-            isRightColorChangingRightNow = false;
-        }
-        */
-
-        //lewa
-        if (isLeftColorChangingRightNow == false && canAttackLeft == false)
-        {
-            isLeftColorChangingRightNow = true;
-            lArmImg.color = invisibleColor;
-            StartCoroutine(ColorLerp(lArmImg, whiteColor, coolDown));
-        }
-
-        
-        //prawa
-        if (isRightColorChangingRightNow == false && canAttackRight == false)
-        {
-            isRightColorChangingRightNow = true;
-            rArmImg.color = invisibleColor;
-            StartCoroutine(ColorLerp(rArmImg, whiteColor, coolDown));
         }
     }
     
