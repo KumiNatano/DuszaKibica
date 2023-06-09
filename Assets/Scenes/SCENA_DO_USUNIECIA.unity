@@ -48220,6 +48220,10 @@ PrefabInstance:
       propertyPath: OutputAudioMixerGroup
       value: 
       objectReference: {fileID: 24300002, guid: 61e8ad659cace6f48a98dea3f180731d, type: 2}
+    - target: {fileID: 257770215832401353, guid: 3464a262695b3284b8785c2e4627a4e1, type: 3}
+      propertyPath: abilityDelay
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 755802712975030763, guid: 3464a262695b3284b8785c2e4627a4e1, type: 3}
       propertyPath: abilityDelay
       value: 0
@@ -76216,6 +76220,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2083926435487134601, guid: 985369ca4dc006d4488d2f2fe31af670, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2732582936210063153, guid: 985369ca4dc006d4488d2f2fe31af670, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3781024445464520168, guid: 985369ca4dc006d4488d2f2fe31af670, type: 3}
