@@ -142,7 +142,7 @@ public class UpgradeController : MonoBehaviour
             KnifeButton.onClick.AddListener(buyKnife);
         }
 
-        MoneyText = GameObject.Find("MoneyText").GetComponent<TMP_Text>();
+        MoneyText = GameObject.Find("ScarfCounter").GetComponent<TMP_Text>();
 
         updateMoneyText();
         UI = GameObject.FindGameObjectsWithTag("UI")[0];
