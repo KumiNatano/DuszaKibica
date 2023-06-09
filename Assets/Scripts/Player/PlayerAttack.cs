@@ -13,17 +13,27 @@ public class PlayerAttack : MonoBehaviour
     private float timer = 0f; //pomocniczy timer
 
     [SerializeField] public float cooldown = 2f;
-    private bool canAttack = true;
+    public bool canAttack = true;
 
     [SerializeField] private GameObject swish;
+    private GameObject crosshair;
 
     void Start()
     {
         attackArea = transform.GetChild(0).gameObject; //przypisujemy pierwsze dziecko tego obiektu jako attackArea
         //animator = transform.GetChild(2).gameObject.GetComponent<Animator>();
+        crosshair = GameObject.FindWithTag("Crosshair");
     }
     void Update()
     {
+        if (canAttack && this.gameObject.GetComponent<FuryAbility>().isInAnimation == false)
+        {
+            crosshair.GetComponent<uGUI_Crosshair>().synchronizationLeft = true; //musi to byc ustawiane stad, poniewaz jesli w uGUI_Crosshair bedziemy chcieli pobrac wartosc
+                                                                      //stad to sie rozwali ze wzgledu na to, ze calosc dzieje sie co klatke i tamten skrypt nie nadaza
+                                                                      
+            crosshair.GetComponent<uGUI_Crosshair>().synchronizationRight = true; //to samo dla prawej, poki co obie tutaj bo nie ma rozroznienia na prawa i lewa reke
+        }
+        
         Vector3 c = attackArea.GetComponent<SphereCollider>().center;
         swish.transform.position = attackArea.transform.position + c;
         c.y = 0;
