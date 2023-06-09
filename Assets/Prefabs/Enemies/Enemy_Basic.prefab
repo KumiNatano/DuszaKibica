@@ -830,9 +830,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3024237852661458859}
+  - component: {fileID: 2302481416597247644}
   m_Layer: 0
   m_Name: handIK.R_end
-  m_TagString: Untagged
+  m_TagString: enemy-weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -852,6 +853,19 @@ Transform:
   m_Father: {fileID: 712064246162912056}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &2302481416597247644
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1040713178825135993}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Radius: 0.005
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1101123427134056441
 GameObject:
   m_ObjectHideFlags: 0
@@ -861,9 +875,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1868862675347310096}
+  - component: {fileID: 2116840099448166712}
   m_Layer: 0
   m_Name: handIK.L_end
-  m_TagString: Untagged
+  m_TagString: enemy-weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -883,6 +898,19 @@ Transform:
   m_Father: {fileID: 5216978842585247652}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &2116840099448166712
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1101123427134056441}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Radius: 0.005
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1133491687910964421
 GameObject:
   m_ObjectHideFlags: 0
@@ -3009,9 +3037,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3541970550610488599}
+  - component: {fileID: 803911853458660619}
   m_Layer: 0
   m_Name: handIK.L_end
-  m_TagString: Untagged
+  m_TagString: enemy-weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3031,6 +3060,19 @@ Transform:
   m_Father: {fileID: 6966643513469289635}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &803911853458660619
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2850754567207374078}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Radius: 0.005
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2853746332793173279
 GameObject:
   m_ObjectHideFlags: 0
@@ -3198,9 +3240,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1032616978825435598}
+  - component: {fileID: 5800011465017998589}
   m_Layer: 0
   m_Name: handIK.R_end
-  m_TagString: Untagged
+  m_TagString: enemy-weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3220,6 +3263,19 @@ Transform:
   m_Father: {fileID: 3336346327428336989}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &5800011465017998589
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3016722327945668892}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Radius: 0.005
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3017876031600753230
 GameObject:
   m_ObjectHideFlags: 0
@@ -5607,7 +5663,7 @@ GameObject:
   - component: {fileID: 6722607584775963484}
   m_Layer: 0
   m_Name: Weapon
-  m_TagString: enemy-weapon
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5760,7 +5816,7 @@ SphereCollider:
   m_GameObject: {fileID: 5122132766624949886}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.8
   m_Center: {x: 0, y: 1.4, z: 1.25}
@@ -7399,9 +7455,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9052710763010204072}
+  - component: {fileID: 5991776780653671865}
   m_Layer: 0
   m_Name: handIK.R_end
-  m_TagString: Untagged
+  m_TagString: enemy-weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7421,6 +7478,19 @@ Transform:
   m_Father: {fileID: 6753203290301986107}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &5991776780653671865
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6496630664849887610}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Radius: 0.005
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6541423651167712806
 GameObject:
   m_ObjectHideFlags: 0
@@ -7462,9 +7532,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5599795710408589331}
+  - component: {fileID: 7026946087415013357}
   m_Layer: 0
   m_Name: handIK.L_end
-  m_TagString: Untagged
+  m_TagString: enemy-weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7484,6 +7555,19 @@ Transform:
   m_Father: {fileID: 2035520008884103591}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &7026946087415013357
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6565696131271401978}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Radius: 0.005
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6567846876568224238
 GameObject:
   m_ObjectHideFlags: 0
@@ -9491,6 +9575,18 @@ MonoBehaviour:
   - {fileID: 8018045204757624457}
   - {fileID: 5155990871862304142}
   - {fileID: 1428822323799743373}
+  enemyLeftFists:
+  - {fileID: 8985488565908987807}
+  - {fileID: 2850754567207374078}
+  - {fileID: 1101123427134056441}
+  - {fileID: 6565696131271401978}
+  enemyRightFists:
+  - {fileID: 3016722327945668892}
+  - {fileID: 8277819437907835517}
+  - {fileID: 6496630664849887610}
+  - {fileID: 1040713178825135993}
+  enemyLeftFist: {fileID: 0}
+  enemyRightFist: {fileID: 0}
 --- !u!114 &6987284174071574078
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9822,9 +9918,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6154630381876038319}
+  - component: {fileID: 8529540524264106248}
   m_Layer: 0
   m_Name: handIK.R_end
-  m_TagString: Untagged
+  m_TagString: enemy-weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9844,6 +9941,19 @@ Transform:
   m_Father: {fileID: 8462300380165479996}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &8529540524264106248
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8277819437907835517}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Radius: 0.005
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8308349523112248564
 GameObject:
   m_ObjectHideFlags: 0
@@ -10482,9 +10592,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7645616150883696246}
+  - component: {fileID: 987383218832641835}
   m_Layer: 0
   m_Name: handIK.L_end
-  m_TagString: Untagged
+  m_TagString: enemy-weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10504,6 +10615,19 @@ Transform:
   m_Father: {fileID: 4292855476845860802}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &987383218832641835
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8985488565908987807}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Radius: 0.005
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &9017139737960767567
 GameObject:
   m_ObjectHideFlags: 0
