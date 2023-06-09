@@ -967,6 +967,7 @@ MonoBehaviour:
   UI: {fileID: 0}
   abilities: {fileID: 0}
   furyImage: {fileID: 0}
+  isInAnimation: 0
 --- !u!114 &8670676161484161571
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2284,7 +2285,7 @@ SkinnedMeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 3
   m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 9dbb33547b67b1b4792026f08aca943d, type: 2}
@@ -2310,7 +2311,7 @@ SkinnedMeshRenderer:
   m_SortingOrder: 0
   serializedVersion: 2
   m_Quality: 0
-  m_UpdateWhenOffscreen: 0
+  m_UpdateWhenOffscreen: 1
   m_SkinnedMotionVectors: 1
   m_Mesh: {fileID: 2534964839176971238, guid: 0c86b7c91183a854a8bdcada6f74bd25, type: 3}
   m_Bones:
@@ -2369,7 +2370,7 @@ SkinnedMeshRenderer:
   m_RootBone: {fileID: 7224978395970413547}
   m_AABB:
     m_Center: {x: -0.014078763, y: 0.0034416048, z: -0.0057444973}
-    m_Extent: {x: 0.00088655297, y: 0.0006815628, z: 0.0007402655}
+    m_Extent: {x: 0.001886553, y: 0.0016815627, z: 0.0017402655}
   m_DirtyAABB: 0
 --- !u!1 &5625199157355113516
 GameObject:
