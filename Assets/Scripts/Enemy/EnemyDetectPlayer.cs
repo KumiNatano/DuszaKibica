@@ -32,5 +32,14 @@ public class EnemyDetectPlayer : MonoBehaviour
             this.gameObject.GetComponent<AIPath>().enabled = false;
         }
     }
+    public float GetDistance()
+    {
+        return distance;
+    }
+    public GameObject GetPlayer()
+    {
+        return player;
+    }
+
 
 }

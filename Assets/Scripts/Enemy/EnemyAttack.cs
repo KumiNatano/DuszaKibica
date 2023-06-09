@@ -9,31 +9,54 @@ public class EnemyAttack : MonoBehaviour
     [SerializeField] GameObject parent;
 
     private bool canAttack = true;
+    [SerializeField] EnemyWeapon weapon;
+    //private bool hit = false;
 
-    private void OnTriggerStay(Collider collider)
+    private void Update()
     {
-
-        if (collider.GetComponent<HealthSystem>() != null && canAttack == true && collider.gameObject.tag == "player") //jesli obiekt z ktorym kolidujemy ma system zycia i mamy mozliwosc ataku i obiekt z ktorym kolidujemy to gracz
+        if (canAttack == true && parent.GetComponent<EnemyDetectPlayer>().GetDistance() <= 2f) //jesli obiekt z ktorym kolidujemy ma system zycia i mamy mozliwosc ataku i obiekt z ktorym kolidujemy to gracz
         {
             int animacjaAtaku = Random.Range(1, 3);
 
             if (animacjaAtaku == 1)
             {
                 parent.GetComponent<EnemyAnimationsAndModel>().setIsAttackingLeftTrue();
+                weapon = parent.GetComponent<EnemyAnimationsAndModel>().GetLeftFist();
+
+                StartCoroutine(turnOffAnimation());
+                StartCoroutine(AttackCoroutine()); //wywolujemy korutyne
+
+                if (weapon.IsHit() == true)
+                {
+                    //HealthSystem health = GetComponent<Collider>().GetComponent<HealthSystem>(); //bierzemy system zycia
+                    HealthSystem health = parent.GetComponent<EnemyDetectPlayer>().GetPlayer().GetComponent<HealthSystem>(); //bierzemy system zycia
+                    health.TakeDamage(damage); //i dajemy damage
+                    health = null;
+
+                }
+                weapon.WasHit();
+                this.GetComponent<PunchAudio>().PlayAttackSound();
             }
 
             else if (animacjaAtaku == 2)
             {
                 parent.GetComponent<EnemyAnimationsAndModel>().setIsAttackingRightTrue();
+                weapon = parent.GetComponent<EnemyAnimationsAndModel>().GetRightFist();
+
+                StartCoroutine(turnOffAnimation());
+                StartCoroutine(AttackCoroutine()); //wywolujemy korutyne
+
+                if (weapon.IsHit() == true)
+                {
+                    //HealthSystem health = GetComponent<Collider>().GetComponent<HealthSystem>(); //bierzemy system zycia
+                    HealthSystem health = parent.GetComponent<EnemyDetectPlayer>().GetPlayer().GetComponent<HealthSystem>(); //bierzemy system zycia
+                    health.TakeDamage(damage); //i dajemy damage
+                    health = null;
+
+                }
+                weapon.WasHit();
+                this.GetComponent<PunchAudio>().PlayAttackSound();
             }
-
-            StartCoroutine(turnOffAnimation());
-
-            StartCoroutine(AttackCoroutine()); //wywolujemy korutyne
-            HealthSystem health = collider.GetComponent<HealthSystem>(); //bierzemy system zycia
-            health.TakeDamage(damage); //i dajemy damage
-            this.GetComponent<PunchAudio>().PlayAttackSound();
-
         }
     }
 
@@ -42,6 +65,7 @@ public class EnemyAttack : MonoBehaviour
         yield return new WaitForSeconds(0.467f); //idealnie dlugosc animacji uderzania, w przyszlosci lepiej wrzucic to do zmiennej jesli beda np animacje o roznej dlugosci
         parent.GetComponent<EnemyAnimationsAndModel>().setIsAttackingLeftFalse();
         parent.GetComponent<EnemyAnimationsAndModel>().setIsAttackingRightFalse();
+        weapon = null;
     }
 
     IEnumerator AttackCoroutine()
