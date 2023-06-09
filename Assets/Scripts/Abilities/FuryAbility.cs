@@ -22,6 +22,9 @@ public class FuryAbility : MonoBehaviour
     [SerializeField] GameObject abilities = null;
     [SerializeField] GameObject furyImage = null;
 
+    public bool isInAnimation = false;
+    private bool isRecharging = false;
+    
     void Start()
     {
         upgradeController = GameObject.Find("UpgradeController").GetComponent<UpgradeController>();
@@ -31,52 +34,47 @@ public class FuryAbility : MonoBehaviour
             UI = GameObject.Find("UI");
             abilities = UI.transform.Find("Abilities").gameObject;
             furyImage = abilities.transform.Find("Fury").gameObject;
-            furyImage.GetComponent<RawImage>().texture = abilities.GetComponent<AbilitiesUI>().furyTextures[0]; //ustawiamy obrazek na wyszarzony
+            furyImage.GetComponent<RawImage>().texture = abilities.GetComponent<AbilitiesUI>().furyTextures[1];
         }
     }
 
     void Update()
     {
-        if(isFuryBuyed)
+        if (isFuryBuyed == true && Input.GetKeyDown(KeyCode.Alpha2) && isRecharging == false && isActive == false)
         {
-            if (Time.time > timeDelay)
-            {
-                furyImage.GetComponent<RawImage>().texture = abilities.GetComponent<AbilitiesUI>().furyTextures[1]; //ustawiamy obrazek na dostepny
-
-                if (Input.GetKeyDown(KeyCode.Alpha2))
-                {
-                    activateAbility();
-                    timeDelay = Time.time + abilityDelay;
-                    timeDelay2 = Time.time + abilityActiveTime;
-                }
-            }
-
-            else if (Time.time > timeDelay2)
-            {
-                if (isActive)
-                {
-                    furyImage.GetComponent<RawImage>().texture = abilities.GetComponent<AbilitiesUI>().furyTextures[0]; //ustawiamy obrazek na wyszarzony
-                    deactivateAbility();
-                }
-            }
-
-            else
-            {
-                furyImage.GetComponent<RawImage>().texture = abilities.GetComponent<AbilitiesUI>().furyTextures[2]; //ustawiamy obrazek na aktywny
-            }
+            StartCoroutine(activateAbility());
         }
     }
 
     private float previousCooldown;
 
-    void activateAbility()
+    IEnumerator activateAbility()
     {
         isActive = true;
+
+        isInAnimation = true;
+        this.gameObject.GetComponent<PlayerAnimations>().setIsDrinkingTrue();
+        yield return new WaitForSeconds(2.967f);
+        print("koniec");
+        this.gameObject.GetComponent<PlayerAnimations>().setIsDrinkingFalse();
+        isInAnimation = false;
+        furyImage.GetComponent<RawImage>().texture = abilities.GetComponent<AbilitiesUI>().furyTextures[2]; //ustawiamy obrazek na aktywny
+        
         previousCooldown = this.gameObject.GetComponent<PlayerAttack>().cooldown;
         this.gameObject.GetComponent<PlayerAttack>().cooldown = furyAttackCooldown;
         this.gameObject.GetComponent<StaminaSystem>().staminaAmount = furyAttackStamina;
         this.gameObject.GetComponent<PlayerAnimations>().animator.speed = 2;
-        //Debug.Log("tu wstawic zeby zwiekszylo szybkosc i dalo stamine");
+        
+        yield return new WaitForSeconds(abilityActiveTime);
+        deactivateAbility();
+        furyImage.GetComponent<RawImage>().texture = abilities.GetComponent<AbilitiesUI>().furyTextures[0]; //ustawiamy obrazek na wyszarzony
+        isActive = false;
+        isRecharging = true;
+        
+        yield return new WaitForSeconds(abilityDelay);
+        isRecharging = false;
+        furyImage.GetComponent<RawImage>().texture = abilities.GetComponent<AbilitiesUI>().furyTextures[1]; //ustawiamy obrazek na dostepny
+
     }
 
     void deactivateAbility()
@@ -86,4 +84,5 @@ public class FuryAbility : MonoBehaviour
         this.gameObject.GetComponent<PlayerAnimations>().animator.speed = 1;
         //Debug.Log("tu wstawic zeby zmniejszylo szybkosc");
     }
+    
 }

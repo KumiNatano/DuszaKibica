@@ -60,7 +60,7 @@ public class PlayerAttack : MonoBehaviour
 
     private void Attacking()
     {
-        if(this.gameObject.GetComponent<PlayerDeathManager>().isDead == false)
+        if(this.gameObject.GetComponent<PlayerDeathManager>().isDead == false && this.gameObject.GetComponent<FuryAbility>().isInAnimation == false)
         {
             isAttacking = true;
             attackArea.SetActive(isAttacking);
