@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3298703447327637858}
   - component: {fileID: 730618910579291560}
   - component: {fileID: -2313482137164226063}
+  - component: {fileID: 656319521969826620}
   m_Layer: 0
   m_Name: przystanek-grafitti
   m_TagString: building
@@ -95,5 +96,18 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.037999995, y: 0.02171905, z: 0.026189996}
-  m_Center: {x: 0, y: 0.00096952723, z: 0.003094999}
+  m_Size: {x: 0.037, y: 0.007, z: 0.02}
+  m_Center: {x: 0, y: 0.00625, z: 0.0014}
+--- !u!65 &656319521969826620
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1234921393916564605}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.037999995, y: 0.02, z: 0.0005}
+  m_Center: {x: 0, y: 0.00175, z: 0.0113}

@@ -8,6 +8,7 @@ public class DropItem : MonoBehaviour
     public const float rotateSpeed = 60.0f;
     public const float swingAmplitude = 0.1f;
     public const float swingFrequency = 2.5f;
+    public AudioClip[] pickupSounds;
 
     private Vector3 initPos;
 
@@ -27,8 +28,8 @@ public class DropItem : MonoBehaviour
         Rotate();
         Swing();
     }
-   
-    
+
+    public virtual void OnPickup(Player player) { }
     //metody - settery
     public void setItemID(int id){
         this.itemID = id;

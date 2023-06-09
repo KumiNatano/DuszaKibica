@@ -24,7 +24,13 @@ public class PlayerAttack : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetButton("Fire1") && canAttack == true) //jesli nacisniemy i mamy mozliwosc ataku
+        Vector3 c = attackArea.GetComponent<SphereCollider>().center;
+        swish.transform.position = attackArea.transform.position + c;
+        c.y = 0;
+        Vector3 r = swish.transform.eulerAngles;
+        r.y = Quaternion.LookRotation(c).eulerAngles.y;
+        swish.transform.eulerAngles = r;
+        if (Input.GetButton("Fire1") && canAttack == true && GameObject.FindWithTag("PauseManager").GetComponent<PauseManager>().isPaused == false) //jesli nacisniemy i mamy mozliwosc ataku i nie ma pauzy
         {
             Attacking(); //to zaczynamy atak
             StartCoroutine(AttackCoroutine()); //i korutyne
@@ -54,7 +60,7 @@ public class PlayerAttack : MonoBehaviour
 
     private void Attacking()
     {
-        if(this.gameObject.GetComponent<StaminaSystem>().TakeAction(20) && this.gameObject.GetComponent<PlayerDeathManager>().isDead == false)
+        if(this.gameObject.GetComponent<PlayerDeathManager>().isDead == false && this.gameObject.GetComponent<FuryAbility>().isInAnimation == false)
         {
             isAttacking = true;
             attackArea.SetActive(isAttacking);

@@ -5,10 +5,15 @@ public class Player : Entity
 {
     public PlayerCamera playerCamera;
 
-    public PlayerCameraController cameraController;
-    public PlayerController controller;
+    public PlayerCameraController cameraController { get; private set; }
+    public PlayerController controller { get; private set; }
+    public PlayerStamina stamina { get; private set; }
+    public PlayerItemPickuper itemPickuper { get; private set; }
+    public PlayerHeadbob headbob { get; private set; }
 
     public CharacterController characterController;
+
+    public static Player main { get; private set; }
 
     public float normalHeight = 1.85f;
     public float duckHeight = 0.9f;
@@ -42,6 +47,7 @@ public class Player : Entity
     #region  Unity Callbacks
     private void Awake()
     {
+        InitSingleton();
         InitModules();
     }
     private void Update()
@@ -58,6 +64,17 @@ public class Player : Entity
     }
     #endregion
 
+    private void InitSingleton()
+    {
+        if (main == null) 
+        {
+            main = this;
+        }
+        else if (main != this)
+        {
+            Destroy(gameObject);
+        }
+    }
     #region Modules
     private void InitModules()
     {
@@ -72,6 +89,9 @@ public class Player : Entity
 
         controller = GetModule<PlayerController>();
         cameraController = GetModule<PlayerCameraController>();
+        stamina = GetModule<PlayerStamina>();
+        itemPickuper = GetModule<PlayerItemPickuper>();
+        headbob = GetModule<PlayerHeadbob>();
     }
     private void ModulesUpdate()
     {

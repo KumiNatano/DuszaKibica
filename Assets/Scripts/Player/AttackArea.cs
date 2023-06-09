@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class AttackArea : MonoBehaviour
 {
+    public Vector3 offset = new Vector3(0f, 1.4f, 1f);
     [SerializeField] private int damage;
     private int baseDamage = 70;
     [SerializeField] private GameObject Player;
@@ -23,6 +24,11 @@ public class AttackArea : MonoBehaviour
             enemyRigidbody.AddForce(knockbackDirection * knockbackForce, ForceMode.Impulse);
         }
         
+    }
+    void FixedUpdate()
+    {
+        // co ja robię z swoim życiem
+        GetComponent<SphereCollider>().center = Quaternion.Euler(0, Player.GetComponent<PlayerCameraController>().playerCamera.viewAngles.y, 0) * offset;
     }
 
     public void setDamage(int bonusValue) {

@@ -19,7 +19,7 @@ public class PlayerAnimations : MonoBehaviour
     public void setIsAttackingLeftTrue()
     {
         animator.SetBool("isAttackingLeft", true);
-        print("bije lewa");
+        //print("bije lewa");
     }
 
     public void setIsAttackingLeftFalse()
@@ -35,5 +35,15 @@ public class PlayerAnimations : MonoBehaviour
     public void setIsAttackingRightFalse()
     {
         animator.SetBool("isAttackingRight", false);
+    }
+
+    public void setIsDrinkingTrue()
+    {
+        animator.SetBool("isDrinking", true);
+    }
+    
+    public void setIsDrinkingFalse()
+    {
+        animator.SetBool("isDrinking", false);
     }
 }

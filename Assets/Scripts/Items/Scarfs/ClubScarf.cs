@@ -12,26 +12,25 @@ public class ClubScarf : DropItem
         base.Update();
         timeLived+=Time.deltaTime;
     }
-    private void OnTriggerEnter(Collider collider) 
+    public override void OnPickup(Player player)
     {
-        if(this.gameObject.tag == "scarf" && collider.gameObject.tag == "player" && timeLived>=timeToLive)
-        {
-            Destroy(this.gameObject);
-            Inventory inventory = collider.GetComponent<Inventory>();
-            inventory.addScarfNumber();
-            GameObject.FindGameObjectWithTag("UpgradeController").GetComponent<UpgradeController>().addMoney(5);
+        Inventory inventory = player.GetComponent<Inventory>();
+        inventory.addScarfNumber();
+        GameObject.FindGameObjectWithTag("UpgradeController").GetComponent<UpgradeController>().addMoney(5);
 
-            int UpgradeID = Random.Range(1, 10);
-            // zwiekszenie Staminy
-            if (UpgradeID == 1) {
-                inventory.stamina.setMaxStaminaAmount(inventory.stamina.getMaxStaminaAmount() + 5);
-                //inventory.upgradeText.UpdateTextBox("+5 Staminy", "green");
-            }
-            // zwiekszenie HP
-            if (UpgradeID == 6) {
-                inventory.health.setMaxHealthAmount(inventory.health.getMaxHealthAmount() + 5);
-                //inventory.upgradeText.UpdateTextBox("+5 Zdrowia", "red");
-            }
+        int UpgradeID = Random.Range(1, 10);
+        // zwiekszenie Staminy
+        if (UpgradeID == 1)
+        {
+            inventory.stamina.setMaxStaminaAmount(inventory.stamina.getMaxStaminaAmount() + 5);
+            //inventory.upgradeText.UpdateTextBox("+5 Staminy", "green");
         }
-    } 
+        // zwiekszenie HP
+        if (UpgradeID == 6)
+        {
+            inventory.health.setMaxHealthAmount(inventory.health.getMaxHealthAmount() + 5);
+            //inventory.upgradeText.UpdateTextBox("+5 Zdrowia", "red");
+        }
+        Destroy(gameObject);
+    }
 }
