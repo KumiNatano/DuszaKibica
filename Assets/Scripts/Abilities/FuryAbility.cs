@@ -55,7 +55,6 @@ public class FuryAbility : MonoBehaviour
         isInAnimation = true;
         this.gameObject.GetComponent<PlayerAnimations>().setIsDrinkingTrue();
         yield return new WaitForSeconds(2.967f);
-        print("koniec");
         this.gameObject.GetComponent<PlayerAnimations>().setIsDrinkingFalse();
         isInAnimation = false;
         furyImage.GetComponent<RawImage>().texture = abilities.GetComponent<AbilitiesUI>().furyTextures[2]; //ustawiamy obrazek na aktywny
