@@ -34,8 +34,8 @@ public class EnemyRangedAttack : MonoBehaviour
     IEnumerator turnOffAnimation()
     {
         yield return new WaitForSeconds(0.467f); //idealnie dlugosc animacji uderzania, w przyszlosci lepiej wrzucic to do zmiennej jesli beda np animacje o roznej dlugosci
-        parent.GetComponent<EnemyAnimations>().setIsAttackingLeftFalse();
-        parent.GetComponent<EnemyAnimations>().setIsAttackingRightFalse();
+        parent.GetComponent<EnemyAnimationsAndModel>().setIsAttackingLeftFalse();
+        parent.GetComponent<EnemyAnimationsAndModel>().setIsAttackingRightFalse();
     }
 
     IEnumerator AttackCoroutine()
@@ -52,7 +52,6 @@ public class EnemyRangedAttack : MonoBehaviour
 
         GameObject knife = Instantiate(enemyKnifePrefab, new Vector3(this.transform.position.x, 1, this.transform.position.z), this.transform.rotation);
         Vector3 destination= new Vector3(player.position.x * 1, 1, player.position.z * 1);
-        knife.GetComponent<KnifeBehaviour>().setAll(destination, knifeSpeed, knifeDamage, "player");
         //knife.GetComponent<ThrowingKnifeEnemy>().destinationPosition = new Vector3(player.position.x * 1, 1, player.position.z * 1);
         //knife.GetComponent<ThrowingKnifeEnemy>().knifeSpeed = knifeSpeed;
         //knife.GetComponent<KnifeBehaviour>().knifeDamage = knifeDamage;

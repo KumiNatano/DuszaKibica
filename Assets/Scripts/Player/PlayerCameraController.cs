@@ -20,12 +20,20 @@ public class PlayerCameraController : PlayerModule
 
         playerCamera.SetPosition(newPos);
 
+        if (Cursor.lockState != CursorLockMode.None)
+        {
+            Look();
+        }
+    }
+    void Look()
+    {
         Vector2 input = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
-        if (accelerate){
+        if (accelerate)
+            {
             input *= accelerationCurve.Evaluate(input.magnitude);
         }
         input *= sensitivity;
-        
+            
         Vector3 viewAngles = playerCamera.viewAngles;
         viewAngles.y += input.x;
         viewAngles.x = Mathf.Clamp(viewAngles.x - input.y, -90f, 90f);

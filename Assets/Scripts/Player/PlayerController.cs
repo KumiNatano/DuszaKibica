@@ -1,11 +1,11 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : PlayerModule
 {
     public float walkSpeed = 5f;
     public float runSpeed = 7.5f;
+    public float runStamina = 12.5f;
     public float duckSpeed = 2.5f;
     public float duckStep = 4f;
 
@@ -13,22 +13,26 @@ public class PlayerController : PlayerModule
     public bool isDucking = false;
 
     public PlayerCamera playerCamera => parent.playerCamera;
+    public PlayerStamina stamina => parent.stamina;
     public CharacterController controller => parent.characterController;
 
 
     public override void OnUpdate(float deltaTime)
     {
-        Move();
         Duck();
+        Move();
     }
+    public override void OnFixedUpdate(float deltaTime)
+    {
+        Run();
+    }
+
 
     private void Move(){
         float speed;
         float vy = playerCamera.viewAngles.y;
         Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         Vector3 dir = AngleToDir(vy) * input.y + AngleToDir(vy + 90f) * input.x;
-
-        isRunning = Input.GetButton("Sprint") && input.y > float.Epsilon;
 
         if (isDucking){
             speed = duckSpeed;
@@ -50,6 +54,18 @@ public class PlayerController : PlayerModule
             isDucking = i;
             StartCoroutine(DoDuck(controller.height, isDucking ? parent.duckHeight : parent.normalHeight));
         }
+    }
+    private void Run()
+    {
+        float stu = runStamina * Time.fixedDeltaTime;
+        bool isr = Input.GetButton("Sprint");
+        isr &= Input.GetAxisRaw("Vertical") > float.Epsilon;
+        isr &=  stamina.CanAfford(stu);
+        if (isr)
+        {
+            stamina.ForceUsePoints(stu);
+        }
+        isRunning = isr;
     }
     private IEnumerator DoDuck(float from, float to){
         bool c = isDucking;

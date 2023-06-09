@@ -1,8 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Pathfinding;
 using UnityEngine;
 using UnityEngine.UI;
 
+[Obsolete("HealthSystem will be removed. Use LivingMixin instead")]
 public class HealthSystem : MonoBehaviour
 {
     [SerializeField] int healthAmount;
@@ -19,10 +22,13 @@ public class HealthSystem : MonoBehaviour
     [SerializeField] Slider EnemyHPSlider;
 
     [SerializeField] UpgradeController upgradeController;
-
+    private EnemyAnimationsAndModel enemyAnimationsAndModel;
+    [SerializeField] private Canvas hpBarCanvas;
+    
     // Start is called before the first frame update
     void Start()
     {
+        enemyAnimationsAndModel = this.gameObject.GetComponent<EnemyAnimationsAndModel>();
         upgradeController = GameObject.Find("UpgradeController").GetComponent<UpgradeController>(); //z upgrade controllera bierze bonus do zycia
         if(upgradeController.LiveUpgradeLevel != 0)
         {
@@ -45,7 +51,7 @@ public class HealthSystem : MonoBehaviour
     {
         if(this.gameObject.tag == "enemy")
         {
-            print(EnemyHPSlider.enabled);
+            //print(EnemyHPSlider.enabled);
         }
         manageImmortality();
     }
@@ -78,7 +84,8 @@ public class HealthSystem : MonoBehaviour
         {
             isAlive = false;
             this.drop.DropLottery();
-            Destroy(this.gameObject); //dodalem zniszczenie obiektu po smierci - Jacek
+            enemyAnimationsAndModel.PlayDeathAnim();
+            afterDeath();
         }
         }
     }
@@ -141,5 +148,22 @@ public class HealthSystem : MonoBehaviour
             immortalCooldown -= Time.deltaTime;
 
         }
+    }
+
+    private void afterDeath()
+    {
+        this.gameObject.GetComponent<AIDestinationSetter>().enabled = false;
+        this.gameObject.GetComponent<AIPath>().enabled = false;
+        this.gameObject.GetComponent<EnemyDetectPlayer>().enabled = false;
+        this.gameObject.GetComponent<EnemyDrop>().enabled = false;
+        this.gameObject.GetComponent<EnemyAnimationsAndModel>().enabled = false;
+        this.gameObject.GetComponent<WalkingAnimationBehaviour>().enabled = false;
+
+        hpBarCanvas.enabled = false;
+        this.gameObject.GetComponent<Rigidbody>().isKinematic = true;
+        this.gameObject.GetComponent<Rigidbody>().useGravity = false;
+        this.gameObject.GetComponent<BoxCollider>().enabled = false;
+        
+        this.gameObject.GetComponent<HealthSystem>().enabled = false;
     }
 }
