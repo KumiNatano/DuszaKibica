@@ -2,37 +2,63 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class soundSettings : MonoBehaviour
 {
-    [SerializeField] Slider soundSlider;
+    [SerializeField] Slider musicSlider;
+    [SerializeField] Slider sfxSlider;
     [SerializeField] AudioMixer masterMixer;
 
     private void Start()
     {
-        SetVolume(PlayerPrefs.GetFloat("SavedMasterVolume", 100));
+        SetMusiCVolume(PlayerPrefs.GetFloat("SavedMusicVolume", 100));
+        SetSFXVolume(PlayerPrefs.GetFloat("SavedSFXVolume", 100));
     }
 
-    public void SetVolume(float value)
+    public void SetSFXVolume(float value)
     {
         if (value < 1) {
             value = 0.001f;
         }
-        RefreshSlider(value);
-        PlayerPrefs.SetFloat("SavedMasterVolume", value);
-        masterMixer.SetFloat("MasterVolume", Mathf.Log10(value / 100) * 20f);
+        RefreshSFXSlider(value);
+        PlayerPrefs.SetFloat("SavedSFXVolume", value);
+        masterMixer.SetFloat("SFX", Mathf.Log10(value / 100) * 20f);
         
     }
 
-    public void SetVolumeFromSlider()
+    public void SetSFXVolumeFromSlider()
     {
-        SetVolume(soundSlider.value);
+        SetSFXVolume(sfxSlider.value);
     }
 
 
-    public void RefreshSlider(float value)
+    public void RefreshSFXSlider(float value)
     {
-        soundSlider.value = value;
+        sfxSlider.value = value;
+    }
+    
+    //---
+    public void SetMusiCVolume(float value)
+    {
+        if (value < 1) {
+            value = 0.001f;
+        }
+        RefreshMusicSlider(value);
+        PlayerPrefs.SetFloat("SavedMusicVolume", value);
+        masterMixer.SetFloat("Music", Mathf.Log10(value / 100) * 20f);
+        
+    }
+
+    public void SetMusicVolumeFromSlider()
+    {
+        SetMusiCVolume(musicSlider.value);
+    }
+
+
+    public void RefreshMusicSlider(float value)
+    {
+        musicSlider.value = value;
     }
 }
