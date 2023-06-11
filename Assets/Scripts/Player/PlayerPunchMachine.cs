@@ -129,12 +129,18 @@ public class PlayerPunchMachine : MonoBehaviour
                 continue;
             }
 #if PLAYERPUNCHMACHINE_USEOBSOLETEHEALTH
-            var health = col.GetComponent<HealthSystem>();
-            health.TakeDamage(Mathf.CeilToInt(_attackDamage));
+            HealthSystem health;
 #else
-            var health = col.GetComponent<LivingMixin>();
-            health.Hurt(_attackDamage);
+            LivingMixin health;
 #endif       
+            if (col.TryGetComponent(out health))
+            {
+#if PLAYERPUNCHMACHINE_USEOBSOLETEHEALTH
+                health.TakeDamage(Mathf.CeilToInt(_attackDamage));
+#else
+                health.Hurt(_attackDamage);
+#endif       
+            }
         }
     }
 
