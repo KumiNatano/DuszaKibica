@@ -368,11 +368,13 @@ GameObject:
   - component: {fileID: 5065554108209748671}
   - component: {fileID: 2146499373618382034}
   - component: {fileID: 7117042450289330075}
+  - component: {fileID: 614390003528158668}
+  - component: {fileID: 5811560753612314644}
+  - component: {fileID: 1915499410588204496}
   - component: {fileID: 4501621770393683380}
   - component: {fileID: 6516974044278252105}
   - component: {fileID: 5891462997468904518}
   - component: {fileID: 5529475675470399950}
-  - component: {fileID: 614390003528158668}
   - component: {fileID: 356740842}
   - component: {fileID: 356740840}
   - component: {fileID: 356740841}
@@ -540,6 +542,51 @@ MonoBehaviour:
   checkLayers:
     serializedVersion: 2
     m_Bits: 4294967291
+--- !u!114 &614390003528158668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1349553652272819797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07e924d1c79bebe499aa7cdcb85ee611, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cooldown: 0.5
+  canAttack: 1
+  swish: {fileID: 4610072713061395454}
+  _leftArm: {fileID: 5811560753612314644}
+  _rightArm: {fileID: 1915499410588204496}
+--- !u!114 &5811560753612314644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1349553652272819797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0fd11f73bdef93428a7db8cd2812af0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _keyName: Left Arm
+  _state: 0
+--- !u!114 &1915499410588204496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1349553652272819797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0fd11f73bdef93428a7db8cd2812af0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _keyName: Right Arm
+  _state: 0
 --- !u!114 &4501621770393683380
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -629,21 +676,6 @@ MonoBehaviour:
   upgradeController: {fileID: 0}
   hpBarCanvas: {fileID: 0}
   enemyWeapon: {fileID: 0}
---- !u!114 &614390003528158668
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1349553652272819797}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 07e924d1c79bebe499aa7cdcb85ee611, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cooldown: 0.5
-  canAttack: 1
-  swish: {fileID: 4610072713061395454}
 --- !u!82 &356740842
 AudioSource:
   m_ObjectHideFlags: 0
