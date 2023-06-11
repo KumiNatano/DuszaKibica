@@ -21,6 +21,11 @@ public class Player : Entity
 
     public float height => characterController.height;
 
+    public Quaternion viewRotation => playerCamera.viewRotation;
+    public Quaternion bodyRotation => Quaternion.Euler(0, playerCamera.viewAngles.y, 0);
+    public Vector3 viewForward => playerCamera.forward;
+    public Vector3 bodyForward => bodyRotation * Vector3.forward;
+
 
     public void SetHeight(float newHeight){
         characterController.height = newHeight;
