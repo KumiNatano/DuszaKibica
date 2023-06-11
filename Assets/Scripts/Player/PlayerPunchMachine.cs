@@ -120,11 +120,11 @@ public class PlayerPunchMachine : MonoBehaviour
         Quaternion co = playerRef.viewRotation;
         Vector3 wp = playerRef.playerCamera.position + co * _hbOffset;
         Vector3 he = _hbSize * 0.5f;
-        int c = Physics.OverlapBoxNonAlloc(center: wp, halfExtents: he, results: hitResults, co, _hbLayers);
+        int c = Physics.OverlapBoxNonAlloc(center: wp, halfExtents: he, results: hitResults, orientation: co, _hbLayers);
         for (int i = 0; i < c; i++)
         {
-            Collider col = hitResults[c];
-            if (col.CompareTag("Player"))
+            Collider col = hitResults[i];
+            if (col.CompareTag("player"))
             {
                 continue;
             }
