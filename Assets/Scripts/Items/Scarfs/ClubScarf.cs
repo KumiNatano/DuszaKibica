@@ -22,13 +22,13 @@ public class ClubScarf : DropItem
         // zwiekszenie Staminy
         if (UpgradeID == 1)
         {
-            inventory.stamina.setMaxStaminaAmount(inventory.stamina.getMaxStaminaAmount() + 5);
+            //inventory.stamina.setMaxStaminaAmount(inventory.stamina.getMaxStaminaAmount() + 5);
             //inventory.upgradeText.UpdateTextBox("+5 Staminy", "green");
         }
         // zwiekszenie HP
         if (UpgradeID == 6)
         {
-            inventory.health.setMaxHealthAmount(inventory.health.getMaxHealthAmount() + 5);
+            //inventory.health.setMaxHealthAmount(inventory.health.getMaxHealthAmount() + 5);
             //inventory.upgradeText.UpdateTextBox("+5 Zdrowia", "red");
         }
         Destroy(gameObject);

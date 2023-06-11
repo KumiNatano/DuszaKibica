@@ -580,8 +580,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6662952235653955658, guid: 65eba2434f9db1e49a674134ce1927f9, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.7071068
-      objectReference: {fileID: 0}
+      value: -0.7071SetMusicVolumeFromSlidererence: {fileID: 0}
     - target: {fileID: 6662952235653955658, guid: 65eba2434f9db1e49a674134ce1927f9, type: 3}
       propertyPath: m_LocalRotation.y
       value: -0

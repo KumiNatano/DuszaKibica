@@ -373,8 +373,8 @@ GameObject:
   - component: {fileID: 5891462997468904518}
   - component: {fileID: 5529475675470399950}
   - component: {fileID: 614390003528158668}
-  - component: {fileID: 356740842}
   - component: {fileID: 356740840}
+  - component: {fileID: 356740842}
   - component: {fileID: 356740841}
   - component: {fileID: 2355836823083723500}
   - component: {fileID: -2438658113705280294}
@@ -644,6 +644,22 @@ MonoBehaviour:
   cooldown: 0.5
   canAttack: 1
   swish: {fileID: 4610072713061395454}
+--- !u!114 &356740840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1349553652272819797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95b3788533371a3499d41685f7ddb3b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  restartImage: {fileID: 0}
+  PlayerHPBar: {fileID: 0}
+  PlayerStaminaBar: {fileID: 0}
+  isDead: 0
 --- !u!82 &356740842
 AudioSource:
   m_ObjectHideFlags: 0
@@ -653,9 +669,9 @@ AudioSource:
   m_GameObject: {fileID: 1349553652272819797}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 11ffffe8aefb82041bb6e73055bbd4b4, type: 3}
-  m_PlayOnAwake: 1
+  OutputAudioMixerGroup: {fileID: -7337931169737410063, guid: 61e8ad659cace6f48a98dea3f180731d, type: 2}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -740,22 +756,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &356740840
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1349553652272819797}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95b3788533371a3499d41685f7ddb3b7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  restartImage: {fileID: 0}
-  PlayerHPBar: {fileID: 0}
-  PlayerStaminaBar: {fileID: 0}
-  isDead: 0
 --- !u!114 &356740841
 MonoBehaviour:
   m_ObjectHideFlags: 0
