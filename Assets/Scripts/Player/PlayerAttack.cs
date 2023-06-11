@@ -1,9 +1,18 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerAttack : MonoBehaviour
+public class PlayerAttack : PlayerModule
 {
+    /// <summary>
+    /// Referencja do lewej atakującej ręki
+    /// </summary>
+    public PlayerPunchMachine leftArm => _leftArm;
+    /// <summary>
+    /// Referencja do prawej atakującej ręki
+    /// </summary>
+    public PlayerPunchMachine rightArm => _rightArm;
+
 
     private GameObject attackArea = default;
 
@@ -18,13 +27,14 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private GameObject swish;
     private GameObject crosshair;
 
-    void Start()
+
+    public override void OnInit()
     {
         attackArea = transform.GetChild(0).gameObject; //przypisujemy pierwsze dziecko tego obiektu jako attackArea
         //animator = transform.GetChild(2).gameObject.GetComponent<Animator>();
         crosshair = GameObject.FindWithTag("Crosshair");
     }
-    void Update()
+    public override void OnUpdate(float deltaTime)
     {
         if (canAttack && this.gameObject.GetComponent<FuryAbility>().isInAnimation == false)
         {
@@ -48,7 +58,7 @@ public class PlayerAttack : MonoBehaviour
 
         if (isAttacking) //jesli jestesmy w trakcie ataku
         {
-            timer += Time.deltaTime;
+            timer += deltaTime;
 
             if(timer >= timeToAttack) //jesli sie skonczy okienko czasowe na atak to wylacza nam obiekt dziecka
             {
@@ -101,4 +111,7 @@ public class PlayerAttack : MonoBehaviour
         this.gameObject.GetComponent<PlayerAnimations>().setIsAttackingRightFalse();
     }
 
+    [Header("Arms")]
+    [SerializeField] PlayerPunchMachine _leftArm;
+    [SerializeField] PlayerPunchMachine _rightArm;
 }
