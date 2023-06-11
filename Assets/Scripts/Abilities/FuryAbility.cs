@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -58,9 +59,8 @@ public class FuryAbility : MonoBehaviour
         this.gameObject.GetComponent<PlayerAnimations>().setIsDrinkingFalse();
         isInAnimation = false;
         furyImage.GetComponent<RawImage>().texture = abilities.GetComponent<AbilitiesUI>().furyTextures[2]; //ustawiamy obrazek na aktywny
-        
-        previousCooldown = this.gameObject.GetComponent<PlayerAttack>().cooldown;
-        this.gameObject.GetComponent<PlayerAttack>().cooldown = furyAttackCooldown;
+
+        throw new NotImplementedException("Zmiana cooldowna PlayerAttack");
         this.gameObject.GetComponent<StaminaSystem>().staminaAmount = furyAttackStamina;
         this.gameObject.GetComponent<PlayerAnimations>().animator.speed = 2;
         
@@ -78,7 +78,7 @@ public class FuryAbility : MonoBehaviour
 
     void deactivateAbility()
     {
-        this.gameObject.GetComponent<PlayerAttack>().cooldown = previousCooldown;
+        throw new NotImplementedException("Zmiana cooldowna PlayerAttack");
         isActive = false;
         this.gameObject.GetComponent<PlayerAnimations>().animator.speed = 1;
         //Debug.Log("tu wstawic zeby zmniejszylo szybkosc");

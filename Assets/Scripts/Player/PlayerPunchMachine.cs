@@ -170,8 +170,8 @@ public class PlayerPunchMachine : MonoBehaviour
     [SerializeField] float _restTime = 0f;
     [SerializeField] float _restDuration = 0.5f;
     [Header("Hitbox Properties")]
-    [SerializeField] Vector3 _hbSize = Vector3.one;
-    [SerializeField] Vector3 _hbOffset = Vector3.zero;
+    [SerializeField] Vector3 _hbSize = Vector3.one + Vector3.forward;
+    [SerializeField] Vector3 _hbOffset = Vector3.forward;
     [SerializeField] LayerMask _hbLayers = Physics.DefaultRaycastLayers;
     [Header("State")]
     [SerializeField] PunchMachineState _state = PunchMachineState.Idle;

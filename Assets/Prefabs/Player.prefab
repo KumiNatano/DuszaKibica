@@ -554,9 +554,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07e924d1c79bebe499aa7cdcb85ee611, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldown: 0.5
-  canAttack: 1
-  swish: {fileID: 4610072713061395454}
   _leftArm: {fileID: 5811560753612314644}
   _rightArm: {fileID: 1915499410588204496}
 --- !u!114 &5811560753612314644
@@ -572,6 +569,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _keyName: Left Arm
+  _attackDamage: 25
+  _attackTime: 0
+  _attackDuration: 0.5
+  _restTime: 0
+  _restDuration: 0.5
+  _hbSize: {x: 1, y: 1, z: 2}
+  _hbOffset: {x: 0, y: 0, z: 1}
+  _hbLayers:
+    serializedVersion: 2
+    m_Bits: 4294967291
   _state: 0
 --- !u!114 &1915499410588204496
 MonoBehaviour:
@@ -586,6 +593,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _keyName: Right Arm
+  _attackDamage: 25
+  _attackTime: 0
+  _attackDuration: 0.5
+  _restTime: 0
+  _restDuration: 0.5
+  _hbSize: {x: 1, y: 1, z: 2}
+  _hbOffset: {x: 0, y: 0, z: 1}
+  _hbLayers:
+    serializedVersion: 2
+    m_Bits: 4294967291
   _state: 0
 --- !u!114 &4501621770393683380
 MonoBehaviour:
@@ -3806,11 +3823,6 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 518416259608331735, guid: 5beaa939df026054a93d5b8bf78e8412, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5beaa939df026054a93d5b8bf78e8412, type: 3}
---- !u!1 &4610072713061395454 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6357524732566272644, guid: 5beaa939df026054a93d5b8bf78e8412, type: 3}
-  m_PrefabInstance: {fileID: 7476032257906545018}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6607763372014241090 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4355911565814174776, guid: 5beaa939df026054a93d5b8bf78e8412, type: 3}

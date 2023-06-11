@@ -38,7 +38,7 @@ public class uGUI_Crosshair : MonoBehaviour
         //layerMask = 1 << layerNumber;
         //layerMask = ~layerMask;
 
-        coolDown = GameObject.FindGameObjectWithTag("player").GetComponent<PlayerAttack>().cooldown;
+        coolDown = 1;
     }
     
     void Update()
