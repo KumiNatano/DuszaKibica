@@ -39,12 +39,14 @@ public class PlayerPunchMachine : MonoBehaviour
     {
         playerRef = player;
     }
-    public void Attack()
+    public bool Attack()
     {
         if (isIdling)
         {
             ForceAttack();
+            return true;
         }
+        return false;
     }
     public void ForceAttack()
     {
