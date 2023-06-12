@@ -571,9 +571,9 @@ MonoBehaviour:
   _keyName: Left Arm
   _attackDamage: 25
   _attackTime: 0
-  _attackDuration: 0.5
+  _attackDuration: 0.2
   _restTime: 0
-  _restDuration: 0.5
+  _restDuration: 0.2
   _hbSize: {x: 1, y: 1, z: 2}
   _hbOffset: {x: 0, y: 0, z: 1}
   _hbLayers:
@@ -595,9 +595,9 @@ MonoBehaviour:
   _keyName: Right Arm
   _attackDamage: 25
   _attackTime: 0
-  _attackDuration: 0.5
+  _attackDuration: 0.2
   _restTime: 0
-  _restDuration: 0.5
+  _restDuration: 0.2
   _hbSize: {x: 1, y: 1, z: 2}
   _hbOffset: {x: 0, y: 0, z: 1}
   _hbLayers:
