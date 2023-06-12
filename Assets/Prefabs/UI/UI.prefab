@@ -1178,7 +1178,7 @@ MonoBehaviour:
     background: {fileID: 5040777798089356721}
     slider: {fileID: 5185872852241545555}
   updateRestSlider: 1
-  updateAttackSlider: 0
+  updateAttackSlider: 1
   idleSliderColor: {r: 0.8584906, g: 0.8584906, b: 0.8584906, a: 1}
   idleBackColor: {r: 0.21698111, g: 0.20162867, b: 0.20162867, a: 1}
   restSliderColor: {r: 0.8301887, g: 0.34107175, b: 0.254539, a: 1}

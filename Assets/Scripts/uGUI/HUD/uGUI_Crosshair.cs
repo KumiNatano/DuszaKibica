@@ -55,11 +55,11 @@ public class uGUI_Crosshair : MonoBehaviour
         float value = 1;
         if (arm.isAttacking && updateAttackSlider)
         {
-            value = arm.attackFraction;
+            value = 1 - arm.attackFraction;
         }
         else if (arm.isResting && updateRestSlider)
         {
-            value = 1 - arm.restFraction;
+            value = arm.restFraction;
         }
         arch.SetSliderValue(value);
     }
@@ -80,6 +80,9 @@ public class uGUI_Crosshair : MonoBehaviour
         atkModule.rightArm.onAttackEnd += UpdateSliderArmR;
         atkModule.rightArm.onRestStay += UpdateSliderArmR;
         atkModule.rightArm.onRestEnd += UpdateSliderArmR;
+
+        UpdateColorArmL(atkModule.leftArm.state);
+        UpdateColorArmR(atkModule.rightArm.state);
     }
 
 
