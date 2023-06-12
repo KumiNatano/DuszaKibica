@@ -123,7 +123,7 @@ public class PlayerPunchMachine : MonoBehaviour
         }
         else // begin
         {
-            onAttackBegin?.Invoke();
+            onRestBegin?.Invoke();
         }
         _restTime += Time.fixedDeltaTime;
     }
