@@ -9,7 +9,11 @@ public class PlayerPunchMachine : MonoBehaviour
 
     public float attackDamage => _attackDamage;
     public float attackDuration => _attackDuration;
+    public float attackTime => _attackTime;
+    public float attackFraction => _attackTime / _attackDuration;
     public float restDuration => _restDuration;
+    public float restTime => _restTime;
+    public float restFraction => _restTime / _restDuration;
 
     public Vector3 hitboxSize => _hbSize;
     public Vector3 hitboxOffset => _hbOffset;
@@ -20,6 +24,7 @@ public class PlayerPunchMachine : MonoBehaviour
     public bool isAttacking => _state == PunchMachineState.Attack;
     public bool isResting => _state == PunchMachineState.Rest;
 
+    public event Action<PunchMachineState> onStateUpdate;
     // attack events
     public event Action onAttackBegin;
     public event Action onAttackStay;
@@ -43,7 +48,10 @@ public class PlayerPunchMachine : MonoBehaviour
     }
     public void ForceAttack()
     {
+        _attackTime = 0;
+        _restTime = 0;
         _state = PunchMachineState.Attack;
+        onStateUpdate?.Invoke(_state);
     }
     public void Interrupt()
     {
@@ -85,6 +93,7 @@ public class PlayerPunchMachine : MonoBehaviour
                 wasInterrupted = false;
                 _attackTime = 0;
                 _state = PunchMachineState.Rest;
+                onStateUpdate?.Invoke(_state);
                 onAttackEnd?.Invoke();
             }
         }
@@ -106,6 +115,7 @@ public class PlayerPunchMachine : MonoBehaviour
             {
                 _restTime = 0;
                 _state = PunchMachineState.Idle;
+                onStateUpdate?.Invoke(_state);
                 onRestEnd?.Invoke();
             }
         }
