@@ -62,11 +62,12 @@ public class FuryAbility : MonoBehaviour
         previousCooldown = this.gameObject.GetComponent<PlayerAttack>().cooldown;
         this.gameObject.GetComponent<PlayerAttack>().cooldown = furyAttackCooldown;
         this.gameObject.GetComponent<StaminaSystem>().staminaAmount = furyAttackStamina;
-        this.gameObject.GetComponent<PlayerAnimations>().animator.speed = 2;
+        this.gameObject.GetComponent<PlayerAnimations>().setIsFuryTrue();
         
         yield return new WaitForSeconds(abilityActiveTime);
         deactivateAbility();
         furyImage.GetComponent<RawImage>().texture = abilities.GetComponent<AbilitiesUI>().furyTextures[0]; //ustawiamy obrazek na wyszarzony
+        this.gameObject.GetComponent<PlayerAnimations>().setIsFuryFalse();
         isActive = false;
         isRecharging = true;
         

@@ -864,9 +864,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   upgradeController: {fileID: 0}
-  abilityDelay: 1
-  abilityActiveTime: 1
-  furyAttackCooldown: 0.2
+  abilityDelay: 20
+  abilityActiveTime: 10
+  furyAttackCooldown: 0.35
   furyAttackStamina: 500
   UI: {fileID: 0}
   abilities: {fileID: 0}
