@@ -6,9 +6,12 @@ public class PlayerController : PlayerModule
     public float walkSpeed = 5f;
     public float runSpeed = 7.5f;
     public float runStamina = 12.5f;
-    public float jumpHeight = 2f;
     public float duckSpeed = 2.5f;
     public float duckStep = 4f;
+    public float jumpHeight = 7f;
+    public float jumpTime = 1.5f;
+    private float jumpTimer = 0.0f;
+    private float verticalSpeed = 0.0f;
 
     public bool isRunning = false;
     public bool isDucking = false;
@@ -22,12 +25,12 @@ public class PlayerController : PlayerModule
     public override void OnUpdate(float deltaTime)
     {
         Duck();
-        Jump();
         Move();
     }
     public override void OnFixedUpdate(float deltaTime)
     {
         Run();
+        Jump();
     }
 
 
@@ -52,12 +55,38 @@ public class PlayerController : PlayerModule
     }
 
     private void Jump() {
-        bool j = Input.GetButtonDown("Jump");
-        if (isJumping != j)
+        if (isJumping)
         {
-            isJumping = j;
-            controller.Move(Vector3.up * jumpHeight);
+            jumpTimer += Time.deltaTime;
+            if (jumpTimer <= jumpTime)
+            {
+                verticalSpeed = (jumpHeight / jumpTime) * (1.0f - (jumpTimer / jumpTime));
+            }
+            else
+            {
+                isJumping = false;
+                jumpTimer = 0.0f;
+                verticalSpeed = 0.0f;
+            }
         }
+
+        Vector3 moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0.0f, Input.GetAxis("Vertical"));
+        moveDirection = transform.TransformDirection(moveDirection);
+        moveDirection *= runSpeed;
+        moveDirection.y = verticalSpeed;
+
+        controller.Move(moveDirection * Time.deltaTime);
+
+        if (!isJumping)
+        {
+            if (Input.GetButtonDown("Jump"))
+            {
+                isJumping = true;
+                verticalSpeed = jumpHeight;
+            }
+        }
+
+
     }
 
     private void Duck(){
