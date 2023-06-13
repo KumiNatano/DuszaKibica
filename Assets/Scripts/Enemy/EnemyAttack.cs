@@ -1,3 +1,5 @@
+#define ENEMYATTACK_USEOBSOLETEHEALTH
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -29,10 +31,14 @@ public class EnemyAttack : MonoBehaviour
                 if (weapon.IsHit() == true)
                 {
                     //HealthSystem health = GetComponent<Collider>().GetComponent<HealthSystem>(); //bierzemy system zycia
-                    HealthSystem health = parent.GetComponent<EnemyDetectPlayer>().GetPlayer().GetComponent<HealthSystem>(); //bierzemy system zycia
+                    var player = parent.GetComponent<EnemyDetectPlayer>().GetPlayer();
+#if ENEMYATTACK_USEOBSOLETEHEALTH
+                    var health = player.GetComponent<HealthSystem>();
                     health.TakeDamage(damage); //i dajemy damage
-                    health = null;
-
+#else
+                    var health = player.GetComponent<LivingMixin>();
+                    health.Hurt(damage);
+#endif
                 }
                 weapon.WasHit();
                 this.GetComponent<PunchAudio>().PlayAttackSound();
@@ -49,10 +55,14 @@ public class EnemyAttack : MonoBehaviour
                 if (weapon.IsHit() == true)
                 {
                     //HealthSystem health = GetComponent<Collider>().GetComponent<HealthSystem>(); //bierzemy system zycia
-                    HealthSystem health = parent.GetComponent<EnemyDetectPlayer>().GetPlayer().GetComponent<HealthSystem>(); //bierzemy system zycia
+                    var player = parent.GetComponent<EnemyDetectPlayer>().GetPlayer();
+#if ENEMYATTACK_USEOBSOLETEHEALTH
+                    var health = player.GetComponent<HealthSystem>();
                     health.TakeDamage(damage); //i dajemy damage
-                    health = null;
-
+#else
+                    var health = player.GetComponent<LivingMixin>();
+                    health.Hurt(damage);
+#endif
                 }
                 weapon.WasHit();
                 this.GetComponent<PunchAudio>().PlayAttackSound();
