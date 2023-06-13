@@ -31,25 +31,32 @@ public class uGUI_MainMenu : MonoBehaviour
 
     public void EnterCredits()
     {
-        MainMenu.SetActive(false);
-        CreditsPanel.SetActive(true);
+        ToggleTab(MainMenu, false);
+        ToggleTab(CreditsPanel, true);
     }
 
     public void QuitCredits()
     {
-        MainMenu.SetActive(true);
-        CreditsPanel.SetActive(false);
+        ToggleTab(MainMenu, true);
+        ToggleTab(CreditsPanel, false);
     }
 
     public void EnterSettings()
     {
-        MainMenu.SetActive(false);
-        SettingsMenu.SetActive(true);
+        ToggleTab(MainMenu, false);
+        ToggleTab(SettingsMenu, true);
     }
 
     public void QuitSettings()
     {
-        MainMenu.SetActive(true);
-        SettingsMenu.SetActive(false);
+        ToggleTab(MainMenu, true);
+        ToggleTab(SettingsMenu, false);
+    }
+    void ToggleTab(GameObject tab, bool value)
+    {
+        if (tab != null)
+        {
+            tab.SetActive(value);
+        }
     }
 }
