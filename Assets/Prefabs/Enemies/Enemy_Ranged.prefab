@@ -1611,7 +1611,7 @@ AudioSource:
   m_GameObject: {fileID: 4619011224979107503}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 24300002, guid: 61e8ad659cace6f48a98dea3f180731d, type: 2}
+  OutputAudioMixerGroup: {fileID: -7337931169737410063, guid: 61e8ad659cace6f48a98dea3f180731d, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -2379,6 +2379,8 @@ MonoBehaviour:
   EnemyHealthBarObject: {fileID: 2347012038796757993}
   EnemyHPSlider: {fileID: 2259362986583398955}
   upgradeController: {fileID: 0}
+  hpBarCanvas: {fileID: 0}
+  enemyWeapon: {fileID: 0}
 --- !u!114 &7480798875489523618
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2436,6 +2438,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 6705030025856591633}
+  animatorsList: []
+  enemyModels: []
 --- !u!114 &1987220545363893302
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -13,7 +13,7 @@ public class AttackArea : MonoBehaviour
 
     private void OnTriggerEnter(Collider collider)
     {
-        if (collider.GetComponent<HealthSystem>() != null) //jesli nie ma systemu zycia to sie nie wykona
+        if (collider.GetComponent<HealthSystem>() != null && !collider.CompareTag("player")) //jesli nie ma systemu zycia to sie nie wykona
         {
             HealthSystem health = collider.GetComponent<HealthSystem>(); //bierzemy system zycia
             health.TakeDamage(damage); //i dajemy damage
