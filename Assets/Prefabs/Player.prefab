@@ -573,7 +573,7 @@ MonoBehaviour:
   _attackTime: 0
   _attackDuration: 0.2
   _restTime: 0
-  _restDuration: 0.2
+  _restDuration: 0.3
   _hbSize: {x: 1, y: 1, z: 2}
   _hbOffset: {x: 0, y: 0, z: 1}
   _hbLayers:
@@ -597,7 +597,7 @@ MonoBehaviour:
   _attackTime: 0
   _attackDuration: 0.2
   _restTime: 0
-  _restDuration: 0.2
+  _restDuration: 0.3
   _hbSize: {x: 1, y: 1, z: 2}
   _hbOffset: {x: 0, y: 0, z: 1}
   _hbLayers:
