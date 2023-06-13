@@ -15,7 +15,7 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] public float cooldown = 2f;
     public bool canAttack = true;
 
-    [SerializeField] private GameObject swish;
+
     private GameObject crosshair;
 
     void Start()
@@ -35,11 +35,7 @@ public class PlayerAttack : MonoBehaviour
         }
         
         Vector3 c = attackArea.GetComponent<SphereCollider>().center;
-        swish.transform.position = attackArea.transform.position + c;
         c.y = 0;
-        Vector3 r = swish.transform.eulerAngles;
-        r.y = Quaternion.LookRotation(c).eulerAngles.y;
-        swish.transform.eulerAngles = r;
         if (Input.GetButton("Fire1") && canAttack == true && GameObject.FindWithTag("PauseManager").GetComponent<PauseManager>().isPaused == false) //jesli nacisniemy i mamy mozliwosc ataku i nie ma pauzy
         {
             Attacking(); //to zaczynamy atak
@@ -55,7 +51,6 @@ public class PlayerAttack : MonoBehaviour
                 timer = 0;
                 isAttacking = false;
                 attackArea.SetActive(isAttacking);
-                swish.SetActive(isAttacking);
             }
         }
     }
@@ -75,7 +70,6 @@ public class PlayerAttack : MonoBehaviour
             isAttacking = true;
             attackArea.SetActive(isAttacking);
             this.gameObject.GetComponent<PunchAudio>().PlaySwishSound(); //odtwarzanie dzwieku machniecia
-            swish.SetActive(isAttacking);
 
             int animacjaAtaku = Random.Range(1, 3);
 
