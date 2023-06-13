@@ -24,11 +24,11 @@ public class PlayerAttack : PlayerModule
     public override void OnUpdate(float deltaTime)
     {
         // TODO: uzyc Input.GetButtonDown()
-        if (Input.GetMouseButtonDown(0) && !rightArm.isAttacking)
+        if (Input.GetButtonDown(leftArm.keyName) && !rightArm.isAttacking)
         {
             leftArm.Attack();
         }
-        else if (Input.GetMouseButtonDown(1) && !leftArm.isAttacking) 
+        else if (Input.GetButtonDown(rightArm.keyName) && !leftArm.isAttacking) 
         {
             rightArm.Attack();
         }
