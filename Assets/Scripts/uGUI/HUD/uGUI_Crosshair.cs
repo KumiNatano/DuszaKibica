@@ -1,5 +1,7 @@
 using System;
+using System.Collections;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class uGUI_Crosshair : MonoBehaviour
@@ -20,12 +22,25 @@ public class uGUI_Crosshair : MonoBehaviour
     [Header("Attack")]
     public Color attackSliderColor = Color.red;
     public Color attackBackColor = Color.black;
-
+    
+    [Header("Dot")]
+    [SerializeField] Image dotImg;
+    [SerializeField] private Color undetectedColor;
+    [SerializeField] private Color detectedColor;
+    private Color invisibleColor = Color.clear;
+    private GameObject detectionCollider;
 
     void UpdateColorArmL(PunchMachineState newState) => UpdateColorArm(leftArch, newState);
     void UpdateColorArmR(PunchMachineState newState) => UpdateColorArm(rightArch, newState);
+
+    private void Update()
+    {
+        DotDetectionCollider();
+    }
+
     void UpdateColorArm(uGUI_CrosshairArch arch, PunchMachineState state)
     {
+
         Color slider;
         Color back;
         switch(state)
@@ -83,10 +98,26 @@ public class uGUI_Crosshair : MonoBehaviour
 
         UpdateColorArmL(atkModule.leftArm.state);
         UpdateColorArmR(atkModule.rightArm.state);
+        
+        detectionCollider = GameObject.FindGameObjectWithTag("EnemyDetector");
     }
 
 
     PlayerAttack atkModule;
+    
+    
+    void DotDetectionCollider()
+    {
+        if (detectionCollider.GetComponent<EnemyDetector>().GetIsEnemyDetected())
+        {
+            dotImg.color = detectedColor;
+        }
+        else
+        {
+            dotImg.color = undetectedColor;
+        }
+    }
+
 }
 [Serializable]
 public class uGUI_CrosshairArch
@@ -109,3 +140,5 @@ public class uGUI_CrosshairArch
         slider.rectTransform.localScale = scale;
     }
 }
+
+
