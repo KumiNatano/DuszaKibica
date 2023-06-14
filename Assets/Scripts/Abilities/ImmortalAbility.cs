@@ -19,6 +19,9 @@ public class ImmortalAbility : MonoBehaviour
     [SerializeField] GameObject abilities = null;
     [SerializeField] GameObject immortalImage = null;
 
+    Player player;
+    PlayerAttack attack;
+
     void Start()
     {
         upgradeController = GameObject.Find("UpgradeController").GetComponent<UpgradeController>();
@@ -30,6 +33,8 @@ public class ImmortalAbility : MonoBehaviour
             immortalImage = abilities.transform.Find("Immortal").gameObject;
             immortalImage.GetComponent<RawImage>().texture = abilities.GetComponent<AbilitiesUI>().immortalTextures[0]; //ustawiamy obrazek na wyszarzony
         }
+        player = gameObject.GetComponent<Player>();
+        attack = player.GetModule<PlayerAttack>();
     }
 
     void Update()
@@ -66,11 +71,26 @@ public class ImmortalAbility : MonoBehaviour
 
     void activateAbility()
     {
-        isActive = true;
-        this.gameObject.GetComponent<HealthSystem>().setImmortal(5, 15);
-        //Debug.Log("tu wstawic zeby dalo niesmiertelnosc");
+        StartCoroutine(ActivateSeq());
     }
+    IEnumerator ActivateSeq()
+    {
+        isActive = true;
 
+
+        attack.leftArm.Block();
+        attack.rightArm.Block();
+        attack.leftArm.Interrupt();
+
+        player.viewmodel.Eat();
+        yield return new WaitForSeconds(3.967f);
+        yield return null;
+        attack.leftArm.Unblock();
+        attack.rightArm.Unblock();
+
+
+        this.gameObject.GetComponent<HealthSystem>().setImmortal(5, 15);
+    }
     void deactivateAbility()
     {
         isActive = false;
