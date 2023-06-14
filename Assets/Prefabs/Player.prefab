@@ -679,8 +679,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67d3cadffafbabe4d94cae148173fced, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthAmount: 100
-  maxHealthAmount: 100
+  healthAmount: 1000
+  maxHealthAmount: 1000
   isAlive: 0
   isImmortal: 0
   immortalTime: 0
@@ -817,6 +817,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitSounds: []
+  enemyDetector: {fileID: 7613909263405223188}
 --- !u!54 &2355836823083723500
 Rigidbody:
   m_ObjectHideFlags: 0
