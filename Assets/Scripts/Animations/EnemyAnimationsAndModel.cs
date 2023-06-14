@@ -22,7 +22,7 @@ public class EnemyAnimationsAndModel : MonoBehaviour
         animator = animatorsList[randomModelNumber];
         enemyLeftFists[randomModelNumber].AddComponent<EnemyWeapon>();
         enemyRightFists[randomModelNumber].AddComponent<EnemyWeapon>();
-        enemyLeftFist = enemyRightFists[randomModelNumber].GetComponent<EnemyWeapon>();
+        enemyLeftFist = enemyLeftFists[randomModelNumber].GetComponent<EnemyWeapon>();
         enemyRightFist = enemyRightFists[randomModelNumber].GetComponent<EnemyWeapon>();
 
     }

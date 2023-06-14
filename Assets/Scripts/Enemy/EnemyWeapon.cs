@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyWeapon : MonoBehaviour
 {
     [SerializeField] bool _isHit;
+    [SerializeField] int damageValue;
 
     private void Start()
     {
@@ -15,9 +16,13 @@ public class EnemyWeapon : MonoBehaviour
     {
         if(collider.gameObject.tag == "player")
         {
-            _isHit = true;
+            if (!_isHit)
+            {
+                _isHit = true;
+                HealthSystem health = collider.GetComponent<HealthSystem>(); //bierzemy system zycia
+                health.TakeDamage(damageValue);
+            }
         }
-        //else _isHit = false;
     }
 
     public bool IsHit()
@@ -28,4 +33,10 @@ public class EnemyWeapon : MonoBehaviour
     {
         _isHit = false;
     }
+
+    public void SetDamage(int newDamage)
+    {
+        damageValue = newDamage;
+    }
+
 }

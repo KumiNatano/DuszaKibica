@@ -5698,6 +5698,7 @@ MonoBehaviour:
   damage: 20
   cooldown: 2
   parent: {fileID: 7999857675162918956}
+  weapon: {fileID: 0}
 --- !u!114 &1459051019494566796
 MonoBehaviour:
   m_ObjectHideFlags: 0
