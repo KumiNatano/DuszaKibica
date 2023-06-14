@@ -10,6 +10,7 @@ public class Player : Entity
     public PlayerStamina stamina { get; private set; }
     public PlayerItemPickuper itemPickuper { get; private set; }
     public PlayerHeadbob headbob { get; private set; }
+    public PlayerViewmodel viewmodel { get; private set; }
 
     public CharacterController characterController;
 
@@ -97,6 +98,7 @@ public class Player : Entity
         stamina = GetModule<PlayerStamina>();
         itemPickuper = GetModule<PlayerItemPickuper>();
         headbob = GetModule<PlayerHeadbob>();
+        viewmodel = GetModule<PlayerViewmodel>();
     }
     private void ModulesUpdate()
     {
