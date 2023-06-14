@@ -8,12 +8,17 @@ public class PlayerPunchMachine : MonoBehaviour
     public string keyName => _keyName;
 
     public float attackDamage => _attackDamage;
-    public float attackDuration => _attackDuration;
+    public float attackDuration => _attackDuration * _speedMultiplier;
     public float attackTime => _attackTime;
-    public float attackFraction => _attackTime / _attackDuration;
-    public float restDuration => _restDuration;
+    public float attackFraction => attackTime / attackDuration;
+    public float restDuration => _restDuration * _speedMultiplier;
     public float restTime => _restTime;
-    public float restFraction => _restTime / _restDuration;
+    public float restFraction => restTime / restDuration;
+    public float speed 
+    {
+        get => GetSpeed();
+        set => SetSpeed(value);
+    }
 
     public Vector3 hitboxSize => _hbSize;
     public Vector3 hitboxOffset => _hbOffset;
@@ -77,12 +82,28 @@ public class PlayerPunchMachine : MonoBehaviour
             _restTime = _restDuration;
         }
     }
+    public float GetSpeed()
+    {
+        return _speedMultiplier;
+    }
+    public float SetSpeed(float value)
+    {
+        if (value != 0)
+        {
+            _speedMultiplier = Mathf.Abs(value);
+        }
+        else
+        {
+            _speedMultiplier = 1f;
+        }
+        return _speedMultiplier;
+    }
 
     void AttackSeq()
     {
         if (_attackTime > float.Epsilon)
         {
-            if (_attackTime < _attackDuration) // stay
+            if (_attackTime < attackDuration) // stay
             {
                 onAttackStay?.Invoke();
             }
@@ -109,7 +130,7 @@ public class PlayerPunchMachine : MonoBehaviour
     {
         if (_restTime > float.Epsilon)
         {
-            if (_restTime < _restDuration) // stay
+            if (_restTime < restDuration) // stay
             {
                 onRestStay?.Invoke();
             }
@@ -181,6 +202,7 @@ public class PlayerPunchMachine : MonoBehaviour
     [SerializeField] float _attackDuration = 0.5f;
     [SerializeField] float _restTime = 0f;
     [SerializeField] float _restDuration = 0.5f;
+    [SerializeField] float _speedMultiplier = 1;
     [Header("Hitbox Properties")]
     [SerializeField] Vector3 _hbSize = Vector3.one + Vector3.forward;
     [SerializeField] Vector3 _hbOffset = Vector3.forward;

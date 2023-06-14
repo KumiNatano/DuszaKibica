@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class FuryAbility : MonoBehaviour
 {
+    public float speedBonus = 1.35f;
+
     [SerializeField] UpgradeController upgradeController;
     bool isFuryBuyed = false;
     bool isActive = false;
@@ -25,7 +27,11 @@ public class FuryAbility : MonoBehaviour
 
     public bool isInAnimation = false;
     private bool isRecharging = false;
+
+    Player player;
+    PlayerAttack attack;
     
+
     void Start()
     {
         upgradeController = GameObject.Find("UpgradeController").GetComponent<UpgradeController>();
@@ -37,6 +43,8 @@ public class FuryAbility : MonoBehaviour
             furyImage = abilities.transform.Find("Fury").gameObject;
             furyImage.GetComponent<RawImage>().texture = abilities.GetComponent<AbilitiesUI>().furyTextures[1];
         }
+        player = gameObject.GetComponent<Player>();
+        attack = player.GetModule<PlayerAttack>();
     }
 
     void Update()
@@ -51,15 +59,18 @@ public class FuryAbility : MonoBehaviour
 
     IEnumerator activateAbility()
     {
+        float sm = 1f / speedBonus;
+
         isActive = true;
 
         isInAnimation = true;
-        this.gameObject.GetComponent<Player>().viewmodel.Drink();
+        player.viewmodel.Drink();
         yield return new WaitForSeconds(2.967f);
         isInAnimation = false;
         furyImage.GetComponent<RawImage>().texture = abilities.GetComponent<AbilitiesUI>().furyTextures[2]; //ustawiamy obrazek na aktywny
 
-        Debug.LogError("Zmiana cooldowna PlayerAttack i stamina");
+        attack.leftArm.SetSpeed(sm);
+        attack.rightArm.SetSpeed(sm);
         
         yield return new WaitForSeconds(abilityActiveTime);
         deactivateAbility();
@@ -75,7 +86,8 @@ public class FuryAbility : MonoBehaviour
 
     void deactivateAbility()
     {
-        Debug.LogError("Zmiana cooldowna PlayerAttack");
+        attack.leftArm.SetSpeed(1);
+        attack.rightArm.SetSpeed(1);
         isActive = false;
         Debug.Log("tu wstawic zeby zmniejszylo szybkosc");
     }
