@@ -22,6 +22,9 @@ public class KnifeAbility : MonoBehaviour
     [SerializeField] GameObject abilities = null;
     [SerializeField] GameObject knifeImage = null;
 
+    Player player;
+    PlayerAttack attack;
+
     void Start()
     {
 
@@ -35,6 +38,8 @@ public class KnifeAbility : MonoBehaviour
             knifeImage = abilities.transform.Find("Knife").gameObject;
             knifeImage.GetComponent<RawImage>().texture = abilities.GetComponent<AbilitiesUI>().knifeTextures[0]; //ustawiamy obrazek na wyszarzony
         }
+        player = gameObject.GetComponent<Player>();
+        attack = player.GetModule<PlayerAttack>();
     }
 
     void Update()
@@ -58,19 +63,30 @@ public class KnifeAbility : MonoBehaviour
 
     void activateAbility()
     {
+        StartCoroutine(ActivateSeq());
+    }
+
+    IEnumerator ActivateSeq()
+    {
         Camera mainCamera = Camera.main;
 
         knifeImage.GetComponent<RawImage>().texture = abilities.GetComponent<AbilitiesUI>().knifeTextures[0]; //ustawiamy obrazek na wyszarzony
 
         Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
-        if(Physics.Raycast(ray, out RaycastHit raycastHit))
+        if (Physics.Raycast(ray, out RaycastHit raycastHit))
         {
             mouseWorldPosition = raycastHit.point;
-            //print(mouseWorldPosition);
         }
 
+        attack.rightArm.Block();
+        attack.rightArm.Interrupt();
+
+        player.viewmodel.ThrowKnife();
+        yield return new WaitForSeconds(0.967f);
         GameObject knife = Instantiate(knifePrefab, new Vector3(mainCamera.transform.position.x, mainCamera.transform.position.y, mainCamera.transform.position.z),
-            mainCamera.transform.rotation * Quaternion.Euler(-90,90,0));
+            mainCamera.transform.rotation * Quaternion.Euler(-90, 90, 0));
+        yield return null;
+        attack.rightArm.Unblock();
 
         var behaviour = knife.GetComponent<KnifeBehaviour>();
         behaviour.SetDirection(mainCamera.transform.forward);
