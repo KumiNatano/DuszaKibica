@@ -1,5 +1,7 @@
+using Pathfinding;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class AreaObjectives : MonoBehaviour
@@ -28,7 +30,8 @@ public class AreaObjectives : MonoBehaviour
         }
         if (enemySpawner.finishedSpawning == true)
         {
-            if (GameObject.FindGameObjectsWithTag("enemy").Length == 0)
+            var enemies = FindObjectsByType<HealthSystem>(FindObjectsSortMode.None).Where(x => x.CompareTag("enemy") && x.enabled);
+            if (enemies.Count(x => !x.GetComponent<AIPath>().enabled) == 0)
                 completeArena();
         }     
     }
