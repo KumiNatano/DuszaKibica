@@ -24,6 +24,10 @@ public class PlayerViewmodel : PlayerModule
         animator.SetFloat(hand + " Speed", duration);
         animator.SetTrigger(hand);
     }
+    public void Drink()
+    {
+        animator.SetTrigger("Drink");
+    }
 
 
     Animator animator;
