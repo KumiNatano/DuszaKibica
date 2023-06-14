@@ -1,147 +1,111 @@
 using System;
-using System.Collections;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class uGUI_Crosshair : MonoBehaviour
 {
-    [Header("Left arm")]
-    [SerializeField] Image lArmImg;
-    
-    [Header("Right Arm")]
-    [SerializeField] Image rArmImg;
-    
-    [FormerlySerializedAs("DotImg")]
-    [Header("Dot")]
-    [SerializeField] Image dotImg;
-    [SerializeField] private Color grayColor;
-    [SerializeField] private Color whiteColor;
-    private Color invisibleColor = Color.clear;
-    
-    //[SerializeField] private float distanceToLightDot = 2.50f;
+    public uGUI_CrosshairArch leftArch;
+    public uGUI_CrosshairArch rightArch;
 
-    //[SerializeField] int layerNumber;
-    //int layerMask;
 
-    private GameObject detectionCollider;
-    [SerializeField] public bool canAttackLeft = true;
-    private bool canAttackRight = true;
-    private float coolDown;
+    [Header("Slider")]
+    public bool updateRestSlider = true;
+    public bool updateAttackSlider = true;
+    [Header("Idle")]
+    public Color idleSliderColor = Color.white;
+    public Color idleBackColor = Color.black;
+    [Header("Rest")]
+    public Color restSliderColor = Color.yellow;
+    public Color restBackColor = Color.black;
+    [Header("Attack")]
+    public Color attackSliderColor = Color.red;
+    public Color attackBackColor = Color.black;
 
-    [SerializeField] private bool isLeftColorChangingRightNow = false;
-    private bool isRightColorChangingRightNow = false;
 
-    private void Start()
+    void UpdateColorArmL(PunchMachineState newState) => UpdateColorArm(leftArch, newState);
+    void UpdateColorArmR(PunchMachineState newState) => UpdateColorArm(rightArch, newState);
+    void UpdateColorArm(uGUI_CrosshairArch arch, PunchMachineState state)
     {
-        detectionCollider = GameObject.FindGameObjectWithTag("EnemyDetector");
-        //layerMask = 1 << layerNumber;
-        //layerMask = ~layerMask;
-
-        coolDown = GameObject.FindGameObjectWithTag("player").GetComponent<PlayerAttack>().cooldown;
+        Color slider;
+        Color back;
+        switch(state)
+        {
+            case PunchMachineState.Idle:
+                slider = idleSliderColor;
+                back = idleBackColor;
+                break;
+            case PunchMachineState.Attack:
+                slider = attackSliderColor;
+                back = attackBackColor;
+                break;
+            case PunchMachineState.Rest:
+                slider = restSliderColor;
+                back = restBackColor;
+                break;
+            default:
+                throw new NotImplementedException();
+        }
+        arch.SetSliderColor(slider);
+        arch.SetBackColor(back);
     }
-    
-    void Update()
+    void UpdateSliderArmL() => UpdateSliderArm(leftArch, atkModule.leftArm);
+    void UpdateSliderArmR() => UpdateSliderArm(rightArch, atkModule.rightArm);
+    void UpdateSliderArm(uGUI_CrosshairArch arch, PlayerPunchMachine arm)
     {
-        //DotDetectionRayCast();
-        CrosshairArmsController();
-        DotDetectionCollider();
+        float value = 1;
+        if (arm.isAttacking && updateAttackSlider)
+        {
+            value = 1 - arm.attackFraction;
+        }
+        else if (arm.isResting && updateRestSlider)
+        {
+            value = arm.restFraction;
+        }
+        arch.SetSliderValue(value);
     }
 
-    public bool synchronizationLeft = true;
-    public bool synchronizationRight = true;
-    
-    void CrosshairArmsController()
+    void Start()
     {
+        atkModule = Player.main.GetModule<PlayerAttack>();
 
-        //poki co bierze do obu "armow" to samo canAttack, poniewaz nie ma rozroznienia na lewa i prawa
-        canAttackLeft = GameObject.FindGameObjectWithTag("player").GetComponent<PlayerAttack>().canAttack;
-        canAttackRight = GameObject.FindGameObjectWithTag("player").GetComponent<PlayerAttack>().canAttack;
+        atkModule.leftArm.onStateUpdate += UpdateColorArmL;
+        atkModule.rightArm.onStateUpdate += UpdateColorArmR;
 
-        //lewa
-        if (isLeftColorChangingRightNow == false && canAttackLeft == false && synchronizationLeft == true)
-        {
-            isLeftColorChangingRightNow = true;
-            lArmImg.color = invisibleColor;
-            StartCoroutine(ColorLerp(lArmImg, whiteColor, coolDown));
-        }
-        
-        //prawa
-        if (isRightColorChangingRightNow == false && canAttackRight == false && synchronizationRight == true)
-        {
-            isRightColorChangingRightNow = true;
-            rArmImg.color = invisibleColor;
-            StartCoroutine(ColorLerp(rArmImg, whiteColor, coolDown));
-        }
+        atkModule.leftArm.onAttackStay += UpdateSliderArmL;
+        atkModule.leftArm.onAttackEnd += UpdateSliderArmL;
+        atkModule.leftArm.onRestStay += UpdateSliderArmL;
+        atkModule.leftArm.onRestEnd += UpdateSliderArmL;
+
+        atkModule.rightArm.onAttackStay += UpdateSliderArmR;
+        atkModule.rightArm.onAttackEnd += UpdateSliderArmR;
+        atkModule.rightArm.onRestStay += UpdateSliderArmR;
+        atkModule.rightArm.onRestEnd += UpdateSliderArmR;
+
+        UpdateColorArmL(atkModule.leftArm.state);
+        UpdateColorArmR(atkModule.rightArm.state);
     }
-    
-    IEnumerator ColorLerp(Image imgOfArm, Color endValue, float duration)
+
+
+    PlayerAttack atkModule;
+}
+[Serializable]
+public class uGUI_CrosshairArch
+{
+    public Image background;
+    public Image slider;
+
+    public void SetSliderColor(Color color)
     {
-        if (imgOfArm == lArmImg)
-        {
-            synchronizationLeft = false;
-        }
-        else if (imgOfArm == rArmImg)
-        {
-            synchronizationRight = false;
-        }
-        
-        float time = 0;
-        Color startValue = imgOfArm.color;
-        while (time < duration)
-        {
-            imgOfArm.color = Color.Lerp(startValue, endValue, time / duration);
-            time += Time.deltaTime;
-            yield return null;
-        }
-
-        imgOfArm.color = endValue;
-
-        if (imgOfArm == lArmImg)
-        {
-
-            canAttackLeft = true;
-            isLeftColorChangingRightNow = false;
-        }
-        else if (imgOfArm == rArmImg)
-        {
-            canAttackRight = true;
-            isRightColorChangingRightNow = false;
-        }
+        slider.color = color;
     }
-    
-    void DotDetectionCollider()
+    public void SetBackColor(Color color)
     {
-        if (detectionCollider.GetComponent<EnemyDetector>().GetIsEnemyDetected())
-        {
-            dotImg.color = whiteColor;
-        }
-        else
-        {
-            dotImg.color = grayColor;
-        }
+        background.color = color;
     }
-    /*
-    void DotDetectionRayCast()
+    public void SetSliderValue(float value)
     {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        
-        RaycastHit hit;
-        
-        if (Physics.Raycast(ray, out hit, distanceToLightDot, layerMask))
-        {
-            if (hit.collider.CompareTag("enemy"))
-            {
-                dotImg.color = enemyDetectedColor;
-            }
-            else
-            {
-                dotImg.color = enemyUndetectedColor;
-            }
-        }            
-        else
-        {
-            dotImg.color = enemyUndetectedColor;
-        }
-    }*/
+        Vector3 scale = Vector3.one;
+        scale.y = value;
+        slider.rectTransform.localScale = scale;
+    }
 }
