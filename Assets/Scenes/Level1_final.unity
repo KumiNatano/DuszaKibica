@@ -49064,14 +49064,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 108099323}
     - target: {fileID: 5529475675470399950, guid: 3464a262695b3284b8785c2e4627a4e1, type: 3}
-      propertyPath: healthAmount
-      value: 10000
-      objectReference: {fileID: 0}
-    - target: {fileID: 5529475675470399950, guid: 3464a262695b3284b8785c2e4627a4e1, type: 3}
-      propertyPath: maxHealthAmount
-      value: 10000
-      objectReference: {fileID: 0}
-    - target: {fileID: 5529475675470399950, guid: 3464a262695b3284b8785c2e4627a4e1, type: 3}
       propertyPath: upgradeController
       value: 
       objectReference: {fileID: 1574208082}
