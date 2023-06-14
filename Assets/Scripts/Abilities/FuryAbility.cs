@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,8 @@ using UnityEngine.UI;
 
 public class FuryAbility : MonoBehaviour
 {
+    public float speedBonus = 1.35f;
+
     [SerializeField] UpgradeController upgradeController;
     bool isFuryBuyed = false;
     bool isActive = false;
@@ -24,7 +27,11 @@ public class FuryAbility : MonoBehaviour
 
     public bool isInAnimation = false;
     private bool isRecharging = false;
+
+    Player player;
+    PlayerAttack attack;
     
+
     void Start()
     {
         upgradeController = GameObject.Find("UpgradeController").GetComponent<UpgradeController>();
@@ -36,6 +43,8 @@ public class FuryAbility : MonoBehaviour
             furyImage = abilities.transform.Find("Fury").gameObject;
             furyImage.GetComponent<RawImage>().texture = abilities.GetComponent<AbilitiesUI>().furyTextures[1];
         }
+        player = gameObject.GetComponent<Player>();
+        attack = player.GetModule<PlayerAttack>();
     }
 
     void Update()
@@ -50,24 +59,22 @@ public class FuryAbility : MonoBehaviour
 
     IEnumerator activateAbility()
     {
+        float sm = 1f / speedBonus;
+
         isActive = true;
 
         isInAnimation = true;
-        this.gameObject.GetComponent<PlayerAnimations>().setIsDrinkingTrue();
+        player.viewmodel.Drink();
         yield return new WaitForSeconds(2.967f);
-        this.gameObject.GetComponent<PlayerAnimations>().setIsDrinkingFalse();
         isInAnimation = false;
         furyImage.GetComponent<RawImage>().texture = abilities.GetComponent<AbilitiesUI>().furyTextures[2]; //ustawiamy obrazek na aktywny
-        
-        previousCooldown = this.gameObject.GetComponent<PlayerAttack>().cooldown;
-        this.gameObject.GetComponent<PlayerAttack>().cooldown = furyAttackCooldown;
-        this.gameObject.GetComponent<StaminaSystem>().staminaAmount = furyAttackStamina;
-        this.gameObject.GetComponent<PlayerAnimations>().setIsFuryTrue();
+
+        attack.leftArm.SetSpeed(sm);
+        attack.rightArm.SetSpeed(sm);
         
         yield return new WaitForSeconds(abilityActiveTime);
         deactivateAbility();
         furyImage.GetComponent<RawImage>().texture = abilities.GetComponent<AbilitiesUI>().furyTextures[0]; //ustawiamy obrazek na wyszarzony
-        this.gameObject.GetComponent<PlayerAnimations>().setIsFuryFalse();
         isActive = false;
         isRecharging = true;
         
@@ -79,10 +86,10 @@ public class FuryAbility : MonoBehaviour
 
     void deactivateAbility()
     {
-        this.gameObject.GetComponent<PlayerAttack>().cooldown = previousCooldown;
+        attack.leftArm.SetSpeed(1);
+        attack.rightArm.SetSpeed(1);
         isActive = false;
-        this.gameObject.GetComponent<PlayerAnimations>().animator.speed = 1;
-        //Debug.Log("tu wstawic zeby zmniejszylo szybkosc");
+        Debug.Log("tu wstawic zeby zmniejszylo szybkosc");
     }
     
 }
