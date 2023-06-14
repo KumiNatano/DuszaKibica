@@ -1225,6 +1225,9 @@ MonoBehaviour:
   restBackColor: {r: 0.3018868, g: 0.15521538, b: 0.15521538, a: 1}
   attackSliderColor: {r: 0.8117647, g: 0.64895856, b: 0.23529412, a: 1}
   attackBackColor: {r: 0.2830189, g: 0.21572948, b: 0.14551443, a: 1}
+  dotImg: {fileID: 3242924745809880832}
+  undetectedColor: {r: 0.5188679, g: 0.5188679, b: 0.5188679, a: 0.83137256}
+  detectedColor: {r: 0.8588236, g: 0.8588236, b: 0.8588236, a: 1}
 --- !u!1 &2525861709675383466
 GameObject:
   m_ObjectHideFlags: 0

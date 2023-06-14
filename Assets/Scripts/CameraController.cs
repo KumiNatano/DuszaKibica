@@ -17,12 +17,9 @@ public class CameraController : MonoBehaviour
 
     Quaternion rotationBeforeSwitch;
 
-    private PerspectiveController perspectiveController;
-
     // Start is called before the first frame update
     void Start()
     {
-        perspectiveController = GameObject.Find("Player").GetComponent<PerspectiveController>(); // pobieramy perspektywe z kontrolera perspektywy
 
         Vector3 vector = new Vector3(0f, high , - 1f); // w tym miejscu zmieniamy Y by ustawic k�t kamery
         transform.position = player.transform.position + vector;

@@ -13,7 +13,6 @@ public class PlayerControlSystem : MonoBehaviour
     private float timeLimit;
     private float timeLimitBase;
     [SerializeField] private float cooldownSpeed;
-    private PerspectiveController perspectiveController;
     CharacterController controller;
 
     Vector3 movementInput;
@@ -22,7 +21,6 @@ public class PlayerControlSystem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        perspectiveController = this.gameObject.GetComponent<PerspectiveController>(); // pobieramy perspektywe z kontrolera perspektywy
         collisionShape = GetComponent<Rigidbody>();
         controller = GetComponent<CharacterController>();
         startSpeed = moveSpeed;
