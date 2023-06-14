@@ -11,6 +11,7 @@ public class ImmortalAbility : MonoBehaviour
 
     float timeDelay = 0f;
     [SerializeField] float abilityDelay = 15f;
+    [SerializeField] int healAmount = 50;
 
     float timeDelay2 = 0f;
     [SerializeField] float abilityActiveTime = 5f;
@@ -88,8 +89,9 @@ public class ImmortalAbility : MonoBehaviour
         attack.leftArm.Unblock();
         attack.rightArm.Unblock();
 
-
-        this.gameObject.GetComponent<HealthSystem>().setImmortal(5, 15);
+        var health = this.gameObject.GetComponent<HealthSystem>();
+        health.setImmortal(5, 15);
+        health.Heal(healAmount);
     }
     void deactivateAbility()
     {
