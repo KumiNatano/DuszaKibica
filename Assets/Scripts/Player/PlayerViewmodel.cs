@@ -28,6 +28,14 @@ public class PlayerViewmodel : PlayerModule
     {
         animator.SetTrigger("Drink");
     }
+    public void Eat()
+    {
+        animator.SetTrigger("Eat");
+    }
+    public void ThrowKnife()
+    {
+        animator.SetTrigger("Throw Knife");
+    }
 
 
     Animator animator;
