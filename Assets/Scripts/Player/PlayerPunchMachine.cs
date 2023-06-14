@@ -25,6 +25,22 @@ public class PlayerPunchMachine : MonoBehaviour
     public LayerMask hitboxLayers => _hbLayers;
 
     public PunchMachineState state => _state;
+    public bool isBlocked
+    {
+        get => _isBlocked;
+        set
+        {
+            if (value)
+            {
+                Block();
+            }
+            else
+            {
+                Unblock();
+            }
+        }
+    }
+
     public bool isIdling => _state == PunchMachineState.Idle;
     public bool isAttacking => _state == PunchMachineState.Attack;
     public bool isResting => _state == PunchMachineState.Rest;
@@ -46,7 +62,7 @@ public class PlayerPunchMachine : MonoBehaviour
     }
     public bool Attack()
     {
-        if (isIdling)
+        if (isIdling && !isBlocked)
         {
             ForceAttack();
             return true;
@@ -81,6 +97,14 @@ public class PlayerPunchMachine : MonoBehaviour
         {
             _restTime = _restDuration;
         }
+    }
+    public void Block()
+    {
+        _isBlocked = true;
+    }
+    public void Unblock()
+    {
+        _isBlocked = false;
     }
     public float GetSpeed()
     {
@@ -208,6 +232,7 @@ public class PlayerPunchMachine : MonoBehaviour
     [SerializeField] Vector3 _hbOffset = Vector3.forward;
     [SerializeField] LayerMask _hbLayers = Physics.DefaultRaycastLayers;
     [Header("State")]
+    [SerializeField] bool _isBlocked;
     [SerializeField] PunchMachineState _state = PunchMachineState.Idle;
 }
 public enum PunchMachineState
