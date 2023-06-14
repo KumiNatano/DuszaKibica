@@ -62,6 +62,8 @@ public class FuryAbility : MonoBehaviour
         float sm = 1f / speedBonus;
 
         isActive = true;
+        attack.leftArm.Block();
+        attack.leftArm.Interrupt();
 
         isInAnimation = true;
         player.viewmodel.Drink();
@@ -71,6 +73,8 @@ public class FuryAbility : MonoBehaviour
 
         attack.leftArm.SetSpeed(sm);
         attack.rightArm.SetSpeed(sm);
+        yield return null;
+        attack.leftArm.Unblock();
         
         yield return new WaitForSeconds(abilityActiveTime);
         deactivateAbility();
