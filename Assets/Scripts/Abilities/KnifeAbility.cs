@@ -13,6 +13,8 @@ public class KnifeAbility : MonoBehaviour
     [SerializeField] GameObject knifePrefab;
     [SerializeField] public float knifeSpeed = 5f;
     [SerializeField] public int knifeDamage = 50;
+    public bool busy = false;
+    public float busyDelay = 2f;
 
     Vector3 mouseWorldPosition;
 
@@ -63,11 +65,15 @@ public class KnifeAbility : MonoBehaviour
 
     void activateAbility()
     {
-        StartCoroutine(ActivateSeq());
+        if (!busy)
+        {
+            StartCoroutine(ActivateSeq());
+        }
     }
 
     IEnumerator ActivateSeq()
     {
+        busy = true;
         Camera mainCamera = Camera.main;
 
         knifeImage.GetComponent<RawImage>().texture = abilities.GetComponent<AbilitiesUI>().knifeTextures[0]; //ustawiamy obrazek na wyszarzony
@@ -92,6 +98,8 @@ public class KnifeAbility : MonoBehaviour
         behaviour.SetDirection(mainCamera.transform.forward);
         behaviour.flySpeed = knifeSpeed;
         behaviour.hitDamage = knifeDamage;
+        yield return new WaitForSeconds(busyDelay);
+        busy = false;
     }
 
 }
