@@ -11,6 +11,7 @@ public class Player : Entity
     public PlayerItemPickuper itemPickuper { get; private set; }
     public PlayerHeadbob headbob { get; private set; }
     public PlayerViewmodel viewmodel { get; private set; }
+    public PlayerAttack attack { get; private set; }
 
     public CharacterController characterController;
 
@@ -99,6 +100,7 @@ public class Player : Entity
         itemPickuper = GetModule<PlayerItemPickuper>();
         headbob = GetModule<PlayerHeadbob>();
         viewmodel = GetModule<PlayerViewmodel>();
+        attack = GetModule<PlayerAttack>();
     }
     private void ModulesUpdate()
     {
