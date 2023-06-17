@@ -26,7 +26,7 @@ public class Player : Entity
     public float duckHeight = 0.9f;
     public float eyesHeight = 0.1f;
 
-    public float height => characterController.height;
+    public float height => collider.height;
 
     public Quaternion viewRotation => playerCamera.viewRotation;
     public Quaternion bodyRotation => Quaternion.Euler(0, playerCamera.viewAngles.y, 0);
@@ -35,10 +35,10 @@ public class Player : Entity
 
 
     public void SetHeight(float newHeight){
-        characterController.height = newHeight;
-        Vector3 center = characterController.center;
+        collider.height = newHeight;
+        Vector3 center = collider.center;
         center.y = newHeight*0.5f;
-        characterController.center = center;
+        collider.center = center;
     }
 
     public T GetModule<T>() where T : PlayerModule
