@@ -1,4 +1,5 @@
 using UnityEngine;
+using System;
 using System.Linq;
 
 public class Player : Entity
@@ -13,7 +14,11 @@ public class Player : Entity
     public PlayerViewmodel viewmodel { get; private set; }
     public PlayerAttack attack { get; private set; }
 
-    public CharacterController characterController;
+    public Rigidbody useRigidbody { get; private set; }
+    public CapsuleCollider collider { get; private set; }
+
+    [Obsolete("Use Rigidbody instead")]
+    public CharacterController characterController => throw new NotImplementedException();
 
     public static Player main { get; private set; }
 
@@ -55,6 +60,7 @@ public class Player : Entity
     private void Awake()
     {
         InitSingleton();
+        InitComponents();
         InitModules();
     }
     private void Update()
@@ -81,6 +87,11 @@ public class Player : Entity
         {
             Destroy(gameObject);
         }
+    }
+    private void InitComponents()
+    {
+        collider = GetComponentInChildren<CapsuleCollider>();
+        useRigidbody = GetComponentInChildren<Rigidbody>();
     }
     #region Modules
     private void InitModules()
