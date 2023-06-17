@@ -33,4 +33,9 @@ public class EnemyDetectPlayer : MonoBehaviour
         }
     }
 
+    public float GetDistance()
+    {
+        return distance;
+    }
+
 }
