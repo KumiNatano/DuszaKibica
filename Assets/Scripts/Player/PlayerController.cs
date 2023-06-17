@@ -43,9 +43,6 @@ public class PlayerController : PlayerModule
         else {
             speed = walkSpeed;
         }
-
-        dir.Normalize();
-        controller.SimpleMove(dir * speed);
     }
     private void Duck(){
         bool i = Input.GetButton("Duck");

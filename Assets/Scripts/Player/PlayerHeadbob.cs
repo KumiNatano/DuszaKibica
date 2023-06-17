@@ -17,7 +17,7 @@ public class PlayerHeadbob : PlayerModule
 
     public override void OnLateUpdate(float deltaTime)
     {
-        Vector3 velocity = parent.characterController.velocity;
+        Vector3 velocity = parent.useRigidbody.velocity;
         velocity.y = 0;
         if (velocity.magnitude > float.Epsilon)
         {
