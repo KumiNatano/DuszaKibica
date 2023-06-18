@@ -146,7 +146,7 @@ VisualEffect:
       - m_Value: 0.0025
         m_Name: Glitter Size
         m_Overridden: 1
-      - m_Value: 2.5
+      - m_Value: 0.65
         m_Name: Glitter Spawn Rate
         m_Overridden: 1
     m_Vector2f:
@@ -161,7 +161,7 @@ VisualEffect:
         m_Overridden: 1
     m_Vector4f:
       m_Array:
-      - m_Value: {x: 0.5019608, y: 0.80784315, z: 0.8784314, w: 0}
+      - m_Value: {x: 0.34825563, y: 0.8113208, z: 0.7693335, w: 0}
         m_Name: Glow Color
         m_Overridden: 1
     m_Uint:
