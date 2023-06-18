@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class EnemyAttack : MonoBehaviour
 {
-    [SerializeField] private int damage = 3;
+    [SerializeField] public int damage = 3;
     [SerializeField] private float cooldown = 2f;
     [SerializeField] GameObject parent;
 
-    private bool canAttack = true;
+    public bool canAttack = true;
 
     private void OnTriggerStay(Collider collider)
     {
@@ -44,7 +44,7 @@ public class EnemyAttack : MonoBehaviour
         parent.GetComponent<EnemyAnimationsAndModel>().setIsAttackingRightFalse();
     }
 
-    IEnumerator AttackCoroutine()
+    public IEnumerator AttackCoroutine()
     {
         canAttack = false; //zmienia, ze nie mozemy zaatakowac
         yield return new WaitForSeconds(cooldown); //czekaj "cooldown" sekund zanim wykona instrukcje ponizej
