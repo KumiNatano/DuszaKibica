@@ -2532,7 +2532,7 @@
     "m_Hidden": false,
     "m_ShaderOutputName": "_Density",
     "m_StageCapability": 3,
-    "m_Value": 50.0,
+    "m_Value": 87.5,
     "m_DefaultValue": 0.0,
     "m_Labels": []
 }
