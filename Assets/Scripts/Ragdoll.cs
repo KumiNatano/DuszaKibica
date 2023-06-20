@@ -20,7 +20,7 @@ public class Ragdoll : MonoBehaviour
     }
     public void Push(Vector3 force)
     {
-        rigidbodies.First().AddForce(force);
+        rigidbodies.ForEach(x => x.AddForce(force));
     }
 
     void Awake()
