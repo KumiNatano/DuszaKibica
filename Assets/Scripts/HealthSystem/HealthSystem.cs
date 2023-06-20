@@ -90,6 +90,7 @@ public class HealthSystem : MonoBehaviour
             if (rd != null)
             {
                 rd.Activate();
+                rd.Push(Player.main.bodyForward * 1000f);
             }
             else
             {
