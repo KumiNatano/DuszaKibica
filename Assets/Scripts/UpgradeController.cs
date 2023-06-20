@@ -19,7 +19,9 @@ public class UpgradeController : MonoBehaviour
     [SerializeField] Button FuryButton = null;
     [SerializeField] Button ImmortalButton = null;
     [SerializeField] Button KnifeButton = null;
+    [SerializeField] uGUI_MoneyInfo MoneyInfo = null;
     [SerializeField] TMP_Text MoneyText = null;
+    [SerializeField] RectTransform MoneyIcon = null;
     [SerializeField] GameObject UI = null;
 
     [Header("Live")]
@@ -83,7 +85,7 @@ public class UpgradeController : MonoBehaviour
             refreshUI();
         }
 
-        MoneyText = GameObject.Find("ScarfCounter").GetComponent<TMP_Text>();
+        MoneyInfo = GameObject.Find("ScarfsHUD").GetComponent<uGUI_MoneyInfo>();
 
         updateMoneyText();
 
@@ -156,7 +158,7 @@ public class UpgradeController : MonoBehaviour
 
     void updateMoneyText()
     {
-        MoneyText.text = Money.ToString();
+        MoneyInfo.UpdateInfo(Money);
     }
 
     public void addMoney(int amount)
