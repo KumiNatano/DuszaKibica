@@ -14,11 +14,14 @@ public class AreaObjectives : MonoBehaviour
     public bool activateArena;
     private bool isWorking = false;
     public bool goToNextArena = false;
+    private GameObject queueManager;
 
     void Start()
     {
         activateArena = false;
         goToNextArena = false;
+
+        queueManager = GameObject.FindWithTag("queueManager");
     }
 
     void Update()
@@ -39,6 +42,9 @@ public class AreaObjectives : MonoBehaviour
     public void startArena()
     {
         enemies.SetActive(true);
+        
+        queueManager.GetComponent<EnemyQueueManager>().scanLookingForEnemies();
+        
         borders.SetActive(true);
         enemySpawner.enabled = true;
         isWorking = true;
