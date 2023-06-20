@@ -22,6 +22,7 @@ public class BigGuyCharge : MonoBehaviour
     [SerializeField] private float waitingUntillChargeTime;
     [SerializeField] private float tiredTime;
     [SerializeField] private int specialDamage;
+    [SerializeField] private int chargeSpeed;
     
     [SerializeField] private EnemyAttack attackScript;
 
@@ -56,7 +57,7 @@ public class BigGuyCharge : MonoBehaviour
             {
                 isInDestination = true;
             }
-            this.transform.position = Vector3.MoveTowards(this.transform.position, chargePosition, 9 * Time.deltaTime);
+            this.transform.position = Vector3.MoveTowards(this.transform.position, chargePosition, chargeSpeed * Time.deltaTime);
         }
         else if (isInCharge == true && isInDestination == true)
         {
