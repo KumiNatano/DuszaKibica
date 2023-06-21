@@ -31,27 +31,14 @@ public class PlayerAbilities : PlayerModule
             ab.Init(parent);
         }
     }
-    public override void OnUpdate(float deltaTime)
+    public override void OnLateUpdate(float deltaTime)
     {
-        BaseAbility target = null;
-        bool flag1 = false;
-        bool flag2 = true;
         foreach(BaseAbility ability in _list)
         {
-            if (ability.inUse)
-            {
-                flag2 = false;
-                return;
-            }
             if (ability.idling && Input.GetButton(ability.keyName))
             {
-                flag1 = true;
-                target = ability;
+                ability.Use();
             }
-        }
-        if (flag1 && flag2)
-        {
-            target.Use();
         }
     }
 
