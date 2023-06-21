@@ -33,30 +33,46 @@ public class EnemyAttack : MonoBehaviour
 
             if (animacjaAtaku == 1)
             {
+                enemyAnimationsAndModel.setIsPreparingAttackingLeftTrue();
                 enemyAnimationsAndModel.setIsAttackingLeftTrue();
                 actualWeapon = leftFist;
+                StartCoroutine(waitUntilIsReadyToPunchLeft());
             }
 
             else if (animacjaAtaku == 2)
             {
+                enemyAnimationsAndModel.setIsPreparingAttackingRightTrue();
                 enemyAnimationsAndModel.setIsAttackingRightTrue();
                 actualWeapon = rightFist;
+                StartCoroutine(waitUntilIsReadyToPunchRight());
             }
 
-            StartCoroutine(turnOffAnimation());
-
-            StartCoroutine(AttackCoroutine()); //wywolujemy korutyne
-            //HealthSystem health = collider.GetComponent<HealthSystem>(); //bierzemy system zycia
-            //health.TakeDamage(damage); //i dajemy damage
+            StartCoroutine(AttackCoroutine());
             this.GetComponent<PunchAudio>().PlayAttackSound();
-
         }
     }
 
-    IEnumerator turnOffAnimation()
+    IEnumerator waitUntilIsReadyToPunchLeft() //dawna wartosc dla wylaczenia animacji (0.467f)
     {
-        yield return new WaitForSeconds(0.467f); //idealnie dlugosc animacji uderzania, w przyszlosci lepiej wrzucic to do zmiennej jesli beda np animacje o roznej dlugosci
+        yield return new WaitForSeconds(0.467f);
+        enemyAnimationsAndModel.setIsPreparingAttackingLeftFalse();
+        StartCoroutine(turnOffAnimationLeftFist());
+    }
+    IEnumerator waitUntilIsReadyToPunchRight()
+    {
+        yield return new WaitForSeconds(0.467f); 
+        enemyAnimationsAndModel.setIsPreparingAttackingRightFalse();
+        StartCoroutine(turnOffAnimationRightFist());
+    }
+
+    IEnumerator turnOffAnimationLeftFist()
+    {
+        yield return new WaitForSeconds(0.633f);
         enemyAnimationsAndModel.setIsAttackingLeftFalse();
+    }
+    IEnumerator turnOffAnimationRightFist()
+    {
+        yield return new WaitForSeconds(0.633f);
         enemyAnimationsAndModel.setIsAttackingRightFalse();
     }
 
@@ -64,6 +80,8 @@ public class EnemyAttack : MonoBehaviour
     {
         canAttack = false; //zmienia, ze nie mozemy zaatakowac
         yield return new WaitForSeconds(cooldown); //czekaj "cooldown" sekund zanim wykona instrukcje ponizej
+        if (actualWeapon.IsHit())
+            actualWeapon.WasHit();
         canAttack = true; //a po czasie juz mozna
     }
 
