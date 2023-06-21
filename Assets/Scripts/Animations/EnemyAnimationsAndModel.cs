@@ -34,10 +34,15 @@ public class EnemyAnimationsAndModel : MonoBehaviour
         animator.SetBool("isWalking", false);
     }
 
+    public void setIsPreparingAttackingLeftTrue()
+    {
+        animator.SetBool("isPreparingLeft", true);
+    }
+
     public void setIsAttackingLeftTrue()
     {
         animator.SetBool("isAttackingLeft", true);
-        GetLeftFist().GetComponent<Collider>().enabled = true;
+        //GetLeftFist().GetComponent<Collider>().enabled = true;
     }
 
     public void setIsAttackingLeftFalse()
@@ -46,10 +51,21 @@ public class EnemyAnimationsAndModel : MonoBehaviour
         GetLeftFist().GetComponent<Collider>().enabled = false;
     }
 
+    public void setIsPreparingAttackingLeftFalse()
+    {
+        animator.SetBool("isPreparingLeft", false);
+        GetLeftFist().GetComponent<Collider>().enabled = true;
+    }
+
+    public void setIsPreparingAttackingRightTrue()
+    {
+        animator.SetBool("isPreparingRight", true);
+    }
+
     public void setIsAttackingRightTrue()
     {
         animator.SetBool("isAttackingRight", true);
-        GetRightFist().GetComponent<Collider>().enabled = true;
+        //GetRightFist().GetComponent<Collider>().enabled = true;
     }
 
     public void setIsAttackingRightFalse()
@@ -58,6 +74,11 @@ public class EnemyAnimationsAndModel : MonoBehaviour
         GetRightFist().GetComponent<Collider>().enabled = false;
     }
 
+    public void setIsPreparingAttackingRightFalse()
+    {
+        animator.SetBool("isPreparingRight", false);
+        GetRightFist().GetComponent<Collider>().enabled = true;
+    }
 
 
     public void PlayDeathAnim()
