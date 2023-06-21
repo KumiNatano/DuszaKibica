@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+[Obsolete]
 public class FuryAbility : MonoBehaviour
 {
     public float speedBonus = 1.35f;

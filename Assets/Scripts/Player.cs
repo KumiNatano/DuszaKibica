@@ -12,6 +12,7 @@ public class Player : Entity
     public PlayerHeadbob headbob { get; private set; }
     public PlayerViewmodel viewmodel { get; private set; }
     public PlayerAttack attack { get; private set; }
+    public PlayerAbilities abilities { get; private set; }
 
     public CharacterController characterController;
 
