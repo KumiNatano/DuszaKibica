@@ -376,9 +376,9 @@ GameObject:
   - component: {fileID: 5882841575981106935}
   - component: {fileID: 6328940952730779689}
   - component: {fileID: 5747093776083649663}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Weapon
-  m_TagString: enemy-weapon
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -412,7 +412,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 5
   cooldown: 1
-  parent: {fileID: 3071083581479669079}
+  enemyDetectPlayer: {fileID: 0}
+  enemyAnimationsAndModel: {fileID: 0}
+  leftFist: {fileID: 2466934232928708694}
+  rightFist: {fileID: 5516561441851391439}
+  actualWeapon: {fileID: 0}
 --- !u!114 &5882841575981106935
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -533,7 +537,7 @@ SphereCollider:
   m_GameObject: {fileID: 184333715885017861}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.8
   m_Center: {x: 0, y: 1.4, z: 1.25}
@@ -4751,6 +4755,8 @@ MonoBehaviour:
   - {fileID: 8780981815631893796}
   - {fileID: 2949837035057646764}
   - {fileID: 646306012989475799}
+  enemyLeftFist: {fileID: 2466934232928708694}
+  enemyRightFist: {fileID: 5516561441851391439}
 --- !u!1 &3073802506976533246
 GameObject:
   m_ObjectHideFlags: 0
@@ -6683,7 +6689,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5316704323781962913}
-  m_Layer: 8
+  - component: {fileID: 2466934232928708694}
+  - component: {fileID: 4486548562667144201}
+  m_Layer: 7
   m_Name: handIK.L_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6705,6 +6713,33 @@ Transform:
   m_Father: {fileID: 28994078327577203}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2466934232928708694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4604371779066553622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31f713ca8f7d1324f967be890643d7b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isHit: 0
+  damageValue: 0
+--- !u!135 &4486548562667144201
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4604371779066553622}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Radius: 0.005
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4698774218146347546
 GameObject:
   m_ObjectHideFlags: 0
@@ -7583,7 +7618,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9179395628988829388}
-  m_Layer: 8
+  - component: {fileID: 5516561441851391439}
+  - component: {fileID: 5829801276389313010}
+  m_Layer: 7
   m_Name: handIK.R_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7605,6 +7642,33 @@ Transform:
   m_Father: {fileID: 7147112275049166815}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5516561441851391439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5504637251649771885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31f713ca8f7d1324f967be890643d7b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isHit: 0
+  damageValue: 0
+--- !u!135 &5829801276389313010
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5504637251649771885}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Radius: 0.005
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5571138643801869723
 GameObject:
   m_ObjectHideFlags: 0
