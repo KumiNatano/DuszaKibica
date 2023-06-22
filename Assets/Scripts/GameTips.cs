@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class GameTips : MonoBehaviour
 {
-    void Start()
+    void OnApplicationQuit()
     {
         PlayerPrefs.SetInt(kebabTip.savename, 0);
     }
