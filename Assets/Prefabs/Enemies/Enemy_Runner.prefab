@@ -427,6 +427,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitSounds: []
   enemyDetector: {fileID: 0}
+  aSource: {fileID: 6328940952730779689}
 --- !u!82 &6328940952730779689
 AudioSource:
   m_ObjectHideFlags: 0
