@@ -45,14 +45,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isThisStoreLevel: 0
-  Money: 1000
+  Money: 0
   LiveUpgradeButton: {fileID: 0}
   StaminaUpgradeButton: {fileID: 0}
   BuyPotionButton: {fileID: 0}
   FuryButton: {fileID: 0}
   ImmortalButton: {fileID: 0}
   KnifeButton: {fileID: 0}
+  MoneyInfo: {fileID: 0}
   MoneyText: {fileID: 0}
+  MoneyIcon: {fileID: 0}
   UI: {fileID: 0}
   LiveUpgradeLevel: 0
   LiveUpgradeLevelMax: 3
