@@ -86,7 +86,16 @@ public class HealthSystem : MonoBehaviour
         {
             isAlive = false;
             this.drop.DropLottery();
-            enemyAnimationsAndModel.PlayDeathAnim();
+            Ragdoll rd = GetComponentInChildren<Ragdoll>();
+            if (rd != null)
+            {
+                rd.Activate();
+                rd.Push(Player.main.bodyForward * 1000f);
+            }
+            else
+            {
+                enemyAnimationsAndModel.PlayDeathAnim();
+            }
             afterDeath();
         }
         }
