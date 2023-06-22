@@ -11,6 +11,8 @@ public class AreaObjectives : MonoBehaviour
     [SerializeField] GameObject[] blockade;
     [SerializeField] GameObject enemies;
     [SerializeField] LevelTrigger levelTrigger;
+    public GameObject targetIndicator;
+    public GameObject player;
     public bool activateArena;
     private bool isWorking = false;
     public bool goToNextArena = false;
@@ -19,6 +21,7 @@ public class AreaObjectives : MonoBehaviour
     {
         activateArena = false;
         goToNextArena = false;
+        player = GameObject.FindGameObjectsWithTag("player")[0];
     }
 
     void Update()
@@ -39,6 +42,12 @@ public class AreaObjectives : MonoBehaviour
     public void startArena()
     {
         enemies.SetActive(true);
+        // Dodanie wskazników na wszystkich przeciwników.
+        foreach (Transform enemy in enemies.transform) {
+            GameObject newIndicator = Instantiate(targetIndicator, player.transform);
+            newIndicator.GetComponent<TargetController>().target = enemy;
+        }
+
         borders.SetActive(true);
         enemySpawner.enabled = true;
         isWorking = true;
