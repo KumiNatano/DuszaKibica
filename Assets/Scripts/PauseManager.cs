@@ -5,12 +5,21 @@ using UnityEngine;
 public class PauseManager : MonoBehaviour
 {
 
-    public bool isPaused = false;
+    public static bool isPaused = false;
+    public static bool dirty = false;
+    static Canvas pui;
+    static Canvas hui;
+    
 
     [SerializeField] Canvas PauseUI;
     [SerializeField] Canvas UI;
 
+    private void Awake()
+    {
 
+        pui = PauseUI;
+        hui = UI;
+    }
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -25,21 +34,23 @@ public class PauseManager : MonoBehaviour
         }
     }
 
-    public void PauseGame()
+    public static void PauseGame()
     {
+        if (dirty)
+        { return; }
         Time.timeScale = 0;
-        UI.enabled = false;
-        PauseUI.enabled = true;
+        hui.enabled = false;
+        pui.enabled = true;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         isPaused = !isPaused;
     }
 
-    public void ResumeGame()
+    public static void ResumeGame()
     {
         Time.timeScale = 1;
-        UI.enabled = true;
-        PauseUI.enabled = false;
+        hui.enabled = true;
+        pui.enabled = false;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         isPaused = !isPaused;
