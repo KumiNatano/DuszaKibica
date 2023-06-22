@@ -8,7 +8,7 @@ public class CursorManager : MonoBehaviour
     public PlayerDeathManager deathm;
     void Update()
     {
-        if (pause.isPaused || deathm.isDead){
+        if (PauseManager.isPaused || deathm.isDead){
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
         }
