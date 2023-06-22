@@ -3380,7 +3380,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8efc9b30ebfae4a009b777d636c30ecd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firstScene: Level1_Final
+  firstScene: MainLevel
   MainMenu: {fileID: 0}
   SettingsMenu: {fileID: 464403964}
   CreditsPanel: {fileID: 1699266619}
