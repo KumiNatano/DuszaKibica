@@ -23,6 +23,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] float freeSpaceRange = 2f;
     [SerializeField] float spawnRadius = 30f;
     public GameObject player;
+    public GameObject targetIndicator;
     public bool finishedSpawning; // uzywane przez skrypt AreaObjectivees
     private Vector3 boxPosition = new Vector3(0f, 2f, 0f);
     private Vector3 boxSize = new Vector3(2f, 1f, 2f);
@@ -57,14 +58,14 @@ public class EnemySpawner : MonoBehaviour
         int arrayIndex;
         int counter = 0;
 
-        // ETAP 1: Wyszukiwanie pól w otoczeniu gracza
+        // ETAP 1: Wyszukiwanie pï¿½l w otoczeniu gracza
         Vector3 spawnPosition;
         for (int i = 0; i < spawnPositions.Length; i++)
         {
             spawnPosition = spawnPositions[i].position;
             testedPositions[i] = SpawnValue.inRange;
         }
-        // ETAP 2: sprawdzanie, czy na miejscu do spawnowania nie ma innych wrogów lub gracza
+        // ETAP 2: sprawdzanie, czy na miejscu do spawnowania nie ma innych wrogï¿½w lub gracza
         for (int i=0; i< spawnPositions.Length; i++)
         {
             Collider[] results1 = Physics.OverlapBox(spawnPositions[i].position + boxPosition, boxSize);
@@ -95,7 +96,10 @@ public class EnemySpawner : MonoBehaviour
                         //Debug.Log(this.name + " " + arrayIndex + ", Etap 3: " + results2.Length);
                         if (results2.Length == 0)
                         {
-                            Instantiate(enemySpawningList[spawnCount], spawnPositions[arrayIndex].position + new Vector3(0f, 0.2f, 0f), Quaternion.identity);
+                            GameObject newEnemy = Instantiate(enemySpawningList[spawnCount], spawnPositions[arrayIndex].position + new Vector3(0f, 0.2f, 0f), Quaternion.identity);
+                            // Ustawienie wskaznika na nowego przeciwnika
+                            GameObject newIndicator = Instantiate(targetIndicator, player.transform);
+                            newIndicator.GetComponent<TargetController>().target = newEnemy.transform;
                             ++spawnCount;
                             break;
                         }
@@ -111,7 +115,7 @@ public class EnemySpawner : MonoBehaviour
         StartCoroutine(SpawnEnemy());
     }
 
-    public void endSpawningRightNow() // do testów
+    public void endSpawningRightNow() // do testï¿½w
     {
         spawnCount = enemySpawningList.Length;
         StopAllCoroutines();

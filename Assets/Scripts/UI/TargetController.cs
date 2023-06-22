@@ -18,13 +18,19 @@ public class TargetController : MonoBehaviour
     void Update()
     {
         var direction = target.position - transform.position;
-        var angle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + 90;
+        var angle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + 180;
         transform.rotation = Quaternion.AngleAxis(angle, Vector3.up); // Vector3.up - wzdłuż osi y
 
+        // Zniknięcie wskaźnika gdy jesteśmy blisko przeciwnika.
         if (direction.magnitude <= hideDistance) {
             SetIndicatorActive(false);
         } else {
             SetIndicatorActive(true);
+        }
+
+        // Usunięcie wskaźnika gdy przeciwnik śpi.
+        if (target.GetComponent<HealthSystem>().CheckIfAlive() == false) {
+            Destroy(gameObject);
         }
     }
 }
