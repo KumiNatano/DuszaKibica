@@ -10,6 +10,7 @@ public class PunchAudio : MonoBehaviour
     AudioClip[] swishSounds;
 
     [SerializeField] private GameObject enemyDetector;
+    [SerializeField] AudioSource aSource;
     
     PlayerAttack attack;
     
@@ -35,12 +36,12 @@ public class PunchAudio : MonoBehaviour
         if (isEnemyDetected == true)
         {
             int soundToPlay = Random.Range(0, hitSounds.Length);
-            this.GetComponent<AudioSource>().PlayOneShot(hitSounds[soundToPlay]);
+            aSource.PlayOneShot(hitSounds[soundToPlay]);
         }
         else
         {
             int soundToPlay = Random.Range(0, swishSounds.Length);
-            this.GetComponent<AudioSource>().PlayOneShot(swishSounds[soundToPlay]);
+            aSource.PlayOneShot(swishSounds[soundToPlay]);
         }
         
     }
@@ -48,12 +49,12 @@ public class PunchAudio : MonoBehaviour
     public void PlayAttackSound()
     {
         int soundToPlay = Random.Range(0, hitSounds.Length);
-        this.GetComponent<AudioSource>().PlayOneShot(hitSounds[soundToPlay]);
+        aSource.PlayOneShot(hitSounds[soundToPlay]);
     }
 
     public void PlaySwishSound()
     {
         int soundToPlay = Random.Range(0, swishSounds.Length);
-        this.GetComponent<AudioSource>().PlayOneShot(swishSounds[soundToPlay]);
+        aSource.PlayOneShot(swishSounds[soundToPlay]);
     }
 }
