@@ -8,8 +8,8 @@ using UnityEngine.UI;
 [Obsolete("HealthSystem will be removed. Use LivingMixin instead")]
 public class HealthSystem : MonoBehaviour
 {
-    [SerializeField] int healthAmount;
-    [SerializeField] private int maxHealthAmount = 100;
+    public int healthAmount;
+    public int maxHealthAmount = 100;
     [SerializeField] private bool isAlive;
     [SerializeField] bool isImmortal;
     [SerializeField] double immortalTime;
