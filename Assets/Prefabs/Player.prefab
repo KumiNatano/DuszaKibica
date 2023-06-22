@@ -2776,6 +2776,7 @@ MonoBehaviour:
   _flySpeed: 15
   _hitDamage: 100
   _throwablePrefab: {fileID: 6751263952082794998, guid: 8e620b21384ff9541bb52c4260cb4f79, type: 3}
+  _startPoint: {fileID: 0}
 --- !u!114 &8667705629157107432
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3281,9 +3282,10 @@ MonoBehaviour:
   _restDuration: 10
   _restTime: 0
   _state: 0
-  _flySpeed: 15
+  _flySpeed: 5
   _hitDamage: 100
   _throwablePrefab: {fileID: 6751263952082794998, guid: 8e620b21384ff9541bb52c4260cb4f79, type: 3}
+  _startPoint: {fileID: 7467026445692027333}
 --- !u!1 &5873253897288379220
 GameObject:
   m_ObjectHideFlags: 0
