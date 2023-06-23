@@ -10,13 +10,13 @@ public class BigGuyCharge : MonoBehaviour
 {
     private AIPath mainAIScript;
     private AIDestinationSetter destinationSetter;
-    public bool isInCharge = false;
-    public bool isInDestination = false;
+    private bool isInCharge = false;
+    private bool isInDestination = false;
     private bool chargeReady = true;
     private bool isPositionKnown = false;
     private GameObject player;
-    public Vector3 chargePosition;
-    public int oldDamage;
+    private Vector3 chargePosition;
+    private int oldDamage;
 
     [SerializeField] private float chargeDistance;
     [SerializeField] private float waitingUntillChargeTime;
