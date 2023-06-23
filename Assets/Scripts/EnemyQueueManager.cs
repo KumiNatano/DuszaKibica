@@ -30,7 +30,10 @@ public class EnemyQueueManager : MonoBehaviour
         {
             scanLookingForEnemies();
             checkOrder();
-            disableOtherEnemies();
+            if (enemies.Count > howMuchAtOnce)
+            {
+                disableOtherEnemies();
+            }
         }
     }
 
@@ -71,6 +74,7 @@ public class EnemyQueueManager : MonoBehaviour
 
     public void disableOtherEnemies()
     {
+        print("hmm");
         Vector3 playerPosition = player.transform.position;
 
         for (int i = 0; i < howMuchAtOnce; i++)
