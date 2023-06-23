@@ -30,7 +30,7 @@ public class EnemyQueueManager : MonoBehaviour
         {
             scanLookingForEnemies();
             checkOrder();
-            //disableOtherEnemies();
+            disableOtherEnemies();
         }
     }
 
@@ -69,33 +69,28 @@ public class EnemyQueueManager : MonoBehaviour
         }
     }
 
-    public void addOnList(GameObject enemy)
-    {
-        enemies.Add(enemy);
-    }
-
     public void disableOtherEnemies()
     {
-        Vector3 playerposition = player.GetComponent<Transform>().position;
+        Vector3 playerPosition = player.transform.position;
 
-        for (int i = howMuchAtOnce; i < howMuchAtOnce; i++)
+        for (int i = 0; i < howMuchAtOnce; i++)
         {
             enemies[i].GetComponent<AIPath>().canMove = true;
         }
         
-        if (enemies.Count > howMuchAtOnce)
+        for (int i = howMuchAtOnce; i < enemies.Count; i++)
         {
-            for (int i = howMuchAtOnce; i < enemies.Count; i++)
+            AIPath aiPath = enemies[i].GetComponent<AIPath>();
+
+            if (Vector3.Distance(playerPosition, enemies[i].transform.position) < distanceToStay)
             {
-                if (Vector3.Distance(playerposition, enemies[i].GetComponent<Transform>().position) < distanceToStay)
-                {
-                    enemies[i].GetComponent<AIPath>().canMove = false;
-                }
-                else
-                {
-                    enemies[i].GetComponent<AIPath>().canMove = true;
-                }
+                aiPath.canMove = false;
+            }
+            else
+            {
+                aiPath.canMove = true;
             }
         }
     }
+
 }
