@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyAttack : MonoBehaviour
 {
-    [SerializeField] private int damage = 3;
+    [SerializeField] public int damage = 3;
     [SerializeField] private float cooldown = 2f;
     [SerializeField] EnemyDetectPlayer enemyDetectPlayer;
     [SerializeField] EnemyAnimationsAndModel enemyAnimationsAndModel;
@@ -12,7 +12,7 @@ public class EnemyAttack : MonoBehaviour
     [SerializeField] EnemyWeapon rightFist;
     [SerializeField] EnemyWeapon actualWeapon;
 
-    private bool canAttack = true;
+    public bool canAttack = true;
 
     private void Start()
     {
@@ -76,7 +76,7 @@ public class EnemyAttack : MonoBehaviour
         enemyAnimationsAndModel.setIsAttackingRightFalse();
     }
 
-    IEnumerator AttackCoroutine()
+    public IEnumerator AttackCoroutine()
     {
         canAttack = false; //zmienia, ze nie mozemy zaatakowac
         yield return new WaitForSeconds(cooldown); //czekaj "cooldown" sekund zanim wykona instrukcje ponizej
