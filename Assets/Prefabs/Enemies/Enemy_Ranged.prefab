@@ -1588,7 +1588,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 20
   cooldown: 2
-  parent: {fileID: 6917267750841817972}
+  enemyDetectPlayer: {fileID: 0}
+  enemyAnimationsAndModel: {fileID: 0}
+  leftFist: {fileID: 0}
+  rightFist: {fileID: 0}
+  actualWeapon: {fileID: 0}
+  canAttack: 1
 --- !u!114 &8511798783079033013
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1602,6 +1607,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitSounds: []
+  enemyDetector: {fileID: 4619011224979107503}
+  aSource: {fileID: 0}
 --- !u!82 &4062307581787394340
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2440,6 +2447,8 @@ MonoBehaviour:
   animator: {fileID: 6705030025856591633}
   animatorsList: []
   enemyModels: []
+  enemyLeftFist: {fileID: 0}
+  enemyRightFist: {fileID: 0}
 --- !u!114 &1987220545363893302
 MonoBehaviour:
   m_ObjectHideFlags: 0

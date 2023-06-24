@@ -417,6 +417,7 @@ MonoBehaviour:
   leftFist: {fileID: 2466934232928708694}
   rightFist: {fileID: 5516561441851391439}
   actualWeapon: {fileID: 0}
+  canAttack: 1
 --- !u!114 &5882841575981106935
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -443,7 +444,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -7337931169737410063, guid: 61e8ad659cace6f48a98dea3f180731d, type: 2}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

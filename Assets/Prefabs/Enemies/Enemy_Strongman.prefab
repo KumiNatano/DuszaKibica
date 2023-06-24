@@ -7223,7 +7223,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6171715739270453790}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a4b11ee0123c00540a48743f7e626172, type: 3}
   m_Name: 
@@ -11515,7 +11515,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitSounds: []
-  enemyDetector: {fileID: 0}
+  enemyDetector: {fileID: 9058456783054576716}
   aSource: {fileID: 2948752443203557216}
 --- !u!82 &2948752443203557216
 AudioSource:
@@ -11528,7 +11528,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -7337931169737410063, guid: 61e8ad659cace6f48a98dea3f180731d, type: 2}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
