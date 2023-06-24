@@ -64,6 +64,10 @@ public class HealthSystem : MonoBehaviour
         {
         if(healthAmount-dmg >= 0)
         {
+            if (this.tag == "player")
+            {
+                StartCoroutine(GetComponent<ScreenBloodController>().StartBloodScreen(0f, 1f, 1f));     
+            }
             healthAmount -= dmg;
             if (this.tag != "player") {
                     //OldenemyHealthbar.SetHealth(getHealthAmount(), getMaxHealthAmount());

@@ -6270,6 +6270,7 @@ MonoBehaviour:
   leftFist: {fileID: 5682649536930373021}
   rightFist: {fileID: 7722454902710092289}
   actualWeapon: {fileID: 0}
+  canAttack: 1
 --- !u!114 &1459051019494566796
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6283,7 +6284,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitSounds: []
-  enemyDetector: {fileID: 0}
+  enemyDetector: {fileID: 5122132766624949886}
   aSource: {fileID: 1319396734598982994}
 --- !u!82 &1319396734598982994
 AudioSource:
@@ -6296,7 +6297,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -7337931169737410063, guid: 61e8ad659cace6f48a98dea3f180731d, type: 2}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

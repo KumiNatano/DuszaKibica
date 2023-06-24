@@ -48,7 +48,7 @@ public class EnemyAttack : MonoBehaviour
             }
 
             StartCoroutine(AttackCoroutine());
-            this.GetComponent<PunchAudio>().PlayAttackSound();
+            //this.GetComponent<PunchAudio>().PlayAttackSound();
         }
     }
 
@@ -78,6 +78,7 @@ public class EnemyAttack : MonoBehaviour
 
     public IEnumerator AttackCoroutine()
     {
+        print("test");
         canAttack = false; //zmienia, ze nie mozemy zaatakowac
         yield return new WaitForSeconds(cooldown); //czekaj "cooldown" sekund zanim wykona instrukcje ponizej
         if (actualWeapon.IsHit())
