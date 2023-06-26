@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Pathfinding;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.VFX;
 
 [Obsolete("HealthSystem will be removed. Use LivingMixin instead")]
 public class HealthSystem : MonoBehaviour
@@ -26,10 +27,12 @@ public class HealthSystem : MonoBehaviour
     [SerializeField] private Canvas hpBarCanvas;
 
     [SerializeField] private GameObject enemyWeapon;
+    [SerializeField] private VisualEffect BloodEffect;
     
     // Start is called before the first frame update
     void Start()
     {
+
         enemyAnimationsAndModel = this.gameObject.GetComponent<EnemyAnimationsAndModel>();
         upgradeController = GameObject.Find("UpgradeController").GetComponent<UpgradeController>(); //z upgrade controllera bierze bonus do zycia
         if(upgradeController.LiveUpgradeLevel != 0)
@@ -73,6 +76,8 @@ public class HealthSystem : MonoBehaviour
                     //OldenemyHealthbar.SetHealth(getHealthAmount(), getMaxHealthAmount());
                     EnemyHealthBarObject.SetActive(true);
                     EnemyHPSlider.value = (float) healthAmount / (float) maxHealthAmount;
+                    BloodEffect.playRate = 2;
+                    BloodEffect.Play();
 
             }
         }
