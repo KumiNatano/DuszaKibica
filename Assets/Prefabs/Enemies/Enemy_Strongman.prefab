@@ -706,6 +706,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1141115288894624939}
+  - component: {fileID: 1443673872308895605}
   m_Layer: 8
   m_Name: Eye.L
   m_TagString: Untagged
@@ -729,6 +730,22 @@ Transform:
   m_Father: {fileID: 397311380506326891}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1443673872308895605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 719445718140878826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43647a836dfb8f34a810e55c85a7fb54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offset: {x: 90, y: 0, z: -2}
+  lockX: 0
+  lockY: 0
+  lockZ: 0
 --- !u!1 &719846647276495925
 GameObject:
   m_ObjectHideFlags: 0
@@ -10532,6 +10549,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1458507182739581409}
+  - component: {fileID: 4313024523323508384}
   m_Layer: 8
   m_Name: Eye.R
   m_TagString: Untagged
@@ -10555,6 +10573,22 @@ Transform:
   m_Father: {fileID: 397311380506326891}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4313024523323508384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8440252205549185224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43647a836dfb8f34a810e55c85a7fb54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offset: {x: 90, y: 0, z: -2}
+  lockX: 0
+  lockY: 0
+  lockZ: 0
 --- !u!1 &8458039577321636019
 GameObject:
   m_ObjectHideFlags: 0
