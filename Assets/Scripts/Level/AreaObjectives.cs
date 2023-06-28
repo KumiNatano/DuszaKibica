@@ -11,6 +11,8 @@ public class AreaObjectives : MonoBehaviour
     [SerializeField] GameObject[] blockade;
     [SerializeField] GameObject enemies;
     [SerializeField] LevelTrigger levelTrigger;
+    public TargetController targetIndicatorEnemy;
+    public GameObject player;
     public bool activateArena;
     private bool isWorking = false;
     public bool goToNextArena = false;
@@ -20,7 +22,7 @@ public class AreaObjectives : MonoBehaviour
     {
         activateArena = false;
         goToNextArena = false;
-
+        player = GameObject.FindGameObjectsWithTag("player")[0];
         queueManager = GameObject.FindWithTag("queueManager");
     }
 
@@ -40,16 +42,20 @@ public class AreaObjectives : MonoBehaviour
     }
 
     public void startArena()
-    {
+    {        
         enemies.SetActive(true);
+
+        // Dodanie wskazników na wszystkich przeciwników.
+        foreach (Transform enemy in enemies.transform) {
+            TargetController newEnemyIndicator = Instantiate(targetIndicatorEnemy, player.transform);
+            newEnemyIndicator.GetComponent<TargetController>().target = enemy;
+        }
         
         queueManager.GetComponent<EnemyQueueManager>().scanLookingForEnemies();
-        
         borders.SetActive(true);
         enemySpawner.enabled = true;
         isWorking = true;
     }
-
 
     public void completeArena()
     {
@@ -60,17 +66,23 @@ public class AreaObjectives : MonoBehaviour
         borders.SetActive(false);
         isWorking = false;
         enemySpawner.StopAllCoroutines();
-        goToNextArena = true;
+        goToNextArena = true;        
     }
+
     public Vector3 getTestArenaPosition()
     {
         return levelTrigger.transform.position;
     }
+
     public void setArenaIsCompleted()
     {
         enemySpawner.finishedSpawning = true;
         enemySpawner.endSpawningRightNow();
         completeArena();
+    } 
+
+    public Transform GetLevelTrigger()
+    {
+        return levelTrigger.transform;
     }
-    
 }

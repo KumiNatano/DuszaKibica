@@ -19,6 +19,7 @@ public class LevelTrigger : MonoBehaviour
             GetComponent<Collider>().enabled = false;
         }
     }
+    
     public bool getEnterNewArea()
     {
         return enterNewArea;

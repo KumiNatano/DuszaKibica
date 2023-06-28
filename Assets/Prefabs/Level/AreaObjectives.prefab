@@ -52,7 +52,10 @@ MonoBehaviour:
   blockade: []
   enemies: {fileID: 0}
   levelTrigger: {fileID: 4172003094278906075}
+  targetIndicatorEnemy: {fileID: 8986198299391983495, guid: 9f76c3d7c08daef48ac32cc481bbf41e, type: 3}
+  player: {fileID: 1349553652272819797, guid: 3464a262695b3284b8785c2e4627a4e1, type: 3}
   activateArena: 0
+  goToNextArena: 0
 --- !u!1001 &253131418966846679
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -61,9 +64,21 @@ PrefabInstance:
     m_TransformParent: {fileID: 8519708581528591109}
     m_Modifications:
     - target: {fileID: 7723977345663786392, guid: 7d58c641abbfa0f42b9b70cf1c860f17, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1349553652272819797, guid: 3464a262695b3284b8785c2e4627a4e1, type: 3}
+    - target: {fileID: 7723977345663786392, guid: 7d58c641abbfa0f42b9b70cf1c860f17, type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7723977345663786392, guid: 7d58c641abbfa0f42b9b70cf1c860f17, type: 3}
+      propertyPath: targetIndicator
+      value: 
+      objectReference: {fileID: 1142548684872480264, guid: 9f76c3d7c08daef48ac32cc481bbf41e, type: 3}
+    - target: {fileID: 7723977345663786392, guid: 7d58c641abbfa0f42b9b70cf1c860f17, type: 3}
+      propertyPath: targetIndicatorEnemy
+      value: 
+      objectReference: {fileID: 1142548684872480264, guid: 9f76c3d7c08daef48ac32cc481bbf41e, type: 3}
     - target: {fileID: 7723977345663786393, guid: 7d58c641abbfa0f42b9b70cf1c860f17, type: 3}
       propertyPath: m_Name
       value: EnemySpawner
