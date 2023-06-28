@@ -9,13 +9,38 @@ public class CursorManager : MonoBehaviour
     public FinalObject finalObject;
     void Update()
     {
-        if (PauseManager.isPaused || deathm.isDead || finalObject.didPlayerWon){
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
+        if (GameTips.isShowing)
+        {
+            if (GameTips.blockCursor)
+            {
+                Lock();
+            }
+            else
+            {
+                Unlock();
+            }
         }
-        else {
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
+        else
+        {
+            if ((PauseManager.isPaused || deathm.isDead || finalObject.didPlayerWon))
+            {
+                Unlock();
+            }
+            else
+            {
+                Lock();
+            }
         }
+    }
+
+    void Lock()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
+    void Unlock()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 }

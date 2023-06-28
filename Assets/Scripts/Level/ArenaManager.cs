@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class ArenaManager : MonoBehaviour
 {
-    [SerializeField] LightsManager lightsManager;
-    [SerializeField] List<AreaObjectives> areas;
+    public static ArenaManager main;
+
+    public LightsManager lightsManager;
+    public List<AreaObjectives> areas;
     [SerializeField] GameObject player;
-    [SerializeField] int actualArena = -1;
+    public int actualArena = -1;
     [SerializeField] bool IsBeetwenArenas;
     public TargetController targetIndicatorArena;
     public bool isTestingMode = false; // funkcja do testowania poziomow, uzywana tylko do testowania konkretnych aren zamiast calego poziomu
@@ -18,6 +20,7 @@ public class ArenaManager : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        main = this;
         //areas[0].activateArena = true;
         actualArena = 0;
 
