@@ -4036,6 +4036,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _isHit: 0
   damageValue: 0
+  audioSource: {fileID: 0}
+  hitSounds: []
 --- !u!135 &4529369271815065556
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -6229,6 +6231,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _isHit: 0
   damageValue: 0
+  audioSource: {fileID: 0}
+  hitSounds: []
 --- !u!135 &1312959238191214619
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -6338,6 +6342,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _isHit: 0
   damageValue: 0
+  audioSource: {fileID: 2948752443203557216}
+  hitSounds: []
 --- !u!1 &3888088231275614514
 GameObject:
   m_ObjectHideFlags: 0
@@ -11477,6 +11483,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _isHit: 0
   damageValue: 0
+  audioSource: {fileID: 2948752443203557216}
+  hitSounds: []
 --- !u!1 &6965327663082589750
 GameObject:
   m_ObjectHideFlags: 0
