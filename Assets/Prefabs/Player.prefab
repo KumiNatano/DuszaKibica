@@ -807,6 +807,7 @@ MonoBehaviour:
   upgradeController: {fileID: 0}
   hpBarCanvas: {fileID: 0}
   enemyWeapon: {fileID: 0}
+  BloodEffect: {fileID: 0}
 --- !u!82 &356740842
 AudioSource:
   m_ObjectHideFlags: 0

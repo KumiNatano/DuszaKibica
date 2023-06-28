@@ -32,6 +32,11 @@ public class BigGuyCharge : MonoBehaviour
 
     [SerializeField] private SphereCollider attackArea;
 
+    [SerializeField] private int chargeMultiplier = 3;
+
+    private Vector3 transformForwardOnce;
+    
+
     void Start()
     {
         mainAIScript = GetComponent<AIPath>();
@@ -62,14 +67,14 @@ public class BigGuyCharge : MonoBehaviour
                 GameObject.FindWithTag("player").GetComponent<HealthSystem>().TakeDamage(specialDamage);
                 wasDamaged = true;
             }
-            
+
             animator.SetBool("isPreparingCharge", false);
             animator.SetBool("isInCharge", true);
-            if (Vector3.Distance(this.transform.position, chargePosition) < 0.75f)
+            if (Vector3.Distance(this.transform.position, chargePosition + transformForwardOnce * chargeMultiplier) < 0.75f)
             {
                 isInDestination = true;
             }
-            this.transform.position = Vector3.MoveTowards(this.transform.position, chargePosition, chargeSpeed * Time.deltaTime);
+            this.transform.position = Vector3.MoveTowards(this.transform.position, chargePosition + transformForwardOnce * chargeMultiplier, chargeSpeed * Time.deltaTime);
         }
         else if (isInCharge == true && isInDestination == true)
         {
@@ -88,6 +93,7 @@ public class BigGuyCharge : MonoBehaviour
         mainAIScript.canMove = true;
         isPositionKnown = false;
         attackScript.enabled = true;
+        mainAIScript.rotationSpeed = 360;
         wasDamaged = false;
     }
     
@@ -96,6 +102,8 @@ public class BigGuyCharge : MonoBehaviour
         animator.SetBool("isPreparingCharge", true);
         mainAIScript.canMove = false;
         attackScript.enabled = false;
+        mainAIScript.rotationSpeed = 0;
+        transformForwardOnce = transform.forward;
         yield return new WaitForSeconds(waitingUntillChargeTime);
         isInCharge = true;
     }
