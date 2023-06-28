@@ -64,7 +64,9 @@ public class uGUI_Crosshair : MonoBehaviour
         arch.SetBackColor(back);
     }
     void UpdateSliderArmL() => UpdateSliderArm(leftArch, atkModule.leftArm);
+    void UpdateSliderArmL(bool r) => UpdateSliderArmL();
     void UpdateSliderArmR() => UpdateSliderArm(rightArch, atkModule.rightArm);
+    void UpdateSliderArmR(bool r) => UpdateSliderArmR();
     void UpdateSliderArm(uGUI_CrosshairArch arch, PlayerPunchMachine arm)
     {
         float value = 1;
