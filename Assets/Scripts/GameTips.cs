@@ -12,6 +12,7 @@ public class GameTips : MonoBehaviour
     {
         PlayerPrefs.SetInt(inputTip.savename, 0);
         PlayerPrefs.SetInt(fightTip.savename, 0);
+        PlayerPrefs.SetInt(handTip.savename, 0);
         PlayerPrefs.SetInt(kebabTip.savename, 0);
     }
     void FixedUpdate()
@@ -27,6 +28,10 @@ public class GameTips : MonoBehaviour
         if (CheckFight())
         {
             StartCoroutine(TipProcedure(fightTip));
+        }
+        if (CheckHand())
+        {
+            StartCoroutine(TipProcedure(handTip));
         }
         if (CheckKebab())
         {
@@ -49,6 +54,17 @@ public class GameTips : MonoBehaviour
             return false;
         }
         return ArenaManager.main.areas[ArenaManager.main.actualArena].activateArena;
+    }
+    bool CheckHand()
+    {
+        if (handTip.wasShown || !fightTip.wasShown)
+        {
+            return false;
+        }
+        var atk = Player.main.attack;
+        var lc = atk.leftArm.punchCount;
+        var rc = atk.rightArm.punchCount;
+        return Math.Abs(lc - rc) >= 5;
     }
     bool CheckKebab()
     {
@@ -87,7 +103,8 @@ public class GameTips : MonoBehaviour
             Time.timeScale = 0;
         }
         tip.Show();
-        
+
+        yield return new WaitForSecondsRealtime(tip.forcedDelay);
         yield return new WaitUntil(() => CheckInputs(tip.keynames));
 
         tip.Hide();
@@ -109,6 +126,7 @@ public class GameTips : MonoBehaviour
     [SerializeField] float intertipCd = 2f;
     [SerializeField] GameTip inputTip;
     [SerializeField] GameTip fightTip;
+    [SerializeField] GameTip handTip;
     [SerializeField] GameTip kebabTip;
 }
 [Serializable]
@@ -118,6 +136,7 @@ public class GameTip
     public string savename = "invalidtip";
     public bool stopTime = false;
     public bool blockCursor = false;
+    public float forcedDelay = 0f;
     public bool wasShown => PlayerPrefs.GetInt(savename) == 1;
     public GameObject graphic;
 
