@@ -20,20 +20,15 @@ public class PunchAudio : MonoBehaviour
         swishSounds = Resources.LoadAll<AudioClip>("Audio/swishes");
     }
 
-    private void Start()
+    private void OnEnable()
     {
-        if (this.gameObject.tag == "player")
-        {
-            attack = GetComponent<PlayerAttack>();
-            attack.leftArm.onAttackBegin += PlaySound;
-            attack.rightArm.onAttackBegin += PlaySound; 
-        }
+        Player.main.attack.leftArm.onAttackEnd += PlaySound;
+        Player.main.attack.rightArm.onAttackEnd += PlaySound;
     }
 
-    void PlaySound()
+    void PlaySound(bool hit)
     {
-        bool isEnemyDetected = enemyDetector.GetComponent<EnemyDetector>().GetIsEnemyDetected();
-        if (isEnemyDetected == true)
+        if (hit)
         {
             int soundToPlay = Random.Range(0, hitSounds.Length);
             aSource.PlayOneShot(hitSounds[soundToPlay]);
