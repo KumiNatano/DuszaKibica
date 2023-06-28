@@ -23,6 +23,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] float freeSpaceRange = 2f;
     [SerializeField] float spawnRadius = 30f;
     public GameObject player;
+    public GameObject targetIndicatorEnemy;
     public bool finishedSpawning; // uzywane przez skrypt AreaObjectivees
     private Vector3 boxPosition = new Vector3(0f, 2f, 0f);
     private Vector3 boxSize = new Vector3(2f, 1f, 2f);
@@ -57,15 +58,15 @@ public class EnemySpawner : MonoBehaviour
         int arrayIndex;
         int counter = 0;
 
-        // ETAP 1: Wyszukiwanie pól w otoczeniu gracza
+        // ETAP 1: Wyszukiwanie pÃ³l w otoczeniu gracza
         Vector3 spawnPosition;
         for (int i = 0; i < spawnPositions.Length; i++)
         {
             spawnPosition = spawnPositions[i].position;
             testedPositions[i] = SpawnValue.inRange;
         }
-        // ETAP 2: sprawdzanie, czy na miejscu do spawnowania nie ma innych wrogów lub gracza
-        for (int i=0; i< spawnPositions.Length; i++)
+        // ETAP 2: sprawdzanie, czy na miejscu do spawnowania nie ma innych wrogow lub gracza
+        for (int i = 0; i < spawnPositions.Length; i++)
         {
             Collider[] results1 = Physics.OverlapBox(spawnPositions[i].position + boxPosition, boxSize);
             //Debug.Log(this.name + " " + i + ", Etap 2: " + results1.Length);
@@ -85,7 +86,8 @@ public class EnemySpawner : MonoBehaviour
         //  ETAP 3: spawnowania przeciwnikow
         if (counter >= 1)
         {
-            if (spawnCount < enemySpawningList.Length)
+            if (spawnCount < enemySpawningList.Length) 
+            {
                 for (int i = 0; i < testedPositions.Length * 2; i++)
                 {
                     arrayIndex = Random.Range(0, testedPositions.Length);
@@ -95,12 +97,16 @@ public class EnemySpawner : MonoBehaviour
                         //Debug.Log(this.name + " " + arrayIndex + ", Etap 3: " + results2.Length);
                         if (results2.Length == 0)
                         {
-                            Instantiate(enemySpawningList[spawnCount], spawnPositions[arrayIndex].position + new Vector3(0f, 0.2f, 0f), Quaternion.identity);
+                            GameObject newEnemy = Instantiate(enemySpawningList[spawnCount], spawnPositions[arrayIndex].position + new Vector3(0f, 0.2f, 0f), Quaternion.identity);
+                            // Ustawienie wskaznika na nowego przeciwnika
+                            GameObject newIndicator = Instantiate(targetIndicatorEnemy, player.transform);
+                            newIndicator.GetComponent<TargetController>().target = newEnemy.transform;
                             ++spawnCount;
                             break;
                         }
                     }
                 }
+            }
             else
                 finishedSpawning = true;
         }
@@ -111,7 +117,7 @@ public class EnemySpawner : MonoBehaviour
         StartCoroutine(SpawnEnemy());
     }
 
-    public void endSpawningRightNow() // do testów
+    public void endSpawningRightNow() // do testÃ³w
     {
         spawnCount = enemySpawningList.Length;
         StopAllCoroutines();
