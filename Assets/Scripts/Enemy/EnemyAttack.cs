@@ -36,6 +36,7 @@ public class EnemyAttack : MonoBehaviour
                 enemyAnimationsAndModel.setIsPreparingAttackingLeftTrue();
                 enemyAnimationsAndModel.setIsAttackingLeftTrue();
                 actualWeapon = leftFist;
+                actualWeapon.WasHit();
                 StartCoroutine(waitUntilIsReadyToPunchLeft());
             }
 
@@ -44,6 +45,7 @@ public class EnemyAttack : MonoBehaviour
                 enemyAnimationsAndModel.setIsPreparingAttackingRightTrue();
                 enemyAnimationsAndModel.setIsAttackingRightTrue();
                 actualWeapon = rightFist;
+                actualWeapon.WasHit();
                 StartCoroutine(waitUntilIsReadyToPunchRight());
             }
 
@@ -80,8 +82,6 @@ public class EnemyAttack : MonoBehaviour
     {
         canAttack = false; //zmienia, ze nie mozemy zaatakowac
         yield return new WaitForSeconds(cooldown); //czekaj "cooldown" sekund zanim wykona instrukcje ponizej
-        if (actualWeapon.IsHit())
-            actualWeapon.WasHit();
         canAttack = true; //a po czasie juz mozna
     }
 
