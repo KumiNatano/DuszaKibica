@@ -6,6 +6,13 @@ public class EnemyWeapon : MonoBehaviour
 {
     [SerializeField] bool _isHit;
     [SerializeField] int damageValue;
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] AudioClip[] hitSounds;
+
+    void Awake()
+    {
+        hitSounds = Resources.LoadAll<AudioClip>("Audio/hits");
+    }
 
     private void Start()
     {
@@ -14,6 +21,7 @@ public class EnemyWeapon : MonoBehaviour
 
     private void OnTriggerEnter(Collider collider)
     {
+        print("test");
         if(collider.gameObject.tag == "player")
         {
             if (!_isHit)
@@ -21,6 +29,8 @@ public class EnemyWeapon : MonoBehaviour
                 _isHit = true;
                 HealthSystem health = collider.GetComponent<HealthSystem>(); //bierzemy system zycia
                 health.TakeDamage(damageValue);
+                PlayAttackSound();
+                
             }
         }
     }
@@ -37,6 +47,12 @@ public class EnemyWeapon : MonoBehaviour
     public void SetDamage(int newDamage)
     {
         damageValue = newDamage;
+    }
+    
+    public void PlayAttackSound()
+    {
+        int soundToPlay = Random.Range(0, hitSounds.Length);
+        audioSource.PlayOneShot(hitSounds[soundToPlay]);
     }
 
 }

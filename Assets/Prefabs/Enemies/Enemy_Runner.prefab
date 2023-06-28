@@ -6866,6 +6866,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _isHit: 0
   damageValue: 0
+  audioSource: {fileID: 6328940952730779689}
+  hitSounds: []
 --- !u!135 &4486548562667144201
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -7795,6 +7797,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _isHit: 0
   damageValue: 0
+  audioSource: {fileID: 6328940952730779689}
+  hitSounds: []
 --- !u!135 &5829801276389313010
 SphereCollider:
   m_ObjectHideFlags: 0
