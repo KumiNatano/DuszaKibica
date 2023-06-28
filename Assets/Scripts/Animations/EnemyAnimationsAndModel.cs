@@ -13,12 +13,14 @@ public class EnemyAnimationsAndModel : MonoBehaviour
     [SerializeField] private List<GameObject> enemyModels;
     [SerializeField] private EnemyWeapon enemyLeftFist;
     [SerializeField] private EnemyWeapon enemyRightFist;
+    private bool dying;
 
     private void Start()
     {
         int randomModelNumber = 3;//Random.Range(1, enemyModels.Count);
         enemyModels[randomModelNumber].SetActive(true);
         animator = animatorsList[randomModelNumber];
+        dying = false;
     }
 
     public EnemyWeapon GetLeftFist() { return enemyLeftFist; }
@@ -85,10 +87,16 @@ public class EnemyAnimationsAndModel : MonoBehaviour
     {
         animator.SetBool("isDying", true);
         Invoke("DisableAnimator", 1);
+        dying = true;
     }
 
     public void DisableAnimator()
     {
         animator.enabled = false;
+    }
+
+    public bool isDying()
+    {
+        return dying;
     }
 }
