@@ -4,19 +4,22 @@ using UnityEngine;
 
 public class ArenaManager : MonoBehaviour
 {
+    [SerializeField] LightsManager lightsManager;
     [SerializeField] List<AreaObjectives> areas;
     [SerializeField] GameObject player;
     [SerializeField] int actualArena = -1;
     [SerializeField] bool IsBeetwenArenas;
     public bool isTestingMode = false; // funkcja do testowania poziomów, u¿ywana tylko do testowania konkretnych aren zamiast ca³ego poziomu
     public int whichArenaIsTesting;
-    
+    private bool isLightBetweenArenas;
+
     // Start is called before the first frame update
     void Awake()
     {
         //areas[0].activateArena = true;
         actualArena = 0;
         IsBeetwenArenas = false;
+        isLightBetweenArenas = false;
         if (isTestingMode)
         {
             testMode(whichArenaIsTesting);
@@ -27,13 +30,25 @@ public class ArenaManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!isLightBetweenArenas & IsBeetwenArenas)
+        {
+            isLightBetweenArenas = true;
+            lightsManager.activateLightsInActualArea(actualArena * 2 + 1);
+            lightsManager.activateLightsInActualArea(actualArena * 2 + 2);
+
+        }
+        
+
         if (areas[0].GetComponentInChildren<LevelTrigger>().getEnterNewArea())
         {
             areas[actualArena].activateArena = true;
+            IsBeetwenArenas = false;
         }
         if (areas[actualArena].goToNextArena)
         {
+            
             IsBeetwenArenas = true;
+            isLightBetweenArenas = false;
             if (actualArena == areas.Count - 1)
             {
                 Debug.Log("Nie ma wiêcej poziomów!");
@@ -43,8 +58,10 @@ public class ArenaManager : MonoBehaviour
                 if (areas[actualArena + 1].GetComponentInChildren<LevelTrigger>().getEnterNewArea())
                 {
                     ++actualArena;
+                    IsBeetwenArenas = false;
                     areas[actualArena].activateArena = true;
                     AstarPath.active.Scan();
+                    lightsManager.deactivateLightsInPreviousArea(actualArena * 2 - 2);
                 }
             }
             else
