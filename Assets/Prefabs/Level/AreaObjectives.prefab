@@ -52,7 +52,7 @@ MonoBehaviour:
   blockade: []
   enemies: {fileID: 0}
   levelTrigger: {fileID: 4172003094278906075}
-  targetIndicator: {fileID: 1142548684872480264, guid: 9f76c3d7c08daef48ac32cc481bbf41e, type: 3}
+  targetIndicatorEnemy: {fileID: 8986198299391983495, guid: 9f76c3d7c08daef48ac32cc481bbf41e, type: 3}
   player: {fileID: 1349553652272819797, guid: 3464a262695b3284b8785c2e4627a4e1, type: 3}
   activateArena: 0
   goToNextArena: 0

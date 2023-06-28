@@ -54,9 +54,10 @@ MonoBehaviour:
   - {fileID: 910417648692711937}
   - {fileID: 2117672093728435896}
   - {fileID: 2109094741595411955}
-  player: {fileID: 0}
+  player: {fileID: 1349553652272819797, guid: 3464a262695b3284b8785c2e4627a4e1, type: 3}
   actualArena: 0
   IsBeetwenArenas: 0
+  targetIndicatorArena: {fileID: 8986198299391983495, guid: d77c959d3dcdbac4f91a355ea1808555, type: 3}
   isTestingMode: 0
   whichArenaIsTesting: 0
 --- !u!1001 &974726327602294026
