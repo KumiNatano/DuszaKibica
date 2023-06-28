@@ -178,6 +178,7 @@ public class HealthSystem : MonoBehaviour
         this.gameObject.GetComponent<EnemyDrop>().enabled = false;
         this.gameObject.GetComponent<EnemyAnimationsAndModel>().enabled = false;
         this.gameObject.GetComponent<WalkingAnimationBehaviour>().enabled = false;
+        GetComponentInChildren<EnemyWeapon>().enabled = false;
 
         hpBarCanvas.enabled = false;
         enemyWeapon.SetActive(false);
