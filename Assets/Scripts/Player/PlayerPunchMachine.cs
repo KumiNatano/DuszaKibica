@@ -50,7 +50,7 @@ public class PlayerPunchMachine : MonoBehaviour
     // attack events
     public event Action onAttackBegin;
     public event Action onAttackStay;
-    public event Action onAttackEnd;
+    public event Action<bool> onAttackEnd;
     // rest events
     public event Action onRestBegin;
     public event Action onRestStay;
@@ -135,15 +135,16 @@ public class PlayerPunchMachine : MonoBehaviour
             }
             else // end
             {
+                bool r = false;
                 if (!wasInterrupted)
                 {
-                    FindAndHit();
+                    r = FindAndHit();
                 }
                 wasInterrupted = false;
                 _attackTime = 0;
                 _state = PunchMachineState.Rest;
                 onStateUpdate?.Invoke(_state);
-                onAttackEnd?.Invoke();
+                onAttackEnd?.Invoke(r);
             }
         }
         else // begin
@@ -174,12 +175,13 @@ public class PlayerPunchMachine : MonoBehaviour
         }
         _restTime += Time.fixedDeltaTime;
     }
-    void FindAndHit()
+    bool FindAndHit()
     {
         Quaternion co = playerRef.viewRotation;
         Vector3 wp = playerRef.playerCamera.position + co * _hbOffset;
         Vector3 he = _hbSize * 0.5f;
         int c = Physics.OverlapBoxNonAlloc(center: wp, halfExtents: he, results: hitResults, orientation: co, _hbLayers);
+        bool fond = false;
         for (int i = 0; i < c; i++)
         {
             Collider col = hitResults[i];
@@ -194,6 +196,7 @@ public class PlayerPunchMachine : MonoBehaviour
 #endif       
             if (col.TryGetComponent(out health))
             {
+                fond = true;
 #if PLAYERPUNCHMACHINE_USEOBSOLETEHEALTH
                 health.TakeDamage(Mathf.CeilToInt(_attackDamage));
 #else
@@ -201,6 +204,7 @@ public class PlayerPunchMachine : MonoBehaviour
 #endif       
             }
         }
+        return fond;
     }
 
     void FixedUpdate()
