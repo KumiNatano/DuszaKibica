@@ -7,6 +7,7 @@ public class PlayerPunchMachine : MonoBehaviour
 {
     public string keyName => _keyName;
 
+    public float punchCount => _punchCount;
     public float attackDamage => _attackDamage;
     public float attackDuration => _attackDuration * _speedMultiplier;
     public float attackTime => _attackTime;
@@ -75,6 +76,7 @@ public class PlayerPunchMachine : MonoBehaviour
         _restTime = 0;
         _state = PunchMachineState.Attack;
         onStateUpdate?.Invoke(_state);
+        _punchCount++;
     }
     public void Interrupt()
     {
@@ -232,6 +234,7 @@ public class PlayerPunchMachine : MonoBehaviour
     [SerializeField] Vector3 _hbOffset = Vector3.forward;
     [SerializeField] LayerMask _hbLayers = Physics.DefaultRaycastLayers;
     [Header("State")]
+    [SerializeField] float _punchCount = 0;
     [SerializeField] bool _isBlocked;
     [SerializeField] PunchMachineState _state = PunchMachineState.Idle;
 }
