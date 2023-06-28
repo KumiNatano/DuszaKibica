@@ -42,21 +42,7 @@ public class uGUI_AbilityElement : MonoBehaviour
         float num2 = abilityRef.restFraction;
         bool flag = true;
 
-        sb.Append(num1 - num1 * num2);
-        for (int i = 0; i < sb.Length; i++)
-        {
-            if (sb[i] == '.')
-            {
-                i += 2;
-                sb.Remove(i, sb.Length - i);
-                flag = false;
-                break;
-            }
-        }
-        if (flag)
-        {
-            sb.Append(".0");
-        }
+        sb.Append((num1 - num1 * num2).ToString("F1"));
         sb.Append("s");
         timer.text = sb.ToString();
         sb.Clear();
