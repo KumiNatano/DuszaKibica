@@ -238,7 +238,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 425.9, y: -100}
+  m_AnchoredPosition: {x: 188.7, y: -91.3}
   m_SizeDelta: {x: 781.4, y: 560}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &34942225
@@ -261,16 +261,16 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Programmers:
+  m_text: 'Programisci:
 
     Jacek Teodorczyk
 
     Jakub Gajewski
 
-    Wiktor Szewczyk
+    Viktor Chernikov
 
-    Viktor
-    Chernikov'
+    Wiktor
+    Szewczyk'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ba657ebdbcbabf34a8a580c9679afd37, type: 2}
   m_sharedMaterial: {fileID: -9069277586643975147, guid: ba657ebdbcbabf34a8a580c9679afd37, type: 2}
@@ -279,7 +279,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 4291348680
   m_fontColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -304,7 +304,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 17
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 4
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -414,7 +414,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 4291348680
   m_fontColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -519,7 +519,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 9.300415, y: 181.45001}
+  m_AnchoredPosition: {x: 9.300415, y: 181.45007}
   m_SizeDelta: {x: 75, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &64281784
@@ -1161,7 +1161,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -176.4, y: -100}
+  m_AnchoredPosition: {x: -180, y: -75.3}
   m_SizeDelta: {x: 642.1, y: 521}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &489751757
@@ -1186,7 +1186,12 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Artist:
 
-    Franciszek Dykto'
+    Franciszek Dykto
+
+
+    Muzyka:
+
+    Konrad Pluskota'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ba657ebdbcbabf34a8a580c9679afd37, type: 2}
   m_sharedMaterial: {fileID: -9069277586643975147, guid: ba657ebdbcbabf34a8a580c9679afd37, type: 2}
@@ -1195,7 +1200,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 4291348680
   m_fontColor: {r: 0.7830189, g: 0.7830189, b: 0.7830189, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -1965,11 +1970,11 @@ RectTransform:
   m_Father: {fileID: 615086940}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 20.227}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -197.60718, y: -246.99994}
-  m_SizeDelta: {x: 144, y: 85.600006}
-  m_Pivot: {x: 1, y: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -784.4, y: -286}
+  m_SizeDelta: {x: 110.3, y: 68.2}
+  m_Pivot: {x: 0, y: 0}
 --- !u!114 &779474683
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2314,11 +2319,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -2432992495548295945, guid: 61e8ad659cace6f48a98dea3f180731d, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 11ffffe8aefb82041bb6e73055bbd4b4, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 1ff853a585e48104eb09d6378db4c383, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -2492,7 +2497,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 4291348680
   m_fontColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
