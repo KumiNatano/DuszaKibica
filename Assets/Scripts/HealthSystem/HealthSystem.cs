@@ -12,7 +12,7 @@ public class HealthSystem : MonoBehaviour
     public int healthAmount;
     public int maxHealthAmount = 100;
     [SerializeField] private bool isAlive;
-    [SerializeField] bool isImmortal;
+    [SerializeField] public bool isImmortal;
     [SerializeField] double immortalTime;
     [SerializeField] double immortalCooldown;
     public BarParent hpBar;
