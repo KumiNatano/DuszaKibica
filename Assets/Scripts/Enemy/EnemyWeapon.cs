@@ -21,11 +21,12 @@ public class EnemyWeapon : MonoBehaviour
 
     private void OnTriggerEnter(Collider collider)
     {
-        print("test");
+        
         if(collider.gameObject.tag == "player")
         {
             if (!_isHit)
             {
+                print("test");
                 _isHit = true;
                 HealthSystem health = collider.GetComponent<HealthSystem>(); //bierzemy system zycia
                 health.TakeDamage(damageValue);

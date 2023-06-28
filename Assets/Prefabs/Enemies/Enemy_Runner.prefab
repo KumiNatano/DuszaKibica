@@ -411,7 +411,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 5
-  cooldown: 1
+  cooldown: 1.5
   enemyDetectPlayer: {fileID: 0}
   enemyAnimationsAndModel: {fileID: 0}
   leftFist: {fileID: 2466934232928708694}
