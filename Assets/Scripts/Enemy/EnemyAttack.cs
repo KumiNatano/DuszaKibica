@@ -26,6 +26,8 @@ public class EnemyAttack : MonoBehaviour
 
     private void Update()
     {
+        if (enemyAnimationsAndModel.isDying())
+            canAttack = false;
 
         if (canAttack == true && enemyDetectPlayer.GetDistance() <= 1.4f) //jesli obiekt z ktorym kolidujemy ma system zycia i mamy mozliwosc ataku i obiekt z ktorym kolidujemy to gracz
         {
