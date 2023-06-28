@@ -16,12 +16,14 @@ public class AreaObjectives : MonoBehaviour
     public bool activateArena;
     private bool isWorking = false;
     public bool goToNextArena = false;
+    private GameObject queueManager;
 
     void Start()
     {
         activateArena = false;
         goToNextArena = false;
         player = GameObject.FindGameObjectsWithTag("player")[0];
+        queueManager = GameObject.FindWithTag("queueManager");
     }
 
     void Update()
@@ -48,7 +50,8 @@ public class AreaObjectives : MonoBehaviour
             TargetController newEnemyIndicator = Instantiate(targetIndicatorEnemy, player.transform);
             newEnemyIndicator.GetComponent<TargetController>().target = enemy;
         }
-
+        
+        queueManager.GetComponent<EnemyQueueManager>().scanLookingForEnemies();
         borders.SetActive(true);
         enemySpawner.enabled = true;
         isWorking = true;

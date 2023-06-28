@@ -4,50 +4,84 @@ using UnityEngine;
 
 public class EnemyAttack : MonoBehaviour
 {
-    [SerializeField] private int damage = 3;
+    [SerializeField] public int damage = 3;
     [SerializeField] private float cooldown = 2f;
-    [SerializeField] GameObject parent;
+    [SerializeField] EnemyDetectPlayer enemyDetectPlayer;
+    [SerializeField] EnemyAnimationsAndModel enemyAnimationsAndModel;
+    [SerializeField] EnemyWeapon leftFist;
+    [SerializeField] EnemyWeapon rightFist;
+    [SerializeField] EnemyWeapon actualWeapon;
 
-    private bool canAttack = true;
+    public bool canAttack = true;
 
-    private void OnTriggerStay(Collider collider)
+    private void Start()
+    {
+        enemyDetectPlayer = GetComponentInParent<EnemyDetectPlayer>();
+        enemyAnimationsAndModel = GetComponentInParent<EnemyAnimationsAndModel>();
+        leftFist = enemyAnimationsAndModel.GetLeftFist();
+        rightFist = enemyAnimationsAndModel.GetRightFist();
+        leftFist.SetDamage(damage);
+        rightFist.SetDamage(damage);
+    }
+
+    private void Update()
     {
 
-        if (collider.GetComponent<HealthSystem>() != null && canAttack == true && collider.gameObject.tag == "player") //jesli obiekt z ktorym kolidujemy ma system zycia i mamy mozliwosc ataku i obiekt z ktorym kolidujemy to gracz
+        if (canAttack == true && enemyDetectPlayer.GetDistance() <= 1.4f) //jesli obiekt z ktorym kolidujemy ma system zycia i mamy mozliwosc ataku i obiekt z ktorym kolidujemy to gracz
         {
             int animacjaAtaku = Random.Range(1, 3);
 
             if (animacjaAtaku == 1)
             {
-                parent.GetComponent<EnemyAnimationsAndModel>().setIsAttackingLeftTrue();
+                enemyAnimationsAndModel.setIsPreparingAttackingLeftTrue();
+                enemyAnimationsAndModel.setIsAttackingLeftTrue();
+                actualWeapon = leftFist;
+                StartCoroutine(waitUntilIsReadyToPunchLeft());
             }
 
             else if (animacjaAtaku == 2)
             {
-                parent.GetComponent<EnemyAnimationsAndModel>().setIsAttackingRightTrue();
+                enemyAnimationsAndModel.setIsPreparingAttackingRightTrue();
+                enemyAnimationsAndModel.setIsAttackingRightTrue();
+                actualWeapon = rightFist;
+                StartCoroutine(waitUntilIsReadyToPunchRight());
             }
 
-            StartCoroutine(turnOffAnimation());
-
-            StartCoroutine(AttackCoroutine()); //wywolujemy korutyne
-            HealthSystem health = collider.GetComponent<HealthSystem>(); //bierzemy system zycia
-            health.TakeDamage(damage); //i dajemy damage
-            this.GetComponent<PunchAudio>().PlayAttackSound();
-
+            StartCoroutine(AttackCoroutine());
+            //this.GetComponent<PunchAudio>().PlayAttackSound();
         }
     }
 
-    IEnumerator turnOffAnimation()
+    IEnumerator waitUntilIsReadyToPunchLeft() //dawna wartosc dla wylaczenia animacji (0.467f)
     {
-        yield return new WaitForSeconds(0.467f); //idealnie dlugosc animacji uderzania, w przyszlosci lepiej wrzucic to do zmiennej jesli beda np animacje o roznej dlugosci
-        parent.GetComponent<EnemyAnimationsAndModel>().setIsAttackingLeftFalse();
-        parent.GetComponent<EnemyAnimationsAndModel>().setIsAttackingRightFalse();
+        yield return new WaitForSeconds(0.467f);
+        enemyAnimationsAndModel.setIsPreparingAttackingLeftFalse();
+        StartCoroutine(turnOffAnimationLeftFist());
+    }
+    IEnumerator waitUntilIsReadyToPunchRight()
+    {
+        yield return new WaitForSeconds(0.467f); 
+        enemyAnimationsAndModel.setIsPreparingAttackingRightFalse();
+        StartCoroutine(turnOffAnimationRightFist());
     }
 
-    IEnumerator AttackCoroutine()
+    IEnumerator turnOffAnimationLeftFist()
+    {
+        yield return new WaitForSeconds(0.633f);
+        enemyAnimationsAndModel.setIsAttackingLeftFalse();
+    }
+    IEnumerator turnOffAnimationRightFist()
+    {
+        yield return new WaitForSeconds(0.633f);
+        enemyAnimationsAndModel.setIsAttackingRightFalse();
+    }
+
+    public IEnumerator AttackCoroutine()
     {
         canAttack = false; //zmienia, ze nie mozemy zaatakowac
         yield return new WaitForSeconds(cooldown); //czekaj "cooldown" sekund zanim wykona instrukcje ponizej
+        if (actualWeapon.IsHit())
+            actualWeapon.WasHit();
         canAttack = true; //a po czasie juz mozna
     }
 

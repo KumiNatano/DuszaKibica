@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ArenaManager : MonoBehaviour
 {
+    [SerializeField] LightsManager lightsManager;
     [SerializeField] List<AreaObjectives> areas;
     [SerializeField] GameObject player;
     [SerializeField] int actualArena = -1;
@@ -11,9 +12,9 @@ public class ArenaManager : MonoBehaviour
     public TargetController targetIndicatorArena;
     public bool isTestingMode = false; // funkcja do testowania poziomow, uzywana tylko do testowania konkretnych aren zamiast calego poziomu
     public int whichArenaIsTesting;
-    [HideInInspector]
-    TargetController arenaIndicator;
-    
+    private bool isLightBetweenArenas;
+    [HideInInspector] TargetController arenaIndicator;
+ 
     // Start is called before the first frame update
     void Awake()
     {
@@ -25,6 +26,7 @@ public class ArenaManager : MonoBehaviour
         arenaIndicator.GetComponent<TargetController>().target = areas[0].GetLevelTrigger();
 
         IsBeetwenArenas = false;
+        isLightBetweenArenas = false;
 
         if (isTestingMode)
         {
@@ -36,20 +38,33 @@ public class ArenaManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!isLightBetweenArenas & IsBeetwenArenas)
+        {
+            isLightBetweenArenas = true;
+            lightsManager.activateLightsInActualArea(actualArena * 2 + 1);
+            lightsManager.activateLightsInActualArea(actualArena * 2 + 2);
+
+        }
+        
+
         if (areas[0].GetComponentInChildren<LevelTrigger>().getEnterNewArea())
         {
             areas[actualArena].activateArena = true;
             // Schowanie wskaźnika na pierwszą arenę.
             arenaIndicator.SetIndicatorRemainsHidden(true);
+
+            IsBeetwenArenas = false;
         }
 
         if (areas[actualArena].goToNextArena)
         {
+
             // Ustawienie wskaźnika na następną arenę.
             arenaIndicator.GetComponent<TargetController>().target = areas[actualArena + 1].GetLevelTrigger();
             arenaIndicator.SetIndicatorRemainsHidden(false);
-
+            
             IsBeetwenArenas = true;
+            isLightBetweenArenas = false;
 
             if (actualArena == areas.Count - 1)
             {
@@ -63,8 +78,10 @@ public class ArenaManager : MonoBehaviour
                     arenaIndicator.SetIndicatorRemainsHidden(true);
                     
                     ++actualArena;
+                    IsBeetwenArenas = false;
                     areas[actualArena].activateArena = true;
                     AstarPath.active.Scan();
+                    lightsManager.deactivateLightsInPreviousArea(actualArena * 2 - 2);
                 }
             }
             else
