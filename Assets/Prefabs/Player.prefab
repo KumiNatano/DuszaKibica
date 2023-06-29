@@ -680,7 +680,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _keyName: Left Arm
-  _attackDamage: 25
+  _attackDamage: 75
   _attackTime: 0
   _attackDuration: 0.2
   _restTime: 0
@@ -707,7 +707,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _keyName: Right Arm
-  _attackDamage: 25
+  _attackDamage: 75
   _attackTime: 0
   _attackDuration: 0.2
   _restTime: 0
@@ -3412,7 +3412,7 @@ MonoBehaviour:
   _useTime: 0
   _workDuration: 0.5
   _workTime: 0
-  _restDuration: 10
+  _restDuration: 60
   _restTime: 0
   _state: 0
   _flySpeed: 5
