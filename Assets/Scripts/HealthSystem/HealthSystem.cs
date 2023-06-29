@@ -178,7 +178,6 @@ public class HealthSystem : MonoBehaviour
         this.gameObject.GetComponent<EnemyDrop>().enabled = false;
         this.gameObject.GetComponent<EnemyAnimationsAndModel>().enabled = false;
         this.gameObject.GetComponent<WalkingAnimationBehaviour>().enabled = false;
-        GetComponentInChildren<EnemyWeapon>().enabled = false;
 
         hpBarCanvas.enabled = false;
         enemyWeapon.SetActive(false);
@@ -188,5 +187,16 @@ public class HealthSystem : MonoBehaviour
         this.gameObject.GetComponent<BoxCollider>().enabled = false;
         
         this.gameObject.GetComponent<HealthSystem>().enabled = false;
+
+        BigGuyChargeWeapon bgw = GetComponentInChildren<BigGuyChargeWeapon>();
+        if (bgw != null)
+        {
+            bgw.enabled = false;
+        }
+        EnemyWeapon ew = GetComponentInChildren<EnemyWeapon>();
+        if (ew != null)
+        {
+            ew.enabled = false;
+        }
     }
 }
