@@ -85,4 +85,10 @@ public class AreaObjectives : MonoBehaviour
     {
         return levelTrigger.transform;
     }
+
+    public void disableBorders()
+    {
+        Destroy(borders);
+        //borders.SetActive(false);
+    }
 }

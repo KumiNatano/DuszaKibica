@@ -85,6 +85,7 @@ public class ArenaManager : MonoBehaviour
                     areas[actualArena].activateArena = true;
                     AstarPath.active.Scan();
                     lightsManager.deactivateLightsInPreviousArea(actualArena * 2 - 2);
+                    areas[actualArena-1].disableBorders();
                 }
             }
             else
