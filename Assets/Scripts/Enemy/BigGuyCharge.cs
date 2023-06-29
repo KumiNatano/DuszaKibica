@@ -70,11 +70,11 @@ public class BigGuyCharge : MonoBehaviour
 
             animator.SetBool("isPreparingCharge", false);
             animator.SetBool("isInCharge", true);
-            if (Vector3.Distance(this.transform.position, chargePosition + transformForwardOnce * chargeMultiplier) < 0.75f)
+            if (Vector3.Distance(this.transform.position, chargePosition /* + transformForwardOnce * chargeMultiplier*/) < 0.75f)
             {
                 isInDestination = true;
             }
-            this.transform.position = Vector3.MoveTowards(this.transform.position, chargePosition + transformForwardOnce * chargeMultiplier, chargeSpeed * Time.deltaTime);
+            this.transform.position = Vector3.MoveTowards(this.transform.position, chargePosition /*+ transformForwardOnce * chargeMultiplier*/, chargeSpeed * Time.deltaTime);
         }
         else if (isInCharge == true && isInDestination == true)
         {
