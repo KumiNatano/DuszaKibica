@@ -50,15 +50,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd9c7fcfc459c9b469a6cd9f26f71057, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lightsManager: {fileID: 0}
   areas:
   - {fileID: 910417648692711937}
   - {fileID: 2117672093728435896}
   - {fileID: 2109094741595411955}
-  player: {fileID: 1349553652272819797, guid: 3464a262695b3284b8785c2e4627a4e1, type: 3}
   - {fileID: 189575841400918548}
   - {fileID: 6599019049934173881}
   - {fileID: 8681363872531226883}
-  player: {fileID: 0}
+  player: {fileID: 1349553652272819797, guid: 3464a262695b3284b8785c2e4627a4e1, type: 3}
   actualArena: 0
   IsBeetwenArenas: 0
   targetIndicatorArena: {fileID: 8986198299391983495, guid: d77c959d3dcdbac4f91a355ea1808555, type: 3}
