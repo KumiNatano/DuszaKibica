@@ -24,7 +24,7 @@ public class Kebability : BaseAbility
     {
 #if KEBABILITY_USEOBSOLETEHEALTH
         var health = player.GetComponent<HealthSystem>();
-        health.setImmortal(5, 15);
+        health.setImmortal(workDuration * 2, 0);
         health.Heal(Mathf.RoundToInt(healPoints));
 #else
         var heal = player.GetComponent<LivingMixin>();
