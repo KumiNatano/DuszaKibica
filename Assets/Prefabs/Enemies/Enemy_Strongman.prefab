@@ -10657,7 +10657,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthAmount: 0
-  maxHealthAmount: 250
+  maxHealthAmount: 1300
   isAlive: 0
   isImmortal: 0
   immortalTime: 0
@@ -16475,8 +16475,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d66ca341bcf5da54e81288acf7fd4c3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 50
-  cooldown: 4
+  damage: 30
+  cooldown: 3
   enemyDetectPlayer: {fileID: 0}
   enemyAnimationsAndModel: {fileID: 0}
   leftFist: {fileID: 2608473104463639318}
