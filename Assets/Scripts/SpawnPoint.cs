@@ -8,6 +8,7 @@ public class SpawnPoint : MonoBehaviour
     public void SpawnPlayer()
     {
         Player.main.SetPosition(transform.position + spawnInfo.position);
+        Player.main.playerCamera.SetViewAngles(Vector3.up * spawnInfo.angle);
         Player.main.living.Revive();
     }
 }
