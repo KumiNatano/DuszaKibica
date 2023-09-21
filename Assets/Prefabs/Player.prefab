@@ -466,6 +466,7 @@ GameObject:
   - component: {fileID: 614390003528158668}
   - component: {fileID: 5811560753612314644}
   - component: {fileID: 1915499410588204496}
+  - component: {fileID: 5298703285821912860}
   - component: {fileID: 4501621770393683380}
   - component: {fileID: 6516974044278252105}
   - component: {fileID: 5891462997468904518}
@@ -721,6 +722,22 @@ MonoBehaviour:
   _punchCount: 0
   _isBlocked: 0
   _state: 0
+--- !u!114 &5298703285821912860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1349553652272819797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03fb45f5cc1166b4180866d4ad8e0ea6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canHurt: 1
+  canHeal: 1
+  _health: 150
+  _maxHealth: 150
 --- !u!114 &4501621770393683380
 MonoBehaviour:
   m_ObjectHideFlags: 0

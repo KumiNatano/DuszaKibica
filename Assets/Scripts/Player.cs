@@ -13,6 +13,7 @@ public class Player : Entity
     public PlayerViewmodel viewmodel { get; private set; }
     public PlayerAttack attack { get; private set; }
     public PlayerAbilities abilities { get; private set; }
+    public LivingMixin living { get; private set; }
 
     public CharacterController characterController;
 
@@ -56,6 +57,7 @@ public class Player : Entity
     private void Awake()
     {
         InitSingleton();
+        InitComponents();
         InitModules();
     }
     private void Update()
@@ -72,6 +74,10 @@ public class Player : Entity
     }
     #endregion
 
+    private void InitComponents()
+    {
+        living = GetComponent<LivingMixin>();
+    }
     private void InitSingleton()
     {
         if (main == null) 

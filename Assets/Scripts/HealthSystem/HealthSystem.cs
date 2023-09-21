@@ -89,7 +89,7 @@ public class HealthSystem : MonoBehaviour
 
         if (this.tag == "player" && healthAmount <= 0)
         {
-            this.GetComponent<PlayerDeathManager>().PlayerDeath();
+            //this.GetComponent<PlayerDeathEvent>().PlayerDeath();
         }
         else if (healthAmount <= 0)
         {
