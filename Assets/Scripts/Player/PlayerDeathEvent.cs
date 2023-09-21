@@ -19,8 +19,6 @@ public class PlayerDeathEvent : MonoBehaviour
 
         yield return new WaitForSeconds(preloadTime);
 
-        // włączyć sterowanie z powrotem
-        p.living.Revive();
-        p.SetPosition(Vector3.zero);
+        Game.activeSpawn.SpawnPlayer();
     }
 }
