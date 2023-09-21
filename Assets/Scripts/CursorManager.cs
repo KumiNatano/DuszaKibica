@@ -1,11 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CursorManager : MonoBehaviour
 {
     public PauseManager pause;
-    public PlayerDeathManager deathm;
     public FinalObject finalObject;
     void Update()
     {
@@ -22,7 +19,7 @@ public class CursorManager : MonoBehaviour
         }
         else
         {
-            if ((PauseManager.isPaused || deathm.isDead || finalObject.didPlayerWon))
+            if ((PauseManager.isPaused || !Player.main.living.isAlive || finalObject.didPlayerWon))
             {
                 Unlock();
             }

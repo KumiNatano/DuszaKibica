@@ -20,7 +20,7 @@ public class PlayerCameraController : PlayerModule
 
         playerCamera.SetPosition(newPos);
 
-        if (Cursor.lockState != CursorLockMode.None)
+        if (Cursor.lockState != CursorLockMode.None && parent.living.isAlive)
         {
             Look();
         }

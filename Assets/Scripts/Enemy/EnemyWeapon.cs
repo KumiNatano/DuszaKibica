@@ -28,8 +28,7 @@ public class EnemyWeapon : MonoBehaviour
             {
                 print("test");
                 _isHit = true;
-                HealthSystem health = collider.GetComponent<HealthSystem>(); //bierzemy system zycia
-                health.TakeDamage(damageValue);
+                Player.main.living.Hurt(damageValue);
                 PlayAttackSound();
                 
             }
