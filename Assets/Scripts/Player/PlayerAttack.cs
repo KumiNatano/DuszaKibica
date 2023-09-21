@@ -23,7 +23,10 @@ public class PlayerAttack : PlayerModule
     }
     public override void OnUpdate(float deltaTime)
     {
-        // TODO: uzyc Input.GetButtonDown()
+        if (!parent.living.isAlive)
+        {
+            return;
+        }
         if (Input.GetButtonDown(leftArm.keyName) && !rightArm.isAttacking)
         {
             leftArm.Attack();

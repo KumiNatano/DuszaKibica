@@ -34,7 +34,11 @@ public class PlayerController : PlayerModule
         Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         Vector3 dir = AngleToDir(vy) * input.y + AngleToDir(vy + 90f) * input.x;
 
-        if (isDucking){
+        if (!parent.living.isAlive)
+        {
+            speed = 0f;
+        }
+        else if (isDucking){
             speed = duckSpeed;
         }
         else if (isRunning){
@@ -48,7 +52,7 @@ public class PlayerController : PlayerModule
         controller.SimpleMove(dir * speed);
     }
     private void Duck(){
-        bool i = Input.GetButton("Duck");
+        bool i = parent.living.isAlive ? Input.GetButton("Duck") : false;
         if (isDucking != i)
         {
             isDucking = i;
