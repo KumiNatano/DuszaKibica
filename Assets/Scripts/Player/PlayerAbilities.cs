@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -33,9 +33,14 @@ public class PlayerAbilities : PlayerModule
     }
     public override void OnLateUpdate(float deltaTime)
     {
+        bool flag = !parent.living.isAlive;
         foreach(BaseAbility ability in _list)
         {
-            if (ability.idling && Input.GetButton(ability.keyName))
+            if (flag)
+            {
+                // TODO: przerwać działanie umiejętności!
+            }
+            else if (ability.idling && Input.GetButton(ability.keyName))
             {
                 ability.Use();
             }
