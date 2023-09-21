@@ -1,5 +1,3 @@
-#define KEBABILITY_USEOBSOLETEHEALTH
-
 using UnityEngine;
 
 public class Kebability : BaseAbility
@@ -27,8 +25,7 @@ public class Kebability : BaseAbility
         health.setImmortal(workDuration * 2, 0);
         health.Heal(Mathf.RoundToInt(healPoints));
 #else
-        var heal = player.GetComponent<LivingMixin>();
-        heal.Heal(healPoints);
+        player.living.Heal(healPoints);
 #endif
     }
 

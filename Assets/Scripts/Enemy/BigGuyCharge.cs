@@ -62,9 +62,9 @@ public class BigGuyCharge : MonoBehaviour
         }
         else if (isInCharge == true && isInDestination == false)
         {
-            if (attackArea.GetComponent<BigGuyChargeWeapon>().isInTrigger == true && wasDamaged == false && GameObject.FindWithTag("player").GetComponent<HealthSystem>().isImmortal == false)
+            if (attackArea.GetComponent<BigGuyChargeWeapon>().isInTrigger == true && wasDamaged == false && Player.main.living.canHurt)
             {
-                GameObject.FindWithTag("player").GetComponent<HealthSystem>().TakeDamage(specialDamage);
+                Player.main.living.Hurt(specialDamage);
                 wasDamaged = true;
             }
 
