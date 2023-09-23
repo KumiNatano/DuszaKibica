@@ -4,6 +4,8 @@ using UnityEngine;
 public class PlayerDeathEvent : MonoBehaviour
 {
     public float preloadTime = 5f;
+    public GameObject deathScreen;
+
     void Start()
     {
         Player.main.living.onDeath += OnPlayerDeath;
@@ -15,10 +17,11 @@ public class PlayerDeathEvent : MonoBehaviour
     }
     IEnumerator PlayerDeathCoroutine(Player p)
     {
-        // wyłączyć sterowanie
+        deathScreen.SetActive(true);
 
         yield return new WaitForSeconds(preloadTime);
 
+        deathScreen.SetActive(false);
         Game.activeSpawn.SpawnPlayer();
         GameManager.RespawnEnemies();
     }
