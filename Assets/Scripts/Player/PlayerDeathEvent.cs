@@ -20,5 +20,6 @@ public class PlayerDeathEvent : MonoBehaviour
         yield return new WaitForSeconds(preloadTime);
 
         Game.activeSpawn.SpawnPlayer();
+        GameManager.RespawnEnemies();
     }
 }
