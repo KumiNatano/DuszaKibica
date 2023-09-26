@@ -3,7 +3,57 @@ guid: 375ccb4033ba7ea4b8263c574e453832
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bus-body
+    second: {fileID: 2100000, guid: 714f55a9ca457bb48b656bd423df0b6f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bus-body-door
+    second: {fileID: 2100000, guid: 3a1e50ad7a932994c8e6829ec83d21c7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bus-cabin
+    second: {fileID: 2100000, guid: cba3ff563c808724b8ab0f8347da92ef, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bus-driver-seat
+    second: {fileID: 2100000, guid: 2283188500f14bb46bda7603d4855346, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bus-lights
+    second: {fileID: 2100000, guid: 88fb5947b403d594d8864bea49fa5abe, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bus-line-number
+    second: {fileID: 2100000, guid: d3e7dc25ef1fee64584128c6541d59d0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bus-seats
+    second: {fileID: 2100000, guid: 71b45499f6eb8e3499f1a023e71afca5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bus-wall
+    second: {fileID: 2100000, guid: f3e3961d29f9ae347bc9c9fbde70fd2a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bus-wheels
+    second: {fileID: 2100000, guid: 39277407e4c121b49b58954ccdef313a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bus-windows
+    second: {fileID: 2100000, guid: 96020ff29afbcbb4aadcbe86517ebd8b, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
