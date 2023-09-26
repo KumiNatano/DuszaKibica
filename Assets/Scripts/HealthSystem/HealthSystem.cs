@@ -100,6 +100,11 @@ public class HealthSystem : MonoBehaviour
             {
                 rd.Activate();
                 rd.Push(Player.main.bodyForward * 1000f);
+                EnemyAttack enemyAttack = GetComponentInChildren<EnemyAttack>();
+                if (enemyAttack != null)
+                {
+                    enemyAttack.DisableAttack();
+                }
             }
             else
             {
