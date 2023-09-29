@@ -32,7 +32,7 @@ public class PlayerController : PlayerModule
     private void Move(){
         float speed;
         float vy = playerCamera.viewAngles.y;
-        Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        Vector2 input = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         Vector3 dir = AngleToDir(vy) * input.y + AngleToDir(vy + 90f) * input.x;
 
         if (!parent.living.isAlive)
@@ -49,7 +49,10 @@ public class PlayerController : PlayerModule
             speed = walkSpeed;
         }
 
-        dir.Normalize();
+        if (dir.magnitude > 1f || isRunning)
+        {
+            dir.Normalize();
+        }
         controller.SimpleMove(dir * speed);
     }
     private void Duck(){
