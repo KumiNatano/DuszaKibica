@@ -8,10 +8,12 @@ public class EnemyWeapon : MonoBehaviour
     [SerializeField] int damageValue;
     [SerializeField] private AudioSource audioSource;
     [SerializeField] AudioClip[] hitSounds;
+    [SerializeField] private bool _disableAttack;
 
     void Awake()
     {
         hitSounds = Resources.LoadAll<AudioClip>("Audio/hits");
+        _disableAttack = false;
     }
 
     private void Start()
@@ -22,7 +24,7 @@ public class EnemyWeapon : MonoBehaviour
     private void OnTriggerEnter(Collider collider)
     {
         
-        if(collider.gameObject.tag == "player")
+        if(collider.gameObject.tag == "player" & !_disableAttack)
         {
             if (!_isHit)
             {
@@ -39,9 +41,9 @@ public class EnemyWeapon : MonoBehaviour
     {
         return _isHit;
     }
-    public void WasHit()
+    public void SetHit(bool hit)
     {
-        _isHit = false;
+        _isHit = hit;
     }
 
     public void SetDamage(int newDamage)
@@ -55,4 +57,8 @@ public class EnemyWeapon : MonoBehaviour
         audioSource.PlayOneShot(hitSounds[soundToPlay]);
     }
 
+    public void TurnOffAttack()
+    {
+        _disableAttack = true;
+    }
 }
