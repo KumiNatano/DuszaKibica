@@ -19,6 +19,7 @@ public class PlayerController : PlayerModule
 
     public override void OnUpdate(float deltaTime)
     {
+
         Duck();
         Move();
     }
@@ -62,7 +63,7 @@ public class PlayerController : PlayerModule
     private void Run()
     {
         float stu = runStamina * Time.fixedDeltaTime;
-        bool isr = Input.GetButton("Sprint");
+        bool isr = Input.GetAxisRaw("Sprint") != 0;
         isr &= Input.GetAxisRaw("Vertical") > float.Epsilon;
         isr &=  stamina.CanAfford(stu);
         if (isr)
