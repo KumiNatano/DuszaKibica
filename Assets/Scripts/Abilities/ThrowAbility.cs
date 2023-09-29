@@ -24,10 +24,13 @@ public class ThrowAbility : BaseAbility
         behaviour.SetDirection(player.viewForward);
         behaviour.flySpeed = flySpeed;
         behaviour.hitDamage = hitDamage;
+        audioSource.PlayOneShot(kniveThrowSound);
     }
 
     [SerializeField] float _flySpeed = 15f;
     [SerializeField] float _hitDamage = 25f;
     [SerializeField] GameObject _throwablePrefab;
     [SerializeField] Transform _startPoint;
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioClip kniveThrowSound;
 }

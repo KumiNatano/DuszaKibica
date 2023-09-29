@@ -26,9 +26,6 @@ public class EnemyAttack : MonoBehaviour
 
     private void Update()
     {
-        if (enemyAnimationsAndModel.isDying())
-            canAttack = false;
-
         if (canAttack == true && enemyDetectPlayer.GetDistance() <= 1.4f) //jesli obiekt z ktorym kolidujemy ma system zycia i mamy mozliwosc ataku i obiekt z ktorym kolidujemy to gracz
         {
             int animacjaAtaku = Random.Range(1, 3);
@@ -38,7 +35,7 @@ public class EnemyAttack : MonoBehaviour
                 enemyAnimationsAndModel.setIsPreparingAttackingLeftTrue();
                 enemyAnimationsAndModel.setIsAttackingLeftTrue();
                 actualWeapon = leftFist;
-                actualWeapon.WasHit();
+                actualWeapon.SetHit(false);
                 StartCoroutine(waitUntilIsReadyToPunchLeft());
             }
 
@@ -47,7 +44,7 @@ public class EnemyAttack : MonoBehaviour
                 enemyAnimationsAndModel.setIsPreparingAttackingRightTrue();
                 enemyAnimationsAndModel.setIsAttackingRightTrue();
                 actualWeapon = rightFist;
-                actualWeapon.WasHit();
+                actualWeapon.SetHit(false);
                 StartCoroutine(waitUntilIsReadyToPunchRight());
             }
 
@@ -87,4 +84,23 @@ public class EnemyAttack : MonoBehaviour
         canAttack = true; //a po czasie juz mozna
     }
 
+    public void DisableAttack()
+    {
+        Debug.Log("Pokonano!");
+        canAttack = false;
+        StopAllCoroutines();
+
+        leftFist.SetDamage(0);
+        leftFist.SetHit(true);
+        leftFist.enabled = false;
+        leftFist.TurnOffAttack();
+
+        rightFist.SetDamage(0);
+        rightFist.SetHit(true);
+        rightFist.enabled = false;
+        rightFist.TurnOffAttack();
+
+        leftFist = null;
+        rightFist = null;
+    }
 }

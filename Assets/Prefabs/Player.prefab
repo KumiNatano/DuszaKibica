@@ -468,20 +468,12 @@ GameObject:
   - component: {fileID: 1915499410588204496}
   - component: {fileID: 5298703285821912860}
   - component: {fileID: 4501621770393683380}
-  - component: {fileID: 6516974044278252105}
-  - component: {fileID: 5891462997468904518}
   - component: {fileID: 5529475675470399950}
   - component: {fileID: 356740842}
   - component: {fileID: 356740840}
   - component: {fileID: 356740841}
   - component: {fileID: 2355836823083723500}
-  - component: {fileID: -2438658113705280294}
   - component: {fileID: 5647818502340478064}
-  - component: {fileID: 6081867071110035982}
-  - component: {fileID: 7198588061256960277}
-  - component: {fileID: 257770215832401353}
-  - component: {fileID: 8670676161484161571}
-  - component: {fileID: 755802712975030763}
   - component: {fileID: 5366008581421057144}
   - component: {fileID: 1693050942032620432}
   - component: {fileID: 3990321457124276997}
@@ -768,40 +760,6 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &6516974044278252105
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1349553652272819797}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d00bc59aa365d0a4da1cbe598bffd715, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 5
-  collisionOffset: 0.05
-  cooldownSpeed: 0
---- !u!114 &5891462997468904518
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1349553652272819797}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95d1f8bc1aa95014ba427b9685223386, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  staminaAmount: 100
-  maxStaminaAmount: 100
-  regenRate: 4
-  regenTick: 0.2
-  timer: 0.5
-  staminaBar: {fileID: 0}
-  upgradeController: {fileID: 0}
 --- !u!114 &5529475675470399950
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -936,10 +894,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95b3788533371a3499d41685f7ddb3b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  restartImage: {fileID: 0}
-  PlayerHPBar: {fileID: 0}
-  PlayerStaminaBar: {fileID: 0}
-  isDead: 0
+  preloadTime: 5
+  deathScreen: {fileID: 0}
 --- !u!114 &356740841
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -971,25 +927,6 @@ Rigidbody:
   m_Interpolate: 2
   m_Constraints: 4
   m_CollisionDetection: 2
---- !u!114 &-2438658113705280294
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1349553652272819797}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b9455882a2538d41884f7fe2d75e94f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  potionKey: e
-  dodgeKey: space
-  upgradeText: {fileID: 0}
-  stamina: {fileID: 5891462997468904518}
-  health: {fileID: 5529475675470399950}
-  pcsystem: {fileID: 6516974044278252105}
-  inventory: {fileID: 5647818502340478064}
 --- !u!114 &5647818502340478064
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1003,104 +940,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scarfNumber: 0
-  potions: {fileID: 6081867071110035982}
   upgradeText: {fileID: 0}
-  stamina: {fileID: 5891462997468904518}
   health: {fileID: 5529475675470399950}
---- !u!114 &6081867071110035982
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1349553652272819797}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c861865733a34d74d892be19a4d18f82, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healAmount: 40
-  potionsLeft: 3
-  cooldown: 1.5
-  upgradeController: {fileID: 0}
-  counter: {fileID: 7198588061256960277}
---- !u!114 &7198588061256960277
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1349553652272819797}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff5dca9d9ff97e540bc5cb8d5c3ecfdd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  counter: {fileID: 0}
---- !u!114 &257770215832401353
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1349553652272819797}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c13af8a22cb4b474a986c7e5df5b3729, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speedBonus: 1.35
-  upgradeController: {fileID: 0}
-  abilityDelay: 15
-  abilityActiveTime: 5
-  furyAttackCooldown: 0.2
-  furyAttackStamina: 500
-  UI: {fileID: 0}
-  abilities: {fileID: 0}
-  furyImage: {fileID: 0}
-  isInAnimation: 0
---- !u!114 &8670676161484161571
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1349553652272819797}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c5736183ecf03d459cff8e820e5a9ed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  upgradeController: {fileID: 0}
-  abilityDelay: 15
-  healAmount: 50
-  abilityActiveTime: 5
-  UI: {fileID: 0}
-  abilities: {fileID: 0}
-  immortalImage: {fileID: 0}
---- !u!114 &755802712975030763
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1349553652272819797}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: add508a7d3731cf47a3d411e46d696e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  upgradeController: {fileID: 0}
-  abilityDelay: 5
-  knifePrefab: {fileID: 6751263952082794998, guid: 8e620b21384ff9541bb52c4260cb4f79, type: 3}
-  knifeSpeed: 25
-  knifeDamage: 50
-  busy: 0
-  busyDelay: 2
-  mainCamera: {fileID: 1965301225422960103}
-  UI: {fileID: 0}
-  abilities: {fileID: 0}
-  knifeImage: {fileID: 0}
 --- !u!114 &5366008581421057144
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2874,9 +2715,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 509940859150243681}
-  - component: {fileID: 5067557711333249987}
-  - component: {fileID: 8667705629157107432}
-  - component: {fileID: 7382686575525274803}
   m_Layer: 0
   m_Name: Abilities
   m_TagString: Untagged
@@ -2902,75 +2740,6 @@ Transform:
   m_Father: {fileID: 1349553652272819787}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5067557711333249987
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4474463014224525129}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 240fdfe7fa8e5f64d91b8fed2a25fdfc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _displayName: "Rzut No\u017Cem"
-  _keyName: Throw Knife
-  _useDuration: 0.967
-  _useTime: 0
-  _workDuration: 0.5
-  _workTime: 0
-  _restDuration: 10
-  _restTime: 0
-  _state: 0
-  _flySpeed: 15
-  _hitDamage: 100
-  _throwablePrefab: {fileID: 6751263952082794998, guid: 8e620b21384ff9541bb52c4260cb4f79, type: 3}
-  _startPoint: {fileID: 0}
---- !u!114 &8667705629157107432
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4474463014224525129}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8118f8d04348fa648821493d8a031b7d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _displayName: "Piwo Kara\u015B"
-  _keyName: Drink Beer
-  _useDuration: 2.967
-  _useTime: 0
-  _workDuration: 15
-  _workTime: 0
-  _restDuration: 10
-  _restTime: 0
-  _state: 0
-  _speedBonus: 1.35
---- !u!114 &7382686575525274803
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4474463014224525129}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1ee6a4f0208bc64eb8e2c9568b9993c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _displayName: Smaczne Megarollo
-  _keyName: Eat Apple
-  _useDuration: 3.967
-  _useTime: 0
-  _workDuration: 15
-  _workTime: 0
-  _restDuration: 10
-  _restTime: 0
-  _state: 0
-  _healPoints: 50
 --- !u!1 &4732912683354969671
 GameObject:
   m_ObjectHideFlags: 0
@@ -3076,7 +2845,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 892994921764013232}
-  - component: {fileID: 3973375510511231236}
   - component: {fileID: 7844793477126386844}
   m_Layer: 0
   m_Name: PlayerWeapon
@@ -3100,23 +2868,6 @@ Transform:
   m_Father: {fileID: 1349553652272819787}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3973375510511231236
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5133175879050358417}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c27145d51e58964ab9330008b3a0e90, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  offset: {x: 0, y: 1.4, z: 1}
-  damage: 30
-  Player: {fileID: 1349553652272819797}
-  weapons: {fileID: 0}
-  knockbackForce: 10
 --- !u!135 &7844793477126386844
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -3425,17 +3176,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _displayName: "Rzut No\u017Cem"
   _keyName: Throw Knife
-  _useDuration: 0.967
+  _useDuration: 0.5
   _useTime: 0
-  _workDuration: 0.5
+  _workDuration: 0.15
   _workTime: 0
   _restDuration: 10
   _restTime: 0
   _state: 0
-  _flySpeed: 5
+  _flySpeed: 10
   _hitDamage: 100
   _throwablePrefab: {fileID: 6751263952082794998, guid: 8e620b21384ff9541bb52c4260cb4f79, type: 3}
   _startPoint: {fileID: 7467026445692027333}
+  audioSource: {fileID: 3990321457124276997}
+  kniveThrowSound: {fileID: 8300000, guid: 6ad59d7f93d8d8d4bbbd7b4024878513, type: 3}
 --- !u!1 &5802309995070813953
 GameObject:
   m_ObjectHideFlags: 0
