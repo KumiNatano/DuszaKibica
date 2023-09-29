@@ -27,11 +27,12 @@ public class PlayerAttack : PlayerModule
         {
             return;
         }
-        if (Input.GetButtonDown(leftArm.keyName) && !rightArm.isAttacking)
+        Debug.Log(Input.GetAxisRaw("Throw Knife") + " " + Input.GetAxisRaw(rightArm.keyName));
+        if (Input.GetAxisRaw(leftArm.keyName) > 0 && !rightArm.isAttacking)
         {
             leftArm.Attack();
         }
-        else if (Input.GetButtonDown(rightArm.keyName) && !leftArm.isAttacking) 
+        else if (Input.GetAxisRaw(rightArm.keyName) > 0 && !leftArm.isAttacking) 
         {
             rightArm.Attack();
         }

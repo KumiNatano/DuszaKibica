@@ -40,7 +40,7 @@ public class PlayerAbilities : PlayerModule
             {
                 // TODO: przerwać działanie umiejętności!
             }
-            else if (ability.idling && Input.GetButton(ability.keyName))
+            else if (ability.idling && Input.GetAxisRaw(ability.keyName) > 0)
             {
                 ability.Use();
             }
